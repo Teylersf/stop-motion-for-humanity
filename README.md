@@ -13,7 +13,7 @@ No paid export tier. Your footage stays on your computer.
 **Beta builds are being validated.** Installer links and platform-specific test
 results will appear here with the first published release. The source is public now.
 
-![Stop Motion for Humanity running the original sample film on Windows](docs/images/studio-windows.png)
+![The installed Stop Motion for Humanity app running the original sample film on Windows](docs/images/studio-windows-installed.png)
 
 ## Small movements. Serious filmmaking tools.
 
