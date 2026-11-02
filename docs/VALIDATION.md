@@ -10,6 +10,9 @@ Evidence is recorded by scope. Source tests, fake-camera fixtures, real Canvas r
 | [Canvas screenshot](images/canvas-verification.png) | Visible final 13/13 result | Procedural-only screenshot of the isolated test application | Supplementary visual evidence; JSON contains the checks and source/runtime hashes |
 | [Physical Windows webcam metadata](validation/physical-webcam-windows-development.json) | EMEET SmartCam C960 4K, negotiated 3840×2160 at reported 30 fps; persisted PNG8 dimensions and asset SHA matched | Actual physical USB camera connection, delivered raster and saved-original persistence in the development app; existing HD frames retained | One short capture check, not all devices, every driver control, camera endurance or installer verification |
 | [Native Windows 8K export receipt](validation/native8k-windows-development.json) | **Four short 7680×4320 native export cases passed**, including RTX 3090 HEVC codec-lossless | Actual FFV1 RGBA8, converted RGB16 FFV1, DPX16 sequence and converted P010 NVENC outputs with explicit full verification, source immutability and runtime/code hashes | Offline procedural development engine, no audio; not a camera/installed-app/realtime result or proof for the new static runtime |
+| [Static Windows runtime 8K receipt](validation/static-runtime-windows.json) | **The same four native 7680×4320 targets passed with the new static binary set** | Actual short native-engine output/target hashes, source immutability and an RTX 3090 8K NVENC probe/encode using the promoted runtime hashes | Offline procedural development engine, no audio; not all profiles at 8K, installed GUI, Mac or realtime evidence |
+| [Static Windows runtime profile matrix](validation/static-runtime-windows-matrix.json) | **All 28 profiles produced output and passed their requested verification; no unavailable cases** | Actual short native-engine outputs with the new static FFmpeg payload, including real NVENC probes/encodes, converted sequences and portable Originals | Stated small/HD rasters and rates; not all profiles at 8K, installed-app or Mac evidence |
+| [Static Windows runtime provenance and smoke checks](provenance/windows-media-runtime.json) | **16 media smoke checks passed**; two static CLI binaries, 10 source inputs and 39 notice records | Pinned binary/source/configuration/license records, representative encode/decode checks and an exact decoded FFV1 round trip | Runtime/build evidence; separate from application installation and exhaustive profile/raster testing |
 | [Default-off export dialog](images/export-fast-default.png) | Verify export is visibly unchecked in the FFV1 demo export setup | The native development UI presents the optional fast path as the default | This screenshot is the setup dialog, not a completed-export or independent file-verification receipt |
 | [CI run 41506753516](https://github.com/Teylersf/stop-motion-for-humanity/actions/runs/41506753516) | Ubuntu and Windows jobs passed for source snapshot `4ebaf7b` | That workflow's source/build checks and explicitly configured integration scope | Does not certify later source changes, installed apps, the bundled runtime or Mac hardware |
 
@@ -19,18 +22,28 @@ The Canvas harness is a purpose-built hidden offscreen Electron BrowserWindow wi
 
 ## Recorded native 8K exports
 
-The [2026-11-02 native-engine receipt](validation/native8k-windows-development.json) records these actual **7680×4320, 24 fps** cases. Input was two deterministic native-size RGBA8 PNG patterns, including non-opaque samples; no webcam or personal footage was used. Verification was **explicitly enabled for this proof**. Normal application exports still default to verification off.
+The [earlier shared-runtime receipt](validation/native8k-windows-development.json) and [new static-runtime receipt](validation/static-runtime-windows.json), both dated 2026-11-02, record these actual **7680×4320, 24 fps** cases. Input was two deterministic native-size RGBA8 PNG patterns, including non-opaque samples; no webcam or personal footage was used. Verification was **explicitly enabled for both proofs**. Normal application exports still default to verification off.
 
-| Profile | Output exposures | Verified preservation target | Elapsed, including full verification |
-| --- | --- | --- | --- |
-| `ffv1` | 2 | Independently decoded RGBA8 sample hash | 63.337 s |
-| `lossless` | 2 | Independently decoded converted RGB16 sample hash | 111.019 s |
-| `dpx-sequence` | 1 | Converted RGB16 DPX samples and independent ZIP CRC/SHA audit | 13.304 s |
-| `nvenc-lossless` | 2 | Canonical BT.709 limited-range 10-bit 4:2:0 YUV/P010 sample hash; actual 8K hardware probe passed | 19.821 s |
+| Profile | Output exposures | Verified preservation target | Earlier shared runtime, including verification | New static runtime, including verification |
+| --- | --- | --- | --- | --- |
+| `ffv1` | 2 | Independently decoded RGBA8 sample hash | 63.337 s | 13.057 s |
+| `lossless` | 2 | Independently decoded converted RGB16 sample hash | 111.019 s | 37.695 s |
+| `dpx-sequence` | 1 | Converted RGB16 DPX samples and independent ZIP CRC/SHA audit | 13.304 s | 9.916 s |
+| `nvenc-lossless` | 2 | Canonical BT.709 limited-range 10-bit 4:2:0 YUV/P010 sample hash; actual 8K hardware probe passed | 19.821 s | 18.621 s |
 
-The hardware case used an **NVIDIA GeForce RTX 3090, driver 621.01**, and performed the requested encode after the geometry probe. P010 verification is equality with the converted YUV target, not identity with original RGB. RGB16 targets derive from RGBA8 inputs and do not establish 16-bit camera acquisition. All input original hashes remained unchanged, and the recorded code hashes matched before and after the run. Output hashes, sizes, runtime component hashes and detailed notes are in the receipt.
+The hardware cases used an **NVIDIA GeForce RTX 3090, driver 621.01**, and performed the requested encode after the geometry probe. P010 verification is equality with the converted YUV target, not identity with original RGB. RGB16 targets derive from RGBA8 inputs and do not establish 16-bit camera acquisition. Input original hashes remained unchanged in both runs, and each run's recorded code hashes matched before and after. Output hashes, sizes, runtime component hashes and detailed notes are in the respective receipts. The source hashes identify those run snapshots, not a blanket certificate for later source changes.
 
-These are very short offline export checks with full verification included in their times. They do not measure sustained/realtime 8K throughput, audio, browser capture or the installed GUI. They used the **earlier audited shared Windows media runtime** identified by its exact hashes. Promotion of the new standalone static GPL runtime is pending and requires its own codec/output and distribution evidence; the old receipt must not be relabeled as a test of that new binary set.
+These are very short offline export checks with full verification included in their times, not controlled comparative performance benchmarks. They do not measure sustained/realtime 8K throughput, audio, browser capture or the installed GUI. The earlier proof identifies its audited shared media libraries; the new proof identifies the two standalone static GPL executables matching the promoted Windows resources. Both proofs retain their own source/runtime hashes and scopes; one is not relabeled as the other.
+
+## New static Windows runtime: 28-profile matrix and 16 smoke checks
+
+The [2026-11-02 static-runtime matrix](validation/static-runtime-windows-matrix.json) completed actual output for **every one of the 28 catalog profiles**, all with `verified:true`, and no unavailable or failed case. Most cases used two exposures at 256×144 and 12 fps; DNxHD and MPEG-2 MXF used 1920×1080 at 24000/1001 fps, and MXF DNxHR used its listed legal rate. The receipt records each exact raster, rate, encoder, pixel format, duration and output hash. H.264 NVENC, HEVC NVENC and codec-lossless P010 each passed a real requested-geometry hardware probe and encode. AV1 and VP9 used their software encoders in this run.
+
+This matrix verifies the selected lossless target samples where defined and structural/decode correctness for lossy profiles. It does not turn ProRes, delivery codecs or other lossy profiles into sample-lossless outputs. The processed 16-bit/float targets still derive from RGBA8. The companion tests recorded in the receipt also cover genuinely skipped optional checks on the fast path, no movie PNG spool when verification is off, corrupted-ZIP detection, duration conform, PNG16 precision/original-byte retention through portable-project reopening, and exact scene-audio placement.
+
+The [runtime provenance](provenance/windows-media-runtime.json) records **16 `smoke_tests`**: H.264, HEVC10, AV1, VP9, FFV1, ProRes, DNxHR, CineForm, JPEG 2000, PNG16, TIFF16, DPX16 and linear EXR picture encode/decode checks; AAC and Opus at 48 kHz; and an exact FFV1 decoded-data round trip comparing **294,912 bytes**. These are representative smoke checks, separate from the application's 28-profile export matrix. It also records ten source inputs, 39 notices, component/toolchain configuration and the static CLI binary hashes.
+
+The exact tested Windows binaries have been promoted to the app's `resources/media/win32-x64` payload. Both live hashes matched the matrix and provenance at promotion review: `ffmpeg.exe` SHA-256 `276831b465b76ac57374afeefed97dc256a98dd380cc3543f546e5ff326f076e`, and `ffprobe.exe` SHA-256 `da2c0749dd7af44386833c1d20a40ba63242b26b65f6d7f5c8521925c1653af1`. These are also the binaries named in the new four-target 8K proof. Together the two executables are about 99 MB, before app/UI/notices. The full source/notices material must accompany the distribution under its stated licenses. Promotion and these short runtime tests do not establish successful Windows installation, Mac compatibility or sustained 8K performance.
 
 ## Repeatable source checks
 
@@ -69,7 +82,7 @@ The local result is `out/canvas-validation.json`. A completed thirteen-test rece
 
 `HUMANITY_TEST_MEDIA_DIR` can select an explicit candidate media directory for these tests. `HUMANITY_RUN_HARDWARE_TESTS=1` enables real hardware candidates; otherwise codec tests deliberately use software paths. `HUMANITY_SKIP_MEDIA_TESTS=1` is an explicit integration-test skip and must be disclosed. Do not infer NVIDIA or VideoToolbox support from a CPU-only run.
 
-The new static GPL media candidate, full native profile results and installed-package checks are being integrated. The four short native 8K cases above are recorded separately from the Canvas proof. They do not establish 8K throughput or long-form reliability for every profile, nor do they substitute for tests of a new runtime.
+The promoted static GPL Windows runtime now has the complete short 28-profile matrix, 16 smoke checks and its own four-target 8K receipt. Installed-package and Mac checks are still being integrated. The Canvas, earlier shared-runtime 8K and new static-runtime evidence remain separate; none establishes long-form reliability for every profile.
 
 ## Optional verification during an ordinary export
 

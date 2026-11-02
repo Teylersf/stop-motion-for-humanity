@@ -2,608 +2,776 @@
   "schema_version": 1,
   "platform": "win32-x64",
   "ffmpeg_revision": "27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
+  "build_kind": "standalone-static-gpl-cli",
+  "license": "GPL-3.0-or-later",
   "binaries": [
     {
       "file": "ffmpeg.exe",
-      "bytes": 528384,
-      "sha256": "a71bb6e71c55154fe3c8fe7b1f134af9091665a8af1d42484c7794a69f46b009"
+      "bytes": 49558016,
+      "sha256": "276831b465b76ac57374afeefed97dc256a98dd380cc3543f546e5ff326f076e",
+      "imports": [
+        "ADVAPI32.dll",
+        "bcrypt.dll",
+        "KERNEL32.dll",
+        "msvcrt.dll",
+        "SHELL32.dll"
+      ],
+      "license": "GPL-3.0-or-later"
     },
     {
       "file": "ffprobe.exe",
-      "bytes": 226304,
-      "sha256": "084a7dd537d733376e9e3e8d21dc248e526a8b3c8f41f9a4ac5abee118c52858"
-    },
-    {
-      "file": "avcodec-62.dll",
-      "bytes": 27158528,
-      "sha256": "0837a840482fb6d5877d46745bab863450808807aa398cb6d4da4e8088440faa",
-      "license": "LGPL version 3 or later",
-      "configuration": "--arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-shared --disable-static --disable-autodetect --enable-version3 --disable-gpl --disable-nonfree --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --disable-swscale --disable-swresample --disable-pthreads --enable-w32threads --disable-chromaprint --disable-libzvbi --enable-libopenh264 --enable-libdav1d --enable-libsvtav1 --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --pkg-config=pkg-config --pkg-config-flags=--static --extra-ldflags='-static-libgcc -static-libstdc++'"
-    },
-    {
-      "file": "avdevice-62.dll",
-      "bytes": 3663872,
-      "sha256": "38dadc5a19179116ac95050ce1ae2eb3fbf5abd87af5a872324ef4dd2df6896c",
-      "license": "LGPL version 3 or later",
-      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
-    },
-    {
-      "file": "avfilter-11.dll",
-      "bytes": 84830208,
-      "sha256": "8eb979974c0550d0776cf53734a1209304e3a56386fc2e6bd7ca577fa17b72bb",
-      "license": "LGPL version 3 or later",
-      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
-    },
-    {
-      "file": "avformat-62.dll",
-      "bytes": 2369536,
-      "sha256": "b910126d0448c4b89cd814ca07347e5febc610a64d6af4ed13dc48c4474a02c6",
-      "license": "LGPL version 3 or later",
-      "configuration": "--arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-shared --disable-static --disable-autodetect --enable-version3 --disable-gpl --disable-nonfree --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --disable-swscale --disable-swresample --disable-pthreads --enable-w32threads --disable-chromaprint --disable-libzvbi --enable-libopenh264 --enable-libdav1d --enable-libsvtav1 --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --pkg-config=pkg-config --pkg-config-flags=--static --extra-ldflags='-static-libgcc -static-libstdc++'"
-    },
-    {
-      "file": "avutil-60.dll",
-      "bytes": 2947072,
-      "sha256": "d353317bbe824c8794657608378e9c71d7b0bf264300b5371e7c6d213aeb903a",
-      "license": "LGPL version 3 or later",
-      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
-    },
-    {
-      "file": "swresample-6.dll",
-      "bytes": 723968,
-      "sha256": "52f94587a2ec32a47be82d8108c827fbb07960a86f64850e89258bdc869ce596",
-      "license": "LGPL version 3 or later",
-      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
-    },
-    {
-      "file": "swscale-9.dll",
-      "bytes": 1911296,
-      "sha256": "5ee25bd365bbb02d84f9f3a6211754fb4d09df8dafd00c3e4c043b018bfbc5e8",
-      "license": "LGPL version 3 or later",
-      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
+      "bytes": 49366016,
+      "sha256": "da2c0749dd7af44386833c1d20a40ba63242b26b65f6d7f5c8521925c1653af1",
+      "imports": [
+        "ADVAPI32.dll",
+        "bcrypt.dll",
+        "KERNEL32.dll",
+        "msvcrt.dll",
+        "SHELL32.dll"
+      ],
+      "license": "GPL-3.0-or-later"
     }
   ],
+  "toolchain_and_component_configs": {
+    "toolchain.txt": {
+      "bytes": 1324,
+      "sha256": "e3b9a10bcebbf7efa415002be1ba4a39e092343d44cfa6e952697c9f321f23cd",
+      "text": "x86_64-w64-mingw32-gcc (GCC) 13-posix\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nx86_64-w64-mingw32-g++ (GCC) 13-posix\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\ncmake version 3.28.3\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n1.11.1\n1.3.2\nNASM version 2.16.01\n1.8.1\nautoreconf (GNU Autoconf) 2.71\nCopyright (C) 2021 Free Software Foundation, Inc.\nLicense GPLv3+/Autoconf: GNU GPL version 3 or later\n<https://gnu.org/licenses/gpl.html>, <https://gnu.org/licenses/exceptions.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nWritten by David J. MacKenzie and Akim Demaille.\nPython 3.12.3\nLinux XXX 5.15.133.1-microsoft-standard-WSL2 #1 SMP Thu Oct 5 21:02:42 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux\ng++-mingw-w64-x86-64-posix 13.2.0-6ubuntu1+26.1\ngcc-mingw-w64-base 13.2.0-6ubuntu1+26.1\ngcc-mingw-w64-x86-64-posix 13.2.0-6ubuntu1+26.1\nmingw-w64-common 11.0.1-3build1\nmingw-w64-x86-64-dev 11.0.1-3build1\n"
+    },
+    "x264-config.mak": {
+      "bytes": 1263,
+      "sha256": "051ad9f1533f67d8c880605fcf7a2436bc0e56fc3de6effb0b7e6c61d55a01d0",
+      "text": "SRCPATH=../../src/x264\nprefix=/tmp/humanity-ffmpeg-win-v1/prefix\nexec_prefix=${prefix}\nbindir=${exec_prefix}/bin\nlibdir=${exec_prefix}/lib\nincludedir=${prefix}/include\nSYS_ARCH=X86_64\nSYS=WINDOWS\nCC=x86_64-w64-mingw32-gcc\nCFLAGS=-Wno-maybe-uninitialized -Wshadow -O3 -ffast-math -m64 -O2 -g0 -Wall -I. -I$(SRCPATH) -D_POSIX_C_SOURCE=200112L -std=gnu99 -D_GNU_SOURCE -fomit-frame-pointer -fno-tree-vectorize -fvisibility=hidden\nCFLAGSSO=\nCFLAGSCLI=\nCOMPILER=GNU\nCOMPILER_STYLE=GNU\nDEPCMD=\nDEPFLAGS=-MMD -MF $(@:.o=.d)\nLD=x86_64-w64-mingw32-gcc -o \nLDFLAGS=-m64 -static -static-libgcc -static-libstdc++  -Wl,--high-entropy-va -Wl,--dynamicbase,--nxcompat,--tsaware\nLDFLAGSCLI= -lshell32 -Wl,--image-base,0x140000000\nLIBX264=libx264.a\nCLI_LIBX264=$(LIBX264)\nAR=x86_64-w64-mingw32-ar rc \nRANLIB=x86_64-w64-mingw32-ranlib\nSTRIP=x86_64-w64-mingw32-strip\nINSTALL=install\nAS=nasm\nASFLAGS= -I. -I$(SRCPATH) -DARCH_X86_64=1 -I$(SRCPATH)/common/x86/ -f win64 -DSTACK_ALIGNMENT=16\nRC=x86_64-w64-mingw32-windres\nRCFLAGS=--target=pe-x86-64  -I. -o \nEXE=.exe\nHAVE_GETOPT_LONG=1\nDEVNULL=NUL\nPROF_GEN_CC=-fprofile-generate\nPROF_GEN_LD=-fprofile-generate\nPROF_USE_CC=-fprofile-use\nPROF_USE_LD=-fprofile-use\nHAVE_OPENCL=no\nCC_O=-o $@\ndefault: lib-static\ninstall: install-lib-static\n"
+    },
+    "x265-CMakeCache.txt": {
+      "bytes": 20860,
+      "sha256": "a19e3d1a27c82282db6fb47d24402c5d0605bac6f64d3b4352abdde94180a9d5",
+      "text": "# This is the CMakeCache file.\n# For build in directory: /tmp/humanity-ffmpeg-win-v1/build/x265\n# It was generated by CMake: /usr/bin/cmake\n# You can edit this file to change values found and used by cmake.\n# If you do not want to change any of the values, simply exit the editor.\n# If you do want to change a value, simply edit, save, and exit the editor.\n# The syntax for the file is as follows:\n# KEY:TYPE=VALUE\n# KEY is the name of a variable in the cache.\n# TYPE is a hint to GUIs for the type of VALUE, DO NOT EDIT TYPE!.\n# VALUE is the current value for the KEY.\n\n########################\n# EXTERNAL cache entries\n########################\n\n//Install location of executables\nBIN_INSTALL_DIR:STRING=bin\n\n//No help, variable specified on the command line.\nBUILD_SHARED_LIBS:UNINITIALIZED=OFF\n\n//Enable run-time sanity checks (debugging)\nCHECKED_BUILD:BOOL=OFF\n\n//Path to a program.\nCMAKE_ADDR2LINE:FILEPATH=/usr/bin/x86_64-w64-mingw32-addr2line\n\n//Path to a program.\nCMAKE_AR:FILEPATH=/usr/bin/x86_64-w64-mingw32-ar\n\n//Flags used by the ASM_NASM compiler during all build types.\nCMAKE_ASM_NASM_FLAGS:STRING=\n\n//Flags used by the ASM_NASM compiler during DEBUG builds.\nCMAKE_ASM_NASM_FLAGS_DEBUG:STRING=\n\n//Flags used by the ASM_NASM compiler during MINSIZEREL builds.\nCMAKE_ASM_NASM_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the ASM_NASM compiler during RELEASE builds.\nCMAKE_ASM_NASM_FLAGS_RELEASE:STRING=\n\n//Flags used by the ASM_NASM compiler during RELWITHDEBINFO builds.\nCMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO:STRING=\n\n//Choose the type of build, options are: None Debug Release RelWithDebInfo\n// MinSizeRel ...\nCMAKE_BUILD_TYPE:STRING=Release\n\n//A wrapper around 'ar' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_CXX_COMPILER_AR:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ar\n\n//A wrapper around 'ranlib' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ranlib\n\n//Flags used by the CXX compiler during all build types.\nCMAKE_CXX_FLAGS:STRING=-O2 -g0\n\n//Flags used by the CXX compiler during DEBUG builds.\nCMAKE_CXX_FLAGS_DEBUG:STRING=-g\n\n//Flags used by the CXX compiler during MINSIZEREL builds.\nCMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG\n\n//Flags used by the CXX compiler during RELEASE builds.\nCMAKE_CXX_FLAGS_RELEASE:STRING=-O2 -DNDEBUG -g0\n\n//Flags used by the CXX compiler during RELWITHDEBINFO builds.\nCMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG\n\n//Libraries linked by default with all C++ applications.\nCMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32\n\n//A wrapper around 'ar' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ar\n\n//A wrapper around 'ranlib' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ranlib\n\n//Flags used by the C compiler during all build types.\nCMAKE_C_FLAGS:STRING=-O2 -g0\n\n//Flags used by the C compiler during DEBUG builds.\nCMAKE_C_FLAGS_DEBUG:STRING=-g\n\n//Flags used by the C compiler during MINSIZEREL builds.\nCMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG\n\n//Flags used by the C compiler during RELEASE builds.\nCMAKE_C_FLAGS_RELEASE:STRING=-O2 -DNDEBUG -g0\n\n//Flags used by the C compiler during RELWITHDEBINFO builds.\nCMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG\n\n//Libraries linked by default with all C applications.\nCMAKE_C_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32\n\n//Path to a program.\nCMAKE_DLLTOOL:FILEPATH=/usr/bin/x86_64-w64-mingw32-dlltool\n\n//Flags used by the linker during all build types.\nCMAKE_EXE_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during DEBUG builds.\nCMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during MINSIZEREL builds.\nCMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during RELEASE builds.\nCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during RELWITHDEBINFO builds.\nCMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Enable/Disable output of compile commands during generation.\nCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=\n\n//Value Computed by CMake.\nCMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/build/x265/CMakeFiles/pkgRedirects\n\n//Convert GNU import libraries to MS format (requires Visual Studio)\nCMAKE_GNUtoMS:BOOL=OFF\n\nCMAKE_INSTALL_PREFIX:PATH=/tmp/humanity-ffmpeg-win-v1/prefix\n\n//Path to a program.\nCMAKE_LINKER:FILEPATH=/usr/bin/x86_64-w64-mingw32-ld\n\n//Program used to build from build.ninja files.\nCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/ninja\n\n//Flags used by the linker during the creation of modules during\n// all build types.\nCMAKE_MODULE_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during the creation of modules during\n// DEBUG builds.\nCMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of modules during\n// MINSIZEREL builds.\nCMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of modules during\n// RELEASE builds.\nCMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of modules during\n// RELWITHDEBINFO builds.\nCMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_NM:FILEPATH=/usr/bin/x86_64-w64-mingw32-nm\n\n//Path to a program.\nCMAKE_OBJCOPY:FILEPATH=/usr/bin/x86_64-w64-mingw32-objcopy\n\n//Path to a program.\nCMAKE_OBJDUMP:FILEPATH=/usr/bin/x86_64-w64-mingw32-objdump\n\n//Value Computed by CMake\nCMAKE_PROJECT_DESCRIPTION:STATIC=\n\n//Value Computed by CMake\nCMAKE_PROJECT_HOMEPAGE_URL:STATIC=\n\n//Value Computed by CMake\nCMAKE_PROJECT_NAME:STATIC=x265\n\n//Path to a program.\nCMAKE_RANLIB:FILEPATH=/usr/bin/x86_64-w64-mingw32-ranlib\n\n//Flags for Windows Resource Compiler during all build types.\nCMAKE_RC_FLAGS:STRING=\n\n//Flags for Windows Resource Compiler during DEBUG builds.\nCMAKE_RC_FLAGS_DEBUG:STRING=\n\n//Flags for Windows Resource Compiler during MINSIZEREL builds.\nCMAKE_RC_FLAGS_MINSIZEREL:STRING=\n\n//Flags for Windows Resource Compiler during RELEASE builds.\nCMAKE_RC_FLAGS_RELEASE:STRING=\n\n//Flags for Windows Resource Compiler during RELWITHDEBINFO builds.\nCMAKE_RC_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_READELF:FILEPATH=/usr/bin/x86_64-w64-mingw32-readelf\n\n//Flags used by the linker during the creation of shared libraries\n// during all build types.\nCMAKE_SHARED_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during the creation of shared libraries\n// during DEBUG builds.\nCMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during MINSIZEREL builds.\nCMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during RELEASE builds.\nCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during RELWITHDEBINFO builds.\nCMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//If set, runtime paths are not added when installing shared libraries,\n// but are added when building.\nCMAKE_SKIP_INSTALL_RPATH:BOOL=NO\n\n//If set, runtime paths are not added when using shared libraries.\nCMAKE_SKIP_RPATH:BOOL=NO\n\n//Flags used by the linker during the creation of static libraries\n// during all build types.\nCMAKE_STATIC_LINKER_FLAGS:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during DEBUG builds.\nCMAKE_STATIC_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during MINSIZEREL builds.\nCMAKE_STATIC_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during RELEASE builds.\nCMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during RELWITHDEBINFO builds.\nCMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_STRIP:FILEPATH=/usr/bin/x86_64-w64-mingw32-strip\n\n//Path to a program.\nCMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND\n\n//The CMake toolchain file\nCMAKE_TOOLCHAIN_FILE:FILEPATH=/tmp/humanity-ffmpeg-win-v1/mingw-toolchain.cmake\n\n//If this value is on, makefiles will be generated without the\n// .SILENT directive, and all commands will be echoed to the console\n// during the make.  This is useful for debugging only. With Visual\n// Studio IDE projects all commands are done without /nologo.\nCMAKE_VERBOSE_MAKEFILE:BOOL=FALSE\n\n//Enable internal profiling of encoder work\nDETAILED_CU_STATS:BOOL=OFF\n\n//Enable stack protection and -ftrapv\nENABLE_AGGRESSIVE_CHECKS:BOOL=OFF\n\n//Enable alpha encoding in x265\nENABLE_ALPHA:BOOL=OFF\n\n//Enable use of assembly coded primitives\nENABLE_ASSEMBLY:BOOL=ON\n\n//Enable Control-flow Enforcement\nENABLE_CET:BOOL=OFF\n\n//Build standalone CLI application\nENABLE_CLI:BOOL=OFF\n\n//Enable dynamic HDR10 compilation\nENABLE_HDR10_PLUS:BOOL=OFF\n\n//No help, variable specified on the command line.\nENABLE_LIBNUMA:UNINITIALIZED=OFF\n\n//Enable Multi-view encoding in HEVC\nENABLE_MULTIVIEW:BOOL=OFF\n\n//Enable Position Independent Code\nENABLE_PIC:BOOL=OFF\n\n//Enable PPA profiling instrumentation\nENABLE_PPA:BOOL=OFF\n\n//Enable screen content coding extension in HEVC\nENABLE_SCC_EXT:BOOL=OFF\n\n//Build shared library\nENABLE_SHARED:BOOL=OFF\n\n//Enable SVT HEVC Encoder\nENABLE_SVT_HEVC:BOOL=OFF\n\n//Enable Unit Tests\nENABLE_TESTS:BOOL=OFF\n\n//Enable Vtune profiling instrumentation\nENABLE_VTUNE:BOOL=OFF\n\n//Implement public C programming interface\nEXPORT_C_API:BOOL=ON\n\n//Extra libraries to link against\nEXTRA_LIB:STRING=\n\n//Extra link flags\nEXTRA_LINK_FLAGS:STRING=\n\n//Compile executable to generate usage data\nFPROFILE_GENERATE:BOOL=OFF\n\n//Compile executable using generated usage data\nFPROFILE_USE:BOOL=OFF\n\n//-fsanitize options for GCC/clang\nFSANITIZE:STRING=\n\n//Git command line client\nGIT_EXECUTABLE:FILEPATH=/usr/bin/git\n\n//hg command line client\nHG_EXECUTABLE:FILEPATH=HG_EXECUTABLE-NOTFOUND\n\n//Store pixel samples as 16bit values (Main10/Main12)\nHIGH_BIT_DEPTH:BOOL=ON\n\n//Install location of libraries\nLIB_INSTALL_DIR:STRING=lib\n\n//Support Main12 instead of Main10\nMAIN12:BOOL=OFF\n\n//Path to a program.\nNASM_EXECUTABLE:FILEPATH=/usr/bin/nasm\n\n//Target the build CPU\nNATIVE_BUILD:BOOL=OFF\n\n//Statically link C and C++ runtimes for release builds\nSTATIC_LINK_CRT:BOOL=OFF\n\n//VLD include directory\nVLD_INCLUDE_DIR:PATH=VLD_INCLUDE_DIR-NOTFOUND\n\n//VLD debug library\nVLD_LIBRARY_DEBUG:FILEPATH=VLD_LIBRARY_DEBUG-NOTFOUND\n\n//VLD root directory\nVLD_ROOT_DIR:PATH=VLD_ROOT_DIR-NOTFOUND\n\n//Stop compiles on first warning\nWARNINGS_AS_ERRORS:BOOL=OFF\n\n//Make binaries compatible with Windows XP and Vista\nWINXP_SUPPORT:BOOL=OFF\n\n//Value Computed by CMake\nx265_BINARY_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/build/x265\n\n//Value Computed by CMake\nx265_IS_TOP_LEVEL:STATIC=ON\n\n//Value Computed by CMake\nx265_SOURCE_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/src/x265/source\n\n\n########################\n# INTERNAL cache entries\n########################\n\n//Test CC_HAS_FAST_MATH\nCC_HAS_FAST_MATH:INTERNAL=1\n//Test CC_HAS_FNO_EXCEPTIONS_FLAG\nCC_HAS_FNO_EXCEPTIONS_FLAG:INTERNAL=1\n//Test CC_HAS_NO_ARRAY_BOUNDS\nCC_HAS_NO_ARRAY_BOUNDS:INTERNAL=1\n//Test CC_HAS_NO_NARROWING\nCC_HAS_NO_NARROWING:INTERNAL=1\n//Test CC_HAS_NO_STRICT_OVERFLOW\nCC_HAS_NO_STRICT_OVERFLOW:INTERNAL=1\n//Test CC_HAS_STACK_REALIGN\nCC_HAS_STACK_REALIGN:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ADDR2LINE\nCMAKE_ADDR2LINE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_AR\nCMAKE_AR-ADVANCED:INTERNAL=1\nCMAKE_ASM_NASM_COMPILER_WORKS:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS\nCMAKE_ASM_NASM_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_DEBUG\nCMAKE_ASM_NASM_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_MINSIZEREL\nCMAKE_ASM_NASM_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_RELEASE\nCMAKE_ASM_NASM_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO\nCMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//This is the directory where this CMakeCache.txt was created\nCMAKE_CACHEFILE_DIR:INTERNAL=/tmp/humanity-ffmpeg-win-v1/build/x265\n//Major version of cmake used to create the current loaded cache\nCMAKE_CACHE_MAJOR_VERSION:INTERNAL=3\n//Minor version of cmake used to create the current loaded cache\nCMAKE_CACHE_MINOR_VERSION:INTERNAL=28\n//Patch version of cmake used to create the current loaded cache\nCMAKE_CACHE_PATCH_VERSION:INTERNAL=3\n//Path to CMake executable.\nCMAKE_COMMAND:INTERNAL=/usr/bin/cmake\n//Path to cpack program executable.\nCMAKE_CPACK_COMMAND:INTERNAL=/usr/bin/cpack\n//Path to ctest program executable.\nCMAKE_CTEST_COMMAND:INTERNAL=/usr/bin/ctest\n//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR\nCMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB\nCMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS\nCMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG\nCMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS_MINSIZEREL\nCMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELEASE\nCMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO\nCMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_STANDARD_LIBRARIES\nCMAKE_CXX_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_COMPILER_AR\nCMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB\nCMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS\nCMAKE_C_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG\nCMAKE_C_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_MINSIZEREL\nCMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_RELEASE\nCMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO\nCMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_STANDARD_LIBRARIES\nCMAKE_C_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_DLLTOOL\nCMAKE_DLLTOOL-ADVANCED:INTERNAL=1\n//Executable file format\nCMAKE_EXECUTABLE_FORMAT:INTERNAL=Unknown\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS\nCMAKE_EXE_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_DEBUG\nCMAKE_EXE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_MINSIZEREL\nCMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELEASE\nCMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS\nCMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1\n//Name of external makefile project generator.\nCMAKE_EXTRA_GENERATOR:INTERNAL=\n//Name of generator.\nCMAKE_GENERATOR:INTERNAL=Ninja\n//Generator instance identifier.\nCMAKE_GENERATOR_INSTANCE:INTERNAL=\n//Name of generator platform.\nCMAKE_GENERATOR_PLATFORM:INTERNAL=\n//Name of generator toolset.\nCMAKE_GENERATOR_TOOLSET:INTERNAL=\n//Source directory with the top level CMakeLists.txt file for this\n// project\nCMAKE_HOME_DIRECTORY:INTERNAL=/tmp/humanity-ffmpeg-win-v1/src/x265/source\n//ADVANCED property for variable: CMAKE_LINKER\nCMAKE_LINKER-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MAKE_PROGRAM\nCMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS\nCMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG\nCMAKE_MODULE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL\nCMAKE_MODULE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELEASE\nCMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_NM\nCMAKE_NM-ADVANCED:INTERNAL=1\n//number of local generators\nCMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3\n//ADVANCED property for variable: CMAKE_OBJCOPY\nCMAKE_OBJCOPY-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_OBJDUMP\nCMAKE_OBJDUMP-ADVANCED:INTERNAL=1\n//Platform information initialized\nCMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RANLIB\nCMAKE_RANLIB-ADVANCED:INTERNAL=1\nCMAKE_RC_COMPILER_WORKS:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS\nCMAKE_RC_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_DEBUG\nCMAKE_RC_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_MINSIZEREL\nCMAKE_RC_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_RELEASE\nCMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_RELWITHDEBINFO\nCMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_READELF\nCMAKE_READELF-ADVANCED:INTERNAL=1\n//Path to CMake installation.\nCMAKE_ROOT:INTERNAL=/usr/share/cmake-3.28\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS\nCMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG\nCMAKE_SHARED_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL\nCMAKE_SHARED_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELEASE\nCMAKE_SHARED_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SKIP_INSTALL_RPATH\nCMAKE_SKIP_INSTALL_RPATH-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SKIP_RPATH\nCMAKE_SKIP_RPATH-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS\nCMAKE_STATIC_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_DEBUG\nCMAKE_STATIC_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL\nCMAKE_STATIC_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELEASE\nCMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STRIP\nCMAKE_STRIP-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_TAPI\nCMAKE_TAPI-ADVANCED:INTERNAL=1\n//uname command\nCMAKE_UNAME:INTERNAL=/usr/bin/uname\n//ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE\nCMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: EXPORT_C_API\nEXPORT_C_API-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: EXTRA_LIB\nEXTRA_LIB-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: EXTRA_LINK_FLAGS\nEXTRA_LINK_FLAGS-ADVANCED:INTERNAL=1\n//Details about finding Nasm\nFIND_PACKAGE_MESSAGE_DETAILS_Nasm:INTERNAL=[/usr/bin/nasm][v2.16.01()]\n//ADVANCED property for variable: FPROFILE_GENERATE\nFPROFILE_GENERATE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: FPROFILE_USE\nFPROFILE_USE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: GIT_EXECUTABLE\nGIT_EXECUTABLE-ADVANCED:INTERNAL=1\n//Have symbol elf_aux_info\nHAVE_ELF_AUX_INFO:INTERNAL=\n//Have symbol getauxval\nHAVE_GETAUXVAL:INTERNAL=\n//Have include inttypes.h\nHAVE_INT_TYPES_H:INTERNAL=1\n//Have symbol strtok_r\nHAVE_STRTOK_R:INTERNAL=1\n//ADVANCED property for variable: HG_EXECUTABLE\nHG_EXECUTABLE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: NATIVE_BUILD\nNATIVE_BUILD-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: VLD_INCLUDE_DIR\nVLD_INCLUDE_DIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: VLD_LIBRARY_DEBUG\nVLD_LIBRARY_DEBUG-ADVANCED:INTERNAL=1\n//linker supports push/pop state\n_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE\n\n"
+    },
+    "svtav1-CMakeCache.txt": {
+      "bytes": 24628,
+      "sha256": "9d31af58415cd049c9478b0f9d6f17e11681c09d808511a6bef9eadd0343cc17",
+      "text": "# This is the CMakeCache file.\n# For build in directory: /tmp/humanity-ffmpeg-win-v1/build/svtav1\n# It was generated by CMake: /usr/bin/cmake\n# You can edit this file to change values found and used by cmake.\n# If you do not want to change any of the values, simply exit the editor.\n# If you do want to change a value, simply edit, save, and exit the editor.\n# The syntax for the file is as follows:\n# KEY:TYPE=VALUE\n# KEY is the name of a variable in the cache.\n# TYPE is a hint to GUIs for the type of VALUE, DO NOT EDIT TYPE!.\n# VALUE is the current value for the KEY.\n\n########################\n# EXTERNAL cache entries\n########################\n\n//Build Enc Apps\nBUILD_APPS:BOOL=OFF\n\n//Build shared libraries (DLLs).\nBUILD_SHARED_LIBS:BOOL=OFF\n\n//Build SvtAv1UnitTests, SvtAv1ApiTests, and SvtAv1E2ETests unit\n// tests\nBUILD_TESTING:BOOL=OFF\n\n//Path to a program.\nCMAKE_ADDR2LINE:FILEPATH=/usr/bin/x86_64-w64-mingw32-addr2line\n\n//Path to a program.\nCMAKE_AR:FILEPATH=/usr/bin/x86_64-w64-mingw32-ar\n\n//ASM_NASM compiler\nCMAKE_ASM_NASM_COMPILER:STRING=/usr/bin/nasm\n\n//Flags used by the ASM_NASM compiler during all build types.\nCMAKE_ASM_NASM_FLAGS:STRING=\n\n//Flags used by the ASM_NASM compiler during DEBUG builds.\nCMAKE_ASM_NASM_FLAGS_DEBUG:STRING=\n\n//Flags used by the ASM_NASM compiler during MINSIZEREL builds.\nCMAKE_ASM_NASM_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the ASM_NASM compiler during RELEASE builds.\nCMAKE_ASM_NASM_FLAGS_RELEASE:STRING=\n\n//Flags used by the ASM_NASM compiler during RELWITHDEBINFO builds.\nCMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO:STRING=\n\n//Choose the type of build, options are: None Debug Release RelWithDebInfo\n// MinSizeRel ...\nCMAKE_BUILD_TYPE:STRING=Release\n\n//A wrapper around 'ar' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_CXX_COMPILER_AR:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ar\n\n//A wrapper around 'ranlib' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ranlib\n\n//Flags used by the CXX compiler during all build types.\nCMAKE_CXX_FLAGS:STRING=-O2 -g0\n\n//Flags used by the CXX compiler during DEBUG builds.\nCMAKE_CXX_FLAGS_DEBUG:STRING=-g\n\n//Flags used by the CXX compiler during MINSIZEREL builds.\nCMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG\n\n//Flags used by the CXX compiler during RELEASE builds.\nCMAKE_CXX_FLAGS_RELEASE:STRING=-O2 -DNDEBUG -g0\n\n//Flags used by the CXX compiler during RELWITHDEBINFO builds.\nCMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG\n\n//Libraries linked by default with all C++ applications.\nCMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32\n\n//A wrapper around 'ar' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ar\n\n//A wrapper around 'ranlib' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ranlib\n\n//Flags used by the C compiler during all build types.\nCMAKE_C_FLAGS:STRING=-O2 -g0\n\n//Flags used by the C compiler during DEBUG builds.\nCMAKE_C_FLAGS_DEBUG:STRING=-g\n\n//Flags used by the C compiler during MINSIZEREL builds.\nCMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG\n\n//Flags used by the C compiler during RELEASE builds.\nCMAKE_C_FLAGS_RELEASE:STRING=-O2 -DNDEBUG -g0\n\n//Flags used by the C compiler during RELWITHDEBINFO builds.\nCMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG\n\n//Libraries linked by default with all C applications.\nCMAKE_C_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32\n\n//Path to a program.\nCMAKE_DLLTOOL:FILEPATH=/usr/bin/x86_64-w64-mingw32-dlltool\n\n//Flags used by the linker during all build types.\nCMAKE_EXE_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during DEBUG builds.\nCMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during MINSIZEREL builds.\nCMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during RELEASE builds.\nCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during RELWITHDEBINFO builds.\nCMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Enable/Disable output of compile commands during generation.\nCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=\n\n//Value Computed by CMake.\nCMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/build/svtav1/CMakeFiles/pkgRedirects\n\n//Convert GNU import libraries to MS format (requires Visual Studio)\nCMAKE_GNUtoMS:BOOL=OFF\n\n//User executables (bin)\nCMAKE_INSTALL_BINDIR:PATH=bin\n\n//Read-only architecture-independent data (DATAROOTDIR)\nCMAKE_INSTALL_DATADIR:PATH=\n\n//Read-only architecture-independent data root (share)\nCMAKE_INSTALL_DATAROOTDIR:PATH=share\n\n//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)\nCMAKE_INSTALL_DOCDIR:PATH=\n\n//C header files (include)\nCMAKE_INSTALL_INCLUDEDIR:PATH=include\n\n//Info documentation (DATAROOTDIR/info)\nCMAKE_INSTALL_INFODIR:PATH=\n\n//Object code libraries (lib)\nCMAKE_INSTALL_LIBDIR:PATH=lib\n\n//Program executables (libexec)\nCMAKE_INSTALL_LIBEXECDIR:PATH=libexec\n\n//Locale-dependent data (DATAROOTDIR/locale)\nCMAKE_INSTALL_LOCALEDIR:PATH=\n\n//Modifiable single-machine data (var)\nCMAKE_INSTALL_LOCALSTATEDIR:PATH=var\n\n//Man documentation (DATAROOTDIR/man)\nCMAKE_INSTALL_MANDIR:PATH=\n\n//C header files for non-gcc (/usr/include)\nCMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include\n\nCMAKE_INSTALL_PREFIX:PATH=/tmp/humanity-ffmpeg-win-v1/prefix\n\n//Run-time variable data (LOCALSTATEDIR/run)\nCMAKE_INSTALL_RUNSTATEDIR:PATH=\n\n//System admin executables (sbin)\nCMAKE_INSTALL_SBINDIR:PATH=sbin\n\n//Modifiable architecture-independent data (com)\nCMAKE_INSTALL_SHAREDSTATEDIR:PATH=com\n\n//Read-only single-machine data (etc)\nCMAKE_INSTALL_SYSCONFDIR:PATH=etc\n\n//Path to a program.\nCMAKE_LINKER:FILEPATH=/usr/bin/x86_64-w64-mingw32-ld\n\n//Program used to build from build.ninja files.\nCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/ninja\n\n//Flags used by the linker during the creation of modules during\n// all build types.\nCMAKE_MODULE_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during the creation of modules during\n// DEBUG builds.\nCMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of modules during\n// MINSIZEREL builds.\nCMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of modules during\n// RELEASE builds.\nCMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of modules during\n// RELWITHDEBINFO builds.\nCMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_NM:FILEPATH=/usr/bin/x86_64-w64-mingw32-nm\n\n//Path to a program.\nCMAKE_OBJCOPY:FILEPATH=/usr/bin/x86_64-w64-mingw32-objcopy\n\n//Path to a program.\nCMAKE_OBJDUMP:FILEPATH=/usr/bin/x86_64-w64-mingw32-objdump\n\n//Location to write the resulting binaries to\nCMAKE_OUTPUT_DIRECTORY:PATH=/tmp/humanity-ffmpeg-win-v1/src/svtav1/Bin/Release\n\n//Value Computed by CMake\nCMAKE_PROJECT_DESCRIPTION:STATIC=\n\n//Value Computed by CMake\nCMAKE_PROJECT_HOMEPAGE_URL:STATIC=\n\n//Value Computed by CMake\nCMAKE_PROJECT_NAME:STATIC=svt-av1\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION:STATIC=4.0.1\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION_MAJOR:STATIC=4\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION_MINOR:STATIC=0\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION_PATCH:STATIC=1\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION_TWEAK:STATIC=\n\n//Path to a program.\nCMAKE_RANLIB:FILEPATH=/usr/bin/x86_64-w64-mingw32-ranlib\n\n//Flags for Windows Resource Compiler during all build types.\nCMAKE_RC_FLAGS:STRING=\n\n//Flags for Windows Resource Compiler during DEBUG builds.\nCMAKE_RC_FLAGS_DEBUG:STRING=\n\n//Flags for Windows Resource Compiler during MINSIZEREL builds.\nCMAKE_RC_FLAGS_MINSIZEREL:STRING=\n\n//Flags for Windows Resource Compiler during RELEASE builds.\nCMAKE_RC_FLAGS_RELEASE:STRING=\n\n//Flags for Windows Resource Compiler during RELWITHDEBINFO builds.\nCMAKE_RC_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_READELF:FILEPATH=/usr/bin/x86_64-w64-mingw32-readelf\n\n//Flags used by the linker during the creation of shared libraries\n// during all build types.\nCMAKE_SHARED_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during the creation of shared libraries\n// during DEBUG builds.\nCMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during MINSIZEREL builds.\nCMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during RELEASE builds.\nCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during RELWITHDEBINFO builds.\nCMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//If set, runtime paths are not added when installing shared libraries,\n// but are added when building.\nCMAKE_SKIP_INSTALL_RPATH:BOOL=NO\n\n//If set, runtime paths are not added when using shared libraries.\nCMAKE_SKIP_RPATH:BOOL=NO\n\n//Flags used by the linker during the creation of static libraries\n// during all build types.\nCMAKE_STATIC_LINKER_FLAGS:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during DEBUG builds.\nCMAKE_STATIC_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during MINSIZEREL builds.\nCMAKE_STATIC_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during RELEASE builds.\nCMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during RELWITHDEBINFO builds.\nCMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_STRIP:FILEPATH=/usr/bin/x86_64-w64-mingw32-strip\n\n//Path to a program.\nCMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND\n\n//The CMake toolchain file\nCMAKE_TOOLCHAIN_FILE:FILEPATH=/tmp/humanity-ffmpeg-win-v1/mingw-toolchain.cmake\n\n//If this value is on, makefiles will be generated without the\n// .SILENT directive, and all commands will be echoed to the console\n// during the make.  This is useful for debugging only. With Visual\n// Studio IDE projects all commands are done without /nologo.\nCMAKE_VERBOSE_MAKEFILE:BOOL=FALSE\n\n//Compile only C code with no simds (autodetect, default off for\n// x86)\nCOMPILE_C_ONLY:BOOL=OFF\n\n//Generate coverage report\nCOVERAGE:BOOL=OFF\n\n//Enable building avx512 code\nENABLE_AVX512:BOOL=ON\n\n//No help, variable specified on the command line.\nENABLE_LTO:UNINITIALIZED=OFF\n\n//Disables the use of the git hash in the build to produce hash\n// exact binaries, implies REPRODUCIBLE_BUILDS\nEXCLUDE_HASH:BOOL=OFF\n\n//Disable all logging from encoder\nLOG_QUIET:BOOL=OFF\n\n//Enable minimal build\nMINIMAL_BUILD:BOOL=OFF\n\n//Build for native performance (march=native)\nNATIVE:BOOL=OFF\n\n//Disable use of certain C macros to always generate reproducable\n// builds\nREPRODUCIBLE_BUILDS:BOOL=OFF\n\n//Optimize build for RTC by disabling unused features and logging\nRTC_BUILD:BOOL=OFF\n\n//Sanitizer to enable. Currently known values are Address, Memory,\n// Thread, Undefined, and Integer\nSANITIZER:STRING=\n\n//Attempt to enable Link Time Optimization if available\nSVT_AV1_LTO:BOOL=ON\n\n//Enable profile guided optimization. Creates the RunPGO and CompilePGO\n// targets\nSVT_AV1_PGO:BOOL=OFF\n\n//Semi-colon separated list of directories with y4m videos to run\n// PGO on instead of objective-1-fast\nSVT_AV1_PGO_CUSTOM_VIDEOS:STRING=\n\n//Path to the directory passed to -fprofile-dir for use with profile\n// guided optimization\nSVT_AV1_PGO_DIR:PATH=/tmp/humanity-ffmpeg-win-v1/build/svtav1\n\n//Generate a profile guided optimization profile\nSVT_INTERNAL_PGO_GENERATE:BOOL=OFF\n\n//Use a profile for profile guided optimization\nSVT_INTERNAL_PGO_USE:BOOL=OFF\n\n//Value Computed by CMake\nsvt-av1_BINARY_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/build/svtav1\n\n//Value Computed by CMake\nsvt-av1_IS_TOP_LEVEL:STATIC=ON\n\n//Value Computed by CMake\nsvt-av1_SOURCE_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/src/svtav1\n\n\n########################\n# INTERNAL cache entries\n########################\n\n//ADVANCED property for variable: CMAKE_ADDR2LINE\nCMAKE_ADDR2LINE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_AR\nCMAKE_AR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_COMPILER\nCMAKE_ASM_NASM_COMPILER-ADVANCED:INTERNAL=1\nCMAKE_ASM_NASM_COMPILER_WORKS:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS\nCMAKE_ASM_NASM_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_DEBUG\nCMAKE_ASM_NASM_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_MINSIZEREL\nCMAKE_ASM_NASM_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_RELEASE\nCMAKE_ASM_NASM_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO\nCMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//This is the directory where this CMakeCache.txt was created\nCMAKE_CACHEFILE_DIR:INTERNAL=/tmp/humanity-ffmpeg-win-v1/build/svtav1\n//Major version of cmake used to create the current loaded cache\nCMAKE_CACHE_MAJOR_VERSION:INTERNAL=3\n//Minor version of cmake used to create the current loaded cache\nCMAKE_CACHE_MINOR_VERSION:INTERNAL=28\n//Patch version of cmake used to create the current loaded cache\nCMAKE_CACHE_PATCH_VERSION:INTERNAL=3\n//Path to CMake executable.\nCMAKE_COMMAND:INTERNAL=/usr/bin/cmake\n//Path to cpack program executable.\nCMAKE_CPACK_COMMAND:INTERNAL=/usr/bin/cpack\n//Path to ctest program executable.\nCMAKE_CTEST_COMMAND:INTERNAL=/usr/bin/ctest\n//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR\nCMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB\nCMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS\nCMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG\nCMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS_MINSIZEREL\nCMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELEASE\nCMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO\nCMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_CXX_STANDARD_LIBRARIES\nCMAKE_CXX_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_COMPILER_AR\nCMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB\nCMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS\nCMAKE_C_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG\nCMAKE_C_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_MINSIZEREL\nCMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_RELEASE\nCMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO\nCMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_STANDARD_LIBRARIES\nCMAKE_C_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_DLLTOOL\nCMAKE_DLLTOOL-ADVANCED:INTERNAL=1\n//Executable file format\nCMAKE_EXECUTABLE_FORMAT:INTERNAL=Unknown\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS\nCMAKE_EXE_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_DEBUG\nCMAKE_EXE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_MINSIZEREL\nCMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELEASE\nCMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS\nCMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1\n//Name of external makefile project generator.\nCMAKE_EXTRA_GENERATOR:INTERNAL=\n//Name of generator.\nCMAKE_GENERATOR:INTERNAL=Ninja\n//Generator instance identifier.\nCMAKE_GENERATOR_INSTANCE:INTERNAL=\n//Name of generator platform.\nCMAKE_GENERATOR_PLATFORM:INTERNAL=\n//Name of generator toolset.\nCMAKE_GENERATOR_TOOLSET:INTERNAL=\n//Test CMAKE_HAVE_LIBC_PTHREAD\nCMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1\n//Source directory with the top level CMakeLists.txt file for this\n// project\nCMAKE_HOME_DIRECTORY:INTERNAL=/tmp/humanity-ffmpeg-win-v1/src/svtav1\n//ADVANCED property for variable: CMAKE_INSTALL_BINDIR\nCMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_DATADIR\nCMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR\nCMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR\nCMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR\nCMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_INFODIR\nCMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR\nCMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR\nCMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR\nCMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR\nCMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_MANDIR\nCMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR\nCMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR\nCMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR\nCMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR\nCMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR\nCMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_LINKER\nCMAKE_LINKER-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MAKE_PROGRAM\nCMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS\nCMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG\nCMAKE_MODULE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL\nCMAKE_MODULE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELEASE\nCMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_NM\nCMAKE_NM-ADVANCED:INTERNAL=1\n//number of local generators\nCMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11\n//ADVANCED property for variable: CMAKE_OBJCOPY\nCMAKE_OBJCOPY-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_OBJDUMP\nCMAKE_OBJDUMP-ADVANCED:INTERNAL=1\n//Platform information initialized\nCMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RANLIB\nCMAKE_RANLIB-ADVANCED:INTERNAL=1\nCMAKE_RC_COMPILER_WORKS:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS\nCMAKE_RC_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_DEBUG\nCMAKE_RC_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_MINSIZEREL\nCMAKE_RC_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_RELEASE\nCMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_RELWITHDEBINFO\nCMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_READELF\nCMAKE_READELF-ADVANCED:INTERNAL=1\n//Path to CMake installation.\nCMAKE_ROOT:INTERNAL=/usr/share/cmake-3.28\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS\nCMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG\nCMAKE_SHARED_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL\nCMAKE_SHARED_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELEASE\nCMAKE_SHARED_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SKIP_INSTALL_RPATH\nCMAKE_SKIP_INSTALL_RPATH-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SKIP_RPATH\nCMAKE_SKIP_RPATH-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS\nCMAKE_STATIC_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_DEBUG\nCMAKE_STATIC_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL\nCMAKE_STATIC_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELEASE\nCMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STRIP\nCMAKE_STRIP-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_TAPI\nCMAKE_TAPI-ADVANCED:INTERNAL=1\n//uname command\nCMAKE_UNAME:INTERNAL=/usr/bin/uname\n//ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE\nCMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1\n//Test CXX_FLAG_Wall\nCXX_FLAG_Wall:INTERNAL=1\n//Test CXX_FLAG_Wextra\nCXX_FLAG_Wextra:INTERNAL=1\n//Test CXX_FLAG_Wformat\nCXX_FLAG_Wformat:INTERNAL=1\n//Test CXX_FLAG_Wformat_security\nCXX_FLAG_Wformat_security:INTERNAL=1\n//Test CXX_FLAG_mavx2\nCXX_FLAG_mavx2:INTERNAL=1\n//Test CXX_FLAG_mavx512bw\nCXX_FLAG_mavx512bw:INTERNAL=1\n//Test CXX_FLAG_mavx512dq\nCXX_FLAG_mavx512dq:INTERNAL=1\n//Test CXX_FLAG_mavx512f\nCXX_FLAG_mavx512f:INTERNAL=1\n//Test CXX_FLAG_mavx512vl\nCXX_FLAG_mavx512vl:INTERNAL=1\n//Test CXX_FLAG_mno_avx\nCXX_FLAG_mno_avx:INTERNAL=1\n//Test CXX_FLAG_msse2\nCXX_FLAG_msse2:INTERNAL=1\n//Test CXX_FLAG_msse4_1\nCXX_FLAG_msse4_1:INTERNAL=1\n//Test CXX_FLAG_mssse3\nCXX_FLAG_mssse3:INTERNAL=1\n//Test C_FLAG_Wall\nC_FLAG_Wall:INTERNAL=1\n//Test C_FLAG_Wextra\nC_FLAG_Wextra:INTERNAL=1\n//Test C_FLAG_Wformat\nC_FLAG_Wformat:INTERNAL=1\n//Test C_FLAG_Wformat_security\nC_FLAG_Wformat_security:INTERNAL=1\n//Test C_FLAG_fno_asynchronous_unwind_tables\nC_FLAG_fno_asynchronous_unwind_tables:INTERNAL=1\n//Test C_FLAG_mavx2\nC_FLAG_mavx2:INTERNAL=1\n//Test C_FLAG_mavx512bw\nC_FLAG_mavx512bw:INTERNAL=1\n//Test C_FLAG_mavx512dq\nC_FLAG_mavx512dq:INTERNAL=1\n//Test C_FLAG_mavx512f\nC_FLAG_mavx512f:INTERNAL=1\n//Test C_FLAG_mavx512vl\nC_FLAG_mavx512vl:INTERNAL=1\n//Test C_FLAG_mno_avx\nC_FLAG_mno_avx:INTERNAL=1\n//Test C_FLAG_msse2\nC_FLAG_msse2:INTERNAL=1\n//Test C_FLAG_msse4_1\nC_FLAG_msse4_1:INTERNAL=1\n//Test C_FLAG_mssse3\nC_FLAG_mssse3:INTERNAL=1\n//Test C_FLAG_mxsave\nC_FLAG_mxsave:INTERNAL=1\n//Details about finding Threads\nFIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]\n//Test HAS_AVX512\nHAS_AVX512:INTERNAL=1\n//Test HAVE_ARM_PLATFORM\nHAVE_ARM_PLATFORM:INTERNAL=\n//Test HAVE_BUILTIN_EXPECT\nHAVE_BUILTIN_EXPECT:INTERNAL=1\n//Have symbol elf_aux_info\nHAVE_ELF_AUX_INFO:INTERNAL=\n//Have symbol strcpy_s\nHAVE_STRCPY_S:INTERNAL=1\n//Have symbol strncpy_s\nHAVE_STRNCPY_S:INTERNAL=1\n//Have symbol strnlen_s\nHAVE_STRNLEN_S:INTERNAL=\n//Have include valgrind/valgrind.h\nHAVE_VALGRIND_H:INTERNAL=\n//Test HAVE_X86_PLATFORM\nHAVE_X86_PLATFORM:INTERNAL=1\n//STRINGS property for variable: SANITIZER\nSANITIZER-STRINGS:INTERNAL=Address;Memory;Thread;Undefined;Integer\n//ADVANCED property for variable: SVT_INTERNAL_PGO_GENERATE\nSVT_INTERNAL_PGO_GENERATE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: SVT_INTERNAL_PGO_USE\nSVT_INTERNAL_PGO_USE-ADVANCED:INTERNAL=1\n//linker supports push/pop state\n_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE\n//CMAKE_INSTALL_PREFIX during last run\n_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/tmp/humanity-ffmpeg-win-v1/prefix\n\n"
+    },
+    "dav1d-buildoptions.json": {
+      "bytes": 13129,
+      "sha256": "146aed1b983466d809f53376a631c1a2b2b8e9e1f00d345bc620324899f28781",
+      "text": "[{\"name\": \"build.cmake_prefix_path\", \"value\": [], \"section\": \"core\", \"machine\": \"any\", \"type\": \"array\", \"description\": \"List of additional prefixes for cmake to search\"}, {\"name\": \"build.pkg_config_path\", \"value\": [], \"section\": \"core\", \"machine\": \"any\", \"type\": \"array\", \"description\": \"List of additional paths for pkg-config to search\"}, {\"name\": \"auto_features\", \"value\": \"auto\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"enabled\", \"disabled\", \"auto\"], \"type\": \"combo\", \"description\": \"Override value of all 'auto' features\"}, {\"name\": \"backend\", \"value\": \"ninja\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"ninja\", \"vs\", \"vs2010\", \"vs2012\", \"vs2013\", \"vs2015\", \"vs2017\", \"vs2019\", \"vs2022\", \"xcode\", \"none\"], \"type\": \"combo\", \"description\": \"Backend to use\"}, {\"name\": \"buildtype\", \"value\": \"release\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"plain\", \"debug\", \"debugoptimized\", \"release\", \"minsize\", \"custom\"], \"type\": \"combo\", \"description\": \"Build type to use\"}, {\"name\": \"cmake_prefix_path\", \"value\": [], \"section\": \"core\", \"machine\": \"any\", \"type\": \"array\", \"description\": \"List of additional prefixes for cmake to search\"}, {\"name\": \"debug\", \"value\": false, \"section\": \"core\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Enable debug symbols and other information\"}, {\"name\": \"default_library\", \"value\": \"static\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"shared\", \"static\", \"both\"], \"type\": \"combo\", \"description\": \"Default library type\"}, {\"name\": \"force_fallback_for\", \"value\": [], \"section\": \"core\", \"machine\": \"any\", \"type\": \"array\", \"description\": \"Force fallback for those subprojects\"}, {\"name\": \"genvslite\", \"value\": \"vs2022\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"vs2022\"], \"type\": \"combo\", \"description\": \"Setup multiple buildtype-suffixed ninja-backend build directories, and a [builddir]_vs containing a Visual Studio meta-backend with multiple configurations that calls into them\"}, {\"name\": \"install_umask\", \"value\": 18, \"section\": \"core\", \"machine\": \"any\", \"type\": \"integer\", \"description\": \"Default umask to apply on permissions of installed files\"}, {\"name\": \"layout\", \"value\": \"mirror\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"mirror\", \"flat\"], \"type\": \"combo\", \"description\": \"Build directory layout\"}, {\"name\": \"optimization\", \"value\": \"3\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"plain\", \"0\", \"g\", \"1\", \"2\", \"3\", \"s\"], \"type\": \"combo\", \"description\": \"Optimization level\"}, {\"name\": \"pkg_config_path\", \"value\": [\"/tmp/humanity-ffmpeg-win-v1/prefix/lib/pkgconfig\"], \"section\": \"core\", \"machine\": \"any\", \"type\": \"array\", \"description\": \"List of additional paths for pkg-config to search\"}, {\"name\": \"prefer_static\", \"value\": false, \"section\": \"core\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Whether to try static linking before shared linking\"}, {\"name\": \"strip\", \"value\": false, \"section\": \"core\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Strip targets on install\"}, {\"name\": \"unity\", \"value\": \"off\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"on\", \"off\", \"subprojects\"], \"type\": \"combo\", \"description\": \"Unity build\"}, {\"name\": \"unity_size\", \"value\": 4, \"section\": \"core\", \"machine\": \"any\", \"type\": \"integer\", \"description\": \"Unity block size\"}, {\"name\": \"vsenv\", \"value\": false, \"section\": \"core\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Activate Visual Studio environment\"}, {\"name\": \"warning_level\", \"value\": \"2\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"0\", \"1\", \"2\", \"3\", \"everything\"], \"type\": \"combo\", \"description\": \"Compiler warning level to use\"}, {\"name\": \"werror\", \"value\": false, \"section\": \"core\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Treat warnings as errors\"}, {\"name\": \"wrap_mode\", \"value\": \"default\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"default\", \"nofallback\", \"nodownload\", \"forcefallback\", \"nopromote\"], \"type\": \"combo\", \"description\": \"Wrap mode\"}, {\"name\": \"pkgconfig.relocatable\", \"value\": false, \"section\": \"core\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Generate pkgconfig files as relocatable\"}, {\"name\": \"python.allow_limited_api\", \"value\": true, \"section\": \"core\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Whether to allow use of the Python Limited API\"}, {\"name\": \"python.bytecompile\", \"value\": 0, \"section\": \"core\", \"machine\": \"any\", \"type\": \"integer\", \"description\": \"Whether to compile bytecode\"}, {\"name\": \"python.install_env\", \"value\": \"prefix\", \"section\": \"core\", \"machine\": \"any\", \"choices\": [\"auto\", \"prefix\", \"system\", \"venv\"], \"type\": \"combo\", \"description\": \"Which python environment to install to\"}, {\"name\": \"python.platlibdir\", \"value\": \"\", \"section\": \"core\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Directory for site-specific, platform-specific files.\"}, {\"name\": \"python.purelibdir\", \"value\": \"\", \"section\": \"core\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Directory for site-specific, non-platform-specific files.\"}, {\"name\": \"backend_max_links\", \"value\": 0, \"section\": \"backend\", \"machine\": \"any\", \"type\": \"integer\", \"description\": \"Maximum number of linker processes to run or 0 for no limit\"}, {\"name\": \"b_asneeded\", \"value\": true, \"section\": \"base\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Use -Wl,--as-needed when linking\"}, {\"name\": \"b_colorout\", \"value\": \"always\", \"section\": \"base\", \"machine\": \"any\", \"choices\": [\"auto\", \"always\", \"never\"], \"type\": \"combo\", \"description\": \"Use colored output\"}, {\"name\": \"b_coverage\", \"value\": false, \"section\": \"base\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Enable coverage tracking.\"}, {\"name\": \"b_lto\", \"value\": false, \"section\": \"base\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Use link time optimization\"}, {\"name\": \"b_lto_threads\", \"value\": 0, \"section\": \"base\", \"machine\": \"any\", \"type\": \"integer\", \"description\": \"Use multiple threads for Link Time Optimization\"}, {\"name\": \"b_lundef\", \"value\": true, \"section\": \"base\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Use -Wl,--no-undefined when linking\"}, {\"name\": \"b_ndebug\", \"value\": \"if-release\", \"section\": \"base\", \"machine\": \"any\", \"choices\": [\"true\", \"false\", \"if-release\"], \"type\": \"combo\", \"description\": \"Disable asserts\"}, {\"name\": \"b_pch\", \"value\": true, \"section\": \"base\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Use precompiled headers\"}, {\"name\": \"b_pgo\", \"value\": \"off\", \"section\": \"base\", \"machine\": \"any\", \"choices\": [\"off\", \"generate\", \"use\"], \"type\": \"combo\", \"description\": \"Use profile guided optimization\"}, {\"name\": \"b_pie\", \"value\": false, \"section\": \"base\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Build executables as position independent\"}, {\"name\": \"b_sanitize\", \"value\": \"none\", \"section\": \"base\", \"machine\": \"any\", \"choices\": [\"none\", \"address\", \"thread\", \"undefined\", \"memory\", \"leak\", \"address,undefined\"], \"type\": \"combo\", \"description\": \"Code sanitizer to use\"}, {\"name\": \"b_staticpic\", \"value\": true, \"section\": \"base\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Build static libraries as position independent\"}, {\"name\": \"build.c_args\", \"value\": [], \"section\": \"compiler\", \"machine\": \"build\", \"type\": \"array\", \"description\": \"Extra arguments passed to the c compiler\"}, {\"name\": \"build.c_link_args\", \"value\": [], \"section\": \"compiler\", \"machine\": \"build\", \"type\": \"array\", \"description\": \"Extra arguments passed to the c linker\"}, {\"name\": \"build.c_std\", \"value\": \"none\", \"section\": \"compiler\", \"machine\": \"build\", \"choices\": [\"none\", \"c89\", \"c99\", \"c11\", \"c17\", \"c18\", \"c2x\", \"gnu89\", \"gnu99\", \"gnu11\", \"gnu17\", \"gnu18\", \"gnu2x\"], \"type\": \"combo\", \"description\": \"C language standard to use\"}, {\"name\": \"c_args\", \"value\": [\"-O2\", \"-g0\"], \"section\": \"compiler\", \"machine\": \"host\", \"type\": \"array\", \"description\": \"Extra arguments passed to the c compiler\"}, {\"name\": \"c_link_args\", \"value\": [\"-static\", \"-static-libgcc\"], \"section\": \"compiler\", \"machine\": \"host\", \"type\": \"array\", \"description\": \"Extra arguments passed to the c linker\"}, {\"name\": \"c_std\", \"value\": \"c99\", \"section\": \"compiler\", \"machine\": \"host\", \"choices\": [\"none\", \"c89\", \"c99\", \"c11\", \"c17\", \"c18\", \"c2x\", \"gnu89\", \"gnu99\", \"gnu11\", \"gnu17\", \"gnu18\", \"gnu2x\"], \"type\": \"combo\", \"description\": \"C language standard to use\"}, {\"name\": \"c_winlibs\", \"value\": [\"-lkernel32\", \"-luser32\", \"-lgdi32\", \"-lwinspool\", \"-lshell32\", \"-lole32\", \"-loleaut32\", \"-luuid\", \"-lcomdlg32\", \"-ladvapi32\"], \"section\": \"compiler\", \"machine\": \"host\", \"type\": \"array\", \"description\": \"Standard Win libraries to link against\"}, {\"name\": \"bindir\", \"value\": \"bin\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Executable directory\"}, {\"name\": \"datadir\", \"value\": \"share\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Data file directory\"}, {\"name\": \"includedir\", \"value\": \"include\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Header file directory\"}, {\"name\": \"infodir\", \"value\": \"share/info\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Info page directory\"}, {\"name\": \"libdir\", \"value\": \"lib\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Library directory\"}, {\"name\": \"libexecdir\", \"value\": \"libexec\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Library executable directory\"}, {\"name\": \"licensedir\", \"value\": \"\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Licenses directory\"}, {\"name\": \"localedir\", \"value\": \"share/locale\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Locale data directory\"}, {\"name\": \"localstatedir\", \"value\": \"var\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Localstate data directory\"}, {\"name\": \"mandir\", \"value\": \"share/man\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Manual page directory\"}, {\"name\": \"prefix\", \"value\": \"/tmp/humanity-ffmpeg-win-v1/prefix\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Installation prefix\"}, {\"name\": \"sbindir\", \"value\": \"sbin\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"System executable directory\"}, {\"name\": \"sharedstatedir\", \"value\": \"com\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Architecture-independent data directory\"}, {\"name\": \"sysconfdir\", \"value\": \"etc\", \"section\": \"directory\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Sysconf data directory\"}, {\"name\": \"bitdepths\", \"value\": [\"8\", \"16\"], \"section\": \"user\", \"machine\": \"any\", \"choices\": [\"8\", \"16\"], \"type\": \"array\", \"description\": \"Enable only specified bitdepths\"}, {\"name\": \"enable_asm\", \"value\": true, \"section\": \"user\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Build asm files, if available\"}, {\"name\": \"enable_docs\", \"value\": false, \"section\": \"user\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Build dav1d documentation\"}, {\"name\": \"enable_examples\", \"value\": false, \"section\": \"user\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Build dav1d examples\"}, {\"name\": \"enable_seek_stress\", \"value\": false, \"section\": \"user\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Build seek_stress test tool\"}, {\"name\": \"enable_tests\", \"value\": false, \"section\": \"user\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Build dav1d tests\"}, {\"name\": \"enable_tools\", \"value\": false, \"section\": \"user\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Build dav1d cli tools\"}, {\"name\": \"fuzzer_ldflags\", \"value\": \"\", \"section\": \"user\", \"machine\": \"any\", \"type\": \"string\", \"description\": \"Extra LDFLAGS used during linking of fuzzing binaries\"}, {\"name\": \"fuzzing_engine\", \"value\": \"none\", \"section\": \"user\", \"machine\": \"any\", \"choices\": [\"none\", \"libfuzzer\", \"oss-fuzz\"], \"type\": \"combo\", \"description\": \"Select the fuzzing engine\"}, {\"name\": \"logging\", \"value\": true, \"section\": \"user\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Print error log messages using the provided callback function\"}, {\"name\": \"stack_alignment\", \"value\": 0, \"section\": \"user\", \"machine\": \"any\", \"type\": \"integer\", \"description\": \"stack_alignment\"}, {\"name\": \"testdata_tests\", \"value\": false, \"section\": \"user\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Run tests requiring the test data repository\"}, {\"name\": \"trim_dsp\", \"value\": \"if-release\", \"section\": \"user\", \"machine\": \"any\", \"choices\": [\"true\", \"false\", \"if-release\"], \"type\": \"combo\", \"description\": \"Eliminate redundant DSP functions where possible\"}, {\"name\": \"xxhash_muxer\", \"value\": \"disabled\", \"section\": \"user\", \"machine\": \"any\", \"choices\": [\"enabled\", \"disabled\", \"auto\"], \"type\": \"combo\", \"description\": \"xxhash_muxer\"}, {\"name\": \"errorlogs\", \"value\": true, \"section\": \"test\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Whether to print the logs from failing tests\"}, {\"name\": \"stdsplit\", \"value\": true, \"section\": \"test\", \"machine\": \"any\", \"type\": \"boolean\", \"description\": \"Split stdout and stderr in test logs\"}]"
+    },
+    "libvpx-config.mk": {
+      "bytes": 1351,
+      "sha256": "fc6cbeb69463475f36df6c63170f929ed0bd8d5fd13817afa633ea3597eb77c0",
+      "text": "## Copyright (c) 2011 The WebM project authors. All Rights Reserved.\n## \n## Use of this source code is governed by a BSD-style license\n## that can be found in the LICENSE file in the root of the source\n## tree. An additional intellectual property rights grant can be found\n## in the file PATENTS.  All contributing project authors may\n## be found in the AUTHORS file in the root of the source tree.\n# This file automatically generated by configure. Do not edit!\nTOOLCHAIN := x86_64-win64-gcc\nALL_TARGETS += libs\n\nPREFIX=/tmp/humanity-ffmpeg-win-v1/prefix\nifeq ($(MAKECMDGOALS),dist)\nDIST_DIR?=vpx-vp8-vp9-nodocs-x86_64-win64md-gcc-v1.17.0\nelse\nDIST_DIR?=$(DESTDIR)/tmp/humanity-ffmpeg-win-v1/prefix\nendif\nLIBSUBDIR=lib\n\nVERSION_STRING=v1.17.0\n\nVERSION_MAJOR=1\nVERSION_MINOR=17\nVERSION_PATCH=0\n\nCONFIGURE_ARGS=--prefix=/tmp/humanity-ffmpeg-win-v1/prefix --target=x86_64-win64-gcc --enable-static --disable-shared --enable-vp9-highbitdepth --enable-runtime-cpu-detect --disable-examples --disable-tools --disable-docs --disable-unit-tests --disable-webm-io --disable-libyuv\nCONFIGURE_ARGS?=--prefix=/tmp/humanity-ffmpeg-win-v1/prefix --target=x86_64-win64-gcc --enable-static --disable-shared --enable-vp9-highbitdepth --enable-runtime-cpu-detect --disable-examples --disable-tools --disable-docs --disable-unit-tests --disable-webm-io --disable-libyuv\n"
+    },
+    "opus-CMakeCache.txt": {
+      "bytes": 21730,
+      "sha256": "f6e32460783594353e8124bca7cfeed00f022bf008c14c4f6d51e004cb9f1e07",
+      "text": "# This is the CMakeCache file.\n# For build in directory: /tmp/humanity-ffmpeg-win-v1/build/opus\n# It was generated by CMake: /usr/bin/cmake\n# You can edit this file to change values found and used by cmake.\n# If you do not want to change any of the values, simply exit the editor.\n# If you do want to change a value, simply edit, save, and exit the editor.\n# The syntax for the file is as follows:\n# KEY:TYPE=VALUE\n# KEY is the name of a variable in the cache.\n# TYPE is a hint to GUIs for the type of VALUE, DO NOT EDIT TYPE!.\n# VALUE is the current value for the KEY.\n\n########################\n# EXTERNAL cache entries\n########################\n\n//No help, variable specified on the command line.\nBUILD_SHARED_LIBS:UNINITIALIZED=OFF\n\n//Path to a program.\nCMAKE_ADDR2LINE:FILEPATH=/usr/bin/x86_64-w64-mingw32-addr2line\n\n//Path to a program.\nCMAKE_AR:FILEPATH=/usr/bin/x86_64-w64-mingw32-ar\n\n//Choose the type of build, options are: None Debug Release RelWithDebInfo\n// MinSizeRel ...\nCMAKE_BUILD_TYPE:STRING=Release\n\n//No help, variable specified on the command line.\nCMAKE_CXX_FLAGS_RELEASE:UNINITIALIZED=-O2 -DNDEBUG -g0\n\n//A wrapper around 'ar' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ar\n\n//A wrapper around 'ranlib' adding the appropriate '--plugin' option\n// for the GCC compiler\nCMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/x86_64-w64-mingw32-gcc-ranlib\n\n//Flags used by the C compiler during all build types.\nCMAKE_C_FLAGS:STRING=-O2 -g0\n\n//Flags used by the C compiler during DEBUG builds.\nCMAKE_C_FLAGS_DEBUG:STRING=-g\n\n//Flags used by the C compiler during MINSIZEREL builds.\nCMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG\n\n//Flags used by the C compiler during RELEASE builds.\nCMAKE_C_FLAGS_RELEASE:STRING=-O2 -DNDEBUG -g0\n\n//Flags used by the C compiler during RELWITHDEBINFO builds.\nCMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG\n\n//Libraries linked by default with all C applications.\nCMAKE_C_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32\n\n//Path to a program.\nCMAKE_DLLTOOL:FILEPATH=/usr/bin/x86_64-w64-mingw32-dlltool\n\n//Flags used by the linker during all build types.\nCMAKE_EXE_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during DEBUG builds.\nCMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during MINSIZEREL builds.\nCMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during RELEASE builds.\nCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during RELWITHDEBINFO builds.\nCMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Enable/Disable output of compile commands during generation.\nCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=\n\n//Value Computed by CMake.\nCMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/build/opus/CMakeFiles/pkgRedirects\n\n//Convert GNU import libraries to MS format (requires Visual Studio)\nCMAKE_GNUtoMS:BOOL=OFF\n\n//User executables (bin)\nCMAKE_INSTALL_BINDIR:PATH=bin\n\n//Read-only architecture-independent data (DATAROOTDIR)\nCMAKE_INSTALL_DATADIR:PATH=\n\n//Read-only architecture-independent data root (share)\nCMAKE_INSTALL_DATAROOTDIR:PATH=share\n\n//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)\nCMAKE_INSTALL_DOCDIR:PATH=\n\n//C header files (include)\nCMAKE_INSTALL_INCLUDEDIR:PATH=include\n\n//Info documentation (DATAROOTDIR/info)\nCMAKE_INSTALL_INFODIR:PATH=\n\n//Object code libraries (lib)\nCMAKE_INSTALL_LIBDIR:PATH=lib\n\n//Program executables (libexec)\nCMAKE_INSTALL_LIBEXECDIR:PATH=libexec\n\n//Locale-dependent data (DATAROOTDIR/locale)\nCMAKE_INSTALL_LOCALEDIR:PATH=\n\n//Modifiable single-machine data (var)\nCMAKE_INSTALL_LOCALSTATEDIR:PATH=var\n\n//Man documentation (DATAROOTDIR/man)\nCMAKE_INSTALL_MANDIR:PATH=\n\n//C header files for non-gcc (/usr/include)\nCMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include\n\nCMAKE_INSTALL_PREFIX:PATH=/tmp/humanity-ffmpeg-win-v1/prefix\n\n//Run-time variable data (LOCALSTATEDIR/run)\nCMAKE_INSTALL_RUNSTATEDIR:PATH=\n\n//System admin executables (sbin)\nCMAKE_INSTALL_SBINDIR:PATH=sbin\n\n//Modifiable architecture-independent data (com)\nCMAKE_INSTALL_SHAREDSTATEDIR:PATH=com\n\n//Read-only single-machine data (etc)\nCMAKE_INSTALL_SYSCONFDIR:PATH=etc\n\n//Path to a program.\nCMAKE_LINKER:FILEPATH=/usr/bin/x86_64-w64-mingw32-ld\n\n//Program used to build from build.ninja files.\nCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/ninja\n\n//Flags used by the linker during the creation of modules during\n// all build types.\nCMAKE_MODULE_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during the creation of modules during\n// DEBUG builds.\nCMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of modules during\n// MINSIZEREL builds.\nCMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of modules during\n// RELEASE builds.\nCMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of modules during\n// RELWITHDEBINFO builds.\nCMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_NM:FILEPATH=/usr/bin/x86_64-w64-mingw32-nm\n\n//Path to a program.\nCMAKE_OBJCOPY:FILEPATH=/usr/bin/x86_64-w64-mingw32-objcopy\n\n//Path to a program.\nCMAKE_OBJDUMP:FILEPATH=/usr/bin/x86_64-w64-mingw32-objdump\n\n//Value Computed by CMake\nCMAKE_PROJECT_DESCRIPTION:STATIC=\n\n//Value Computed by CMake\nCMAKE_PROJECT_HOMEPAGE_URL:STATIC=\n\n//Value Computed by CMake\nCMAKE_PROJECT_NAME:STATIC=Opus\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION:STATIC=1.6.1\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION_MAJOR:STATIC=1\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION_MINOR:STATIC=6\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION_PATCH:STATIC=1\n\n//Value Computed by CMake\nCMAKE_PROJECT_VERSION_TWEAK:STATIC=\n\n//Path to a program.\nCMAKE_RANLIB:FILEPATH=/usr/bin/x86_64-w64-mingw32-ranlib\n\n//Flags for Windows Resource Compiler during all build types.\nCMAKE_RC_FLAGS:STRING=\n\n//Flags for Windows Resource Compiler during DEBUG builds.\nCMAKE_RC_FLAGS_DEBUG:STRING=\n\n//Flags for Windows Resource Compiler during MINSIZEREL builds.\nCMAKE_RC_FLAGS_MINSIZEREL:STRING=\n\n//Flags for Windows Resource Compiler during RELEASE builds.\nCMAKE_RC_FLAGS_RELEASE:STRING=\n\n//Flags for Windows Resource Compiler during RELWITHDEBINFO builds.\nCMAKE_RC_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_READELF:FILEPATH=/usr/bin/x86_64-w64-mingw32-readelf\n\n//Flags used by the linker during the creation of shared libraries\n// during all build types.\nCMAKE_SHARED_LINKER_FLAGS:STRING=-static -static-libgcc -static-libstdc++\n\n//Flags used by the linker during the creation of shared libraries\n// during DEBUG builds.\nCMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during MINSIZEREL builds.\nCMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during RELEASE builds.\nCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of shared libraries\n// during RELWITHDEBINFO builds.\nCMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//If set, runtime paths are not added when installing shared libraries,\n// but are added when building.\nCMAKE_SKIP_INSTALL_RPATH:BOOL=NO\n\n//If set, runtime paths are not added when using shared libraries.\nCMAKE_SKIP_RPATH:BOOL=NO\n\n//Flags used by the linker during the creation of static libraries\n// during all build types.\nCMAKE_STATIC_LINKER_FLAGS:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during DEBUG builds.\nCMAKE_STATIC_LINKER_FLAGS_DEBUG:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during MINSIZEREL builds.\nCMAKE_STATIC_LINKER_FLAGS_MINSIZEREL:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during RELEASE builds.\nCMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=\n\n//Flags used by the linker during the creation of static libraries\n// during RELWITHDEBINFO builds.\nCMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=\n\n//Path to a program.\nCMAKE_STRIP:FILEPATH=/usr/bin/x86_64-w64-mingw32-strip\n\n//Path to a program.\nCMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND\n\n//The CMake toolchain file\nCMAKE_TOOLCHAIN_FILE:FILEPATH=/tmp/humanity-ffmpeg-win-v1/mingw-toolchain.cmake\n\n//If this value is on, makefiles will be generated without the\n// .SILENT directive, and all commands will be echoed to the console\n// during the make.  This is useful for debugging only. With Visual\n// Studio IDE projects all commands are done without /nologo.\nCMAKE_VERBOSE_MAKEFILE:BOOL=FALSE\n\n//Enable to build 7-Zip source packages\nCPACK_SOURCE_7Z:BOOL=ON\n\n//Enable to build ZIP source packages\nCPACK_SOURCE_ZIP:BOOL=ON\n\n//Git command line client\nGIT_EXECUTABLE:FILEPATH=/usr/bin/git\n\n//additional software error checking.\nOPUS_ASSERTIONS:BOOL=OFF\n\n//build programs.\nOPUS_BUILD_PROGRAMS:BOOL=OFF\n\n//build shared library.\nOPUS_BUILD_SHARED_LIBRARY:BOOL=OFF\n\n//build tests.\nOPUS_BUILD_TESTING:BOOL=OFF\n\n//enable bit-exactness checks between optimized and c implementations.\nOPUS_CHECK_ASM:BOOL=OFF\n\n//enable non-Opus modes, e.g. 44.1 kHz & 2^n frames.\nOPUS_CUSTOM_MODES:BOOL=OFF\n\n//disable all intrinsics optimizations.\nOPUS_DISABLE_INTRINSICS:BOOL=OFF\n\n//Run DNN computations as float for debugging purposes.\nOPUS_DNN_FLOAT_DEBUG:BOOL=OFF\n\n//enable DRED.\nOPUS_DRED:BOOL=OFF\n\n//compile with the floating point API (for machines with float\n// library).\nOPUS_ENABLE_FLOAT_API:BOOL=ON\n\n//compile as fixed-point (for machines without a fast enough FPU).\nOPUS_FIXED_POINT:BOOL=OFF\n\n//enable floating point approximations (Ensure your platform supports\n// IEEE 754 before enabling).\nOPUS_FLOAT_APPROX:BOOL=OFF\n\n//add protection against buffer overflows.\nOPUS_FORTIFY_SOURCE:BOOL=ON\n\n//causes the encoder to make random decisions (do not use in production).\nOPUS_FUZZING:BOOL=OFF\n\n//run-time checks that are cheap and safe for use in production.\nOPUS_HARDENING:BOOL=ON\n\n//install CMake package config module.\nOPUS_INSTALL_CMAKE_CONFIG_MODULE:BOOL=ON\n\n//install pkg-config module.\nOPUS_INSTALL_PKG_CONFIG_MODULE:BOOL=ON\n\n//enable OSCE.\nOPUS_OSCE:BOOL=OFF\n\n//use stack protection.\nOPUS_STACK_PROTECTOR:BOOL=ON\n\n//use variable length arrays for stack arrays.\nOPUS_VAR_ARRAYS:BOOL=ON\n\n//does runtime check for AVX FMA AVX2 support.\nOPUS_X86_MAY_HAVE_AVX2:BOOL=ON\n\n//does runtime check for SSE1 support.\nOPUS_X86_MAY_HAVE_SSE:BOOL=ON\n\n//does runtime check for SSE2 support.\nOPUS_X86_MAY_HAVE_SSE2:BOOL=ON\n\n//does runtime check for SSE4.1 support.\nOPUS_X86_MAY_HAVE_SSE4_1:BOOL=ON\n\n//assume target CPU has AVX FMA AVX2 support (override runtime\n// check).\nOPUS_X86_PRESUME_AVX2:BOOL=OFF\n\n//assume target CPU has SSE1 support (override runtime check).\nOPUS_X86_PRESUME_SSE:BOOL=ON\n\n//assume target CPU has SSE2 support (override runtime check).\nOPUS_X86_PRESUME_SSE2:BOOL=ON\n\n//assume target CPU has SSE4.1 support (override runtime check).\nOPUS_X86_PRESUME_SSE4_1:BOOL=OFF\n\n//Value Computed by CMake\nOpus_BINARY_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/build/opus\n\n//Value Computed by CMake\nOpus_IS_TOP_LEVEL:STATIC=ON\n\n//Value Computed by CMake\nOpus_SOURCE_DIR:STATIC=/tmp/humanity-ffmpeg-win-v1/src/opus\n\n\n########################\n# INTERNAL cache entries\n########################\n\n//Test AVX2_SUPPORTED\nAVX2_SUPPORTED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_ADDR2LINE\nCMAKE_ADDR2LINE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_AR\nCMAKE_AR-ADVANCED:INTERNAL=1\n//This is the directory where this CMakeCache.txt was created\nCMAKE_CACHEFILE_DIR:INTERNAL=/tmp/humanity-ffmpeg-win-v1/build/opus\n//Major version of cmake used to create the current loaded cache\nCMAKE_CACHE_MAJOR_VERSION:INTERNAL=3\n//Minor version of cmake used to create the current loaded cache\nCMAKE_CACHE_MINOR_VERSION:INTERNAL=28\n//Patch version of cmake used to create the current loaded cache\nCMAKE_CACHE_PATCH_VERSION:INTERNAL=3\n//Path to CMake executable.\nCMAKE_COMMAND:INTERNAL=/usr/bin/cmake\n//Path to cpack program executable.\nCMAKE_CPACK_COMMAND:INTERNAL=/usr/bin/cpack\n//Path to ctest program executable.\nCMAKE_CTEST_COMMAND:INTERNAL=/usr/bin/ctest\n//ADVANCED property for variable: CMAKE_C_COMPILER_AR\nCMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB\nCMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS\nCMAKE_C_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG\nCMAKE_C_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_MINSIZEREL\nCMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_RELEASE\nCMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO\nCMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_C_STANDARD_LIBRARIES\nCMAKE_C_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_DLLTOOL\nCMAKE_DLLTOOL-ADVANCED:INTERNAL=1\n//Executable file format\nCMAKE_EXECUTABLE_FORMAT:INTERNAL=Unknown\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS\nCMAKE_EXE_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_DEBUG\nCMAKE_EXE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_MINSIZEREL\nCMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELEASE\nCMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS\nCMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1\n//Name of external makefile project generator.\nCMAKE_EXTRA_GENERATOR:INTERNAL=\n//Name of generator.\nCMAKE_GENERATOR:INTERNAL=Ninja\n//Generator instance identifier.\nCMAKE_GENERATOR_INSTANCE:INTERNAL=\n//Name of generator platform.\nCMAKE_GENERATOR_PLATFORM:INTERNAL=\n//Name of generator toolset.\nCMAKE_GENERATOR_TOOLSET:INTERNAL=\n//Source directory with the top level CMakeLists.txt file for this\n// project\nCMAKE_HOME_DIRECTORY:INTERNAL=/tmp/humanity-ffmpeg-win-v1/src/opus\n//ADVANCED property for variable: CMAKE_INSTALL_BINDIR\nCMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_DATADIR\nCMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR\nCMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR\nCMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR\nCMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_INFODIR\nCMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR\nCMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR\nCMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR\nCMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR\nCMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_MANDIR\nCMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR\nCMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR\nCMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR\nCMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR\nCMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR\nCMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_LINKER\nCMAKE_LINKER-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MAKE_PROGRAM\nCMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS\nCMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG\nCMAKE_MODULE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL\nCMAKE_MODULE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELEASE\nCMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_NM\nCMAKE_NM-ADVANCED:INTERNAL=1\n//number of local generators\nCMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1\n//ADVANCED property for variable: CMAKE_OBJCOPY\nCMAKE_OBJCOPY-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_OBJDUMP\nCMAKE_OBJDUMP-ADVANCED:INTERNAL=1\n//Platform information initialized\nCMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RANLIB\nCMAKE_RANLIB-ADVANCED:INTERNAL=1\nCMAKE_RC_COMPILER_WORKS:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS\nCMAKE_RC_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_DEBUG\nCMAKE_RC_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_MINSIZEREL\nCMAKE_RC_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_RELEASE\nCMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_RC_FLAGS_RELWITHDEBINFO\nCMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_READELF\nCMAKE_READELF-ADVANCED:INTERNAL=1\n//Path to CMake installation.\nCMAKE_ROOT:INTERNAL=/usr/share/cmake-3.28\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS\nCMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG\nCMAKE_SHARED_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL\nCMAKE_SHARED_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELEASE\nCMAKE_SHARED_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SKIP_INSTALL_RPATH\nCMAKE_SKIP_INSTALL_RPATH-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_SKIP_RPATH\nCMAKE_SKIP_RPATH-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS\nCMAKE_STATIC_LINKER_FLAGS-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_DEBUG\nCMAKE_STATIC_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL\nCMAKE_STATIC_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELEASE\nCMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO\nCMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_STRIP\nCMAKE_STRIP-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CMAKE_TAPI\nCMAKE_TAPI-ADVANCED:INTERNAL=1\n//uname command\nCMAKE_UNAME:INTERNAL=/usr/bin/uname\n//ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE\nCMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1\n//Result of TRY_COMPILE\nCOMPILE_CPU_INFO_BY_ASM_SUPPORTED:INTERNAL=TRUE\n//Result of TRY_COMPILE\nCOMPILE_CPU_INFO_BY_C_SUPPORTED:INTERNAL=TRUE\n//Result of TRY_COMPILE\nCOMPILE_VLA_SUPPORTED:INTERNAL=TRUE\n//ADVANCED property for variable: CPACK_SOURCE_7Z\nCPACK_SOURCE_7Z-ADVANCED:INTERNAL=1\n//ADVANCED property for variable: CPACK_SOURCE_ZIP\nCPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1\n//Test FAST_MATH_SUPPORTED\nFAST_MATH_SUPPORTED:INTERNAL=1\n//Details about finding Git\nFIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[/usr/bin/git][v2.43.0()]\n//ADVANCED property for variable: GIT_EXECUTABLE\nGIT_EXECUTABLE-ADVANCED:INTERNAL=1\n//Have include alloca.h\nHAVE_ALLOCA_H:INTERNAL=\n//Have include cpuid.h\nHAVE_CPUID_H:INTERNAL=1\n//Have symbol elf_aux_info\nHAVE_ELF_AUX_INFO:INTERNAL=\n//Have include emmintrin.h\nHAVE_EMMINTRIN_H:INTERNAL=1\n//Have include immintrin.h\nHAVE_IMMINTRIN_H:INTERNAL=1\n//Have library m\nHAVE_LIBM:INTERNAL=1\n//Have library ssp\nHAVE_LIBSSP:INTERNAL=1\n//Have symbol lrint\nHAVE_LRINT:INTERNAL=1\n//Have symbol lrintf\nHAVE_LRINTF:INTERNAL=1\n//Have include smmintrin.h\nHAVE_SMMINTRIN_H:INTERNAL=1\n//Have include xmmintrin.h\nHAVE_XMMINTRIN_H:INTERNAL=1\n//Test HIDDEN_VISIBILITY_SUPPORTED\nHIDDEN_VISIBILITY_SUPPORTED:INTERNAL=1\n//Test SSE1_SUPPORTED\nSSE1_SUPPORTED:INTERNAL=1\n//Test SSE2_SUPPORTED\nSSE2_SUPPORTED:INTERNAL=1\n//Test SSE4_1_SUPPORTED\nSSE4_1_SUPPORTED:INTERNAL=1\n//Test STACK_PROTECTOR_SUPPORTED\nSTACK_PROTECTOR_SUPPORTED:INTERNAL=1\n//Have symbol alloca\nUSE_ALLOCA_SUPPORTED:INTERNAL=1\n//Test W_SUPPORTED\nW_SUPPORTED:INTERNAL=1\n//Test Wall_SUPPORTED\nWall_SUPPORTED:INTERNAL=1\n//Test Wcastalign_SUPPORTED\nWcastalign_SUPPORTED:INTERNAL=1\n//Test Wextra_SUPPORTED\nWextra_SUPPORTED:INTERNAL=1\n//Test Wnestedexterns_SUPPORTED\nWnestedexterns_SUPPORTED:INTERNAL=1\n//Test Wshadow_SUPPORTED\nWshadow_SUPPORTED:INTERNAL=1\n//Test Wstrictprototypes_SUPPORTED\nWstrictprototypes_SUPPORTED:INTERNAL=1\n//linker supports push/pop state\n_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE\n//CMAKE_INSTALL_PREFIX during last run\n_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/tmp/humanity-ffmpeg-win-v1/prefix\n\n"
+    },
+    "zimg-config.log": {
+      "bytes": 43711,
+      "sha256": "b3cb6078e371fd0348b1406ea467885c7403d2abcbeed79e67788a556629772e",
+      "text": "This file contains any messages produced by compilers while\nrunning configure, to aid debugging if configure makes a mistake.\n\nIt was created by zimg configure 3.0.6, which was\ngenerated by GNU Autoconf 2.71.  Invocation command line was\n\n  $ /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/configure --prefix=/tmp/humanity-ffmpeg-win-v1/prefix --host=x86_64-w64-mingw32 --enable-static --disable-shared\n\n## --------- ##\n## Platform. ##\n## --------- ##\n\nhostname = XXX\nuname -m = x86_64\nuname -r = 5.15.133.1-microsoft-standard-WSL2\nuname -s = Linux\nuname -v = #1 SMP Thu Oct 5 21:02:42 UTC 2023\n\n/usr/bin/uname -p = x86_64\n/bin/uname -X     = unknown\n\n/bin/arch              = x86_64\n/usr/bin/arch -k       = unknown\n/usr/convex/getsysinfo = unknown\n/usr/bin/hostinfo      = unknown\n/bin/machine           = unknown\n/usr/bin/oslevel       = unknown\n/bin/universe          = unknown\n\nPATH: /usr/local/sbin/\nPATH: /usr/local/bin/\nPATH: /usr/sbin/\nPATH: /usr/bin/\nPATH: /sbin/\nPATH: /bin/\nPATH: /usr/games/\nPATH: /usr/local/games/\nPATH: /usr/lib/wsl/lib/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/\nPATH: /mnt/c/Users/theri/.codex/tmp/arg0-windows/codex-arg0V2nHAo/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/\nPATH: /mnt/c/Program Files/nodejs/\nPATH: /mnt/c/Python313/Scripts/\nPATH: /mnt/c/Python313/\nPATH: /mnt/c/Program Files/Common Files/Oracle/Java/javapath/\nPATH: /mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path/\nPATH: /mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath/\nPATH: /mnt/c/Windows/system32/\nPATH: /mnt/c/Windows/\nPATH: /mnt/c/Windows/System32/Wbem/\nPATH: /mnt/c/Windows/System32/WindowsPowerShell/v1.0/\nPATH: /mnt/c/Windows/System32/OpenSSH/\nPATH: /mnt/c/Program Files/dotnet/\nPATH: /mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common/\nPATH: /mnt/c/Users/theri/AppData/Local/Programs/Python/Python312/Scripts/\nPATH: /mnt/c/Users/theri/AppData/Local/Programs/Python/Python312/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/\nPATH: /mnt/c/Users/theri/AppData/Local/Microsoft/WindowsApps/\nPATH: /mnt/c/ProgramData/chocolatey/bin/\nPATH: /mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2022.3.0/\nPATH: /mnt/c/Users/theri/AppData/Local/Android/Sdk/platform-tools/\nPATH: /mnt/c/Users/theri/AppData/Local/Android/Sdk/tools/\nPATH: /mnt/c/Users/theri/AppData/Local/Android/Sdk/tools/bin/\nPATH: /mnt/c/Users/theri/AppData/Local/Android/Sdk/cmdline-tools/latest/bin/\nPATH: /mnt/c/Users/theri/AppData/Local/Android/Sdk/emulator/\nPATH: /mnt/c/WINDOWS/system32/\nPATH: /mnt/c/WINDOWS/\nPATH: /mnt/c/WINDOWS/System32/Wbem/\nPATH: /mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/\nPATH: /mnt/c/WINDOWS/System32/OpenSSH/\nPATH: /mnt/c/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/\nPATH: /mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.6/bin/\nPATH: /mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.6/libnvvp/\nPATH: /mnt/c/ProgramData/anaconda3/condabin/\nPATH: /mnt/c/Program Files/GitHub CLI/\nPATH: /mnt/c/Program Files/Git/cmd/\nPATH: /mnt/c/Program Files/Go/bin/\nPATH: /mnt/c/Program Files (x86)/cloudflared/\nPATH: /mnt/c/Users/theri/.cargo/bin/\nPATH: /mnt/c/Users/theri/.local/bin/\nPATH: /mnt/c/Users/theri/AppData/Local/Programs/Python/Python311/Scripts/\nPATH: /mnt/c/Users/theri/AppData/Local/Programs/Python/Python311/\nPATH: /mnt/c/Users/theri/AppData/Roaming/Python/Scripts/\nPATH: /mnt/c/Users/theri/.aftman/bin/\nPATH: /mnt/c/Users/theri/AppData/Roaming/npm/\nPATH: /mnt/c/Users/theri/AppData/Local/cursor-agent/\nPATH: /mnt/c/Users/theri/AppData/Local/Microsoft/WinGet/Packages/JernejSimoncic.Wget_Microsoft.Winget.Source_8wekyb3d8bbwe/\nPATH: /mnt/c/Users/theri/AppData/Roaming/Python/Python313/Scripts/\nPATH: /mnt/c/Users/theri/.dotnet/tools/\nPATH: /mnt/c/Users/theri/AppData/Local/Programs/Ollama/\nPATH: /mnt/c/Users/theri/bin/\nPATH: /mnt/c/Users/theri/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.1-full_build/bin/\nPATH: /mnt/c/Users/theri/.dotnet/tools/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/\nPATH: /mnt/c/Users/theri/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/\nPATH: /mnt/c/Program Files/WindowsApps/OpenAI.Codex_26.1027.3384.0_x64__2p2nqsd0c76g0/app/resources/\n\n\n## ----------- ##\n## Core tests. ##\n## ----------- ##\n\nconfigure:2789: looking for aux files: compile config.guess config.sub ltmain.sh missing install-sh\nconfigure:2802:  trying /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/\nconfigure:2831:   /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/compile found\nconfigure:2831:   /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/config.guess found\nconfigure:2831:   /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/config.sub found\nconfigure:2831:   /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/ltmain.sh found\nconfigure:2831:   /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/missing found\nconfigure:2813:   /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/install-sh found\nconfigure:2965: checking for a BSD-compatible install\nconfigure:3038: result: /usr/bin/install -c\nconfigure:3049: checking whether build environment is sane\nconfigure:3104: result: yes\nconfigure:3160: checking for x86_64-w64-mingw32-strip\nconfigure:3192: result: x86_64-w64-mingw32-strip\nconfigure:3263: checking for a race-free mkdir -p\nconfigure:3307: result: /usr/bin/mkdir -p\nconfigure:3314: checking for gawk\nconfigure:3335: found /usr/bin/gawk\nconfigure:3346: result: gawk\nconfigure:3357: checking whether make sets $(MAKE)\nconfigure:3380: result: yes\nconfigure:3410: checking whether make supports nested variables\nconfigure:3428: result: yes\nconfigure:3571: checking whether make supports nested variables\nconfigure:3589: result: yes\nconfigure:3633: checking build system type\nconfigure:3648: result: x86_64-pc-linux-gnu\nconfigure:3668: checking host system type\nconfigure:3682: result: x86_64-w64-mingw32\nconfigure:3723: checking how to print strings\nconfigure:3750: result: printf\nconfigure:3784: checking whether make supports the include directive\nconfigure:3799: make -f confmf.GNU && cat confinc.out\nthis is the am__doit target\nconfigure:3802: $? = 0\nconfigure:3821: result: yes (GNU style)\nconfigure:3852: checking for x86_64-w64-mingw32-gcc\nconfigure:3884: result: x86_64-w64-mingw32-gcc\nconfigure:4282: checking for C compiler version\nconfigure:4291: x86_64-w64-mingw32-gcc --version >&5\nx86_64-w64-mingw32-gcc (GCC) 13-posix\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nconfigure:4302: $? = 0\nconfigure:4291: x86_64-w64-mingw32-gcc -v >&5\nUsing built-in specs.\nCOLLECT_GCC=x86_64-w64-mingw32-gcc\nCOLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-w64-mingw32/13-posix/lto-wrapper\nTarget: x86_64-w64-mingw32\nConfigured with: ../../src/configure --build=x86_64-linux-gnu --prefix=/usr --includedir='/usr/include' --mandir='/usr/share/man' --infodir='/usr/share/info' --sysconfdir=/etc --localstatedir=/var --disable-option-checking --disable-silent-rules --libdir='/usr/lib/x86_64-linux-gnu' --libexecdir='/usr/lib/x86_64-linux-gnu' --disable-maintainer-mode --disable-dependency-tracking --prefix=/usr --enable-shared --enable-static --disable-multilib --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --libdir=/usr/lib --enable-libstdcxx-time=yes --with-tune=generic --with-headers --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libgomp --enable-languages=c,c++,fortran,objc,obj-c++,ada --enable-lto --enable-threads=posix --program-suffix=-posix --program-prefix=x86_64-w64-mingw32- --target=x86_64-w64-mingw32 --with-as=/usr/bin/x86_64-w64-mingw32-as --with-ld=/usr/bin/x86_64-w64-mingw32-ld --enable-libatomic --enable-libstdcxx-filesystem-ts=yes --enable-dependency-tracking SED=/bin/sed\nThread model: posix\nSupported LTO compression algorithms: zlib zstd\ngcc version 13-posix (GCC) \nconfigure:4302: $? = 0\nconfigure:4291: x86_64-w64-mingw32-gcc -V >&5\nx86_64-w64-mingw32-gcc: error: unrecognized command-line option '-V'\nx86_64-w64-mingw32-gcc: fatal error: no input files\ncompilation terminated.\nconfigure:4302: $? = 1\nconfigure:4291: x86_64-w64-mingw32-gcc -qversion >&5\nx86_64-w64-mingw32-gcc: error: unrecognized command-line option '-qversion'; did you mean '--version'?\nx86_64-w64-mingw32-gcc: fatal error: no input files\ncompilation terminated.\nconfigure:4302: $? = 1\nconfigure:4291: x86_64-w64-mingw32-gcc -version >&5\nx86_64-w64-mingw32-gcc: error: unrecognized command-line option '-version'\nx86_64-w64-mingw32-gcc: fatal error: no input files\ncompilation terminated.\nconfigure:4302: $? = 1\nconfigure:4322: checking whether the C compiler works\nconfigure:4344: x86_64-w64-mingw32-gcc -O2 -g0  -static -static-libgcc -static-libstdc++ conftest.c  >&5\nconfigure:4348: $? = 0\nconfigure:4398: result: yes\nconfigure:4401: checking for C compiler default output file name\nconfigure:4403: result: a.exe\nconfigure:4409: checking for suffix of executables\nconfigure:4416: x86_64-w64-mingw32-gcc -o conftest.exe -O2 -g0  -static -static-libgcc -static-libstdc++ conftest.c  >&5\nconfigure:4420: $? = 0\nconfigure:4443: result: .exe\nconfigure:4465: checking whether we are cross compiling\nconfigure:4473: x86_64-w64-mingw32-gcc -o conftest.exe -O2 -g0  -static -static-libgcc -static-libstdc++ conftest.c  >&5\nconfigure:4477: $? = 0\nconfigure:4484: ./conftest.exe\nconfigure:4488: $? = 0\nconfigure:4503: result: no\nconfigure:4508: checking for suffix of object files\nconfigure:4531: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:4535: $? = 0\nconfigure:4557: result: o\nconfigure:4561: checking whether the compiler supports GNU C\nconfigure:4581: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:4581: $? = 0\nconfigure:4591: result: yes\nconfigure:4602: checking whether x86_64-w64-mingw32-gcc accepts -g\nconfigure:4623: x86_64-w64-mingw32-gcc -c -g  conftest.c >&5\nconfigure:4623: $? = 0\nconfigure:4667: result: yes\nconfigure:4687: checking for x86_64-w64-mingw32-gcc option to enable C11 features\nconfigure:4702: x86_64-w64-mingw32-gcc  -c -O2 -g0  conftest.c >&5\nconfigure:4702: $? = 0\nconfigure:4720: result: none needed\nconfigure:4836: checking whether x86_64-w64-mingw32-gcc understands -c and -o together\nconfigure:4859: x86_64-w64-mingw32-gcc -c conftest.c -o conftest2.o\nconfigure:4862: $? = 0\nconfigure:4859: x86_64-w64-mingw32-gcc -c conftest.c -o conftest2.o\nconfigure:4862: $? = 0\nconfigure:4874: result: yes\nconfigure:4893: checking dependency style of x86_64-w64-mingw32-gcc\nconfigure:5005: result: gcc3\nconfigure:5020: checking for a sed that does not truncate output\nconfigure:5090: result: /usr/bin/sed\nconfigure:5108: checking for grep that handles long lines and -e\nconfigure:5172: result: /usr/bin/grep\nconfigure:5177: checking for egrep\nconfigure:5245: result: /usr/bin/grep -E\nconfigure:5250: checking for fgrep\nconfigure:5318: result: /usr/bin/grep -F\nconfigure:5354: checking for ld used by x86_64-w64-mingw32-gcc\nconfigure:5422: result: /usr/bin/x86_64-w64-mingw32-ld\nconfigure:5429: checking if the linker (/usr/bin/x86_64-w64-mingw32-ld) is GNU ld\nconfigure:5445: result: yes\nconfigure:5457: checking for BSD- or MS-compatible name lister (nm)\nconfigure:5512: result: /usr/bin/x86_64-w64-mingw32-nm -B\nconfigure:5652: checking the name lister (/usr/bin/x86_64-w64-mingw32-nm -B) interface\nconfigure:5660: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:5663: /usr/bin/x86_64-w64-mingw32-nm -B \"conftest.o\"\nconfigure:5666: output\n0000000000000000 b .bss\n0000000000000000 d .data\n0000000000000000 r .rdata$zzz\n0000000000000000 t .text\n0000000000000000 B some_variable\nconfigure:5673: result: BSD nm\nconfigure:5676: checking whether ln -s works\nconfigure:5680: result: yes\nconfigure:5688: checking the maximum length of command line arguments\nconfigure:5820: result: 1572864\nconfigure:5868: checking how to convert x86_64-pc-linux-gnu file names to x86_64-w64-mingw32 format\nconfigure:5909: result: func_convert_file_nix_to_w32\nconfigure:5916: checking how to convert x86_64-pc-linux-gnu file names to toolchain format\nconfigure:5937: result: func_convert_file_noop\nconfigure:5944: checking for /usr/bin/x86_64-w64-mingw32-ld option to reload object files\nconfigure:5952: result: -r\nconfigure:5986: checking for x86_64-w64-mingw32-file\nconfigure:6021: result: no\nconfigure:6031: checking for file\nconfigure:6052: found /usr/bin/file\nconfigure:6063: result: file\nconfigure:6094: checking for x86_64-w64-mingw32-objdump\nconfigure:6115: found /usr/bin/x86_64-w64-mingw32-objdump\nconfigure:6126: result: x86_64-w64-mingw32-objdump\nconfigure:6200: checking how to recognize dependent libraries\nconfigure:6401: result: file_magic ^x86 archive import|^x86 DLL\nconfigure:6446: checking for x86_64-w64-mingw32-dlltool\nconfigure:6467: found /usr/bin/x86_64-w64-mingw32-dlltool\nconfigure:6478: result: x86_64-w64-mingw32-dlltool\nconfigure:6553: checking how to associate runtime and link libraries\nconfigure:6581: result: func_cygming_dll_for_implib\nconfigure:6598: checking for x86_64-w64-mingw32-ar\nconfigure:6630: result: x86_64-w64-mingw32-ar\nconfigure:6732: checking for archiver @FILE support\nconfigure:6750: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:6750: $? = 0\nconfigure:6754: x86_64-w64-mingw32-ar cr libconftest.a @conftest.lst >&5\nconfigure:6757: $? = 0\nconfigure:6762: x86_64-w64-mingw32-ar cr libconftest.a @conftest.lst >&5\nx86_64-w64-mingw32-ar: conftest.o: No such file or directory\nconfigure:6765: $? = 1\nconfigure:6777: result: @\nconfigure:6795: checking for x86_64-w64-mingw32-strip\nconfigure:6827: result: x86_64-w64-mingw32-strip\nconfigure:6904: checking for x86_64-w64-mingw32-ranlib\nconfigure:6936: result: x86_64-w64-mingw32-ranlib\nconfigure:7083: checking command to parse /usr/bin/x86_64-w64-mingw32-nm -B output from x86_64-w64-mingw32-gcc object\nconfigure:7237: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:7240: $? = 0\nconfigure:7244: /usr/bin/x86_64-w64-mingw32-nm -B conftest.o | /usr/bin/sed -n -e 's/^.*[\t ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[\t ][\t ]*\\([_A-Za-z][_A-Za-z0-9]*\\)$/\\1 \\2 \\2/p' | /usr/bin/sed '/ __gnu_lto/d' > conftest.nm\nconfigure:7310: x86_64-w64-mingw32-gcc -o conftest.exe -O2 -g0  -static -static-libgcc -static-libstdc++ conftest.c conftstm.o >&5\nconfigure:7313: $? = 0\nconfigure:7351: result: ok\nconfigure:7398: checking for sysroot\nconfigure:7429: result: no\nconfigure:7436: checking for a working dd\nconfigure:7480: result: /usr/bin/dd\nconfigure:7484: checking how to truncate binary pipes\nconfigure:7500: result: /usr/bin/dd bs=4096 count=1\nconfigure:7792: checking for x86_64-w64-mingw32-mt\nconfigure:7827: result: no\nconfigure:7837: checking for mt\nconfigure:7872: result: no\nconfigure:7892: checking if : is a manifest tool\nconfigure:7899: : '-?'\nconfigure:7907: result: no\nconfigure:8632: checking for stdio.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8632: checking for stdlib.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8632: checking for string.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8632: checking for inttypes.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8632: checking for stdint.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8632: checking for strings.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8632: checking for sys/stat.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8632: checking for sys/types.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8632: checking for unistd.h\nconfigure:8632: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconfigure:8632: $? = 0\nconfigure:8632: result: yes\nconfigure:8657: checking for dlfcn.h\nconfigure:8657: x86_64-w64-mingw32-gcc -c -O2 -g0  conftest.c >&5\nconftest.c:48:10: fatal error: dlfcn.h: No such file or directory\n   48 | #include <dlfcn.h>\n      |          ^~~~~~~~~\ncompilation terminated.\nconfigure:8657: $? = 1\nconfigure: failed program was:\n| /* confdefs.h */\n| #define PACKAGE_NAME \"zimg\"\n| #define PACKAGE_TARNAME \"zimg\"\n| #define PACKAGE_VERSION \"3.0.6\"\n| #define PACKAGE_STRING \"zimg 3.0.6\"\n| #define PACKAGE_BUGREPORT \"https://github.com/sekrit-twc/zimg/pulls\"\n| #define PACKAGE_URL \"https://github.com/sekrit-twc/zimg\"\n| #define HAVE_STDIO_H 1\n| #define HAVE_STDLIB_H 1\n| #define HAVE_STRING_H 1\n| #define HAVE_INTTYPES_H 1\n| #define HAVE_STDINT_H 1\n| #define HAVE_STRINGS_H 1\n| #define HAVE_SYS_STAT_H 1\n| #define HAVE_SYS_TYPES_H 1\n| #define HAVE_UNISTD_H 1\n| #define STDC_HEADERS 1\n| /* end confdefs.h.  */\n| #include <stddef.h>\n| #ifdef HAVE_STDIO_H\n| # include <stdio.h>\n| #endif\n| #ifdef HAVE_STDLIB_H\n| # include <stdlib.h>\n| #endif\n| #ifdef HAVE_STRING_H\n| # include <string.h>\n| #endif\n| #ifdef HAVE_INTTYPES_H\n| # include <inttypes.h>\n| #endif\n| #ifdef HAVE_STDINT_H\n| # include <stdint.h>\n| #endif\n| #ifdef HAVE_STRINGS_H\n| # include <strings.h>\n| #endif\n| #ifdef HAVE_SYS_TYPES_H\n| # include <sys/types.h>\n| #endif\n| #ifdef HAVE_SYS_STAT_H\n| # include <sys/stat.h>\n| #endif\n| #ifdef HAVE_UNISTD_H\n| # include <unistd.h>\n| #endif\n| \n| #include <dlfcn.h>\nconfigure:8657: result: no\nconfigure:8677: checking for x86_64-w64-mingw32-as\nconfigure:8698: found /usr/bin/x86_64-w64-mingw32-as\nconfigure:8709: result: x86_64-w64-mingw32-as\nconfigure:8779: checking for x86_64-w64-mingw32-dlltool\nconfigure:8811: result: x86_64-w64-mingw32-dlltool\nconfigure:8881: checking for x86_64-w64-mingw32-objdump\nconfigure:8913: result: x86_64-w64-mingw32-objdump\nconfigure:9244: checking for objdir\nconfigure:9260: result: .libs\nconfigure:9524: checking if x86_64-w64-mingw32-gcc supports -fno-rtti -fno-exceptions\nconfigure:9543: x86_64-w64-mingw32-gcc -c -O2 -g0  -fno-rtti -fno-exceptions conftest.c >&5\ncc1: warning: command-line option '-fno-rtti' is valid for C++/D/ObjC++ but not for C\nconfigure:9547: $? = 0\nconfigure:9560: result: no\nconfigure:9924: checking for x86_64-w64-mingw32-gcc option to produce PIC\nconfigure:9932: result: -DDLL_EXPORT -DPIC\nconfigure:9940: checking if x86_64-w64-mingw32-gcc PIC flag -DDLL_EXPORT -DPIC works\nconfigure:9959: x86_64-w64-mingw32-gcc -c -O2 -g0  -DDLL_EXPORT -DPIC -DPIC conftest.c >&5\nconfigure:9963: $? = 0\nconfigure:9976: result: yes\nconfigure:10005: checking if x86_64-w64-mingw32-gcc static flag -static works\nconfigure:10034: result: yes\nconfigure:10049: checking if x86_64-w64-mingw32-gcc supports -c -o file.o\nconfigure:10071: x86_64-w64-mingw32-gcc -c -O2 -g0  -o out/conftest2.o conftest.c >&5\nconfigure:10075: $? = 0\nconfigure:10097: result: yes\nconfigure:10105: checking if x86_64-w64-mingw32-gcc supports -c -o file.o\nconfigure:10153: result: yes\nconfigure:10186: checking whether the x86_64-w64-mingw32-gcc linker (/usr/bin/x86_64-w64-mingw32-ld) supports shared libraries\nconfigure:11460: result: yes\nconfigure:11701: checking dynamic linker characteristics\nconfigure:12534: result: Win32 ld.exe\nconfigure:12656: checking how to hardcode library paths into programs\nconfigure:12681: result: immediate\nconfigure:13233: checking whether stripping libraries is possible\nconfigure:13242: result: yes\nconfigure:13284: checking if libtool supports shared libraries\nconfigure:13286: result: yes\nconfigure:13289: checking whether to build shared libraries\nconfigure:13314: result: no\nconfigure:13317: checking whether to build static libraries\nconfigure:13321: result: yes\nconfigure:13487: checking for C++ compiler version\nconfigure:13496: x86_64-w64-mingw32-g++ --version >&5\nx86_64-w64-mingw32-g++ (GCC) 13-posix\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nconfigure:13507: $? = 0\nconfigure:13496: x86_64-w64-mingw32-g++ -v >&5\nUsing built-in specs.\nCOLLECT_GCC=x86_64-w64-mingw32-g++\nCOLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-w64-mingw32/13-posix/lto-wrapper\nTarget: x86_64-w64-mingw32\nConfigured with: ../../src/configure --build=x86_64-linux-gnu --prefix=/usr --includedir='/usr/include' --mandir='/usr/share/man' --infodir='/usr/share/info' --sysconfdir=/etc --localstatedir=/var --disable-option-checking --disable-silent-rules --libdir='/usr/lib/x86_64-linux-gnu' --libexecdir='/usr/lib/x86_64-linux-gnu' --disable-maintainer-mode --disable-dependency-tracking --prefix=/usr --enable-shared --enable-static --disable-multilib --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --libdir=/usr/lib --enable-libstdcxx-time=yes --with-tune=generic --with-headers --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libgomp --enable-languages=c,c++,fortran,objc,obj-c++,ada --enable-lto --enable-threads=posix --program-suffix=-posix --program-prefix=x86_64-w64-mingw32- --target=x86_64-w64-mingw32 --with-as=/usr/bin/x86_64-w64-mingw32-as --with-ld=/usr/bin/x86_64-w64-mingw32-ld --enable-libatomic --enable-libstdcxx-filesystem-ts=yes --enable-dependency-tracking SED=/bin/sed\nThread model: posix\nSupported LTO compression algorithms: zlib zstd\ngcc version 13-posix (GCC) \nconfigure:13507: $? = 0\nconfigure:13496: x86_64-w64-mingw32-g++ -V >&5\nx86_64-w64-mingw32-g++: error: unrecognized command-line option '-V'\nx86_64-w64-mingw32-g++: fatal error: no input files\ncompilation terminated.\nconfigure:13507: $? = 1\nconfigure:13496: x86_64-w64-mingw32-g++ -qversion >&5\nx86_64-w64-mingw32-g++: error: unrecognized command-line option '-qversion'; did you mean '--version'?\nx86_64-w64-mingw32-g++: fatal error: no input files\ncompilation terminated.\nconfigure:13507: $? = 1\nconfigure:13511: checking whether the compiler supports GNU C++\nconfigure:13531: x86_64-w64-mingw32-g++ -c -O2 -g0  conftest.cpp >&5\nconfigure:13531: $? = 0\nconfigure:13541: result: yes\nconfigure:13552: checking whether x86_64-w64-mingw32-g++ accepts -g\nconfigure:13573: x86_64-w64-mingw32-g++ -c -g  conftest.cpp >&5\nconfigure:13573: $? = 0\nconfigure:13617: result: yes\nconfigure:13637: checking for x86_64-w64-mingw32-g++ option to enable C++11 features\nconfigure:13652: x86_64-w64-mingw32-g++  -c -O2 -g0  conftest.cpp >&5\nconftest.cpp: In function 'int main(int, char**)':\nconftest.cpp:186:25: warning: empty parentheses were disambiguated as a function declaration [-Wvexing-parse]\n  186 |   cxx11test::delegate d2();\n      |                         ^~\nconftest.cpp:186:25: note: remove parentheses to default-initialize a variable\n  186 |   cxx11test::delegate d2();\n      |                         ^~\n      |                         --\nconftest.cpp:186:25: note: or replace parentheses with braces to value-initialize a variable\nconfigure:13652: $? = 0\nconfigure:13670: result: none needed\nconfigure:13736: checking dependency style of x86_64-w64-mingw32-g++\nconfigure:13848: result: gcc3\nconfigure:13881: checking how to run the C++ preprocessor\nconfigure:13903: x86_64-w64-mingw32-g++ -E  conftest.cpp\nconfigure:13903: $? = 0\nconfigure:13918: x86_64-w64-mingw32-g++ -E  conftest.cpp\nconftest.cpp:20:10: fatal error: ac_nonexistent.h: No such file or directory\n   20 | #include <ac_nonexistent.h>\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\nconfigure:13918: $? = 1\nconfigure: failed program was:\n| /* confdefs.h */\n| #define PACKAGE_NAME \"zimg\"\n| #define PACKAGE_TARNAME \"zimg\"\n| #define PACKAGE_VERSION \"3.0.6\"\n| #define PACKAGE_STRING \"zimg 3.0.6\"\n| #define PACKAGE_BUGREPORT \"https://github.com/sekrit-twc/zimg/pulls\"\n| #define PACKAGE_URL \"https://github.com/sekrit-twc/zimg\"\n| #define HAVE_STDIO_H 1\n| #define HAVE_STDLIB_H 1\n| #define HAVE_STRING_H 1\n| #define HAVE_INTTYPES_H 1\n| #define HAVE_STDINT_H 1\n| #define HAVE_STRINGS_H 1\n| #define HAVE_SYS_STAT_H 1\n| #define HAVE_SYS_TYPES_H 1\n| #define HAVE_UNISTD_H 1\n| #define STDC_HEADERS 1\n| #define LT_OBJDIR \".libs/\"\n| /* end confdefs.h.  */\n| #include <ac_nonexistent.h>\nconfigure:13945: result: x86_64-w64-mingw32-g++ -E\nconfigure:13959: x86_64-w64-mingw32-g++ -E  conftest.cpp\nconfigure:13959: $? = 0\nconfigure:13974: x86_64-w64-mingw32-g++ -E  conftest.cpp\nconftest.cpp:20:10: fatal error: ac_nonexistent.h: No such file or directory\n   20 | #include <ac_nonexistent.h>\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\nconfigure:13974: $? = 1\nconfigure: failed program was:\n| /* confdefs.h */\n| #define PACKAGE_NAME \"zimg\"\n| #define PACKAGE_TARNAME \"zimg\"\n| #define PACKAGE_VERSION \"3.0.6\"\n| #define PACKAGE_STRING \"zimg 3.0.6\"\n| #define PACKAGE_BUGREPORT \"https://github.com/sekrit-twc/zimg/pulls\"\n| #define PACKAGE_URL \"https://github.com/sekrit-twc/zimg\"\n| #define HAVE_STDIO_H 1\n| #define HAVE_STDLIB_H 1\n| #define HAVE_STRING_H 1\n| #define HAVE_INTTYPES_H 1\n| #define HAVE_STDINT_H 1\n| #define HAVE_STRINGS_H 1\n| #define HAVE_SYS_STAT_H 1\n| #define HAVE_SYS_TYPES_H 1\n| #define HAVE_UNISTD_H 1\n| #define STDC_HEADERS 1\n| #define LT_OBJDIR \".libs/\"\n| /* end confdefs.h.  */\n| #include <ac_nonexistent.h>\nconfigure:14139: checking for ld used by x86_64-w64-mingw32-g++\nconfigure:14207: result: /usr/bin/x86_64-w64-mingw32-ld\nconfigure:14214: checking if the linker (/usr/bin/x86_64-w64-mingw32-ld) is GNU ld\nconfigure:14230: result: yes\nconfigure:14285: checking whether the x86_64-w64-mingw32-g++ linker (/usr/bin/x86_64-w64-mingw32-ld) supports shared libraries\nconfigure:15363: result: yes\nconfigure:15399: x86_64-w64-mingw32-g++ -c -O2 -g0  conftest.cpp >&5\nconfigure:15402: $? = 0\nconfigure:15883: checking for x86_64-w64-mingw32-g++ option to produce PIC\nconfigure:15891: result: -DDLL_EXPORT -DPIC\nconfigure:15899: checking if x86_64-w64-mingw32-g++ PIC flag -DDLL_EXPORT -DPIC works\nconfigure:15918: x86_64-w64-mingw32-g++ -c -O2 -g0  -DDLL_EXPORT -DPIC -DPIC conftest.cpp >&5\nconfigure:15922: $? = 0\nconfigure:15935: result: yes\nconfigure:15958: checking if x86_64-w64-mingw32-g++ static flag -static works\nconfigure:15987: result: yes\nconfigure:15999: checking if x86_64-w64-mingw32-g++ supports -c -o file.o\nconfigure:16021: x86_64-w64-mingw32-g++ -c -O2 -g0  -o out/conftest2.o conftest.cpp >&5\nconfigure:16025: $? = 0\nconfigure:16047: result: yes\nconfigure:16052: checking if x86_64-w64-mingw32-g++ supports -c -o file.o\nconfigure:16100: result: yes\nconfigure:16130: checking whether the x86_64-w64-mingw32-g++ linker (/usr/bin/x86_64-w64-mingw32-ld) supports shared libraries\nconfigure:16173: result: yes\nconfigure:16315: checking dynamic linker characteristics\nconfigure:17075: result: Win32 ld.exe\nconfigure:17140: checking how to hardcode library paths into programs\nconfigure:17165: result: immediate\nconfigure:17248: checking whether C++ compiler accepts -std=c++14\nconfigure:17268: x86_64-w64-mingw32-g++ -c -O2 -g0  -std=c++14  conftest.cpp >&5\nconfigure:17268: $? = 0\nconfigure:17277: result: yes\nconfigure:17342: checking whether C compiler accepts -fvisibility=hidden\nconfigure:17362: x86_64-w64-mingw32-gcc -c -O2 -g0  -fvisibility=hidden  conftest.c >&5\nconfigure:17362: $? = 0\nconfigure:17371: result: yes\nconfigure:17386: checking how to run the C preprocessor\nconfigure:17412: x86_64-w64-mingw32-gcc -E  conftest.c\nconfigure:17412: $? = 0\nconfigure:17427: x86_64-w64-mingw32-gcc -E  conftest.c\nconftest.c:20:10: fatal error: ac_nonexistent.h: No such file or directory\n   20 | #include <ac_nonexistent.h>\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\nconfigure:17427: $? = 1\nconfigure: failed program was:\n| /* confdefs.h */\n| #define PACKAGE_NAME \"zimg\"\n| #define PACKAGE_TARNAME \"zimg\"\n| #define PACKAGE_VERSION \"3.0.6\"\n| #define PACKAGE_STRING \"zimg 3.0.6\"\n| #define PACKAGE_BUGREPORT \"https://github.com/sekrit-twc/zimg/pulls\"\n| #define PACKAGE_URL \"https://github.com/sekrit-twc/zimg\"\n| #define HAVE_STDIO_H 1\n| #define HAVE_STDLIB_H 1\n| #define HAVE_STRING_H 1\n| #define HAVE_INTTYPES_H 1\n| #define HAVE_STDINT_H 1\n| #define HAVE_STRINGS_H 1\n| #define HAVE_SYS_STAT_H 1\n| #define HAVE_SYS_TYPES_H 1\n| #define HAVE_UNISTD_H 1\n| #define STDC_HEADERS 1\n| #define LT_OBJDIR \".libs/\"\n| /* end confdefs.h.  */\n| #include <ac_nonexistent.h>\nconfigure:17454: result: x86_64-w64-mingw32-gcc -E\nconfigure:17468: x86_64-w64-mingw32-gcc -E  conftest.c\nconfigure:17468: $? = 0\nconfigure:17483: x86_64-w64-mingw32-gcc -E  conftest.c\nconftest.c:20:10: fatal error: ac_nonexistent.h: No such file or directory\n   20 | #include <ac_nonexistent.h>\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\nconfigure:17483: $? = 1\nconfigure: failed program was:\n| /* confdefs.h */\n| #define PACKAGE_NAME \"zimg\"\n| #define PACKAGE_TARNAME \"zimg\"\n| #define PACKAGE_VERSION \"3.0.6\"\n| #define PACKAGE_STRING \"zimg 3.0.6\"\n| #define PACKAGE_BUGREPORT \"https://github.com/sekrit-twc/zimg/pulls\"\n| #define PACKAGE_URL \"https://github.com/sekrit-twc/zimg\"\n| #define HAVE_STDIO_H 1\n| #define HAVE_STDLIB_H 1\n| #define HAVE_STRING_H 1\n| #define HAVE_INTTYPES_H 1\n| #define HAVE_STDINT_H 1\n| #define HAVE_STRINGS_H 1\n| #define HAVE_SYS_STAT_H 1\n| #define HAVE_SYS_TYPES_H 1\n| #define HAVE_UNISTD_H 1\n| #define STDC_HEADERS 1\n| #define LT_OBJDIR \".libs/\"\n| /* end confdefs.h.  */\n| #include <ac_nonexistent.h>\nconfigure:17699: checking whether x86_64-w64-mingw32-gcc is Clang\nconfigure:17726: result: no\nconfigure:17854: checking whether pthreads work with -pthread\nconfigure:17954: x86_64-w64-mingw32-gcc -o conftest.exe -fvisibility=hidden -O2 -g0 -pthread  -static -static-libgcc -static-libstdc++ conftest.c   >&5\nconfigure:17954: $? = 0\nconfigure:17964: result: yes\nconfigure:17984: checking for joinable pthread attribute\nconfigure:18003: x86_64-w64-mingw32-gcc -o conftest.exe -fvisibility=hidden -O2 -g0 -pthread  -static -static-libgcc -static-libstdc++ conftest.c   >&5\nconfigure:18003: $? = 0\nconfigure:18012: result: PTHREAD_CREATE_JOINABLE\nconfigure:18025: checking whether more special flags are required for pthreads\nconfigure:18039: result: no\nconfigure:18048: checking for PTHREAD_PRIO_INHERIT\nconfigure:18065: x86_64-w64-mingw32-gcc -o conftest.exe -fvisibility=hidden -O2 -g0 -pthread  -static -static-libgcc -static-libstdc++ conftest.c   >&5\nconfigure:18065: $? = 0\nconfigure:18075: result: yes\nconfigure:18351: checking whether C compiler accepts -mtune=sandybridge\nconfigure:18371: x86_64-w64-mingw32-gcc -c -fvisibility=hidden -O2 -g0  -mtune=sandybridge  conftest.c >&5\nconfigure:18371: $? = 0\nconfigure:18380: result: yes\nconfigure:18390: checking whether C compiler accepts -mtune=ivybridge\nconfigure:18410: x86_64-w64-mingw32-gcc -c -fvisibility=hidden -O2 -g0  -mtune=ivybridge  conftest.c >&5\nconfigure:18410: $? = 0\nconfigure:18419: result: yes\nconfigure:18429: checking whether C compiler accepts -mtune=haswell\nconfigure:18449: x86_64-w64-mingw32-gcc -c -fvisibility=hidden -O2 -g0  -mtune=haswell  conftest.c >&5\nconfigure:18449: $? = 0\nconfigure:18458: result: yes\nconfigure:18468: checking whether C compiler accepts -mtune=skylake-avx512\nconfigure:18488: x86_64-w64-mingw32-gcc -c -fvisibility=hidden -O2 -g0  -mtune=skylake-avx512  conftest.c >&5\nconfigure:18488: $? = 0\nconfigure:18497: result: yes\nconfigure:18507: checking whether C compiler accepts -mtune=cascadelake\nconfigure:18527: x86_64-w64-mingw32-gcc -c -fvisibility=hidden -O2 -g0  -mtune=cascadelake  conftest.c >&5\nconfigure:18527: $? = 0\nconfigure:18536: result: yes\nconfigure:18547: checking whether C compiler accepts -mavx512f -mavx512pf -mavx512er -mavx512cd -mavx512vl -mavx512bw -mavx512dq -mavx512ifma -mavx512vbmi -mavx512vbmi2 -mavx512bitalg -mavx512vpopcntdq -mavx512vnni\nconfigure:18571: x86_64-w64-mingw32-gcc -c -fvisibility=hidden -O2 -g0  -mavx512f -mavx512pf -mavx512er -mavx512cd -mavx512vl -mavx512bw -mavx512dq -mavx512ifma -mavx512vbmi -mavx512vbmi2 -mavx512bitalg -mavx512vpopcntdq -mavx512vnni  conftest.c >&5\nconfigure:18571: $? = 0\nconfigure:18580: result: yes\nconfigure:18800: checking that generated files are newer than configure\nconfigure:18806: result: done\nconfigure:18857: creating ./config.status\n\n## ---------------------- ##\n## Running config.status. ##\n## ---------------------- ##\n\nThis file was extended by zimg config.status 3.0.6, which was\ngenerated by GNU Autoconf 2.71.  Invocation command line was\n\n  CONFIG_FILES    = \n  CONFIG_HEADERS  = \n  CONFIG_LINKS    = \n  CONFIG_COMMANDS = \n  $ ./config.status \n\non XXX\n\nconfig.status:1118: creating Makefile\nconfig.status:1118: creating zimg.pc\nconfig.status:1275: executing depfiles commands\nconfig.status:1352: cd .       && sed -e '/# am--include-marker/d' Makefile         | make -f - am--depfiles\nconfig.status:1357: $? = 0\nconfig.status:1275: executing libtool commands\n\n## ---------------- ##\n## Cache variables. ##\n## ---------------- ##\n\nac_cv_build=x86_64-pc-linux-gnu\nac_cv_c_compiler_gnu=yes\nac_cv_cxx_compiler_gnu=yes\nac_cv_env_CCC_set=\nac_cv_env_CCC_value=\nac_cv_env_CC_set=set\nac_cv_env_CC_value=x86_64-w64-mingw32-gcc\nac_cv_env_CFLAGS_set=set\nac_cv_env_CFLAGS_value='-O2 -g0'\nac_cv_env_CPPFLAGS_set=\nac_cv_env_CPPFLAGS_value=\nac_cv_env_CPP_set=\nac_cv_env_CPP_value=\nac_cv_env_CXXCPP_set=\nac_cv_env_CXXCPP_value=\nac_cv_env_CXXFLAGS_set=set\nac_cv_env_CXXFLAGS_value='-O2 -g0'\nac_cv_env_CXX_set=set\nac_cv_env_CXX_value=x86_64-w64-mingw32-g++\nac_cv_env_LDFLAGS_set=set\nac_cv_env_LDFLAGS_value='-static -static-libgcc -static-libstdc++'\nac_cv_env_LIBS_set=\nac_cv_env_LIBS_value=\nac_cv_env_LT_SYS_LIBRARY_PATH_set=\nac_cv_env_LT_SYS_LIBRARY_PATH_value=\nac_cv_env_build_alias_set=\nac_cv_env_build_alias_value=\nac_cv_env_host_alias_set=set\nac_cv_env_host_alias_value=x86_64-w64-mingw32\nac_cv_env_target_alias_set=\nac_cv_env_target_alias_value=\nac_cv_exeext=.exe\nac_cv_header_dlfcn_h=no\nac_cv_header_inttypes_h=yes\nac_cv_header_stdint_h=yes\nac_cv_header_stdio_h=yes\nac_cv_header_stdlib_h=yes\nac_cv_header_string_h=yes\nac_cv_header_strings_h=yes\nac_cv_header_sys_stat_h=yes\nac_cv_header_sys_types_h=yes\nac_cv_header_unistd_h=yes\nac_cv_host=x86_64-w64-mingw32\nac_cv_objext=o\nac_cv_path_EGREP='/usr/bin/grep -E'\nac_cv_path_FGREP='/usr/bin/grep -F'\nac_cv_path_GREP=/usr/bin/grep\nac_cv_path_SED=/usr/bin/sed\nac_cv_path_install='/usr/bin/install -c'\nac_cv_path_lt_DD=/usr/bin/dd\nac_cv_path_mkdir=/usr/bin/mkdir\nac_cv_prog_AR=x86_64-w64-mingw32-ar\nac_cv_prog_AS=x86_64-w64-mingw32-as\nac_cv_prog_AWK=gawk\nac_cv_prog_CC=x86_64-w64-mingw32-gcc\nac_cv_prog_CPP='x86_64-w64-mingw32-gcc -E'\nac_cv_prog_CXXCPP='x86_64-w64-mingw32-g++ -E'\nac_cv_prog_DLLTOOL=x86_64-w64-mingw32-dlltool\nac_cv_prog_OBJDUMP=x86_64-w64-mingw32-objdump\nac_cv_prog_RANLIB=x86_64-w64-mingw32-ranlib\nac_cv_prog_STRIP=x86_64-w64-mingw32-strip\nac_cv_prog_ac_ct_FILECMD=file\nac_cv_prog_cc_c11=\nac_cv_prog_cc_g=yes\nac_cv_prog_cc_stdc=\nac_cv_prog_cxx_cxx11=\nac_cv_prog_cxx_g=yes\nac_cv_prog_cxx_stdcxx=\nac_cv_prog_make_make_set=yes\nam_cv_CC_dependencies_compiler_type=gcc3\nam_cv_CXX_dependencies_compiler_type=gcc3\nam_cv_make_support_nested_variables=yes\nam_cv_prog_cc_c_o=yes\nax_cv_PTHREAD_CLANG=no\nax_cv_PTHREAD_JOINABLE_ATTR=PTHREAD_CREATE_JOINABLE\nax_cv_PTHREAD_PRIO_INHERIT=yes\nax_cv_PTHREAD_SPECIAL_FLAGS=no\nax_cv_check_cflags___fvisibility_hidden=yes\nax_cv_check_cflags___mavx512f__mavx512pf__mavx512er__mavx512cd__mavx512vl__mavx512bw__mavx512dq__mavx512ifma__mavx512vbmi__mavx512vbmi2__mavx512bitalg__mavx512vpopcntdq__mavx512vnni=yes\nax_cv_check_cflags___mtune_cascadelake=yes\nax_cv_check_cflags___mtune_haswell=yes\nax_cv_check_cflags___mtune_ivybridge=yes\nax_cv_check_cflags___mtune_sandybridge=yes\nax_cv_check_cflags___mtune_skylake_avx512=yes\nax_cv_check_cxxflags___std_cpp14=yes\nlt_cv_ar_at_file=@\nlt_cv_deplibs_check_method='file_magic ^x86 archive import|^x86 DLL'\nlt_cv_file_magic_cmd=func_win32_libid\nlt_cv_file_magic_test_file=\nlt_cv_ld_reload_flag=-r\nlt_cv_nm_interface='BSD nm'\nlt_cv_objdir=.libs\nlt_cv_path_LD=/usr/bin/x86_64-w64-mingw32-ld\nlt_cv_path_LDCXX=/usr/bin/x86_64-w64-mingw32-ld\nlt_cv_path_NM='/usr/bin/x86_64-w64-mingw32-nm -B'\nlt_cv_path_mainfest_tool=no\nlt_cv_prog_compiler_c_o=yes\nlt_cv_prog_compiler_c_o_CXX=yes\nlt_cv_prog_compiler_pic='-DDLL_EXPORT -DPIC'\nlt_cv_prog_compiler_pic_CXX='-DDLL_EXPORT -DPIC'\nlt_cv_prog_compiler_pic_works=yes\nlt_cv_prog_compiler_pic_works_CXX=yes\nlt_cv_prog_compiler_rtti_exceptions=no\nlt_cv_prog_compiler_static_works=yes\nlt_cv_prog_compiler_static_works_CXX=yes\nlt_cv_prog_gnu_ld=yes\nlt_cv_prog_gnu_ldcxx=yes\nlt_cv_sharedlib_from_linklib_cmd=func_cygming_dll_for_implib\nlt_cv_sys_global_symbol_pipe='/usr/bin/sed -n -e '\\''s/^.*[\t ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[\t ][\t ]*\\([_A-Za-z][_A-Za-z0-9]*\\)$/\\1 \\2 \\2/p'\\'' | /usr/bin/sed '\\''/ __gnu_lto/d'\\'''\nlt_cv_sys_global_symbol_to_c_name_address='/usr/bin/sed -n -e '\\''s/^: \\(.*\\) .*$/  {\"\\1\", (void *) 0},/p'\\'' -e '\\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \\(.*\\)$/  {\"\\1\", (void *) \\&\\1},/p'\\'''\nlt_cv_sys_global_symbol_to_c_name_address_lib_prefix='/usr/bin/sed -n -e '\\''s/^: \\(.*\\) .*$/  {\"\\1\", (void *) 0},/p'\\'' -e '\\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \\(lib.*\\)$/  {\"\\1\", (void *) \\&\\1},/p'\\'' -e '\\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \\(.*\\)$/  {\"lib\\1\", (void *) \\&\\1},/p'\\'''\nlt_cv_sys_global_symbol_to_cdecl='/usr/bin/sed -n -e '\\''s/^T .* \\(.*\\)$/extern int \\1();/p'\\'' -e '\\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \\(.*\\)$/extern char \\1;/p'\\'''\nlt_cv_sys_global_symbol_to_import=\nlt_cv_sys_max_cmd_len=1572864\nlt_cv_to_host_file_cmd=func_convert_file_nix_to_w32\nlt_cv_to_tool_file_cmd=func_convert_file_noop\nlt_cv_truncate_bin='/usr/bin/dd bs=4096 count=1'\n\n## ----------------- ##\n## Output variables. ##\n## ----------------- ##\n\nACLOCAL='${SHELL} '\\''/tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/missing'\\'' aclocal-1.16'\nAMDEPBACKSLASH='\\'\nAMDEP_FALSE='#'\nAMDEP_TRUE=''\nAMTAR='$${TAR-tar}'\nAM_BACKSLASH='\\'\nAM_DEFAULT_V='$(AM_DEFAULT_VERBOSITY)'\nAM_DEFAULT_VERBOSITY='0'\nAM_V='$(V)'\nAR='x86_64-w64-mingw32-ar'\nARMSIMD_FALSE=''\nARMSIMD_TRUE='#'\nAS='x86_64-w64-mingw32-as'\nAUTOCONF='${SHELL} '\\''/tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/missing'\\'' autoconf'\nAUTOHEADER='${SHELL} '\\''/tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/missing'\\'' autoheader'\nAUTOMAKE='${SHELL} '\\''/tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/missing'\\'' automake-1.16'\nAWK='gawk'\nCC='x86_64-w64-mingw32-gcc'\nCCDEPMODE='depmode=gcc3'\nCFLAGS='-fvisibility=hidden -O2 -g0'\nCLX_CFLAGS='-mtune=cascadelake'\nCMAKE=''\nCPP='x86_64-w64-mingw32-gcc -E'\nCPPFLAGS=''\nCSCOPE='cscope'\nCTAGS='ctags'\nCXX='x86_64-w64-mingw32-g++'\nCXXCPP='x86_64-w64-mingw32-g++ -E'\nCXXDEPMODE='depmode=gcc3'\nCXXFLAGS='-fvisibility=hidden -O2 -g0'\nCXXSTD='c++14'\nCYGPATH_W='echo'\nDEBUGCFLAGS='-DNDEBUG'\nDEFS='-DPACKAGE_NAME=\\\"zimg\\\" -DPACKAGE_TARNAME=\\\"zimg\\\" -DPACKAGE_VERSION=\\\"3.0.6\\\" -DPACKAGE_STRING=\\\"zimg\\ 3.0.6\\\" -DPACKAGE_BUGREPORT=\\\"https://github.com/sekrit-twc/zimg/pulls\\\" -DPACKAGE_URL=\\\"https://github.com/sekrit-twc/zimg\\\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DLT_OBJDIR=\\\".libs/\\\" -DHAVE_PTHREAD_PRIO_INHERIT=1 -DHAVE_PTHREAD=1 -DZIMG_X86=1 -DZIMG_X86_AVX512=1'\nDEPDIR='.deps'\nDLLTOOL='x86_64-w64-mingw32-dlltool'\nDSYMUTIL=''\nDUMPBIN=''\nECHO_C=''\nECHO_N='-n'\nECHO_T=''\nEGREP='/usr/bin/grep -E'\nETAGS='etags'\nEXAMPLES_FALSE=''\nEXAMPLES_TRUE='#'\nEXEEXT='.exe'\nFGREP='/usr/bin/grep -F'\nFILECMD='file'\nGREP='/usr/bin/grep'\nHSW_CFLAGS='-mtune=haswell'\nINSTALL_DATA='${INSTALL} -m 644'\nINSTALL_PROGRAM='${INSTALL}'\nINSTALL_SCRIPT='${INSTALL}'\nINSTALL_STRIP_PROGRAM='$(install_sh) -c -s'\nIVB_CFLAGS='-mtune=ivybridge'\nLD='/usr/bin/x86_64-w64-mingw32-ld'\nLDFLAGS='-static -static-libgcc -static-libstdc++'\nLIBOBJS=''\nLIBS=''\nLIBTOOL='$(SHELL) $(top_builddir)/libtool'\nLIPO=''\nLN_S='ln -s'\nLTLIBOBJS=''\nLT_SYS_LIBRARY_PATH=''\nMAKEINFO='${SHELL} '\\''/tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/missing'\\'' makeinfo'\nMANIFEST_TOOL=':'\nMKDIR_P='/usr/bin/mkdir -p'\nNEON_CFLAGS=''\nNM='/usr/bin/x86_64-w64-mingw32-nm -B'\nNMEDIT=''\nOBJDUMP='x86_64-w64-mingw32-objdump'\nOBJEXT='o'\nOTOOL64=''\nOTOOL=''\nPACKAGE='zimg'\nPACKAGE_BUGREPORT='https://github.com/sekrit-twc/zimg/pulls'\nPACKAGE_NAME='zimg'\nPACKAGE_STRING='zimg 3.0.6'\nPACKAGE_TARNAME='zimg'\nPACKAGE_URL='https://github.com/sekrit-twc/zimg'\nPACKAGE_VERSION='3.0.6'\nPATH_SEPARATOR=':'\nPTHREAD_CC='x86_64-w64-mingw32-gcc'\nPTHREAD_CFLAGS='-pthread'\nPTHREAD_LIBS=''\nRANLIB='x86_64-w64-mingw32-ranlib'\nSED='/usr/bin/sed'\nSET_MAKE=''\nSHELL='/bin/bash'\nSKX_CFLAGS='-mtune=skylake-avx512'\nSNB_CFLAGS='-mtune=sandybridge'\nSTL_LIBS='-lstdc++'\nSTRIP='x86_64-w64-mingw32-strip'\nTESTAPP_FALSE=''\nTESTAPP_TRUE='#'\nUNIT_TEST_FALSE=''\nUNIT_TEST_TRUE='#'\nVERSION='3.0.6'\nX86SIMD_AVX512_FALSE='#'\nX86SIMD_AVX512_TRUE=''\nX86SIMD_FALSE='#'\nX86SIMD_TRUE=''\nac_ct_AR=''\nac_ct_CC=''\nac_ct_CXX=''\nac_ct_DUMPBIN=''\nam__EXEEXT_FALSE='#'\nam__EXEEXT_TRUE=''\nam__fastdepCC_FALSE='#'\nam__fastdepCC_TRUE=''\nam__fastdepCXX_FALSE='#'\nam__fastdepCXX_TRUE=''\nam__include='include'\nam__isrc=' -I$(srcdir)'\nam__leading_dot='.'\nam__nodep='_no'\nam__quote=''\nam__tar='$${TAR-tar} chof - \"$$tardir\"'\nam__untar='$${TAR-tar} xf -'\nax_pthread_config=''\nbindir='${exec_prefix}/bin'\nbuild='x86_64-pc-linux-gnu'\nbuild_alias=''\nbuild_cpu='x86_64'\nbuild_os='linux-gnu'\nbuild_vendor='pc'\ndatadir='${datarootdir}'\ndatarootdir='${prefix}/share'\ndocdir='${datarootdir}/doc/${PACKAGE_TARNAME}'\ndvidir='${docdir}'\nexec_prefix='${prefix}'\nhost='x86_64-w64-mingw32'\nhost_alias='x86_64-w64-mingw32'\nhost_cpu='x86_64'\nhost_os='mingw32'\nhost_vendor='w64'\nhtmldir='${docdir}'\nincludedir='${prefix}/include'\ninfodir='${datarootdir}/info'\ninstall_sh='${SHELL} /tmp/humanity-ffmpeg-win-v1/src/zimg-3.0.6/install-sh'\nlibdir='${exec_prefix}/lib'\nlibexecdir='${exec_prefix}/libexec'\nlocaledir='${datarootdir}/locale'\nlocalstatedir='${prefix}/var'\nmandir='${datarootdir}/man'\nmkdir_p='$(MKDIR_P)'\noldincludedir='/usr/include'\npdfdir='${docdir}'\nprefix='/tmp/humanity-ffmpeg-win-v1/prefix'\nprogram_transform_name='s,x,x,'\npsdir='${docdir}'\nrunstatedir='${localstatedir}/run'\nsbindir='${exec_prefix}/sbin'\nsharedstatedir='${prefix}/com'\nsysconfdir='${prefix}/etc'\ntarget_alias=''\n\n## ----------- ##\n## confdefs.h. ##\n## ----------- ##\n\n/* confdefs.h */\n#define PACKAGE_NAME \"zimg\"\n#define PACKAGE_TARNAME \"zimg\"\n#define PACKAGE_VERSION \"3.0.6\"\n#define PACKAGE_STRING \"zimg 3.0.6\"\n#define PACKAGE_BUGREPORT \"https://github.com/sekrit-twc/zimg/pulls\"\n#define PACKAGE_URL \"https://github.com/sekrit-twc/zimg\"\n#define HAVE_STDIO_H 1\n#define HAVE_STDLIB_H 1\n#define HAVE_STRING_H 1\n#define HAVE_INTTYPES_H 1\n#define HAVE_STDINT_H 1\n#define HAVE_STRINGS_H 1\n#define HAVE_SYS_STAT_H 1\n#define HAVE_SYS_TYPES_H 1\n#define HAVE_UNISTD_H 1\n#define STDC_HEADERS 1\n#define LT_OBJDIR \".libs/\"\n#define HAVE_PTHREAD_PRIO_INHERIT 1\n#define HAVE_PTHREAD 1\n#define ZIMG_X86 1\n#define ZIMG_X86_AVX512 1\n\nconfigure: exit 0\n"
+    },
+    "cross-toolchain-package-versions": "g++-mingw-w64-x86-64-posix 13.2.0-6ubuntu1+26.1\ngcc-mingw-w64-base 13.2.0-6ubuntu1+26.1\ngcc-mingw-w64-x86-64-posix 13.2.0-6ubuntu1+26.1\nmingw-w64-common 11.0.1-3build1\nmingw-w64-x86-64-dev 11.0.1-3build1\n"
+  },
   "source_inputs": [
     {
-      "component": "btbn-build-recipes",
-      "revision": "c482a075076c29edf6dd9c5a7c9d3113d0babed6",
-      "license": "MIT",
-      "file": "third-party/btbn-build-recipes-c482a075076c29edf6dd9c5a7c9d3113d0babed6.tar.gz",
-      "url": "https://codeload.github.com/BtbN/FFmpeg-Builds/tar.gz/c482a075076c29edf6dd9c5a7c9d3113d0babed6",
-      "sha256": "867c935f18d4b826a22442f81acc588cb6dfc7605011f8b1cda35beea06eaba7",
-      "bytes": 74488
-    },
-    {
-      "component": "ffmpeg-windows",
-      "revision": "27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
-      "license": "LGPL-3.0-or-later",
+      "component": "ffmpeg",
       "file": "third-party/ffmpeg-windows-27b8d1a017de62b51c0f3a039327b5cc2d7ea13f.tar.gz",
       "url": "https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
       "sha256": "87a695bc61e16f4aa8437c2ab6c0bbe1ca572ceccec4a2e86013e36f49899b1e",
-      "bytes": 16429267
+      "bytes": 16429267,
+      "license": "GPL-3.0-or-later"
     },
     {
-      "component": "pyav",
-      "revision": "17.0.0",
-      "license": "BSD-3-Clause",
-      "file": "third-party/pyav-17.0.0.tar.gz",
-      "url": "https://files.pythonhosted.org/packages/b2/eb/abca886df3a091bc406feb5ff71b4c4f426beaae6b71b9697264ce8c7211/av-17.0.0.tar.gz",
-      "sha256": "c53685df73775a8763c375c7b2d62a6cb149d992a26a4b098204da42ade8c3df",
-      "bytes": 4410769
+      "component": "x264",
+      "file": "third-party/mac-homebrew-x264-b35605ace3ddf7c1a5d67a2eb553f034aef41d55.tar.gz",
+      "url": "https://code.videolan.org/videolan/x264/-/archive/b35605ace3ddf7c1a5d67a2eb553f034aef41d55/x264-b35605ace3ddf7c1a5d67a2eb553f034aef41d55.tar.gz",
+      "sha256": "cd71a7515b0e9a012e1ac9b1f8415bebcaf6fc97d4db32286642ac4c0fbe24f9",
+      "bytes": 1040327,
+      "license": "GPL-2.0-or-later"
     },
     {
-      "component": "nv-codec-headers",
-      "revision": "876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
-      "license": "BSD-2-Clause",
-      "file": "third-party/nv-codec-headers-876af32a202d0de83bd1d36fe74ee0f7fcf86b0d.tar.gz",
-      "url": "https://codeload.github.com/FFmpeg/nv-codec-headers/tar.gz/876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
-      "sha256": "5e83af9e86efe7a1f4393ef342a299e5e7ca9f57fe210307afed3ae0f39d4a3f",
-      "bytes": 83679
+      "component": "x265",
+      "file": "third-party/mac-homebrew-x265-4.3.tar.gz",
+      "url": "https://github.com/Multicorewareinc/x265/releases/download/4.3/x265_4.3.tar.gz",
+      "sha256": "83c53e4c8bbb8f1e33ed59e10a7d621d1d7801ca853910c3eb41f038b8ffb121",
+      "bytes": 2052112,
+      "license": "GPL-2.0-or-later"
     },
     {
-      "component": "openh264",
-      "revision": "cf568c83f71a18778f9a16e344effaf40c11b752",
-      "license": "BSD-2-Clause",
-      "file": "third-party/openh264-cf568c83f71a18778f9a16e344effaf40c11b752.tar.gz",
-      "url": "https://codeload.github.com/cisco/openh264/tar.gz/cf568c83f71a18778f9a16e344effaf40c11b752",
-      "sha256": "5e5efc74a0011f9853ccc3b1efeae92105dd5c5bea4af2432c6a9cc50e468007",
-      "bytes": 60305012
+      "component": "libvpx",
+      "file": "third-party/mac-homebrew-libvpx-1.17.0.tar.gz",
+      "url": "https://github.com/webmproject/libvpx/archive/refs/tags/v1.17.0.tar.gz",
+      "sha256": "1020f184046187baa2985dbde38e0691f49c44088bca7a1842b0236c6081dc0a",
+      "bytes": 5670546,
+      "license": "BSD-3-Clause"
     },
     {
-      "component": "dav1d",
-      "revision": "60507bffc0b13e7a81753a51005dbbeba4b23018",
-      "license": "BSD-2-Clause",
-      "file": "third-party/dav1d-60507bffc0b13e7a81753a51005dbbeba4b23018.tar.gz",
-      "url": "https://code.videolan.org/videolan/dav1d/-/archive/60507bffc0b13e7a81753a51005dbbeba4b23018/dav1d-60507bffc0b13e7a81753a51005dbbeba4b23018.tar.gz",
-      "sha256": "fa6c6ad6d9f57d86df90bc573c734c7342d4d3dc4fff1525f19344f6444c0b83",
-      "bytes": 1694322
+      "component": "opus",
+      "file": "third-party/mac-homebrew-opus-1.6.1.tar.gz",
+      "url": "https://ftp.osuosl.org/pub/xiph/releases/opus/opus-1.6.1.tar.gz",
+      "sha256": "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1",
+      "bytes": 10472813,
+      "license": "BSD-3-Clause"
     },
     {
       "component": "svtav1",
-      "revision": "4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0",
-      "license": "BSD-3-Clause-Clear",
       "file": "third-party/svtav1-4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0.tar.gz",
       "url": "https://codeload.github.com/AOMediaCodec/SVT-AV1/tar.gz/4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0",
       "sha256": "851250a3e5756eacfcd3e3368c8f25b4d1774205d5b7412768476d3788f4ed1f",
-      "bytes": 10943615
+      "bytes": 10943615,
+      "license": "BSD-3-Clause-Clear"
+    },
+    {
+      "component": "dav1d",
+      "file": "third-party/dav1d-60507bffc0b13e7a81753a51005dbbeba4b23018.tar.gz",
+      "url": "https://code.videolan.org/videolan/dav1d/-/archive/60507bffc0b13e7a81753a51005dbbeba4b23018/dav1d-60507bffc0b13e7a81753a51005dbbeba4b23018.tar.gz",
+      "sha256": "fa6c6ad6d9f57d86df90bc573c734c7342d4d3dc4fff1525f19344f6444c0b83",
+      "bytes": 1694322,
+      "license": "BSD-2-Clause"
     },
     {
       "component": "zlib",
-      "revision": "9f25df2c80c2b26c8b050fba880f0851d9d243ea",
-      "license": "Zlib",
       "file": "third-party/zlib-9f25df2c80c2b26c8b050fba880f0851d9d243ea.tar.gz",
       "url": "https://codeload.github.com/madler/zlib/tar.gz/9f25df2c80c2b26c8b050fba880f0851d9d243ea",
       "sha256": "af12bfe8e4d188ab7c1cd8a906e38ae578955a9f50ac4db36b5365d8d0cbaed5",
-      "bytes": 1620655
+      "bytes": 1620655,
+      "license": "Zlib"
     },
     {
-      "component": "zimg",
-      "revision": "df9c1472b9541d0e79c8d02dae37fdf12f189ec2",
-      "license": "WTFPL",
-      "file": "third-party/zimg-df9c1472b9541d0e79c8d02dae37fdf12f189ec2.tar.gz",
-      "url": "https://codeload.github.com/sekrit-twc/zimg/tar.gz/df9c1472b9541d0e79c8d02dae37fdf12f189ec2",
-      "sha256": "a230bc81ee53d166c636c228d20a27325ee4c6924dbc02023e30cde0f2d89944",
-      "bytes": 288482
+      "component": "zimg-3.0.6",
+      "file": "third-party/mac-homebrew-zimg-3.0.6.tar.gz",
+      "url": "https://github.com/sekrit-twc/zimg/archive/refs/tags/release-3.0.6.tar.gz",
+      "sha256": "be89390f13a5c9b2388ce0f44a5e89364a20c1c57ce46d382b1fcc3967057577",
+      "bytes": 326725,
+      "license": "WTFPL-2.0"
     },
     {
-      "component": "electron-ffmpeg",
-      "revision": "9db86ce5b5b454dfc96c435f9f0723012980c37f",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/electron-ffmpeg-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
-      "url": "https://chromium.googlesource.com/chromium/third_party/ffmpeg/+archive/9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
-      "sha256": "84d308463ae754c16531cdb7bd4676de82f6df96a56184cee4458adb72c5a28e",
-      "bytes": 18928800
-    },
-    {
-      "component": "electron-source",
-      "revision": "f81ca3d4f09f57667238120adacb01239d5ecd89",
-      "license": "MIT",
-      "file": "third-party/electron-source-f81ca3d4f09f57667238120adacb01239d5ecd89.tar.gz",
-      "url": "https://codeload.github.com/electron/electron/tar.gz/f81ca3d4f09f57667238120adacb01239d5ecd89",
-      "sha256": "68553daae380ca6f13b55a83f629dc4b37b7e511faa9a5d22faef409e262e104",
-      "bytes": 20347029
-    },
-    {
-      "component": "chromium-build",
-      "revision": "861389936bf33ea77529ee5dcc0605e68f6bb620",
-      "license": "BSD-3-Clause",
-      "file": "third-party/chromium-build-861389936bf33ea77529ee5dcc0605e68f6bb620.tar.gz",
-      "url": "https://chromium.googlesource.com/chromium/src/+archive/861389936bf33ea77529ee5dcc0605e68f6bb620/build.tar.gz",
-      "sha256": "194e5d42f785f144ab3b8f09af87c3eb1ba7762fd730756ec9ba018df6fefca7",
-      "bytes": 1992798
-    },
-    {
-      "component": "chromium-ffmpeg-build",
-      "revision": "861389936bf33ea77529ee5dcc0605e68f6bb620",
-      "license": "BSD-3-Clause",
-      "file": "third-party/chromium-ffmpeg-build-861389936bf33ea77529ee5dcc0605e68f6bb620.tar.gz",
-      "url": "https://chromium.googlesource.com/chromium/src/+archive/861389936bf33ea77529ee5dcc0605e68f6bb620/media/ffmpeg.tar.gz",
-      "sha256": "ee35bc94cf82f7cd604286f2ae1182caaa854f70b4839860bd55e13a15b90ecb",
-      "bytes": 105264
-    },
-    {
-      "component": "chromium-generate-stubs",
-      "revision": "861389936bf33ea77529ee5dcc0605e68f6bb620",
-      "license": "BSD-3-Clause",
-      "file": "third-party/chromium-generate-stubs-861389936bf33ea77529ee5dcc0605e68f6bb620.tar.gz",
-      "url": "https://chromium.googlesource.com/chromium/src/+archive/861389936bf33ea77529ee5dcc0605e68f6bb620/tools/generate_stubs.tar.gz",
-      "sha256": "8331e615ed4a9f188f5866036ff1abfa03406ac1c0f28d35144b467a12b297b5",
-      "bytes": 15196
-    },
-    {
-      "component": "electron-chromium-opus",
-      "revision": "861389936bf33ea77529ee5dcc0605e68f6bb620",
-      "license": "Opus-Patent-BSD-3-Clause",
-      "file": "third-party/electron-chromium-opus-861389936bf33ea77529ee5dcc0605e68f6bb620.tar.gz",
-      "url": "https://chromium.googlesource.com/chromium/src/+/861389936bf33ea77529ee5dcc0605e68f6bb620/third_party/opus/?format=JSON&recursive=1",
-      "sha256": "480e1fb9f63a7b9b80e41650734dca1f51b0effe1ae0abe37b60bee2a2499c6f",
-      "bytes": 4104039
-    },
-    {
-      "component": "20-libiconv",
-      "revision": "30fc26493e4c6457000172d49b526be0919e34c6",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/20-libiconv-30fc26493e4c6457000172d49b526be0919e34c6.tar.gz",
-      "url": "https://git.savannah.gnu.org/git/libiconv.git#30fc26493e4c6457000172d49b526be0919e34c6",
-      "sha256": "5417254cb166d11c717f5ece88edf53d5f038ef900c213a005c8235cebae766c",
-      "bytes": 4698567
-    },
-    {
-      "component": "libiconv-gnulib",
-      "revision": "06f06019b66cd443e715014e4c49f64ceb61edfe",
-      "license": "See per-file LGPL/GPL exceptions",
-      "file": "third-party/libiconv-gnulib-06f06019b66cd443e715014e4c49f64ceb61edfe.tar.gz",
-      "url": "https://codeload.github.com/coreutils/gnulib/tar.gz/06f06019b66cd443e715014e4c49f64ceb61edfe",
-      "sha256": "c8a016e51a05b3c95fd6b3f1d406e38004366cc4d052f24a87e324d067cb6ac3",
-      "bytes": 9396096
-    },
-    {
-      "component": "25-fribidi",
-      "revision": "b28f43bd3e8e31a5967830f721bab218c1aa114c",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/25-fribidi-b28f43bd3e8e31a5967830f721bab218c1aa114c.tar.gz",
-      "url": "https://codeload.github.com/fribidi/fribidi/tar.gz/b28f43bd3e8e31a5967830f721bab218c1aa114c",
-      "sha256": "185f4120c2bcc0bee5044a469dc533bbec2190236af38c28150d22861d85fff4",
-      "bytes": 2144182
-    },
-    {
-      "component": "25-gmp",
-      "revision": "9994908f090c694f8a152d660dc6852e0c48557a",
-      "license": "LGPL-3.0-or-later OR GPL-2.0-or-later",
-      "file": "third-party/25-gmp-9994908f090c694f8a152d660dc6852e0c48557a.tar.gz",
-      "url": "https://codeload.github.com/BtbN/gmplib/tar.gz/9994908f090c694f8a152d660dc6852e0c48557a",
-      "sha256": "b98eeeee30c8e05708de02808351d96feaa8da84c48f7824096f3df6eb46d658",
-      "bytes": 2538821
-    },
-    {
-      "component": "45-libudfread",
-      "revision": "139a2194525f2745b98a98e4d8fa627d07440176",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/45-libudfread-139a2194525f2745b98a98e4d8fa627d07440176.tar.gz",
-      "url": "https://code.videolan.org/videolan/libudfread/-/archive/139a2194525f2745b98a98e4d8fa627d07440176/libudfread-139a2194525f2745b98a98e4d8fa627d07440176.tar.gz",
-      "sha256": "aaccb7877139abe3c47a6bdb142dc3b1f1ab885a0e4b4e956e631d7a0445f960",
-      "bytes": 32910
-    },
-    {
-      "component": "50-aribb24/50-libaribb24",
-      "revision": "5e9be272f96e00f15a2f3c5f8ba7e124862aec38",
-      "license": "LGPL-3.0-or-later",
-      "file": "third-party/50-aribb24-50-libaribb24-5e9be272f96e00f15a2f3c5f8ba7e124862aec38.tar.gz",
-      "url": "https://codeload.github.com/nkoriyama/aribb24/tar.gz/5e9be272f96e00f15a2f3c5f8ba7e124862aec38",
-      "sha256": "651e88af3c8189d4faed538bee3affde360eb4698a70505765fc7e5653f5eb23",
-      "bytes": 47450
-    },
-    {
-      "component": "50-chromaprint",
-      "revision": "6b13ce3a81ae931e7477c4856a86bece99157cd8",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/50-chromaprint-6b13ce3a81ae931e7477c4856a86bece99157cd8.tar.gz",
-      "url": "https://codeload.github.com/acoustid/chromaprint/tar.gz/6b13ce3a81ae931e7477c4856a86bece99157cd8",
-      "sha256": "154ef31f51a5c1c27ee34ad1a1c8fd53a37bc479a8c6f2a8d0a1ed2df891ebcd",
-      "bytes": 1580981
-    },
-    {
-      "component": "50-gme",
-      "revision": "184dac64cd556f435c309bb83ed4a31fe14e1cc5",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/50-gme-184dac64cd556f435c309bb83ed4a31fe14e1cc5.tar.gz",
-      "url": "https://codeload.github.com/libgme/game-music-emu/tar.gz/184dac64cd556f435c309bb83ed4a31fe14e1cc5",
-      "sha256": "501b6bce789f32141e988a99eb3ac2c650ae06f961a2e4933d7462ecc899cd9c",
-      "bytes": 344385
-    },
-    {
-      "component": "50-libbluray",
-      "revision": "4dfb9b0123b006ce5d66592dc8058f61e5c0cdc8",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/50-libbluray-4dfb9b0123b006ce5d66592dc8058f61e5c0cdc8.tar.gz",
-      "url": "https://code.videolan.org/videolan/libbluray/-/archive/4dfb9b0123b006ce5d66592dc8058f61e5c0cdc8/libbluray-4dfb9b0123b006ce5d66592dc8058f61e5c0cdc8.tar.gz",
-      "sha256": "f3dd4d3c19d2e6dd8b3a077ee1caf6862276177c25caa083354fd6e1321f107c",
-      "bytes": 607278
-    },
-    {
-      "component": "50-libmp3lame",
-      "revision": "6531",
-      "license": "LGPL-2.0-or-later",
-      "file": "third-party/lame-svn-r6531.tar.gz",
-      "url": "https://svn.code.sf.net/p/lame/svn/!svn/rvr/6531/trunk/lame/",
-      "sha256": "1570197549783410bc41dd7ff709719b1f0edd80617980c4f2cf08ed3e6e8d58",
-      "bytes": 1485432
-    },
-    {
-      "component": "50-libplacebo",
-      "revision": "1dcaea8b601aa969ffd5bfa70088957ce3eaa273",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/50-libplacebo-1dcaea8b601aa969ffd5bfa70088957ce3eaa273.tar.gz",
-      "url": "https://code.videolan.org/videolan/libplacebo/-/archive/1dcaea8b601aa969ffd5bfa70088957ce3eaa273/libplacebo-1dcaea8b601aa969ffd5bfa70088957ce3eaa273.tar.gz",
-      "sha256": "4d17336366bd2d1000c7910e06571f3e648bf65d919547650858109bf9b466b5",
-      "bytes": 861993
-    },
-    {
-      "component": "libplacebo-3rdparty/Vulkan-Headers",
-      "revision": "450bd2232225d6c7728a4108055ac2e37cef6475",
-      "license": "See complete included upstream licenses",
-      "file": "third-party/libplacebo-3rdparty-Vulkan-Headers-450bd2232225d6c7728a4108055ac2e37cef6475.tar.gz",
-      "url": "https://codeload.github.com/KhronosGroup/Vulkan-Headers/tar.gz/450bd2232225d6c7728a4108055ac2e37cef6475",
-      "sha256": "26df9841c30806a994e2fdf42f7c87bcb1ced9db9a06033469123939fb3fa075",
-      "bytes": 2940820
-    },
-    {
-      "component": "libplacebo-3rdparty/fast_float",
-      "revision": "97b54ca9e75f5303507699d27c6b4f4efe4641a1",
-      "license": "See complete included upstream licenses",
-      "file": "third-party/libplacebo-3rdparty-fast_float-97b54ca9e75f5303507699d27c6b4f4efe4641a1.tar.gz",
-      "url": "https://codeload.github.com/fastfloat/fast_float/tar.gz/97b54ca9e75f5303507699d27c6b4f4efe4641a1",
-      "sha256": "2b132274539286e41f37857cac22aa8441d21bd86d55de825a3342b149f66801",
-      "bytes": 120200
-    },
-    {
-      "component": "libplacebo-3rdparty/glad",
-      "revision": "73db193f853e2ee079bf3ca8a64aa2eaf6459043",
-      "license": "See complete included upstream licenses",
-      "file": "third-party/libplacebo-3rdparty-glad-73db193f853e2ee079bf3ca8a64aa2eaf6459043.tar.gz",
-      "url": "https://codeload.github.com/Dav1dde/glad/tar.gz/73db193f853e2ee079bf3ca8a64aa2eaf6459043",
-      "sha256": "33dbeae44d8315ece57e14eba4b1b4a02ac5406d1c4f49cd20048c91522a6b9a",
-      "bytes": 645779
-    },
-    {
-      "component": "libplacebo-3rdparty/jinja",
-      "revision": "15206881c006c79667fe5154fe80c01c65410679",
-      "license": "See complete included upstream licenses",
-      "file": "third-party/libplacebo-3rdparty-jinja-15206881c006c79667fe5154fe80c01c65410679.tar.gz",
-      "url": "https://codeload.github.com/pallets/jinja/tar.gz/15206881c006c79667fe5154fe80c01c65410679",
-      "sha256": "b88a20dcc2e34072fcf4159325bc6c34cd4b29a81a8b83d15d2f28ba561da296",
-      "bytes": 276954
-    },
-    {
-      "component": "libplacebo-3rdparty/markupsafe",
-      "revision": "297fc8e356e6836a62087949245d09a28e9f1b13",
-      "license": "See complete included upstream licenses",
-      "file": "third-party/libplacebo-3rdparty-markupsafe-297fc8e356e6836a62087949245d09a28e9f1b13.tar.gz",
-      "url": "https://codeload.github.com/pallets/markupsafe/tar.gz/297fc8e356e6836a62087949245d09a28e9f1b13",
-      "sha256": "da7c010c9c81a66ac73036558c1fcb6212b50482f43211cd1254035b94f82414",
-      "bytes": 83817
-    },
-    {
-      "component": "libplacebo-demos/3rdparty/nuklear",
-      "revision": "242f35efa067a46c595645eeda7b1771ea1f83b1",
-      "license": "See complete included upstream licenses",
-      "file": "third-party/libplacebo-demos-3rdparty-nuklear-242f35efa067a46c595645eeda7b1771ea1f83b1.tar.gz",
-      "url": "https://codeload.github.com/Immediate-Mode-UI/Nuklear/tar.gz/242f35efa067a46c595645eeda7b1771ea1f83b1",
-      "sha256": "ac567995f917c10a722409e0141d226e737d06488b0a31166f6e4925da8e58f0",
-      "bytes": 2339403
-    },
-    {
-      "component": "50-libssh",
-      "revision": "34db488e4db8c66175c3ec4e31e724173b5263a3",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/50-libssh-34db488e4db8c66175c3ec4e31e724173b5263a3.tar.gz",
-      "url": "https://gitlab.com/libssh/libssh-mirror/-/archive/34db488e4db8c66175c3ec4e31e724173b5263a3/libssh-mirror-34db488e4db8c66175c3ec4e31e724173b5263a3.tar.gz",
-      "sha256": "917e9ba1a8438a0bc751b54912859ffddf5e52934491ec28ca96e9756b3310b8",
-      "bytes": 1092704
-    },
-    {
-      "component": "50-libzmq",
-      "revision": "51a5a9cbe315ab149357afe063e9e2d41f4c99a8",
-      "license": "MPL-2.0",
-      "file": "third-party/50-libzmq-51a5a9cbe315ab149357afe063e9e2d41f4c99a8.tar.gz",
-      "url": "https://codeload.github.com/zeromq/libzmq/tar.gz/51a5a9cbe315ab149357afe063e9e2d41f4c99a8",
-      "sha256": "64c8d466f83a5df9218ddbccaceadc705218a705480e67cda3ff7620878107d7",
-      "bytes": 881759
-    },
-    {
-      "component": "50-openal",
-      "revision": "266538011d2fc8ee875abed0be43a537d0e59743",
-      "license": "LGPL-2.0-or-later",
-      "file": "third-party/50-openal-266538011d2fc8ee875abed0be43a537d0e59743.tar.gz",
-      "url": "https://codeload.github.com/kcat/openal-soft/tar.gz/266538011d2fc8ee875abed0be43a537d0e59743",
-      "sha256": "d150399551e6b745f69f078db7441dbc41137fb5639a6c012cabcb8a5a80a425",
-      "bytes": 1393297
-    },
-    {
-      "component": "50-soxr",
-      "revision": "945b592b70470e29f917f4de89b4281fbbd540c0",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/50-soxr-945b592b70470e29f917f4de89b4281fbbd540c0.tar.gz",
-      "url": "https://codeload.github.com/chirlu/soxr/tar.gz/945b592b70470e29f917f4de89b4281fbbd540c0",
-      "sha256": "ae970b44833c7dd2b088d5928b27c7f1796198ff5bc5386b90393aaf33e53d51",
-      "bytes": 144522
-    },
-    {
-      "component": "50-srt",
-      "revision": "2220de504027b0fc45012b459365505834300e31",
-      "license": "MPL-2.0",
-      "file": "third-party/50-srt-2220de504027b0fc45012b459365505834300e31.tar.gz",
-      "url": "https://codeload.github.com/Haivision/srt/tar.gz/2220de504027b0fc45012b459365505834300e31",
-      "sha256": "0ac7963f866275a630181eba5df498802226a990382665498e87f248ade1d0a0",
-      "bytes": 1777216
-    },
-    {
-      "component": "50-twolame",
-      "revision": "3c7d49d95be71c26afdbaef14def92f3460c7373",
-      "license": "LGPL-2.1-or-later",
-      "file": "third-party/50-twolame-3c7d49d95be71c26afdbaef14def92f3460c7373.tar.gz",
-      "url": "https://codeload.github.com/njh/twolame/tar.gz/3c7d49d95be71c26afdbaef14def92f3460c7373",
-      "sha256": "8387780019ac5b53616675f84744f0e803dc88dbea0a720c059be830f78137f7",
-      "bytes": 432897
-    },
-    {
-      "component": "50-zvbi",
-      "revision": "41477c97c8edf7a01f1594b2a95b94f0117eed21",
-      "license": "Mixed LGPL-2.0-or-later / GPL-2.0-only; original vendor source, omitted from the clean codec",
-      "file": "third-party/50-zvbi-41477c97c8edf7a01f1594b2a95b94f0117eed21.tar.gz",
-      "url": "https://codeload.github.com/zapping-vbi/zvbi/tar.gz/41477c97c8edf7a01f1594b2a95b94f0117eed21",
-      "sha256": "844b2cbe6360cda852b1c13e449e966fd5baf661d9239cd83bb165ade804bb67",
-      "bytes": 943860
+      "component": "nv-codec-headers",
+      "file": "third-party/nv-codec-headers-876af32a202d0de83bd1d36fe74ee0f7fcf86b0d.tar.gz",
+      "url": "https://codeload.github.com/FFmpeg/nv-codec-headers/tar.gz/876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
+      "sha256": "5e83af9e86efe7a1f4393ef342a299e5e7ca9f57fe210307afed3ae0f39d4a3f",
+      "bytes": 83679,
+      "license": "MIT"
     }
   ],
+  "encoders": [
+    "=",
+    "=",
+    "=",
+    "a64multi",
+    "a64multi5",
+    "alias_pix",
+    "amv",
+    "apng",
+    "asv1",
+    "asv2",
+    "libsvtav1",
+    "av1_nvenc",
+    "avrp",
+    "avui",
+    "bitpacked",
+    "bmp",
+    "cfhd",
+    "cinepak",
+    "cljr",
+    "vc2",
+    "dnxhd",
+    "dpx",
+    "dvvideo",
+    "dxv",
+    "exr",
+    "ffv1",
+    "ffvhuff",
+    "fits",
+    "flashsv",
+    "flashsv2",
+    "flv",
+    "gif",
+    "h261",
+    "h263",
+    "h263p",
+    "libx264",
+    "libx264rgb",
+    "h264_nvenc",
+    "hdr",
+    "libx265",
+    "hevc_nvenc",
+    "huffyuv",
+    "jpeg2000",
+    "jpegls",
+    "ljpeg",
+    "magicyuv",
+    "mjpeg",
+    "mpeg1video",
+    "mpeg2video",
+    "mpeg4",
+    "msmpeg4v2",
+    "msmpeg4",
+    "msrle",
+    "msvideo1",
+    "pam",
+    "pbm",
+    "pcx",
+    "pfm",
+    "pgm",
+    "pgmyuv",
+    "phm",
+    "png",
+    "ppm",
+    "prores",
+    "prores_aw",
+    "prores_ks",
+    "qoi",
+    "qtrle",
+    "r10k",
+    "r210",
+    "rawvideo",
+    "roqvideo",
+    "rpza",
+    "rv10",
+    "rv20",
+    "sgi",
+    "smc",
+    "snow",
+    "speedhq",
+    "sunrast",
+    "svq1",
+    "targa",
+    "tiff",
+    "utvideo",
+    "v210",
+    "v308",
+    "v408",
+    "v410",
+    "vbn",
+    "vnull",
+    "libvpx",
+    "libvpx-vp9",
+    "wbmp",
+    "wmv1",
+    "wmv2",
+    "wrapped_avframe",
+    "xbm",
+    "xface",
+    "xwd",
+    "y41p",
+    "yuv4",
+    "zlib",
+    "zmbv",
+    "aac",
+    "ac3",
+    "ac3_fixed",
+    "adpcm_adx",
+    "adpcm_argo",
+    "g722",
+    "g726",
+    "g726le",
+    "adpcm_ima_alp",
+    "adpcm_ima_amv",
+    "adpcm_ima_apm",
+    "adpcm_ima_qt",
+    "adpcm_ima_ssi",
+    "adpcm_ima_wav",
+    "adpcm_ima_ws",
+    "adpcm_ms",
+    "adpcm_swf",
+    "adpcm_yamaha",
+    "alac",
+    "anull",
+    "aptx",
+    "aptx_hd",
+    "comfortnoise",
+    "dfpwm",
+    "dca",
+    "eac3",
+    "flac",
+    "g723_1",
+    "mlp",
+    "mp2",
+    "mp2fixed",
+    "nellymoser",
+    "opus",
+    "libopus",
+    "pcm_alaw",
+    "pcm_bluray",
+    "pcm_dvd",
+    "pcm_f32be",
+    "pcm_f32le",
+    "pcm_f64be",
+    "pcm_f64le",
+    "pcm_mulaw",
+    "pcm_s16be",
+    "pcm_s16be_planar",
+    "pcm_s16le",
+    "pcm_s16le_planar",
+    "pcm_s24be",
+    "pcm_s24daud",
+    "pcm_s24le",
+    "pcm_s24le_planar",
+    "pcm_s32be",
+    "pcm_s32le",
+    "pcm_s32le_planar",
+    "pcm_s64be",
+    "pcm_s64le",
+    "pcm_s8",
+    "pcm_s8_planar",
+    "pcm_u16be",
+    "pcm_u16le",
+    "pcm_u24be",
+    "pcm_u24le",
+    "pcm_u32be",
+    "pcm_u32le",
+    "pcm_u8",
+    "pcm_vidc",
+    "real_144",
+    "roq_dpcm",
+    "s302m",
+    "sbc",
+    "truehd",
+    "tta",
+    "vorbis",
+    "wavpack",
+    "wmav1",
+    "wmav2",
+    "ssa",
+    "ass",
+    "dvbsub",
+    "dvdsub",
+    "mov_text",
+    "srt",
+    "subrip",
+    "text",
+    "ttml",
+    "webvtt",
+    "xsub"
+  ],
+  "configuration": "\r\n  configuration:\r\n    --prefix=/tmp/humanity-ffmpeg-win-v1/prefix\r\n    --arch=x86_64\r\n    --target-os=mingw32\r\n    --enable-cross-compile\r\n    --cross-prefix=x86_64-w64-mingw32-\r\n    --ld=x86_64-w64-mingw32-g++\r\n    --enable-gpl\r\n    --enable-version3\r\n    --enable-static\r\n    --disable-shared\r\n    --disable-autodetect\r\n    --disable-network\r\n    --disable-doc\r\n    --disable-debug\r\n    --disable-ffplay\r\n    --enable-libx264\r\n    --enable-libx265\r\n    --enable-libsvtav1\r\n    --enable-libdav1d\r\n    --enable-libvpx\r\n    --enable-libopus\r\n    --enable-libzimg\r\n    --enable-zlib\r\n    --enable-ffnvcodec\r\n    --enable-nvenc\r\n    --disable-cuda-llvm\r\n    --disable-cuvid\r\n    --disable-nvdec\r\n    --disable-indevs\r\n    --enable-indev=lavfi\r\n    --disable-outdevs\r\n    --disable-pthreads\r\n    --enable-w32threads\r\n    --pkg-config=pkg-config --pkg-config-flags=--static\r\n    --extra-cflags='-O2 -g0 -I/tmp/humanity-ffmpeg-win-v1/prefix/include'\r\n    --extra-cxxflags='-O2 -g0 -I/tmp/humanity-ffmpeg-win-v1/prefix/include'\r\n    --extra-ldflags='-L/tmp/humanity-ffmpeg-win-v1/prefix/lib -static -static-libgcc -static-libstdc++'\r\n    --extra-libs='-lstdc++ -lwinpthread -lws2_32'\r\n\r\nExiting with exit code 0\r\n",
+  "version": "ffmpeg version 8.0.1 Copyright (c) 2000-2025 the FFmpeg developers\r\nbuilt with gcc 13-posix (GCC)\r\nconfiguration: --prefix=/tmp/humanity-ffmpeg-win-v1/prefix --arch=x86_64 --target-os=mingw32 --enable-cross-compile --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-gpl --enable-version3 --enable-static --disable-shared --disable-autodetect --disable-network --disable-doc --disable-debug --disable-ffplay --enable-libx264 --enable-libx265 --enable-libsvtav1 --enable-libdav1d --enable-libvpx --enable-libopus --enable-libzimg --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --disable-indevs --enable-indev=lavfi --disable-outdevs --disable-pthreads --enable-w32threads --pkg-config=pkg-config --pkg-config-flags=--static --extra-cflags='-O2 -g0 -I/tmp/humanity-ffmpeg-win-v1/prefix/include' --extra-cxxflags='-O2 -g0 -I/tmp/humanity-ffmpeg-win-v1/prefix/include' --extra-ldflags='-L/tmp/humanity-ffmpeg-win-v1/prefix/lib -static -static-libgcc -static-libstdc++' --extra-libs='-lstdc++ -lwinpthread -lws2_32'\r\nlibavutil      60.  8.100 / 60.  8.100\r\nlibavcodec     62. 11.100 / 62. 11.100\r\nlibavformat    62.  3.101 / 62.  3.101\r\nlibavdevice    62.  1.100 / 62.  1.100\r\nlibavfilter    11.  4.100 / 11.  4.100\r\nlibswscale      9.  1.100 /  9.  1.100\r\nlibswresample   6.  1.100 /  6.  1.100\r\n\r\nExiting with exit code 0\r\n",
+  "built_at": "2026-11-02T11:17:39.367191-08:00",
   "native_source_build_overrides": [
     {
-      "source_commit": "27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
-      "source_archive_sha256": "87a695bc61e16f4aa8437c2ab6c0bbe1ca572ceccec4a2e86013e36f49899b1e",
-      "compiler": "clang version 23.1.4 (https://github.com/llvm/llvm-project.git 7a941dfb2877a0b8cf30323fefa85ad019e0b0f5)",
-      "assembler": "NASM version 2.16.01",
-      "crt": "UCRT",
-      "toolchain": {
-        "name": "llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64",
-        "sha256": "55064b60b991a1e1e8090b8c2f84e82b22cfe5903d12c159d65064cf5e8ae335",
-        "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261020/llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64.tar.xz"
-      },
-      "configure_args": [
-        "--arch=x86_64",
-        "--target-os=mingw32",
-        "--cross-prefix=x86_64-w64-mingw32-",
-        "--ld=x86_64-w64-mingw32-g++",
-        "--enable-shared",
-        "--disable-static",
-        "--disable-autodetect",
-        "--enable-version3",
-        "--disable-gpl",
-        "--disable-nonfree",
-        "--disable-programs",
-        "--disable-doc",
-        "--disable-debug",
-        "--disable-network",
-        "--disable-avdevice",
-        "--disable-avfilter",
-        "--disable-swscale",
-        "--disable-swresample",
-        "--disable-pthreads",
-        "--enable-w32threads",
-        "--disable-chromaprint",
-        "--disable-libzvbi",
-        "--enable-libopenh264",
-        "--enable-libdav1d",
-        "--enable-libsvtav1",
-        "--enable-zlib",
-        "--enable-ffnvcodec",
-        "--enable-nvenc",
-        "--disable-cuda-llvm",
-        "--disable-cuvid",
-        "--disable-nvdec",
-        "--pkg-config=pkg-config",
-        "--pkg-config-flags=--static",
-        "--extra-ldflags=-static-libgcc -static-libstdc++"
-      ],
-      "build_args": [
-        "-j8",
-        "-o",
-        "libavutil/avutil.dll",
-        "libavcodec/avcodec-62.dll",
-        "libavformat/avformat-62.dll"
-      ],
-      "external_sources": [
-        {
-          "name": "OpenH264",
-          "commit": "cf568c83f71a18778f9a16e344effaf40c11b752",
-          "sha256": "5e5efc74a0011f9853ccc3b1efeae92105dd5c5bea4af2432c6a9cc50e468007"
-        },
-        {
-          "name": "nv-codec-headers",
-          "commit": "876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
-          "sha256": "5e83af9e86efe7a1f4393ef342a299e5e7ca9f57fe210307afed3ae0f39d4a3f"
-        },
-        {
-          "name": "dav1d",
-          "commit": "60507bffc0b13e7a81753a51005dbbeba4b23018",
-          "sha256": "fa6c6ad6d9f57d86df90bc573c734c7342d4d3dc4fff1525f19344f6444c0b83"
-        },
-        {
-          "name": "SVT-AV1",
-          "commit": "4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0",
-          "sha256": "851250a3e5756eacfcd3e3368c8f25b4d1774205d5b7412768476d3788f4ed1f"
-        },
-        {
-          "name": "zlib",
-          "commit": "9f25df2c80c2b26c8b050fba880f0851d9d243ea",
-          "sha256": "af12bfe8e4d188ab7c1cd8a906e38ae578955a9f50ac4db36b5365d8d0cbaed5"
-        }
-      ],
-      "omitted_external_libraries": [
-        "Chromaprint",
-        "FFTW",
-        "ZVBI"
-      ],
-      "recipe": "scripts/build_ffmpeg_windows_lgpl.sh",
-      "component": "avformat-62.dll",
-      "output_sha256": "b910126d0448c4b89cd814ca07347e5febc610a64d6af4ed13dc48c4474a02c6",
-      "output_bytes": 2369536,
-      "library_license": "LGPL version 3 or later",
-      "library_configuration": "--arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-shared --disable-static --disable-autodetect --enable-version3 --disable-gpl --disable-nonfree --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --disable-swscale --disable-swresample --disable-pthreads --enable-w32threads --disable-chromaprint --disable-libzvbi --enable-libopenh264 --enable-libdav1d --enable-libsvtav1 --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --pkg-config=pkg-config --pkg-config-flags=--static --extra-ldflags='-static-libgcc -static-libstdc++'"
+      "file": "scripts/build-windows-static-media.sh",
+      "purpose": "Exact offline standalone MinGW static CLI recipe"
     },
     {
-      "source_commit": "27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
-      "source_archive_sha256": "87a695bc61e16f4aa8437c2ab6c0bbe1ca572ceccec4a2e86013e36f49899b1e",
-      "compiler": "clang version 23.1.4 (https://github.com/llvm/llvm-project.git 7a941dfb2877a0b8cf30323fefa85ad019e0b0f5)",
-      "assembler": "NASM version 2.16.01",
-      "crt": "UCRT",
-      "toolchain": {
-        "name": "llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64",
-        "sha256": "55064b60b991a1e1e8090b8c2f84e82b22cfe5903d12c159d65064cf5e8ae335",
-        "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261020/llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64.tar.xz"
-      },
-      "configure_args": [
-        "--arch=x86_64",
-        "--target-os=mingw32",
-        "--cross-prefix=x86_64-w64-mingw32-",
-        "--ld=x86_64-w64-mingw32-g++",
-        "--enable-shared",
-        "--disable-static",
-        "--disable-autodetect",
-        "--enable-version3",
-        "--disable-gpl",
-        "--disable-nonfree",
-        "--disable-programs",
-        "--disable-doc",
-        "--disable-debug",
-        "--disable-network",
-        "--disable-avdevice",
-        "--disable-avfilter",
-        "--disable-swscale",
-        "--disable-swresample",
-        "--disable-pthreads",
-        "--enable-w32threads",
-        "--disable-chromaprint",
-        "--disable-libzvbi",
-        "--enable-libopenh264",
-        "--enable-libdav1d",
-        "--enable-libsvtav1",
-        "--enable-zlib",
-        "--enable-ffnvcodec",
-        "--enable-nvenc",
-        "--disable-cuda-llvm",
-        "--disable-cuvid",
-        "--disable-nvdec",
-        "--pkg-config=pkg-config",
-        "--pkg-config-flags=--static",
-        "--extra-ldflags=-static-libgcc -static-libstdc++"
-      ],
-      "build_args": [
-        "-j8",
-        "-o",
-        "libavutil/avutil.dll",
-        "libavcodec/avcodec-62.dll",
-        "libavformat/avformat-62.dll"
-      ],
-      "external_sources": [
-        {
-          "name": "OpenH264",
-          "commit": "cf568c83f71a18778f9a16e344effaf40c11b752",
-          "sha256": "5e5efc74a0011f9853ccc3b1efeae92105dd5c5bea4af2432c6a9cc50e468007"
-        },
-        {
-          "name": "nv-codec-headers",
-          "commit": "876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
-          "sha256": "5e83af9e86efe7a1f4393ef342a299e5e7ca9f57fe210307afed3ae0f39d4a3f"
-        },
-        {
-          "name": "dav1d",
-          "commit": "60507bffc0b13e7a81753a51005dbbeba4b23018",
-          "sha256": "fa6c6ad6d9f57d86df90bc573c734c7342d4d3dc4fff1525f19344f6444c0b83"
-        },
-        {
-          "name": "SVT-AV1",
-          "commit": "4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0",
-          "sha256": "851250a3e5756eacfcd3e3368c8f25b4d1774205d5b7412768476d3788f4ed1f"
-        },
-        {
-          "name": "zlib",
-          "commit": "9f25df2c80c2b26c8b050fba880f0851d9d243ea",
-          "sha256": "af12bfe8e4d188ab7c1cd8a906e38ae578955a9f50ac4db36b5365d8d0cbaed5"
-        }
-      ],
-      "omitted_external_libraries": [
-        "Chromaprint",
-        "FFTW",
-        "ZVBI"
-      ],
-      "recipe": "scripts/build_ffmpeg_windows_lgpl.sh",
-      "component": "avcodec-62.dll",
-      "output_sha256": "0837a840482fb6d5877d46745bab863450808807aa398cb6d4da4e8088440faa",
-      "output_bytes": 27158528,
-      "library_license": "LGPL version 3 or later",
-      "library_configuration": "--arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-shared --disable-static --disable-autodetect --enable-version3 --disable-gpl --disable-nonfree --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --disable-swscale --disable-swresample --disable-pthreads --enable-w32threads --disable-chromaprint --disable-libzvbi --enable-libopenh264 --enable-libdav1d --enable-libsvtav1 --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --pkg-config=pkg-config --pkg-config-flags=--static --extra-ldflags='-static-libgcc -static-libstdc++'"
+      "file": "scripts/prepare-static-media-inputs.py",
+      "purpose": "Source hash verification and staging"
+    },
+    {
+      "file": "scripts/collect-static-media.py",
+      "purpose": "PE audit, notices and real codec roundtrip verification"
     }
   ],
-  "scope": "Only standalone shared media tools; no Python, Torch, CUDA SDK or user media.",
-  "source_distribution": "Matching sources and build recipes are published beside native releases."
+  "notices": [
+    {
+      "component": "ffmpeg",
+      "file": "licenses/ffmpeg/COPYING.GPLv2",
+      "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+      "bytes": 18092
+    },
+    {
+      "component": "ffmpeg",
+      "file": "licenses/ffmpeg/COPYING.GPLv3",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "bytes": 35147
+    },
+    {
+      "component": "ffmpeg",
+      "file": "licenses/ffmpeg/COPYING.LGPLv2.1",
+      "sha256": "246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30",
+      "bytes": 26517
+    },
+    {
+      "component": "ffmpeg",
+      "file": "licenses/ffmpeg/COPYING.LGPLv3",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "bytes": 7651
+    },
+    {
+      "component": "ffmpeg",
+      "file": "licenses/ffmpeg/LICENSE.md",
+      "sha256": "2e1d16c72fd74e12063776371da757322f8b77589386532f4fd8634bde7de1af",
+      "bytes": 4346
+    },
+    {
+      "component": "x264",
+      "file": "licenses/x264/COPYING",
+      "sha256": "32b1062f7da84967e7019d01ab805935caa7ab7321a7ced0e30ebe75e5df1670",
+      "bytes": 17992
+    },
+    {
+      "component": "x265",
+      "file": "licenses/x265/COPYING",
+      "sha256": "d8afb1bcc7a2cfc603683b168d6987ef0a48e59e0da3693bf55c5d33b67e2b49",
+      "bytes": 18120
+    },
+    {
+      "component": "x265",
+      "file": "licenses/x265/source/dynamicHDR10/LICENSE.txt",
+      "sha256": "47f15d63e82eb8a4de6e46471d5f96cf6d052fd5355944a002c3157880248b69",
+      "bytes": 849
+    },
+    {
+      "component": "x265",
+      "file": "licenses/x265/source/dynamicHDR10/json11/LICENSE.txt",
+      "sha256": "950e288a2548cb33f6a90d23958806b0803f510ab17c600d661619a73ae3a6c8",
+      "bytes": 1057
+    },
+    {
+      "component": "libvpx",
+      "file": "licenses/libvpx/LICENSE",
+      "sha256": "8267348d5af1262c11d1a08de2f5afc77457755f1ac658627dd9acf71011d615",
+      "bytes": 1537
+    },
+    {
+      "component": "libvpx",
+      "file": "licenses/libvpx/PATENTS",
+      "sha256": "cc3273e0694ea5896145e0677699b53471b03ea43021ddc50e7923fbb9f5023c",
+      "bytes": 1436
+    },
+    {
+      "component": "libvpx",
+      "file": "licenses/libvpx/third_party/googletest/src/LICENSE",
+      "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "bytes": 1475
+    },
+    {
+      "component": "libvpx",
+      "file": "licenses/libvpx/third_party/libwebm/LICENSE.TXT",
+      "sha256": "5aec868f669e384a22372a4e8a1a6cd7d44c64cd451f960ca69cc170d1e13acf",
+      "bytes": 1496
+    },
+    {
+      "component": "libvpx",
+      "file": "licenses/libvpx/third_party/libwebm/PATENTS.TXT",
+      "sha256": "cc3273e0694ea5896145e0677699b53471b03ea43021ddc50e7923fbb9f5023c",
+      "bytes": 1436
+    },
+    {
+      "component": "libvpx",
+      "file": "licenses/libvpx/third_party/libyuv/LICENSE",
+      "sha256": "2b2cc1180c7e6988328ad2033b04b80117419db9c4c584918bbb3cfec7e9364f",
+      "bytes": 1506
+    },
+    {
+      "component": "libvpx",
+      "file": "licenses/libvpx/third_party/nalloc/LICENSE",
+      "sha256": "d7dd0396ec46975e1bf9093680068ef301bc0ed204603e623a6f7073ab922ab1",
+      "bytes": 1069
+    },
+    {
+      "component": "libvpx",
+      "file": "licenses/libvpx/third_party/x86inc/LICENSE",
+      "sha256": "719d8fa235f2068e0ae6d6a7dceb0a7720d7840f0f0ebed29957989e6ded3cd8",
+      "bytes": 936
+    },
+    {
+      "component": "opus",
+      "file": "licenses/opus/COPYING",
+      "sha256": "01e1167d54a096d123cf6dfbbeb19587278845c6481d2d66d545669846079551",
+      "bytes": 1945
+    },
+    {
+      "component": "svtav1",
+      "file": "licenses/svtav1/LICENSE-BSD2.md",
+      "sha256": "c582fcbeb9cf972a60d298bfaf41dc5adff2dd14208946edcb9bb56a281e8438",
+      "bytes": 1316
+    },
+    {
+      "component": "svtav1",
+      "file": "licenses/svtav1/LICENSE.md",
+      "sha256": "0acc2fcb27472bdc9aaf8b71f37055bbdac4f54671b7d922f241bd7fcd0dd3e6",
+      "bytes": 1709
+    },
+    {
+      "component": "svtav1",
+      "file": "licenses/svtav1/PATENTS.md",
+      "sha256": "20678ab10402659106dc4c147c97b2a6e94b5c0695415e15a8f195ebc3547922",
+      "bytes": 5767
+    },
+    {
+      "component": "svtav1",
+      "file": "licenses/svtav1/third_party/fastfeat/LICENSE",
+      "sha256": "043dcfd059386f9facd376351b2bd79325778744aa442177390cdfcca54babed",
+      "bytes": 1506
+    },
+    {
+      "component": "svtav1",
+      "file": "licenses/svtav1/third_party/safestringlib/LICENSE",
+      "sha256": "c0f99a208799ca20c9ccf31a30533d49334eb458dca5a3d14f9afe3e884e5d7d",
+      "bytes": 2247
+    },
+    {
+      "component": "dav1d",
+      "file": "licenses/dav1d/COPYING",
+      "sha256": "dd92c3c2247c5651606fc23a5e2d6a1ebc5ace9a3e49cbde0e12f05ad1cb1ee5",
+      "bytes": 1317
+    },
+    {
+      "component": "dav1d",
+      "file": "licenses/dav1d/doc/PATENTS",
+      "sha256": "335eca574598bf4ca181b12f708d6669e5a5e78c8e1513e5b35fa1f03901484b",
+      "bytes": 5730
+    },
+    {
+      "component": "zlib",
+      "file": "licenses/zlib/LICENSE",
+      "sha256": "db87e85464166fab6bc644092392fd6cfedf0abd8a16c63f419139ea57c33628",
+      "bytes": 1002
+    },
+    {
+      "component": "zlib",
+      "file": "licenses/zlib/contrib/dotzlib/LICENSE_1_0.txt",
+      "sha256": "36266a8fd073568394cb81cdb2b124f7fdae2c64c1a7ed09db34b4d22efa2951",
+      "bytes": 1359
+    },
+    {
+      "component": "zimg-3.0.6",
+      "file": "licenses/zimg-3.0.6/COPYING",
+      "sha256": "7637386b5f81e8a719ca336233149005e5fa28b5e6054ea7b67de49355b0ad40",
+      "bytes": 484
+    },
+    {
+      "component": "zimg-3.0.6",
+      "file": "licenses/zimg-3.0.6/test/extra/musl-libm/COPYRIGHT",
+      "sha256": "15d9afbf84041872b4d840ed7d165d3eee786ff3f97e703b10467c259ff4e7d9",
+      "bytes": 6166
+    },
+    {
+      "component": "nv-codec-headers",
+      "file": "licenses/nv-codec-headers/dynlink_cuda.h-license.txt",
+      "sha256": "6f0d5ad2609c6fda3e0fb07fa286e7b46c2ea7b87ab12d926ab7a82c69ffe09d",
+      "bytes": 1175,
+      "source_header": "nv-codec-headers-876af32a202d0de83bd1d36fe74ee0f7fcf86b0d/include/ffnvcodec/dynlink_cuda.h"
+    },
+    {
+      "component": "nv-codec-headers",
+      "file": "licenses/nv-codec-headers/dynlink_cuviddec.h-license.txt",
+      "sha256": "72b60be67644d841bfd54a042875b5846294d357040dd7ac8e38bde20d9e8f97",
+      "bytes": 1199,
+      "source_header": "nv-codec-headers-876af32a202d0de83bd1d36fe74ee0f7fcf86b0d/include/ffnvcodec/dynlink_cuviddec.h"
+    },
+    {
+      "component": "nv-codec-headers",
+      "file": "licenses/nv-codec-headers/dynlink_loader.h-license.txt",
+      "sha256": "6f0d5ad2609c6fda3e0fb07fa286e7b46c2ea7b87ab12d926ab7a82c69ffe09d",
+      "bytes": 1175,
+      "source_header": "nv-codec-headers-876af32a202d0de83bd1d36fe74ee0f7fcf86b0d/include/ffnvcodec/dynlink_loader.h"
+    },
+    {
+      "component": "nv-codec-headers",
+      "file": "licenses/nv-codec-headers/dynlink_nvcuvid.h-license.txt",
+      "sha256": "72b60be67644d841bfd54a042875b5846294d357040dd7ac8e38bde20d9e8f97",
+      "bytes": 1199,
+      "source_header": "nv-codec-headers-876af32a202d0de83bd1d36fe74ee0f7fcf86b0d/include/ffnvcodec/dynlink_nvcuvid.h"
+    },
+    {
+      "component": "nv-codec-headers",
+      "file": "licenses/nv-codec-headers/nvEncodeAPI.h-license.txt",
+      "sha256": "72b60be67644d841bfd54a042875b5846294d357040dd7ac8e38bde20d9e8f97",
+      "bytes": 1199,
+      "source_header": "nv-codec-headers-876af32a202d0de83bd1d36fe74ee0f7fcf86b0d/include/ffnvcodec/nvEncodeAPI.h"
+    },
+    {
+      "component": "gcc-mingw-w64-base",
+      "file": "licenses/toolchain/gcc-mingw-w64-base-copyright.txt",
+      "sha256": "a481f772f7a53335f13b32c6c54eb1c8577ce97704edd3757ab7ed4287a8e96a",
+      "bytes": 75729
+    },
+    {
+      "component": "gcc-mingw-w64-x86-64-posix",
+      "file": "licenses/toolchain/gcc-mingw-w64-x86-64-posix-copyright.txt",
+      "sha256": "a481f772f7a53335f13b32c6c54eb1c8577ce97704edd3757ab7ed4287a8e96a",
+      "bytes": 75729
+    },
+    {
+      "component": "g++-mingw-w64-x86-64-posix",
+      "file": "licenses/toolchain/g++-mingw-w64-x86-64-posix-copyright.txt",
+      "sha256": "a481f772f7a53335f13b32c6c54eb1c8577ce97704edd3757ab7ed4287a8e96a",
+      "bytes": 75729
+    },
+    {
+      "component": "mingw-w64-x86-64-dev",
+      "file": "licenses/toolchain/mingw-w64-x86-64-dev-copyright.txt",
+      "sha256": "af23297b7d17e8e31817a5d58088de6fdafe34705bb5a7d1d330f08711b31314",
+      "bytes": 37808
+    },
+    {
+      "component": "mingw-w64-common",
+      "file": "licenses/toolchain/mingw-w64-common-copyright.txt",
+      "sha256": "af23297b7d17e8e31817a5d58088de6fdafe34705bb5a7d1d330f08711b31314",
+      "bytes": 37808
+    }
+  ],
+  "smoke_tests": [
+    {
+      "case": "h264",
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 256,
+      "height": 144,
+      "bytes": 11836,
+      "sha256": "7081efa81c58553c8c4da3ea7885941e0777e3c6210fc0fe3be9307b79a8394e",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "hevc10",
+      "codec": "hevc",
+      "pixel_format": "yuv420p10le",
+      "width": 256,
+      "height": 144,
+      "bytes": 12455,
+      "sha256": "41573ba99ac23569493d809895fbd4cd2fbb7de439aec498840264cae087ec3d",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "av1",
+      "codec": "av1",
+      "pixel_format": "yuv420p10le",
+      "width": 256,
+      "height": 144,
+      "bytes": 5727,
+      "sha256": "041ceee163766697e2035b96a9a15cfec87ca9d7e4d524e89f32251c76ba22e6",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "vp9",
+      "codec": "vp9",
+      "pixel_format": "yuv420p10le",
+      "width": 256,
+      "height": 144,
+      "bytes": 7380,
+      "sha256": "bb39cc6776681895be9a8439cb7d7052c455925a1b919e5bd2fb297909cd76cf",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "ffv1",
+      "codec": "ffv1",
+      "pixel_format": "bgra",
+      "width": 256,
+      "height": 144,
+      "bytes": 15995,
+      "sha256": "8c15aeefc21e0292b38b2e64ea073b993ef91bf885a48fbb9599d680b6720b58",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "prores",
+      "codec": "prores",
+      "pixel_format": "yuv422p10le",
+      "width": 256,
+      "height": 144,
+      "bytes": 43721,
+      "sha256": "f80679134ebf9c9299c596d0c4b11610441308c9ec6b8448bc586cebc67a7a8c",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "dnxhr",
+      "codec": "dnxhd",
+      "pixel_format": "yuv422p10le",
+      "width": 256,
+      "height": 144,
+      "bytes": 33559,
+      "sha256": "cbbf21d8b1cbc270eb4e21f0e8c0be18bb8001752a5f46999549f9ba365689a7",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "cineform",
+      "codec": "cfhd",
+      "pixel_format": "gbrp12le",
+      "width": 256,
+      "height": 144,
+      "bytes": 87977,
+      "sha256": "4bf9caa37127144b8618991021aaaa314c5ec63b6f5d8f05d43027c174291c25",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "jpeg2000",
+      "codec": "jpeg2000",
+      "pixel_format": "rgb48le",
+      "width": 256,
+      "height": 144,
+      "bytes": 82573,
+      "sha256": "cff7d928fe4722574d26a3c03bf4fc40cecf88dc78d808a4f6eb48c5be1f8dce",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "png16",
+      "codec": "png",
+      "pixel_format": "rgb48be",
+      "width": 256,
+      "height": 144,
+      "bytes": 8953,
+      "sha256": "99933df06bee026a96583352b2bc5c09a2735bc9e29af7a981df74a97592cfa8",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "tiff16",
+      "codec": "tiff",
+      "pixel_format": "rgb48le",
+      "width": 256,
+      "height": 144,
+      "bytes": 177732,
+      "sha256": "990056ac04d85141f9106178b3087831350a710502cab4808d503104b18c6bfb",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "dpx16",
+      "codec": "dpx",
+      "pixel_format": "rgb48be",
+      "width": 256,
+      "height": 144,
+      "bytes": 222848,
+      "sha256": "3cf90bca176527486c04e4ce9c7eb1c16ad516f454a5f69eaa79dcdb223993d8",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "exr-linear",
+      "codec": "exr",
+      "pixel_format": "gbrpf32le",
+      "width": 256,
+      "height": 144,
+      "bytes": 445064,
+      "sha256": "7a7cca16d97a8f793b71a38f792269c0acc047f2746aad705b84c834b291e007",
+      "encoded_and_decoded": true
+    },
+    {
+      "case": "aac",
+      "codec": "aac",
+      "sample_rate": "48000",
+      "encoded_and_decoded": true,
+      "bytes": 4318,
+      "sha256": "27b40fe88e6eebbd3ba33b1413c1ee0e2a18ee66693a063d0cd6b5128b9035b7"
+    },
+    {
+      "case": "opus",
+      "codec": "opus",
+      "sample_rate": "48000",
+      "encoded_and_decoded": true,
+      "bytes": 4803,
+      "sha256": "4d76277239fd24e3d58c5bbbfcb00c894322df5fd64ae20a1a098b56299ddebe"
+    },
+    {
+      "case": "ffv1-exact-roundtrip",
+      "bytes_compared": 294912,
+      "sha256": "53b26106cfcaf0888be753d8e496ee020e57fb6d5eef3cf0d441651c5e4880da",
+      "exact": true
+    }
+  ],
+  "notes": [
+    "Standalone native CLI only; no PyAV/FFmpeg ABI coupling and no reused DLL payload.",
+    "Windows system DLL imports only; compiler, C++ and winpthreads runtimes linked statically.",
+    "NVIDIA encoder support is optional at runtime and requires compatible installed GPU drivers; software HEVC10 uses x265.",
+    "All source archive hashes verified before extraction and again before notice collection. No network used for inputs.",
+    "x265 is a 10-bit build; x264 supports its all-depth build and VP9/SVT-AV1 support high-bit-depth output. AV1 software decode uses statically linked dav1d.",
+    "Root integration review completed: promoted into the Windows release payload after 16 real media smoke checks and all 28 profile exports passed. Installed-application QA is a separate release check."
+  ],
+  "promotion": {
+    "date_utc": "2026-11-02T19:24:34.3887429Z",
+    "candidate_manifest_sha256": "c88421fecfbed55a84d5305bdf1159890b7de19a90dbac0682f3e6ed5fcd0467",
+    "matrix_receipt": "docs/validation/static-runtime-windows-matrix.json",
+    "native8k_receipt": "docs/validation/static-runtime-windows.json"
+  }
 }
