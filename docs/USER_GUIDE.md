@@ -6,7 +6,7 @@ For current download availability, use the project README. The **Windows x64 per
 
 On Windows, run the release's `StopMotionForHumanity-…-win-x64.exe`, choose the per-user installation location in the wizard, then launch **Stop Motion for Humanity** from its shortcut.
 
-On an Apple silicon Mac, open `StopMotionForHumanity-…-mac-arm64.dmg`, drag the app into Applications, then launch it. [Actual final-DMG installation and exports were tested](validation/installed-macos.json) on an Apple M4 running macOS 26.6.2, with every installed file/symlink matching the built app. The declared minimum is macOS 14.0; older-version runtime execution has not been tested. This beta is **ad hoc signed and not notarized**; Gatekeeper acceptance is not claimed. Both installed export modes and project reopening passed. A new capture in the final installed Mac app still awaits human camera consent, so that remaining step is separate from completed installation/export evidence. [Validation](VALIDATION.md) gives the exact scopes.
+On an Apple silicon Mac, open `StopMotionForHumanity-…-mac-arm64.dmg`, drag the app into Applications, then launch it. [Actual final-DMG installation, exports and camera capture were tested](validation/installed-macos.json) on an Apple M4 running macOS 26.6.2, with every installed file/symlink matching the built app. The declared minimum is macOS 14.0; older-version runtime execution has not been tested. This beta is **ad hoc signed and not notarized**; Gatekeeper acceptance is not claimed. Both installed export modes and project reopening passed. After human OS permission, the unchanged installed app captured a native 3840×2160 PNG8 from an EMEET SmartCam C960 4K and reopened the 11-frame project after normal Quit/relaunch. [Validation](VALIDATION.md) gives the exact scopes.
 
 ## Start or reopen
 
@@ -31,7 +31,7 @@ The selected camera, requested size, countdown and append/insert/replace prefere
 
 **Windows development evidence:** an EMEET SmartCam C960 4K negotiated 3840×2160 at a reported 30 fps and saved a verified 3840×2160 PNG8 original. This is one short physical-device check, not a claim about all webcams, all controls or long takes. [Camera details](CAMERAS.md) and the [public metadata receipt](validation/physical-webcam-windows-development.json) describe its scope.
 
-**Mac packaged preflight evidence:** [two physical webcams captured PNG8 originals](validation/physical-webcam-macos-preflight.json): Live Streamer CAM313 at 1920×1080 and EMEET SmartCam C960 4K at 3840×2160. That earlier packaged test is distinct from the final DMG-installed app, whose new camera capture is still awaiting human macOS permission. When the OS asks, grant camera access yourself; connecting the app does not grant microphone access.
+**Mac camera evidence:** [earlier packaged preflight](validation/physical-webcam-macos-preflight.json) captured PNG8 originals from Live Streamer CAM313 at 1920×1080 and EMEET SmartCam C960 4K at 3840×2160. The [final DMG-installed app](validation/installed-macos.json) separately captured a new EMEET frame at 3840×2160 after human macOS permission. Its saved PNG fully decoded at 8 bits per channel without scaling; the ten earlier originals/frame records remained intact, and normal Quit/relaunch reopened all 11 frames with the camera disconnected. These named-device tests do not establish every camera or higher-precision acquisition. When the OS asks, grant camera access yourself; connecting the app does not grant microphone access.
 
 ## Bring your own stills
 

@@ -99,6 +99,8 @@ import or watch its image folder.
 
 **Physical Windows capture tested:** an EMEET SmartCam C960 4K negotiated
 3840 × 2160 at 30 fps and saved an independently checked native 4K PNG.
+The [final installed Mac app](docs/validation/mac-installed-camera.json) also
+captured a native 4K PNG and retained all eleven originals through Quit/reopen.
 See [camera support](docs/CAMERAS.md) and [validation evidence](docs/VALIDATION.md)
 for the precise scope of each platform's checks.
 
