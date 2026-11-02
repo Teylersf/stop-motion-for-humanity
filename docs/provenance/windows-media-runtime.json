@@ -1,0 +1,609 @@
+{
+  "schema_version": 1,
+  "platform": "win32-x64",
+  "ffmpeg_revision": "27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
+  "binaries": [
+    {
+      "file": "ffmpeg.exe",
+      "bytes": 528384,
+      "sha256": "a71bb6e71c55154fe3c8fe7b1f134af9091665a8af1d42484c7794a69f46b009"
+    },
+    {
+      "file": "ffprobe.exe",
+      "bytes": 226304,
+      "sha256": "084a7dd537d733376e9e3e8d21dc248e526a8b3c8f41f9a4ac5abee118c52858"
+    },
+    {
+      "file": "avcodec-62.dll",
+      "bytes": 27158528,
+      "sha256": "0837a840482fb6d5877d46745bab863450808807aa398cb6d4da4e8088440faa",
+      "license": "LGPL version 3 or later",
+      "configuration": "--arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-shared --disable-static --disable-autodetect --enable-version3 --disable-gpl --disable-nonfree --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --disable-swscale --disable-swresample --disable-pthreads --enable-w32threads --disable-chromaprint --disable-libzvbi --enable-libopenh264 --enable-libdav1d --enable-libsvtav1 --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --pkg-config=pkg-config --pkg-config-flags=--static --extra-ldflags='-static-libgcc -static-libstdc++'"
+    },
+    {
+      "file": "avdevice-62.dll",
+      "bytes": 3663872,
+      "sha256": "38dadc5a19179116ac95050ce1ae2eb3fbf5abd87af5a872324ef4dd2df6896c",
+      "license": "LGPL version 3 or later",
+      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
+    },
+    {
+      "file": "avfilter-11.dll",
+      "bytes": 84830208,
+      "sha256": "8eb979974c0550d0776cf53734a1209304e3a56386fc2e6bd7ca577fa17b72bb",
+      "license": "LGPL version 3 or later",
+      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
+    },
+    {
+      "file": "avformat-62.dll",
+      "bytes": 2369536,
+      "sha256": "b910126d0448c4b89cd814ca07347e5febc610a64d6af4ed13dc48c4474a02c6",
+      "license": "LGPL version 3 or later",
+      "configuration": "--arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-shared --disable-static --disable-autodetect --enable-version3 --disable-gpl --disable-nonfree --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --disable-swscale --disable-swresample --disable-pthreads --enable-w32threads --disable-chromaprint --disable-libzvbi --enable-libopenh264 --enable-libdav1d --enable-libsvtav1 --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --pkg-config=pkg-config --pkg-config-flags=--static --extra-ldflags='-static-libgcc -static-libstdc++'"
+    },
+    {
+      "file": "avutil-60.dll",
+      "bytes": 2947072,
+      "sha256": "d353317bbe824c8794657608378e9c71d7b0bf264300b5371e7c6d213aeb903a",
+      "license": "LGPL version 3 or later",
+      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
+    },
+    {
+      "file": "swresample-6.dll",
+      "bytes": 723968,
+      "sha256": "52f94587a2ec32a47be82d8108c827fbb07960a86f64850e89258bdc869ce596",
+      "license": "LGPL version 3 or later",
+      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
+    },
+    {
+      "file": "swscale-9.dll",
+      "bytes": 1911296,
+      "sha256": "5ee25bd365bbb02d84f9f3a6211754fb4d09df8dafd00c3e4c043b018bfbc5e8",
+      "license": "LGPL version 3 or later",
+      "configuration": "--prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-zlib --enable-libxml2 --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libshaderc --enable-libvorbis --disable-libxcb --disable-xlib --disable-libpulse --enable-opencl --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-amf --enable-libaom --enable-libaribb24 --disable-avisynth --enable-chromaprint --enable-libdav1d --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --disable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --enable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20260228"
+    }
+  ],
+  "source_inputs": [
+    {
+      "component": "btbn-build-recipes",
+      "revision": "c482a075076c29edf6dd9c5a7c9d3113d0babed6",
+      "license": "MIT",
+      "file": "third-party/btbn-build-recipes-c482a075076c29edf6dd9c5a7c9d3113d0babed6.tar.gz",
+      "url": "https://codeload.github.com/BtbN/FFmpeg-Builds/tar.gz/c482a075076c29edf6dd9c5a7c9d3113d0babed6",
+      "sha256": "867c935f18d4b826a22442f81acc588cb6dfc7605011f8b1cda35beea06eaba7",
+      "bytes": 74488
+    },
+    {
+      "component": "ffmpeg-windows",
+      "revision": "27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
+      "license": "LGPL-3.0-or-later",
+      "file": "third-party/ffmpeg-windows-27b8d1a017de62b51c0f3a039327b5cc2d7ea13f.tar.gz",
+      "url": "https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
+      "sha256": "87a695bc61e16f4aa8437c2ab6c0bbe1ca572ceccec4a2e86013e36f49899b1e",
+      "bytes": 16429267
+    },
+    {
+      "component": "pyav",
+      "revision": "17.0.0",
+      "license": "BSD-3-Clause",
+      "file": "third-party/pyav-17.0.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/b2/eb/abca886df3a091bc406feb5ff71b4c4f426beaae6b71b9697264ce8c7211/av-17.0.0.tar.gz",
+      "sha256": "c53685df73775a8763c375c7b2d62a6cb149d992a26a4b098204da42ade8c3df",
+      "bytes": 4410769
+    },
+    {
+      "component": "nv-codec-headers",
+      "revision": "876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
+      "license": "BSD-2-Clause",
+      "file": "third-party/nv-codec-headers-876af32a202d0de83bd1d36fe74ee0f7fcf86b0d.tar.gz",
+      "url": "https://codeload.github.com/FFmpeg/nv-codec-headers/tar.gz/876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
+      "sha256": "5e83af9e86efe7a1f4393ef342a299e5e7ca9f57fe210307afed3ae0f39d4a3f",
+      "bytes": 83679
+    },
+    {
+      "component": "openh264",
+      "revision": "cf568c83f71a18778f9a16e344effaf40c11b752",
+      "license": "BSD-2-Clause",
+      "file": "third-party/openh264-cf568c83f71a18778f9a16e344effaf40c11b752.tar.gz",
+      "url": "https://codeload.github.com/cisco/openh264/tar.gz/cf568c83f71a18778f9a16e344effaf40c11b752",
+      "sha256": "5e5efc74a0011f9853ccc3b1efeae92105dd5c5bea4af2432c6a9cc50e468007",
+      "bytes": 60305012
+    },
+    {
+      "component": "dav1d",
+      "revision": "60507bffc0b13e7a81753a51005dbbeba4b23018",
+      "license": "BSD-2-Clause",
+      "file": "third-party/dav1d-60507bffc0b13e7a81753a51005dbbeba4b23018.tar.gz",
+      "url": "https://code.videolan.org/videolan/dav1d/-/archive/60507bffc0b13e7a81753a51005dbbeba4b23018/dav1d-60507bffc0b13e7a81753a51005dbbeba4b23018.tar.gz",
+      "sha256": "fa6c6ad6d9f57d86df90bc573c734c7342d4d3dc4fff1525f19344f6444c0b83",
+      "bytes": 1694322
+    },
+    {
+      "component": "svtav1",
+      "revision": "4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0",
+      "license": "BSD-3-Clause-Clear",
+      "file": "third-party/svtav1-4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0.tar.gz",
+      "url": "https://codeload.github.com/AOMediaCodec/SVT-AV1/tar.gz/4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0",
+      "sha256": "851250a3e5756eacfcd3e3368c8f25b4d1774205d5b7412768476d3788f4ed1f",
+      "bytes": 10943615
+    },
+    {
+      "component": "zlib",
+      "revision": "9f25df2c80c2b26c8b050fba880f0851d9d243ea",
+      "license": "Zlib",
+      "file": "third-party/zlib-9f25df2c80c2b26c8b050fba880f0851d9d243ea.tar.gz",
+      "url": "https://codeload.github.com/madler/zlib/tar.gz/9f25df2c80c2b26c8b050fba880f0851d9d243ea",
+      "sha256": "af12bfe8e4d188ab7c1cd8a906e38ae578955a9f50ac4db36b5365d8d0cbaed5",
+      "bytes": 1620655
+    },
+    {
+      "component": "zimg",
+      "revision": "df9c1472b9541d0e79c8d02dae37fdf12f189ec2",
+      "license": "WTFPL",
+      "file": "third-party/zimg-df9c1472b9541d0e79c8d02dae37fdf12f189ec2.tar.gz",
+      "url": "https://codeload.github.com/sekrit-twc/zimg/tar.gz/df9c1472b9541d0e79c8d02dae37fdf12f189ec2",
+      "sha256": "a230bc81ee53d166c636c228d20a27325ee4c6924dbc02023e30cde0f2d89944",
+      "bytes": 288482
+    },
+    {
+      "component": "electron-ffmpeg",
+      "revision": "9db86ce5b5b454dfc96c435f9f0723012980c37f",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/electron-ffmpeg-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
+      "url": "https://chromium.googlesource.com/chromium/third_party/ffmpeg/+archive/9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
+      "sha256": "84d308463ae754c16531cdb7bd4676de82f6df96a56184cee4458adb72c5a28e",
+      "bytes": 18928800
+    },
+    {
+      "component": "electron-source",
+      "revision": "f81ca3d4f09f57667238120adacb01239d5ecd89",
+      "license": "MIT",
+      "file": "third-party/electron-source-f81ca3d4f09f57667238120adacb01239d5ecd89.tar.gz",
+      "url": "https://codeload.github.com/electron/electron/tar.gz/f81ca3d4f09f57667238120adacb01239d5ecd89",
+      "sha256": "68553daae380ca6f13b55a83f629dc4b37b7e511faa9a5d22faef409e262e104",
+      "bytes": 20347029
+    },
+    {
+      "component": "chromium-build",
+      "revision": "861389936bf33ea77529ee5dcc0605e68f6bb620",
+      "license": "BSD-3-Clause",
+      "file": "third-party/chromium-build-861389936bf33ea77529ee5dcc0605e68f6bb620.tar.gz",
+      "url": "https://chromium.googlesource.com/chromium/src/+archive/861389936bf33ea77529ee5dcc0605e68f6bb620/build.tar.gz",
+      "sha256": "194e5d42f785f144ab3b8f09af87c3eb1ba7762fd730756ec9ba018df6fefca7",
+      "bytes": 1992798
+    },
+    {
+      "component": "chromium-ffmpeg-build",
+      "revision": "861389936bf33ea77529ee5dcc0605e68f6bb620",
+      "license": "BSD-3-Clause",
+      "file": "third-party/chromium-ffmpeg-build-861389936bf33ea77529ee5dcc0605e68f6bb620.tar.gz",
+      "url": "https://chromium.googlesource.com/chromium/src/+archive/861389936bf33ea77529ee5dcc0605e68f6bb620/media/ffmpeg.tar.gz",
+      "sha256": "ee35bc94cf82f7cd604286f2ae1182caaa854f70b4839860bd55e13a15b90ecb",
+      "bytes": 105264
+    },
+    {
+      "component": "chromium-generate-stubs",
+      "revision": "861389936bf33ea77529ee5dcc0605e68f6bb620",
+      "license": "BSD-3-Clause",
+      "file": "third-party/chromium-generate-stubs-861389936bf33ea77529ee5dcc0605e68f6bb620.tar.gz",
+      "url": "https://chromium.googlesource.com/chromium/src/+archive/861389936bf33ea77529ee5dcc0605e68f6bb620/tools/generate_stubs.tar.gz",
+      "sha256": "8331e615ed4a9f188f5866036ff1abfa03406ac1c0f28d35144b467a12b297b5",
+      "bytes": 15196
+    },
+    {
+      "component": "electron-chromium-opus",
+      "revision": "861389936bf33ea77529ee5dcc0605e68f6bb620",
+      "license": "Opus-Patent-BSD-3-Clause",
+      "file": "third-party/electron-chromium-opus-861389936bf33ea77529ee5dcc0605e68f6bb620.tar.gz",
+      "url": "https://chromium.googlesource.com/chromium/src/+/861389936bf33ea77529ee5dcc0605e68f6bb620/third_party/opus/?format=JSON&recursive=1",
+      "sha256": "480e1fb9f63a7b9b80e41650734dca1f51b0effe1ae0abe37b60bee2a2499c6f",
+      "bytes": 4104039
+    },
+    {
+      "component": "20-libiconv",
+      "revision": "30fc26493e4c6457000172d49b526be0919e34c6",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/20-libiconv-30fc26493e4c6457000172d49b526be0919e34c6.tar.gz",
+      "url": "https://git.savannah.gnu.org/git/libiconv.git#30fc26493e4c6457000172d49b526be0919e34c6",
+      "sha256": "5417254cb166d11c717f5ece88edf53d5f038ef900c213a005c8235cebae766c",
+      "bytes": 4698567
+    },
+    {
+      "component": "libiconv-gnulib",
+      "revision": "06f06019b66cd443e715014e4c49f64ceb61edfe",
+      "license": "See per-file LGPL/GPL exceptions",
+      "file": "third-party/libiconv-gnulib-06f06019b66cd443e715014e4c49f64ceb61edfe.tar.gz",
+      "url": "https://codeload.github.com/coreutils/gnulib/tar.gz/06f06019b66cd443e715014e4c49f64ceb61edfe",
+      "sha256": "c8a016e51a05b3c95fd6b3f1d406e38004366cc4d052f24a87e324d067cb6ac3",
+      "bytes": 9396096
+    },
+    {
+      "component": "25-fribidi",
+      "revision": "b28f43bd3e8e31a5967830f721bab218c1aa114c",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/25-fribidi-b28f43bd3e8e31a5967830f721bab218c1aa114c.tar.gz",
+      "url": "https://codeload.github.com/fribidi/fribidi/tar.gz/b28f43bd3e8e31a5967830f721bab218c1aa114c",
+      "sha256": "185f4120c2bcc0bee5044a469dc533bbec2190236af38c28150d22861d85fff4",
+      "bytes": 2144182
+    },
+    {
+      "component": "25-gmp",
+      "revision": "9994908f090c694f8a152d660dc6852e0c48557a",
+      "license": "LGPL-3.0-or-later OR GPL-2.0-or-later",
+      "file": "third-party/25-gmp-9994908f090c694f8a152d660dc6852e0c48557a.tar.gz",
+      "url": "https://codeload.github.com/BtbN/gmplib/tar.gz/9994908f090c694f8a152d660dc6852e0c48557a",
+      "sha256": "b98eeeee30c8e05708de02808351d96feaa8da84c48f7824096f3df6eb46d658",
+      "bytes": 2538821
+    },
+    {
+      "component": "45-libudfread",
+      "revision": "139a2194525f2745b98a98e4d8fa627d07440176",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/45-libudfread-139a2194525f2745b98a98e4d8fa627d07440176.tar.gz",
+      "url": "https://code.videolan.org/videolan/libudfread/-/archive/139a2194525f2745b98a98e4d8fa627d07440176/libudfread-139a2194525f2745b98a98e4d8fa627d07440176.tar.gz",
+      "sha256": "aaccb7877139abe3c47a6bdb142dc3b1f1ab885a0e4b4e956e631d7a0445f960",
+      "bytes": 32910
+    },
+    {
+      "component": "50-aribb24/50-libaribb24",
+      "revision": "5e9be272f96e00f15a2f3c5f8ba7e124862aec38",
+      "license": "LGPL-3.0-or-later",
+      "file": "third-party/50-aribb24-50-libaribb24-5e9be272f96e00f15a2f3c5f8ba7e124862aec38.tar.gz",
+      "url": "https://codeload.github.com/nkoriyama/aribb24/tar.gz/5e9be272f96e00f15a2f3c5f8ba7e124862aec38",
+      "sha256": "651e88af3c8189d4faed538bee3affde360eb4698a70505765fc7e5653f5eb23",
+      "bytes": 47450
+    },
+    {
+      "component": "50-chromaprint",
+      "revision": "6b13ce3a81ae931e7477c4856a86bece99157cd8",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/50-chromaprint-6b13ce3a81ae931e7477c4856a86bece99157cd8.tar.gz",
+      "url": "https://codeload.github.com/acoustid/chromaprint/tar.gz/6b13ce3a81ae931e7477c4856a86bece99157cd8",
+      "sha256": "154ef31f51a5c1c27ee34ad1a1c8fd53a37bc479a8c6f2a8d0a1ed2df891ebcd",
+      "bytes": 1580981
+    },
+    {
+      "component": "50-gme",
+      "revision": "184dac64cd556f435c309bb83ed4a31fe14e1cc5",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/50-gme-184dac64cd556f435c309bb83ed4a31fe14e1cc5.tar.gz",
+      "url": "https://codeload.github.com/libgme/game-music-emu/tar.gz/184dac64cd556f435c309bb83ed4a31fe14e1cc5",
+      "sha256": "501b6bce789f32141e988a99eb3ac2c650ae06f961a2e4933d7462ecc899cd9c",
+      "bytes": 344385
+    },
+    {
+      "component": "50-libbluray",
+      "revision": "4dfb9b0123b006ce5d66592dc8058f61e5c0cdc8",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/50-libbluray-4dfb9b0123b006ce5d66592dc8058f61e5c0cdc8.tar.gz",
+      "url": "https://code.videolan.org/videolan/libbluray/-/archive/4dfb9b0123b006ce5d66592dc8058f61e5c0cdc8/libbluray-4dfb9b0123b006ce5d66592dc8058f61e5c0cdc8.tar.gz",
+      "sha256": "f3dd4d3c19d2e6dd8b3a077ee1caf6862276177c25caa083354fd6e1321f107c",
+      "bytes": 607278
+    },
+    {
+      "component": "50-libmp3lame",
+      "revision": "6531",
+      "license": "LGPL-2.0-or-later",
+      "file": "third-party/lame-svn-r6531.tar.gz",
+      "url": "https://svn.code.sf.net/p/lame/svn/!svn/rvr/6531/trunk/lame/",
+      "sha256": "1570197549783410bc41dd7ff709719b1f0edd80617980c4f2cf08ed3e6e8d58",
+      "bytes": 1485432
+    },
+    {
+      "component": "50-libplacebo",
+      "revision": "1dcaea8b601aa969ffd5bfa70088957ce3eaa273",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/50-libplacebo-1dcaea8b601aa969ffd5bfa70088957ce3eaa273.tar.gz",
+      "url": "https://code.videolan.org/videolan/libplacebo/-/archive/1dcaea8b601aa969ffd5bfa70088957ce3eaa273/libplacebo-1dcaea8b601aa969ffd5bfa70088957ce3eaa273.tar.gz",
+      "sha256": "4d17336366bd2d1000c7910e06571f3e648bf65d919547650858109bf9b466b5",
+      "bytes": 861993
+    },
+    {
+      "component": "libplacebo-3rdparty/Vulkan-Headers",
+      "revision": "450bd2232225d6c7728a4108055ac2e37cef6475",
+      "license": "See complete included upstream licenses",
+      "file": "third-party/libplacebo-3rdparty-Vulkan-Headers-450bd2232225d6c7728a4108055ac2e37cef6475.tar.gz",
+      "url": "https://codeload.github.com/KhronosGroup/Vulkan-Headers/tar.gz/450bd2232225d6c7728a4108055ac2e37cef6475",
+      "sha256": "26df9841c30806a994e2fdf42f7c87bcb1ced9db9a06033469123939fb3fa075",
+      "bytes": 2940820
+    },
+    {
+      "component": "libplacebo-3rdparty/fast_float",
+      "revision": "97b54ca9e75f5303507699d27c6b4f4efe4641a1",
+      "license": "See complete included upstream licenses",
+      "file": "third-party/libplacebo-3rdparty-fast_float-97b54ca9e75f5303507699d27c6b4f4efe4641a1.tar.gz",
+      "url": "https://codeload.github.com/fastfloat/fast_float/tar.gz/97b54ca9e75f5303507699d27c6b4f4efe4641a1",
+      "sha256": "2b132274539286e41f37857cac22aa8441d21bd86d55de825a3342b149f66801",
+      "bytes": 120200
+    },
+    {
+      "component": "libplacebo-3rdparty/glad",
+      "revision": "73db193f853e2ee079bf3ca8a64aa2eaf6459043",
+      "license": "See complete included upstream licenses",
+      "file": "third-party/libplacebo-3rdparty-glad-73db193f853e2ee079bf3ca8a64aa2eaf6459043.tar.gz",
+      "url": "https://codeload.github.com/Dav1dde/glad/tar.gz/73db193f853e2ee079bf3ca8a64aa2eaf6459043",
+      "sha256": "33dbeae44d8315ece57e14eba4b1b4a02ac5406d1c4f49cd20048c91522a6b9a",
+      "bytes": 645779
+    },
+    {
+      "component": "libplacebo-3rdparty/jinja",
+      "revision": "15206881c006c79667fe5154fe80c01c65410679",
+      "license": "See complete included upstream licenses",
+      "file": "third-party/libplacebo-3rdparty-jinja-15206881c006c79667fe5154fe80c01c65410679.tar.gz",
+      "url": "https://codeload.github.com/pallets/jinja/tar.gz/15206881c006c79667fe5154fe80c01c65410679",
+      "sha256": "b88a20dcc2e34072fcf4159325bc6c34cd4b29a81a8b83d15d2f28ba561da296",
+      "bytes": 276954
+    },
+    {
+      "component": "libplacebo-3rdparty/markupsafe",
+      "revision": "297fc8e356e6836a62087949245d09a28e9f1b13",
+      "license": "See complete included upstream licenses",
+      "file": "third-party/libplacebo-3rdparty-markupsafe-297fc8e356e6836a62087949245d09a28e9f1b13.tar.gz",
+      "url": "https://codeload.github.com/pallets/markupsafe/tar.gz/297fc8e356e6836a62087949245d09a28e9f1b13",
+      "sha256": "da7c010c9c81a66ac73036558c1fcb6212b50482f43211cd1254035b94f82414",
+      "bytes": 83817
+    },
+    {
+      "component": "libplacebo-demos/3rdparty/nuklear",
+      "revision": "242f35efa067a46c595645eeda7b1771ea1f83b1",
+      "license": "See complete included upstream licenses",
+      "file": "third-party/libplacebo-demos-3rdparty-nuklear-242f35efa067a46c595645eeda7b1771ea1f83b1.tar.gz",
+      "url": "https://codeload.github.com/Immediate-Mode-UI/Nuklear/tar.gz/242f35efa067a46c595645eeda7b1771ea1f83b1",
+      "sha256": "ac567995f917c10a722409e0141d226e737d06488b0a31166f6e4925da8e58f0",
+      "bytes": 2339403
+    },
+    {
+      "component": "50-libssh",
+      "revision": "34db488e4db8c66175c3ec4e31e724173b5263a3",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/50-libssh-34db488e4db8c66175c3ec4e31e724173b5263a3.tar.gz",
+      "url": "https://gitlab.com/libssh/libssh-mirror/-/archive/34db488e4db8c66175c3ec4e31e724173b5263a3/libssh-mirror-34db488e4db8c66175c3ec4e31e724173b5263a3.tar.gz",
+      "sha256": "917e9ba1a8438a0bc751b54912859ffddf5e52934491ec28ca96e9756b3310b8",
+      "bytes": 1092704
+    },
+    {
+      "component": "50-libzmq",
+      "revision": "51a5a9cbe315ab149357afe063e9e2d41f4c99a8",
+      "license": "MPL-2.0",
+      "file": "third-party/50-libzmq-51a5a9cbe315ab149357afe063e9e2d41f4c99a8.tar.gz",
+      "url": "https://codeload.github.com/zeromq/libzmq/tar.gz/51a5a9cbe315ab149357afe063e9e2d41f4c99a8",
+      "sha256": "64c8d466f83a5df9218ddbccaceadc705218a705480e67cda3ff7620878107d7",
+      "bytes": 881759
+    },
+    {
+      "component": "50-openal",
+      "revision": "266538011d2fc8ee875abed0be43a537d0e59743",
+      "license": "LGPL-2.0-or-later",
+      "file": "third-party/50-openal-266538011d2fc8ee875abed0be43a537d0e59743.tar.gz",
+      "url": "https://codeload.github.com/kcat/openal-soft/tar.gz/266538011d2fc8ee875abed0be43a537d0e59743",
+      "sha256": "d150399551e6b745f69f078db7441dbc41137fb5639a6c012cabcb8a5a80a425",
+      "bytes": 1393297
+    },
+    {
+      "component": "50-soxr",
+      "revision": "945b592b70470e29f917f4de89b4281fbbd540c0",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/50-soxr-945b592b70470e29f917f4de89b4281fbbd540c0.tar.gz",
+      "url": "https://codeload.github.com/chirlu/soxr/tar.gz/945b592b70470e29f917f4de89b4281fbbd540c0",
+      "sha256": "ae970b44833c7dd2b088d5928b27c7f1796198ff5bc5386b90393aaf33e53d51",
+      "bytes": 144522
+    },
+    {
+      "component": "50-srt",
+      "revision": "2220de504027b0fc45012b459365505834300e31",
+      "license": "MPL-2.0",
+      "file": "third-party/50-srt-2220de504027b0fc45012b459365505834300e31.tar.gz",
+      "url": "https://codeload.github.com/Haivision/srt/tar.gz/2220de504027b0fc45012b459365505834300e31",
+      "sha256": "0ac7963f866275a630181eba5df498802226a990382665498e87f248ade1d0a0",
+      "bytes": 1777216
+    },
+    {
+      "component": "50-twolame",
+      "revision": "3c7d49d95be71c26afdbaef14def92f3460c7373",
+      "license": "LGPL-2.1-or-later",
+      "file": "third-party/50-twolame-3c7d49d95be71c26afdbaef14def92f3460c7373.tar.gz",
+      "url": "https://codeload.github.com/njh/twolame/tar.gz/3c7d49d95be71c26afdbaef14def92f3460c7373",
+      "sha256": "8387780019ac5b53616675f84744f0e803dc88dbea0a720c059be830f78137f7",
+      "bytes": 432897
+    },
+    {
+      "component": "50-zvbi",
+      "revision": "41477c97c8edf7a01f1594b2a95b94f0117eed21",
+      "license": "Mixed LGPL-2.0-or-later / GPL-2.0-only; original vendor source, omitted from the clean codec",
+      "file": "third-party/50-zvbi-41477c97c8edf7a01f1594b2a95b94f0117eed21.tar.gz",
+      "url": "https://codeload.github.com/zapping-vbi/zvbi/tar.gz/41477c97c8edf7a01f1594b2a95b94f0117eed21",
+      "sha256": "844b2cbe6360cda852b1c13e449e966fd5baf661d9239cd83bb165ade804bb67",
+      "bytes": 943860
+    }
+  ],
+  "native_source_build_overrides": [
+    {
+      "source_commit": "27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
+      "source_archive_sha256": "87a695bc61e16f4aa8437c2ab6c0bbe1ca572ceccec4a2e86013e36f49899b1e",
+      "compiler": "clang version 23.1.4 (https://github.com/llvm/llvm-project.git 7a941dfb2877a0b8cf30323fefa85ad019e0b0f5)",
+      "assembler": "NASM version 2.16.01",
+      "crt": "UCRT",
+      "toolchain": {
+        "name": "llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64",
+        "sha256": "55064b60b991a1e1e8090b8c2f84e82b22cfe5903d12c159d65064cf5e8ae335",
+        "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261020/llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64.tar.xz"
+      },
+      "configure_args": [
+        "--arch=x86_64",
+        "--target-os=mingw32",
+        "--cross-prefix=x86_64-w64-mingw32-",
+        "--ld=x86_64-w64-mingw32-g++",
+        "--enable-shared",
+        "--disable-static",
+        "--disable-autodetect",
+        "--enable-version3",
+        "--disable-gpl",
+        "--disable-nonfree",
+        "--disable-programs",
+        "--disable-doc",
+        "--disable-debug",
+        "--disable-network",
+        "--disable-avdevice",
+        "--disable-avfilter",
+        "--disable-swscale",
+        "--disable-swresample",
+        "--disable-pthreads",
+        "--enable-w32threads",
+        "--disable-chromaprint",
+        "--disable-libzvbi",
+        "--enable-libopenh264",
+        "--enable-libdav1d",
+        "--enable-libsvtav1",
+        "--enable-zlib",
+        "--enable-ffnvcodec",
+        "--enable-nvenc",
+        "--disable-cuda-llvm",
+        "--disable-cuvid",
+        "--disable-nvdec",
+        "--pkg-config=pkg-config",
+        "--pkg-config-flags=--static",
+        "--extra-ldflags=-static-libgcc -static-libstdc++"
+      ],
+      "build_args": [
+        "-j8",
+        "-o",
+        "libavutil/avutil.dll",
+        "libavcodec/avcodec-62.dll",
+        "libavformat/avformat-62.dll"
+      ],
+      "external_sources": [
+        {
+          "name": "OpenH264",
+          "commit": "cf568c83f71a18778f9a16e344effaf40c11b752",
+          "sha256": "5e5efc74a0011f9853ccc3b1efeae92105dd5c5bea4af2432c6a9cc50e468007"
+        },
+        {
+          "name": "nv-codec-headers",
+          "commit": "876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
+          "sha256": "5e83af9e86efe7a1f4393ef342a299e5e7ca9f57fe210307afed3ae0f39d4a3f"
+        },
+        {
+          "name": "dav1d",
+          "commit": "60507bffc0b13e7a81753a51005dbbeba4b23018",
+          "sha256": "fa6c6ad6d9f57d86df90bc573c734c7342d4d3dc4fff1525f19344f6444c0b83"
+        },
+        {
+          "name": "SVT-AV1",
+          "commit": "4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0",
+          "sha256": "851250a3e5756eacfcd3e3368c8f25b4d1774205d5b7412768476d3788f4ed1f"
+        },
+        {
+          "name": "zlib",
+          "commit": "9f25df2c80c2b26c8b050fba880f0851d9d243ea",
+          "sha256": "af12bfe8e4d188ab7c1cd8a906e38ae578955a9f50ac4db36b5365d8d0cbaed5"
+        }
+      ],
+      "omitted_external_libraries": [
+        "Chromaprint",
+        "FFTW",
+        "ZVBI"
+      ],
+      "recipe": "scripts/build_ffmpeg_windows_lgpl.sh",
+      "component": "avformat-62.dll",
+      "output_sha256": "b910126d0448c4b89cd814ca07347e5febc610a64d6af4ed13dc48c4474a02c6",
+      "output_bytes": 2369536,
+      "library_license": "LGPL version 3 or later",
+      "library_configuration": "--arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-shared --disable-static --disable-autodetect --enable-version3 --disable-gpl --disable-nonfree --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --disable-swscale --disable-swresample --disable-pthreads --enable-w32threads --disable-chromaprint --disable-libzvbi --enable-libopenh264 --enable-libdav1d --enable-libsvtav1 --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --pkg-config=pkg-config --pkg-config-flags=--static --extra-ldflags='-static-libgcc -static-libstdc++'"
+    },
+    {
+      "source_commit": "27b8d1a017de62b51c0f3a039327b5cc2d7ea13f",
+      "source_archive_sha256": "87a695bc61e16f4aa8437c2ab6c0bbe1ca572ceccec4a2e86013e36f49899b1e",
+      "compiler": "clang version 23.1.4 (https://github.com/llvm/llvm-project.git 7a941dfb2877a0b8cf30323fefa85ad019e0b0f5)",
+      "assembler": "NASM version 2.16.01",
+      "crt": "UCRT",
+      "toolchain": {
+        "name": "llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64",
+        "sha256": "55064b60b991a1e1e8090b8c2f84e82b22cfe5903d12c159d65064cf5e8ae335",
+        "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261020/llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64.tar.xz"
+      },
+      "configure_args": [
+        "--arch=x86_64",
+        "--target-os=mingw32",
+        "--cross-prefix=x86_64-w64-mingw32-",
+        "--ld=x86_64-w64-mingw32-g++",
+        "--enable-shared",
+        "--disable-static",
+        "--disable-autodetect",
+        "--enable-version3",
+        "--disable-gpl",
+        "--disable-nonfree",
+        "--disable-programs",
+        "--disable-doc",
+        "--disable-debug",
+        "--disable-network",
+        "--disable-avdevice",
+        "--disable-avfilter",
+        "--disable-swscale",
+        "--disable-swresample",
+        "--disable-pthreads",
+        "--enable-w32threads",
+        "--disable-chromaprint",
+        "--disable-libzvbi",
+        "--enable-libopenh264",
+        "--enable-libdav1d",
+        "--enable-libsvtav1",
+        "--enable-zlib",
+        "--enable-ffnvcodec",
+        "--enable-nvenc",
+        "--disable-cuda-llvm",
+        "--disable-cuvid",
+        "--disable-nvdec",
+        "--pkg-config=pkg-config",
+        "--pkg-config-flags=--static",
+        "--extra-ldflags=-static-libgcc -static-libstdc++"
+      ],
+      "build_args": [
+        "-j8",
+        "-o",
+        "libavutil/avutil.dll",
+        "libavcodec/avcodec-62.dll",
+        "libavformat/avformat-62.dll"
+      ],
+      "external_sources": [
+        {
+          "name": "OpenH264",
+          "commit": "cf568c83f71a18778f9a16e344effaf40c11b752",
+          "sha256": "5e5efc74a0011f9853ccc3b1efeae92105dd5c5bea4af2432c6a9cc50e468007"
+        },
+        {
+          "name": "nv-codec-headers",
+          "commit": "876af32a202d0de83bd1d36fe74ee0f7fcf86b0d",
+          "sha256": "5e83af9e86efe7a1f4393ef342a299e5e7ca9f57fe210307afed3ae0f39d4a3f"
+        },
+        {
+          "name": "dav1d",
+          "commit": "60507bffc0b13e7a81753a51005dbbeba4b23018",
+          "sha256": "fa6c6ad6d9f57d86df90bc573c734c7342d4d3dc4fff1525f19344f6444c0b83"
+        },
+        {
+          "name": "SVT-AV1",
+          "commit": "4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0",
+          "sha256": "851250a3e5756eacfcd3e3368c8f25b4d1774205d5b7412768476d3788f4ed1f"
+        },
+        {
+          "name": "zlib",
+          "commit": "9f25df2c80c2b26c8b050fba880f0851d9d243ea",
+          "sha256": "af12bfe8e4d188ab7c1cd8a906e38ae578955a9f50ac4db36b5365d8d0cbaed5"
+        }
+      ],
+      "omitted_external_libraries": [
+        "Chromaprint",
+        "FFTW",
+        "ZVBI"
+      ],
+      "recipe": "scripts/build_ffmpeg_windows_lgpl.sh",
+      "component": "avcodec-62.dll",
+      "output_sha256": "0837a840482fb6d5877d46745bab863450808807aa398cb6d4da4e8088440faa",
+      "output_bytes": 27158528,
+      "library_license": "LGPL version 3 or later",
+      "library_configuration": "--arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32- --ld=x86_64-w64-mingw32-g++ --enable-shared --disable-static --disable-autodetect --enable-version3 --disable-gpl --disable-nonfree --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --disable-swscale --disable-swresample --disable-pthreads --enable-w32threads --disable-chromaprint --disable-libzvbi --enable-libopenh264 --enable-libdav1d --enable-libsvtav1 --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --pkg-config=pkg-config --pkg-config-flags=--static --extra-ldflags='-static-libgcc -static-libstdc++'"
+    }
+  ],
+  "scope": "Only standalone shared media tools; no Python, Torch, CUDA SDK or user media.",
+  "source_distribution": "Matching sources and build recipes are published beside native releases."
+}

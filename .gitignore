@@ -1,0 +1,16 @@
+node_modules/
+__pycache__/
+*.pyc
+*.tsbuildinfo
+dist/
+out/
+resources/media/*
+!resources/media/.gitkeep
+*.log
+.DS_Store
+*.humanity/
+*.humanity.json
+media/
+exports/
+.env*
+!.env.example

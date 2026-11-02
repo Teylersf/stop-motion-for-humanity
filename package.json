@@ -1,0 +1,40 @@
+{
+  "name": "stop-motion-for-humanity",
+  "version": "0.1.0-beta.1",
+  "private": true,
+  "type": "module",
+  "description": "Free stop-motion filmmaking for everyone, by Taylor Kalin",
+  "author": { "name": "Taylor Kalin", "url": "https://www.taylorkalin.com" },
+  "homepage": "https://github.com/Teylersf/stop-motion-for-humanity",
+  "license": "GPL-3.0-or-later",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 8775 --strictPort",
+    "build": "tsc -b && vite build",
+    "start": "electron .",
+    "test": "node --experimental-strip-types --test src/core/test/*.test.ts && node --test desktop/test/*.test.cjs",
+    "test:core": "node --experimental-strip-types --test src/core/test/*.test.ts",
+    "test:desktop": "node --test desktop/test/*.test.cjs",
+    "pack": "npm run build && electron-builder --config desktop/electron-builder.cjs --dir --publish never",
+    "dist:win": "npm run build && electron-builder --config desktop/electron-builder.cjs --win nsis --x64 --publish never",
+    "dist:mac": "npm run build && electron-builder --config desktop/electron-builder.cjs --mac dmg --arm64 --publish never"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "lucide-react": "1.66.0",
+    "yazl": "3.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "electron": "45.2.1",
+    "electron-builder": "26.18.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  },
+  "overrides": { "minimatch@>=5 <11": "11.0.3" },
+  "engines": { "node": ">=22.12.0" }
+}

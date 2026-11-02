@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "application": "stop-motion-for-humanity",
+  "dependencies": [
+    {
+      "name": "buffer-crc32",
+      "version": "1.0.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "buffer-crc32-1.0.0-LICENSE",
+          "sha256": "ddc9158fa20e427bc12fa8e1e6d07c642ed4d2c618607df768b30ae2986b3b7c"
+        }
+      ]
+    },
+    {
+      "name": "lucide-react",
+      "version": "1.66.0",
+      "license": "ISC",
+      "files": [
+        {
+          "file": "lucide-react-1.66.0-LICENSE",
+          "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+        }
+      ]
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "react-19.3.1-LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+        }
+      ]
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "react-dom-19.3.1-LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+        }
+      ]
+    },
+    {
+      "name": "scheduler",
+      "version": "0.28.0",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "scheduler-0.28.0-LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+        }
+      ]
+    },
+    {
+      "name": "yazl",
+      "version": "3.3.1",
+      "license": "MIT",
+      "files": [
+        {
+          "file": "yazl-3.3.1-LICENSE",
+          "sha256": "b303783d5eb7ca50b853ffa5f145e4e7998fab339831d848f507ca6cd970577a"
+        }
+      ]
+    }
+  ]
+}
