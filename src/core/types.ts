@@ -84,5 +84,8 @@ export interface NativeBridge {
   onExportProgress(callback: (progress: ExportProgress) => void): () => void;
   onImportedFrame(callback: (data: { projectId: string; asset: AssetRecord }) => void): () => void;
   onMenuAction(callback: (action: 'new' | 'open' | 'save' | 'export' | 'help') => void): () => void;
+  onBeforeClose(callback: (request: { requestId: string; reason: 'quit' | 'window-close' }) => void): () => void;
+  onCloseCancelled(callback: (notice: { requestId: string; error: string }) => void): () => void;
+  completeClose(reply: { requestId: string; ok: boolean; error?: string }): Promise<{ accepted: boolean }>;
 }
 declare global { interface Window { humanity?: NativeBridge } }

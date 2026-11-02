@@ -4,10 +4,17 @@ const { contextBridge, ipcRenderer } = require("electron");
 const call = (name, ...args) => ipcRenderer.invoke(`humanity:${name}`, ...args);
 function subscribe(channel, callback) { if (typeof callback !== "function")
     throw new TypeError("A callback is required"); const listener = (_event, value) => callback(value); ipcRenderer.on(`humanity:${channel}`, listener); return () => ipcRenderer.removeListener(`humanity:${channel}`, listener); }
+let closeSubscriptions = 0;
+function beforeClose(callback) {
+    const unsubscribe = subscribe("beforeClose", callback); let active = true;
+    if (++closeSubscriptions === 1) void call("closeListenerReady", true).catch(error => console.error("Close listener could not register:", error.message));
+    return () => { if (!active) return; active = false; unsubscribe(); if (--closeSubscriptions === 0) void call("closeListenerReady", false).catch(() => {}); };
+}
 contextBridge.exposeInMainWorld("humanity", Object.freeze({
     appInfo: () => call("appInfo"), chooseProject: options => call("chooseProject", options), loadRecent: () => call("loadRecent"), openRecent: id => call("openRecent", id), saveProject: project => call("saveProject", project),
     importImages: id => call("importImages", id), importAudio: id => call("importAudio", id), addCapture: (id, data) => call("addCapture", id, data), addAudioRecording: (id, data) => call("addAudioRecording", id, data),
     exportBegin: (project, options) => call("exportBegin", project, options), exportFrame: (id, data) => call("exportFrame", id, data), exportFinish: id => call("exportFinish", id), exportCancel: id => call("exportCancel", id), revealExport: id => call("revealExport", id),
     chooseWatchFolder: id => call("chooseWatchFolder", id), stopWatchFolder: id => call("stopWatchFolder", id), revealProject: id => call("revealProject", id), requestMediaPermission: kind => call("requestMediaPermission", kind),
     onExportProgress: callback => subscribe("exportProgress", callback), onImportedFrame: callback => subscribe("importedFrame", callback), onMenuAction: callback => subscribe("menuAction", callback),
+    onBeforeClose: beforeClose, onCloseCancelled: callback => subscribe("closeCancelled", callback), completeClose: reply => call("completeClose", reply),
 }));

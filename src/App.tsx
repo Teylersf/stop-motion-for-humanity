@@ -11,6 +11,7 @@ import FrameStrip from './components/FrameStrip';
 import ExportControls from './components/ExportControls';
 import { DEFAULT_VERIFY_EXPORT, withExportVerification } from './components/export-info';
 import { loadCameraPreferences, saveCameraPreferences } from './components/camera-preferences';
+import { CloseSaveCoordinator, scheduleAutosave } from './components/close-save';
 
 const bridge = window.humanity;
 const emptyCamera: CameraState = { status: 'disconnected', error: null, deviceId: null, deviceLabel: '', settings: {}, capabilities: {} };
@@ -43,6 +44,14 @@ export default function App() {
   const [appInfo, setAppInfo] = useState<AppInfo | null>(null);
   const [recent, setRecent] = useState<Awaited<ReturnType<NonNullable<typeof bridge>['loadRecent']>>>([]);
   const [project, setProject] = useState<StudioProject | null>(null);
+  const [closing, setClosing] = useState(false), closingRef = useRef(false), freezeEditsRef = useRef(false), closeRequestRef = useRef<string | null>(null);
+  const closeCoordinatorRef = useRef<CloseSaveCoordinator<StudioProject> | null>(null);
+  if (!closeCoordinatorRef.current) closeCoordinatorRef.current = new CloseSaveCoordinator<StudioProject>();
+  const autosaveCancelRef = useRef<(() => void) | null>(null);
+  const recordingFinalizingRef = useRef(false);
+  const recordingPersistRef = useRef<Promise<void> | null>(null);
+  const recordingPayloadRef = useRef<{ projectId: string; blob: Blob } | null>(null);
+  const trackDocumentWork = () => { let finish!: () => void; const task = new Promise<void>(resolve => { finish = resolve; }); closeCoordinatorRef.current!.track(task); return finish; };
   const projectRef = useRef(project); projectRef.current = project;
   const [past, setPast] = useState<StudioProject[]>([]), [future, setFuture] = useState<StudioProject[]>([]);
   const [selection, setSelection] = useState<string[]>([]), [exposure, setExposure] = useState(0);
@@ -86,6 +95,7 @@ export default function App() {
   const notify = useCallback((message: string, error = false) => setNotice({ message, error }), []);
 
   const edit = useCallback((transform: (current: StudioProject) => StudioProject, history = true) => {
+    if (freezeEditsRef.current) return;
     const current = projectRef.current; if (!current) return;
     const next = { ...transform(current), updatedAt: new Date().toISOString() };
     const exposures = next.scenes.reduce((sum, s) => sum + s.frames.reduce((n, f) => n + (f.enabled ? f.hold : 0), 0), 0);
@@ -106,6 +116,7 @@ export default function App() {
     await saveQueueRef.current; return success;
   }, [notify]);
   const loadProject = useCallback((envelope: ProjectEnvelope) => {
+    if (closingRef.current) return;
     const previous = projectRef.current;
     if (previous) void bridge?.stopWatchFolder(previous.id).catch(() => {});
     if (recorderRef.current?.state === 'recording') recorderRef.current.stop();
@@ -114,26 +125,26 @@ export default function App() {
     setExposure(0); setWatchName(''); setExportResult(null); setExportError(''); setExportWidth(envelope.project.width); setExportHeight(envelope.project.height);
     setSaveState('Saved locally'); if (envelope.recovered) notify('Recovered the previous good project. Your original frames are safe.'); else if (envelope.notes?.length) notify(envelope.notes.join(' '));
   }, [notify]);
-  const chooseProject = useCallback(async (mode: 'create' | 'open') => { if (!bridge) return; try { if (projectRef.current && !await save()) return; const result = await bridge.chooseProject({ mode, name: 'My first little film' }); if (result) loadProject(result); } catch (error) { notify(errorText(error), true); } }, [loadProject, notify, save]);
+  const chooseProject = useCallback(async (mode: 'create' | 'open') => { if (!bridge || closingRef.current) return; try { if (projectRef.current && !await save()) return; if (closingRef.current) return; const result = await bridge.chooseProject({ mode, name: 'My first little film' }); if (result) loadProject(result); } catch (error) { notify(errorText(error), true); } }, [loadProject, notify, save]);
   const refreshDevices = useCallback(async () => { try { const list = await (controllerRef.current?.enumerate() ?? navigator.mediaDevices.enumerateDevices().then(d => d.filter(v => v.kind === 'videoinput'))); setDevices(list); } catch (error) { notify(`Camera list: ${errorText(error)}`, true); } }, [notify]);
 
   useEffect(() => { if (!bridge) return; bridge.appInfo().then(setAppInfo).catch(e => notify(errorText(e), true)); bridge.loadRecent().then(setRecent).catch(() => {}); return bridge.onExportProgress(setExportProgress); }, [notify]);
-  useEffect(() => { if (!project) return; setSaveState('Unsaved changes'); const timer = setTimeout(() => void save(project), 650); return () => clearTimeout(timer); }, [project, save]);
+  useEffect(() => { if (!project || closingRef.current) return; setSaveState('Unsaved changes'); const cancel = scheduleAutosave(project, save, () => closingRef.current); autosaveCancelRef.current = cancel; return () => { cancel(); if (autosaveCancelRef.current === cancel) autosaveCancelRef.current = null; }; }, [project, save]);
   useEffect(() => { if (!project?.id || !videoRef.current) return; const controller = new CameraController(videoRef.current, setCamera); controllerRef.current = controller; void refreshDevices(); const changed = () => void refreshDevices(); navigator.mediaDevices?.addEventListener('devicechange', changed); return () => { controller.disconnect(); controllerRef.current = null; navigator.mediaDevices?.removeEventListener('devicechange', changed); }; }, [project?.id, refreshDevices]);
   useEffect(() => { if (!notice) return; const timer = setTimeout(() => setNotice(null), notice.error ? 14000 : 6500); return () => clearTimeout(timer); }, [notice]);
   useEffect(() => () => { recorderRef.current?.state === 'recording' && recorderRef.current.stop(); }, []);
 
-  const importImages = useCallback(async () => { if (!bridge || !projectRef.current) return; const id = projectRef.current.id; setBusy('Importing images'); try { const assets = await bridge.importImages(id); if (projectRef.current?.id !== id || !assets.length) return; edit(p => addFrames(p, assets, { source: { type: 'import' } })); setSelection(projectRef.current!.scenes.find(s => s.id === projectRef.current!.activeSceneId)!.frames.slice(-1).map(f => f.id)); setLive(false); notify(`Added ${countLabel(assets.length)}. Originals preserved.`); } catch (error) { notify(errorText(error), true); } finally { setBusy(''); } }, [edit, notify]);
+  const importImages = useCallback(async () => { if (!bridge || !projectRef.current || closingRef.current) return; const finishDocumentWork = trackDocumentWork(); const id = projectRef.current.id; setBusy('Importing images'); try { const assets = await bridge.importImages(id); if (projectRef.current?.id !== id || !assets.length) return; edit(p => addFrames(p, assets, { source: { type: 'import' } })); setSelection(projectRef.current!.scenes.find(s => s.id === projectRef.current!.activeSceneId)!.frames.slice(-1).map(f => f.id)); setLive(false); notify(`Added ${countLabel(assets.length)}. Originals preserved.`); } catch (error) { closeCoordinatorRef.current!.reportFailure(error); notify(errorText(error), true); } finally { setBusy(''); finishDocumentWork(); } }, [edit, notify]);
   useEffect(() => bridge?.onImportedFrame(({ projectId, asset }) => { if (projectRef.current?.id === projectId) { edit(p => addFrames(p, [asset], { source: { type: 'watch-folder' } })); notify(`Added ${asset.originalName} from watched folder`); } }), [edit, notify]);
-  const connectCamera = async () => { try { if (!controllerRef.current || !bridge) return; if (!await bridge.requestMediaPermission('camera')) throw new Error('Camera permission was denied. Allow camera access in system privacy settings, then try again.'); const [width, height] = requestedResolution.split('x').map(Number); await controllerRef.current.connect(device || undefined, { width, height }); await refreshDevices(); setLive(true); notify('Camera connected. Move your subject, then press Space to capture.'); } catch (error) { notify(errorText(error), true); } };
+  const connectCamera = async () => { try { if (!controllerRef.current || !bridge || closingRef.current) return; if (!await bridge.requestMediaPermission('camera')) throw new Error('Camera permission was denied. Allow camera access in system privacy settings, then try again.'); if (closingRef.current) return; const [width, height] = requestedResolution.split('x').map(Number); await controllerRef.current.connect(device || undefined, { width, height }); await refreshDevices(); setLive(true); notify('Camera connected. Move your subject, then press Space to capture.'); } catch (error) { notify(errorText(error), true); } };
   const capture = useCallback(async (useDelay = true) => {
-    if (!bridge || !projectRef.current || captureBusyRef.current) return;
+    if (!bridge || !projectRef.current || captureBusyRef.current || closingRef.current) return;
     if (!controllerRef.current || controllerRef.current.state.status !== 'ready') { notify('Connect a camera first, or import your captured images.', true); return; }
-    captureBusyRef.current = true; const generation = operationRef.current, projectId = projectRef.current.id;
+    const finishDocumentWork = trackDocumentWork(); captureBusyRef.current = true; const generation = operationRef.current, projectId = projectRef.current.id;
     try {
       setPlaying(false);
-      if (useDelay && delay > 0) for (let n = delay; n > 0; n--) { if (operationRef.current !== generation) return; setCountdown(n); await new Promise(resolve => setTimeout(resolve, 1000)); }
-      setCountdown(0); if (operationRef.current !== generation) return;
+      if (useDelay && delay > 0) for (let n = delay; n > 0; n--) { if (operationRef.current !== generation || closingRef.current) return; setCountdown(n); await new Promise(resolve => setTimeout(resolve, 1000)); }
+      setCountdown(0); if (operationRef.current !== generation || closingRef.current) return;
       const data = await controllerRef.current.capture(); const asset = await bridge.addCapture(projectId, data);
       if (operationRef.current !== generation || projectRef.current?.id !== projectId) return;
       const active = projectRef.current.scenes.find(s => s.id === projectRef.current!.activeSceneId)!;
@@ -141,7 +152,7 @@ export default function App() {
       if (captureMode === 'replace' && selectedIndex >= 0) edit(p => ({ ...p, assets: [...p.assets, asset], scenes: p.scenes.map(s => s.id === p.activeSceneId ? { ...s, frames: s.frames.map(f => f.id === selection[0] ? { ...f, assetId: asset.id, capturedAt: new Date().toISOString(), source: data.source, edits: defaultFrameEdits() } : f) } : s) }));
       else { edit(p => addFrames(p, [asset], { source: data.source, insertAt: captureMode === 'insert' && selectedIndex >= 0 ? selectedIndex + 1 : undefined })); const newest = projectRef.current!.scenes.find(s => s.id === projectRef.current!.activeSceneId)!.frames.find(f => f.assetId === asset.id); if (newest) setSelection([newest.id]); }
       setLive(true); if (projectRef.current.settings.captureSound) { try { const ctx = new AudioContext(); const oscillator = ctx.createOscillator(), gain = ctx.createGain(); oscillator.connect(gain); gain.connect(ctx.destination); gain.gain.setValueAtTime(.035, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .06); oscillator.frequency.value = 700; oscillator.start(); oscillator.stop(ctx.currentTime + .065); oscillator.onended = () => void ctx.close(); } catch { /* Silent capture remains successful. */ } }
-    } catch (error) { setIntervalOn(false); notify(errorText(error), true); } finally { captureBusyRef.current = false; setCountdown(0); }
+    } catch (error) { closeCoordinatorRef.current!.reportFailure(error); setIntervalOn(false); notify(errorText(error), true); } finally { captureBusyRef.current = false; setCountdown(0); finishDocumentWork(); }
   }, [captureMode, delay, edit, notify, selection]);
   useEffect(() => { if (!intervalOn) return; if (!cameraReady) { setIntervalOn(false); return; } const timer = setInterval(() => { if (!captureBusyRef.current) void capture(false); }, Math.max(1, intervalSeconds) * 1000); return () => clearInterval(timer); }, [intervalOn, intervalSeconds, cameraReady, capture]);
   const stopCapture = () => { operationRef.current++; setIntervalOn(false); setCountdown(0); };
@@ -157,27 +168,120 @@ export default function App() {
   useEffect(() => { if (!project) return; for (const clip of project.audio) { const element = audioRefs.current.get(clip.id); if (!element) continue; const offset = (globalSceneOffset + exposure) / project.fps - clip.startFrame / project.fps; const end = clip.outSeconds ?? element.duration; const time = clip.inSeconds + offset; const inRange = offset >= 0 && time < end; let gain = clip.gain; if (clip.fadeInSeconds > 0) gain *= clamp(offset / clip.fadeInSeconds, 0, 1); if (clip.fadeOutSeconds > 0) gain *= clamp((end - time) / clip.fadeOutSeconds, 0, 1); element.volume = clamp(gain, 0, 1); element.muted = clip.muted; if (inRange && Number.isFinite(time)) { if (Math.abs(element.currentTime - time) > .16) element.currentTime = time; if (playing) void element.play().catch(() => {}); else element.pause(); } else element.pause(); } }, [exposure, playing, project]);
 
   const addAudio = async (asset: AssetRecord) => { const projectId = projectRef.current?.id; let duration = asset.duration ?? 0; if (!duration) { duration = await new Promise<number>(resolve => { const audio = new Audio(asset.url); const timer = setTimeout(() => resolve(0), 10000); audio.onloadedmetadata = () => { clearTimeout(timer); resolve(Number.isFinite(audio.duration) ? audio.duration : 0); }; audio.onerror = () => { clearTimeout(timer); resolve(0); }; }); } if (projectRef.current?.id !== projectId) return; const clip: AudioClip = { id: uid(), assetId: asset.id, name: asset.originalName, startFrame: projectRef.current ? sceneStartExposure(projectRef.current) : 0, inSeconds: 0, outSeconds: duration || null, gain: 1, muted: false, fadeInSeconds: 0, fadeOutSeconds: 0 }; edit(p => ({ ...p, assets: p.assets.some(a => a.id === asset.id) ? p.assets : [...p.assets, asset], audio: [...p.audio, clip] })); setInspector('audio'); setShowInspector(true); };
-  const importAudio = async () => { if (!bridge || !project) return; try { const id = project.id, asset = await bridge.importAudio(id); if (asset && projectRef.current?.id === id) await addAudio(asset); } catch (error) { notify(errorText(error), true); } };
-  const recordAudio = async () => { if (recording) { recorderRef.current?.stop(); return; } if (!bridge || !project) return; const id = project.id; try { if (!await bridge.requestMediaPermission('microphone')) throw new Error('Allow microphone access in system privacy settings to record narration.'); const stream = await navigator.mediaDevices.getUserMedia({ audio: true }); const recorder = new MediaRecorder(stream), chunks: BlobPart[] = []; recorderRef.current = recorder; recorder.ondataavailable = event => { if (event.data.size) chunks.push(event.data); }; recorder.onstop = async () => { stream.getTracks().forEach(track => track.stop()); setRecording(false); try { const blob = new Blob(chunks, { type: recorder.mimeType }); if (projectRef.current?.id !== id) return; const asset = await bridge.addAudioRecording(id, { bytes: new Uint8Array(await blob.arrayBuffer()), mimeType: recorder.mimeType }); if (projectRef.current?.id === id) await addAudio(asset); } catch (error) { notify(errorText(error), true); } }; recorder.start(); setRecording(true); } catch (error) { notify(errorText(error), true); } };
-  const tryDemo = async () => { if (!bridge) return; setBusy('Choosing a home for your sample'); try { const result = await bridge.chooseProject({ mode: 'create', name: 'A little orbit — sample' }); if (!result) return; loadProject(result); setBusy('Making a little magic…'); const frames = await generateDemoFrames(24, 1280, 720, (done, total) => setBusy(`Creating sample ${done}/${total}`)); for (const frame of frames) { if (projectRef.current?.id !== result.project.id) return; const asset = await bridge.addCapture(result.project.id, frame); if (projectRef.current?.id !== result.project.id) return; edit(p => addFrames(p, [asset], { source: frame.source }), false); } edit(p => ({ ...p, name: 'A little orbit', fps: 12, width: 1280, height: 720 })); setSelection(projectRef.current!.scenes[0].frames.slice(0, 1).map(f => f.id)); setLive(false); setPlaying(true); notify('Your sample is ready. Every frame was drawn here, just for you.'); } catch (error) { notify(errorText(error), true); } finally { setBusy(''); } };
-  const watchFolder = async () => { if (!bridge || !project) return; try { if (watchName) { await bridge.stopWatchFolder(project.id); setWatchName(''); } else { const result = await bridge.chooseWatchFolder(project.id); if (result) { setWatchName(result.name); notify('Watching for new stills. Existing originals are preserved.'); } } } catch (error) { notify(errorText(error), true); } };
+  const importAudio = async () => { if (!bridge || !project || closingRef.current) return; const finishDocumentWork = trackDocumentWork(); try { const id = project.id, asset = await bridge.importAudio(id); if (asset && projectRef.current?.id === id) await addAudio(asset); } catch (error) { closeCoordinatorRef.current!.reportFailure(error); notify(errorText(error), true); } finally { finishDocumentWork(); } };
+  const persistRecording = async () => {
+    if (recordingPersistRef.current) return recordingPersistRef.current;
+    const pending = recordingPayloadRef.current;
+    if (!bridge || !pending || projectRef.current?.id !== pending.projectId) return;
+    const work = (async () => {
+      const asset = await bridge.addAudioRecording(pending.projectId, { bytes: new Uint8Array(await pending.blob.arrayBuffer()), mimeType: pending.blob.type });
+      if (projectRef.current?.id === pending.projectId) await addAudio(asset);
+      if (recordingPayloadRef.current === pending) recordingPayloadRef.current = null;
+    })();
+    recordingPersistRef.current = work;
+    try { await work; } finally { if (recordingPersistRef.current === work) recordingPersistRef.current = null; }
+  };
+  const recordAudio = async () => {
+    if (closingRef.current) return;
+    if (recording) { recorderRef.current?.stop(); return; }
+    if (!bridge || !project) return;
+    const id = project.id;
+    let ownedStream: MediaStream | null = null, finishStartWork: (() => void) | null = null;
+    try {
+      if (recordingPayloadRef.current) await persistRecording();
+      if (closingRef.current) return;
+      if (!await bridge.requestMediaPermission('microphone')) throw new Error('Allow microphone access in system privacy settings to record narration.');
+      if (closingRef.current) return;
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      ownedStream = stream;
+      if (closingRef.current) { stream.getTracks().forEach(track => track.stop()); return; }
+      const recorder = new MediaRecorder(stream), chunks: BlobPart[] = [];
+      const finishDocumentWork = trackDocumentWork(); finishStartWork = finishDocumentWork; recorderRef.current = recorder;
+      recorder.ondataavailable = event => { if (event.data.size) chunks.push(event.data); };
+      recorder.onstop = async () => {
+        stream.getTracks().forEach(track => track.stop()); setRecording(false); recordingFinalizingRef.current = true;
+        try {
+          if (projectRef.current?.id !== id) return;
+          recordingPayloadRef.current = { projectId: id, blob: new Blob(chunks, { type: recorder.mimeType }) };
+          await persistRecording();
+        } catch (error) { closeCoordinatorRef.current!.reportFailure(error); notify(`Recording could not be saved: ${errorText(error)}. It is held in memory for retry.`, true); }
+        finally { recordingFinalizingRef.current = false; finishDocumentWork(); }
+      };
+      recorder.onerror = () => { const error = new Error('The microphone recording stopped unexpectedly. Keep the app open and retry saving.'); closeCoordinatorRef.current!.reportFailure(error); notify(error.message, true); };
+      recorder.start(); ownedStream = null; finishStartWork = null; setRecording(true);
+    } catch (error) { ownedStream?.getTracks().forEach(track => track.stop()); finishStartWork?.(); closeCoordinatorRef.current!.reportFailure(error); notify(errorText(error), true); }
+  };
+  const tryDemo = async () => { if (!bridge || closingRef.current) return; const finishDocumentWork = trackDocumentWork(); setBusy('Choosing a home for your sample'); try { const result = await bridge.chooseProject({ mode: 'create', name: 'A little orbit — sample' }); if (!result) return; loadProject(result); setBusy('Making a little magic…'); const frames = await generateDemoFrames(24, 1280, 720, (done, total) => setBusy(`Creating sample ${done}/${total}`)); for (const frame of frames) { if (projectRef.current?.id !== result.project.id || closingRef.current) return; const asset = await bridge.addCapture(result.project.id, frame); if (projectRef.current?.id !== result.project.id) return; edit(p => addFrames(p, [asset], { source: frame.source }), false); } edit(p => ({ ...p, name: 'A little orbit', fps: 12, width: 1280, height: 720 })); setSelection(projectRef.current!.scenes[0].frames.slice(0, 1).map(f => f.id)); setLive(false); setPlaying(true); notify('Your sample is ready. Every frame was drawn here, just for you.'); } catch (error) { closeCoordinatorRef.current!.reportFailure(error); notify(errorText(error), true); } finally { setBusy(''); finishDocumentWork(); } };
+  const watchFolder = async () => { if (!bridge || !project || closingRef.current) return; try { if (watchName) { await bridge.stopWatchFolder(project.id); setWatchName(''); } else { const result = await bridge.chooseWatchFolder(project.id); if (closingRef.current) { await bridge.stopWatchFolder(project.id); return; } if (result) { setWatchName(result.name); notify('Watching for new stills. Existing originals are preserved.'); } } } catch (error) { notify(errorText(error), true); } };
   const beginExport = async () => {
-    if (!bridge || !project || exporting) return; const frozen = clone(project); const sceneId = exportProfile === 'originals' ? null : exportScope === 'scene' ? scene!.id : null;
+    if (!bridge || !project || exporting || closingRef.current) return; const frozen = clone(project); const sceneId = exportProfile === 'originals' ? null : exportScope === 'scene' ? scene!.id : null;
     let conformed: ReturnType<typeof conformTimeline>;
     try { conformed = conformTimeline(frozen, exportProfile === 'originals' ? frozen.fps : exportFps, sceneId, exportProfile === 'originals' ? true : preserveTiming); }
     catch (error) { setExportError(errorText(error)); return; }
     if (!conformed.totalFrames) { setExportError('Add a few frames to your timeline first.'); return; }
     const options: ExportOptions = withExportVerification({ profile: exportProfile, width: Math.round(exportWidth), height: Math.round(exportHeight), fps: conformed.outputFps, totalFrames: conformed.totalFrames, sceneId, audio: exportProfile === 'originals' ? true : exportAudio, preserveTiming: exportProfile === 'originals' ? true : preserveTiming }, exportVerify);
+    const finishDocumentWork = trackDocumentWork();
     setExportError(''); setExportResult(null); setExportProgress(null); setExporting(true); cancelExportRef.current = false; exportAbortRef.current = new AbortController();
     try { if (!await save(frozen)) throw new Error('Save the project successfully before exporting. Your frames are still available in this session.'); const session = await bridge.exportBegin(frozen, options); if (!session) return; exportingRef.current = session.id; if (cancelExportRef.current) { await bridge.exportCancel(session.id); return; } if (exportProfile !== 'originals') { let lastId = '', png: Uint8Array | null = null; for (const entry of conformed.entries) { if (cancelExportRef.current) return; if (lastId !== entry.frame.id || !png) { png = await renderFramePNG(frozen, entry.frame, { width: options.width, height: options.height, scene: entry.scene, signal: exportAbortRef.current.signal }); lastId = entry.frame.id; } if (cancelExportRef.current) return; await bridge.exportFrame(session.id, { png, repeat: entry.repeat }); } } if (!cancelExportRef.current) setExportResult(await bridge.exportFinish(session.id)); }
     catch (error) { if (!cancelExportRef.current) setExportError(errorText(error)); if (exportingRef.current) await bridge.exportCancel(exportingRef.current).catch(() => {}); }
-    finally { exportingRef.current = null; exportAbortRef.current = null; setExporting(false); }
+    finally { exportingRef.current = null; exportAbortRef.current = null; setExporting(false); finishDocumentWork(); }
   };
   const cancelExport = async () => { cancelExportRef.current = true; exportAbortRef.current?.abort(); if (exportingRef.current) await bridge?.exportCancel(exportingRef.current).catch(e => notify(errorText(e), true)); setExportProgress(null); setExportError('Export canceled. Your project and originals are unchanged.'); };
-  const openExport = useCallback(() => { const current = projectRef.current; if (!current) return; const recommendation = recommendExport(current, { sceneId: current.activeSceneId }); setExportWidth(recommendation.width); setExportHeight(recommendation.height); setExportFps(current.fps); setExportVerify(DEFAULT_VERIFY_EXPORT); setPreserveTiming(true); if (lastExportProjectRef.current !== current.id) { setExportProfile(recommendation.profile); if (recommendation.profile === 'originals') setExportScope('project'); lastExportProjectRef.current = current.id; } setExportOpen(true); }, []);
-  useEffect(() => bridge?.onMenuAction(action => { if (action === 'new' || action === 'open') void chooseProject(action === 'new' ? 'create' : 'open'); if (action === 'save') void save(); if (action === 'export') openExport(); if (action === 'help') setHelp(true); }), [chooseProject, openExport, save]);
+  const openExport = useCallback(() => { const current = projectRef.current; if (!current || closingRef.current) return; const recommendation = recommendExport(current, { sceneId: current.activeSceneId }); setExportWidth(recommendation.width); setExportHeight(recommendation.height); setExportFps(current.fps); setExportVerify(DEFAULT_VERIFY_EXPORT); setPreserveTiming(true); if (lastExportProjectRef.current !== current.id) { setExportProfile(recommendation.profile); if (recommendation.profile === 'originals') setExportScope('project'); lastExportProjectRef.current = current.id; } setExportOpen(true); }, []);
+  const closeActionsRef = useRef({ save, persistRecording, cancelExport }); closeActionsRef.current = { save, persistRecording, cancelExport };
+  useEffect(() => {
+    if (!bridge?.onBeforeClose) return;
+    const resumeEditing = (requestId: string, error?: string) => {
+      if (closeRequestRef.current !== requestId) return;
+      closeCoordinatorRef.current!.cancel(requestId); closeRequestRef.current = null;
+      closingRef.current = false; freezeEditsRef.current = false; setClosing(false);
+      controllerRef.current?.disconnect();
+      if (error) notify(error, true);
+    };
+    const unsubscribeCancelled = bridge.onCloseCancelled(({ requestId, error }) => resumeEditing(requestId, error));
+    const unsubscribeClose = bridge.onBeforeClose(({ requestId }) => {
+      if (closeRequestRef.current === requestId) return;
+      closeRequestRef.current = requestId; closingRef.current = true; freezeEditsRef.current = false;
+      setClosing(true); setSaveState('Saving before closing…');
+      (document.activeElement as HTMLElement | null)?.blur();
+      void (async () => {
+        const result = await closeCoordinatorRef.current!.flush(requestId, {
+          timeoutMs: 45000,
+          stop: async () => {
+            autosaveCancelRef.current?.(); autosaveCancelRef.current = null;
+            setIntervalOn(false); setCountdown(0); setPlaying(false);
+            for (const element of audioRefs.current.values()) element.pause();
+            const recorder = recorderRef.current;
+            if (recorder?.state === 'recording' || recorder?.state === 'paused') recorder.stop();
+            if (recordingPayloadRef.current && !recordingFinalizingRef.current) await closeActionsRef.current.persistRecording();
+            const current = projectRef.current;
+            if (current) await bridge.stopWatchFolder(current.id);
+            setWatchName('');
+            if (exportingRef.current || exportAbortRef.current) await closeActionsRef.current.cancelExport();
+          },
+          afterDrain: async () => {
+            // Let the final ordered watcher IPC event run before freezing the snapshot.
+            await new Promise(resolve => setTimeout(resolve, 0));
+            if (closeRequestRef.current !== requestId) return;
+            controllerRef.current?.disconnect(); operationRef.current++;
+            freezeEditsRef.current = true;
+          },
+          snapshot: () => projectRef.current ? clone(projectRef.current) : null,
+          save: current => closeActionsRef.current.save(current),
+        });
+        if (result.stale || closeRequestRef.current !== requestId) return;
+        if (!result.ok) { closingRef.current = false; freezeEditsRef.current = false; setClosing(false); notify(result.error || 'The latest project could not be saved. The app is staying open.', true); }
+        try {
+          const reply = await bridge.completeClose({ requestId, ok: result.ok, ...(result.error ? { error: result.error } : {}) });
+          if (!reply.accepted && closeRequestRef.current === requestId) resumeEditing(requestId, 'Closing was cancelled. Your project is still open.');
+        } catch (error) { resumeEditing(requestId, `Could not finish closing safely: ${errorText(error)}`); }
+      })();
+    });
+    return () => { unsubscribeClose(); unsubscribeCancelled(); };
+  }, [notify]);
+  useEffect(() => bridge?.onMenuAction(action => { if (closingRef.current) return; if (action === 'new' || action === 'open') void chooseProject(action === 'new' ? 'create' : 'open'); if (action === 'save') void save(); if (action === 'export') openExport(); if (action === 'help') setHelp(true); }), [chooseProject, openExport, save]);
   const actionRefs = useRef({ capture, undo, redo, chooseProject, save, deleteSelection, openExport }); actionRefs.current = { capture, undo, redo, chooseProject, save, deleteSelection, openExport };
-  useEffect(() => { const handler = (event: KeyboardEvent) => { const input = event.target as HTMLElement; if (input.closest('input,textarea,select,[contenteditable="true"]') || help || settings || exportOpen || tour !== null) return; const command = event.metaKey || event.ctrlKey; if (command) { const key = event.key.toLowerCase(); if (['s', 'o', 'n', 'z', 'e'].includes(key)) event.preventDefault(); if (key === 's') void actionRefs.current.save(); if (key === 'o') void actionRefs.current.chooseProject('open'); if (key === 'n') void actionRefs.current.chooseProject('create'); if (key === 'z') event.shiftKey ? actionRefs.current.redo() : actionRefs.current.undo(); if (key === 'e') actionRefs.current.openExport(); return; } if (!projectRef.current) return; if (event.code === 'Space') { event.preventDefault(); if (!event.repeat) void actionRefs.current.capture(); } if (event.key === 'Enter') { event.preventDefault(); setPlaying(p => !p); } if (event.key === 'Escape') { operationRef.current++; setIntervalOn(false); setCountdown(0); setPlaying(false); } if (event.key === 'Delete' || event.key === 'Backspace') { event.preventDefault(); actionRefs.current.deleteSelection(); } if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); setPlaying(false); setLive(false); const p = projectRef.current, active = p.scenes.find(s => s.id === p.activeSceneId)!; const i = active.frames.findIndex(f => f.id === selection[0]); const next = active.frames[clamp(i + (event.key === 'ArrowRight' ? 1 : -1), 0, active.frames.length - 1)]; if (next) setSelection([next.id]); } }; window.addEventListener('keydown', handler); return () => window.removeEventListener('keydown', handler); }, [selection, help, settings, exportOpen, tour]);
+  useEffect(() => { const handler = (event: KeyboardEvent) => { if (closingRef.current) { event.preventDefault(); return; } const input = event.target as HTMLElement; if (input.closest('input,textarea,select,[contenteditable="true"]') || help || settings || exportOpen || tour !== null) return; const command = event.metaKey || event.ctrlKey; if (command) { const key = event.key.toLowerCase(); if (['s', 'o', 'n', 'z', 'e'].includes(key)) event.preventDefault(); if (key === 's') void actionRefs.current.save(); if (key === 'o') void actionRefs.current.chooseProject('open'); if (key === 'n') void actionRefs.current.chooseProject('create'); if (key === 'z') event.shiftKey ? actionRefs.current.redo() : actionRefs.current.undo(); if (key === 'e') actionRefs.current.openExport(); return; } if (!projectRef.current) return; if (event.code === 'Space') { event.preventDefault(); if (!event.repeat) void actionRefs.current.capture(); } if (event.key === 'Enter') { event.preventDefault(); setPlaying(p => !p); } if (event.key === 'Escape') { operationRef.current++; setIntervalOn(false); setCountdown(0); setPlaying(false); } if (event.key === 'Delete' || event.key === 'Backspace') { event.preventDefault(); actionRefs.current.deleteSelection(); } if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); setPlaying(false); setLive(false); const p = projectRef.current, active = p.scenes.find(s => s.id === p.activeSceneId)!; const i = active.frames.findIndex(f => f.id === selection[0]); const next = active.frames[clamp(i + (event.key === 'ArrowRight' ? 1 : -1), 0, active.frames.length - 1)]; if (next) setSelection([next.id]); } }; window.addEventListener('keydown', handler); return () => window.removeEventListener('keydown', handler); }, [selection, help, settings, exportOpen, tour]);
 
   const strokePoint = (event: React.PointerEvent) => { const rect = event.currentTarget.getBoundingClientRect(); return { x: clamp((event.clientX - rect.left) / rect.width, 0, 1), y: clamp((event.clientY - rect.top) / rect.height, 0, 1) }; };
   const startStroke = (event: React.PointerEvent) => { if (paintTool === 'select' || live || !selected || !project || (paintTool === 'clean' && !scene?.cleanPlateAssetId)) return; event.currentTarget.setPointerCapture(event.pointerId); const stroke = { id: uid(), points: [strokePoint(event)], size: brushSize, color: brushColor, erase: false }; strokeRef.current = stroke; setDraftStroke(stroke); };
@@ -185,8 +289,8 @@ export default function App() {
   const finishStroke = () => { const stroke = strokeRef.current; if (!stroke || !selected) return; editFrame(paintTool === 'clean' ? { maskStrokes: [...selected.edits.maskStrokes, stroke] } : { drawings: [...selected.edits.drawings, stroke] }); strokeRef.current = null; setDraftStroke(null); };
   const frameControls = <div className="inline-actions"><IconButton title="Duplicate selected frames" disabled={!selection.length} onClick={duplicateSelection}><Copy size={16} /></IconButton><IconButton title="Reverse selected frames, or entire scene" disabled={!scene?.frames.length} onClick={reverseSelection}><Repeat2 size={16} /></IconButton><IconButton title="Remove selected frames from timeline" disabled={!selection.length} onClick={deleteSelection}><Trash2 size={16} /></IconButton></div>;
 
-  return <div className={`studio ${project ? 'has-project' : ''}`}>
-    <header className="app-header"><button className="brand" onClick={async () => { if (project) { stopCapture(); setPlaying(false); if (!await save()) return; if (recorderRef.current?.state === 'recording') recorderRef.current.stop(); void bridge?.stopWatchFolder(project.id).catch(() => {}); setProject(null); projectRef.current = null; bridge?.loadRecent().then(setRecent); } }} aria-label="Stop Motion for Humanity home"><span className="brand-mark"><Clapperboard size={22} strokeWidth={1.8} /></span><span>Stop Motion<span className="brand-sub">for humanity</span></span></button><div className="header-center">{project ? <><span className="project-dot" /><input className="project-name" aria-label="Project name" value={project.name} onChange={e => edit(p => ({ ...p, name: e.target.value }))} /><span className="save-status"><Check size={13} />{saveState}</span></> : <span className="header-tag">A free studio. An open invitation.</span>}</div><div className="header-actions">{project && <><IconButton title="Open project" onClick={() => void chooseProject('open')}><FolderOpen size={18} /></IconButton><IconButton title="Save project" onClick={() => void save()}><Save size={18} /></IconButton><span className="divider" /><IconButton title="Undo" disabled={!past.length} onClick={undo}><Undo2 size={18} /></IconButton><IconButton title="Redo" disabled={!future.length} onClick={redo}><Redo2 size={18} /></IconButton><span className="divider" /><button className="button primary compact" onClick={openExport}><Download size={16} />Export film</button></>}<IconButton title="Help and keyboard shortcuts" onClick={() => setHelp(true)}><CircleHelp size={19} /></IconButton></div></header>
+  return <div className={`studio ${project ? 'has-project' : ''}`} inert={closing} aria-busy={closing}>
+    <header className="app-header"><button className="brand" onClick={async () => { if (project && !closingRef.current) { stopCapture(); setPlaying(false); if (!await save() || closingRef.current) return; if (recorderRef.current?.state === 'recording') recorderRef.current.stop(); void bridge?.stopWatchFolder(project.id).catch(() => {}); setProject(null); projectRef.current = null; bridge?.loadRecent().then(setRecent); } }} aria-label="Stop Motion for Humanity home"><span className="brand-mark"><Clapperboard size={22} strokeWidth={1.8} /></span><span>Stop Motion<span className="brand-sub">for humanity</span></span></button><div className="header-center">{project ? <><span className="project-dot" /><input className="project-name" aria-label="Project name" value={project.name} onChange={e => edit(p => ({ ...p, name: e.target.value }))} /><span className="save-status"><Check size={13} />{saveState}</span></> : <span className="header-tag">A free studio. An open invitation.</span>}</div><div className="header-actions">{project && <><IconButton title="Open project" onClick={() => void chooseProject('open')}><FolderOpen size={18} /></IconButton><IconButton title="Save project" onClick={() => void save()}><Save size={18} /></IconButton><span className="divider" /><IconButton title="Undo" disabled={!past.length} onClick={undo}><Undo2 size={18} /></IconButton><IconButton title="Redo" disabled={!future.length} onClick={redo}><Redo2 size={18} /></IconButton><span className="divider" /><button className="button primary compact" onClick={openExport}><Download size={16} />Export film</button></>}<IconButton title="Help and keyboard shortcuts" onClick={() => setHelp(true)}><CircleHelp size={19} /></IconButton></div></header>
 
     {!project ? <main className="welcome"><div className="welcome-copy"><span className="eyebrow"><span />MADE FOR THE JOY OF MAKING</span><h1>Big stories.<br />Little movements.</h1><p className="welcome-description">Bring the things around you to life.<br />A free, thoughtful stop-motion studio for everyone.</p><div className="welcome-buttons"><button className="button primary large" onClick={() => void chooseProject('create')} disabled={!bridge || !!busy}><Plus size={19} />Start a new film<ArrowUpRight size={17} /></button><button className="button secondary large" onClick={() => void chooseProject('open')} disabled={!bridge || !!busy}><FolderOpen size={18} />Open project</button></div><button className="sample-link" onClick={() => void tryDemo()} disabled={!bridge || !!busy}><Sparkles size={16} />{busy || 'Or explore a little sample film'}<ArrowRight size={16} /></button>{!bridge && <div className="browser-notice"><Clapperboard size={20} /><div><strong>Your studio lives on your computer.</strong><p>Open the desktop app to capture, save and export. This browser preview cannot access your project folders.</p></div></div>}<div className="welcome-promises"><span><Check size={14} />No subscriptions</span><span><Check size={14} />Works offline</span><span><Check size={14} />Yours to create</span></div></div><EmptyCameraArt /><section className="recent-projects"><div className="section-heading"><h2>Pick up your story</h2><span>{recent.length ? 'RECENT PROJECTS' : 'YOUR NEXT GREAT IDEA STARTS HERE'}</span></div>{recent.length ? <div className="recent-grid">{recent.slice(0, 4).map((item, i) => <button key={item.id} className="recent-card" onClick={async () => { try { if (bridge) loadProject(await bridge.openRecent(item.id)); } catch (error) { notify(errorText(error), true); } }}><span className={`recent-art color-${i}`}><Film size={28} /></span><span><strong>{item.name}</strong><small>{item.rootName} · {new Date(item.updatedAt).toLocaleDateString()}</small></span><ArrowUpRight size={17} /></button>)}</div> : <div className="first-film-tip"><span className="tip-number">01</span><p>Find a favorite little object. Set your camera down.<br /><strong>Move it a little. Capture. Repeat. That’s the magic.</strong></p><button className="text-button" onClick={() => setTour(0)}>Show me how<ArrowRight size={15} /></button></div>}</section><footer className="welcome-footer"><span>Made with care by <strong>Taylor Kalin</strong></span><span>FREE & OPEN SOURCE<span className="footer-dot">·</span>{appInfo ? `v${appInfo.version}` : 'DESKTOP STUDIO'}</span></footer></main>
     : <><div className="workspace"><aside className="scene-sidebar"><div className="sidebar-title"><span>YOUR FILM</span><IconButton title="Project settings" onClick={() => setSettings(true)}><Settings2 size={15} /></IconButton></div><div className="project-summary"><span className="mini-film"><Film size={18} /></span><div><strong>{project.name}</strong><small>{dimensions(project.width, project.height)} · {project.fps} fps</small></div></div><div className="sidebar-heading"><span>SCENES</span><IconButton title="Add a scene" onClick={() => { const created = newScene(`Scene ${project.scenes.length + 1}`); edit(p => ({ ...p, scenes: [...p.scenes, created], activeSceneId: created.id })); setSelection([]); setPlaying(false); setLive(true); }}><Plus size={15} /></IconButton></div><div className="scene-list">{project.scenes.map((s, index) => <button key={s.id} className={`scene-item ${scene?.id === s.id ? 'selected' : ''}`} onClick={() => { setPlaying(false); edit(p => ({ ...p, activeSceneId: s.id }), false); setSelection(s.frames.slice(0, 1).map(f => f.id)); setExposure(0); }}><span className="scene-number">{String(index + 1).padStart(2, '0')}</span><span><strong>{s.name}</strong><small>{countLabel(s.frames.length)}</small></span>{scene?.id === s.id && <span className="scene-active-dot" />}</button>)}</div><button className="sidebar-action" onClick={() => void importImages()} disabled={!!busy}><ImagePlus size={17} />Import images<kbd>＋</kbd></button><button className="sidebar-action" onClick={() => void importAudio()}><Music2 size={17} />Add audio</button><button className={`sidebar-action ${watchName ? 'watching' : ''}`} onClick={() => void watchFolder()}><FolderOpen size={17} />{watchName ? 'Stop folder watch' : 'Watch a folder'}</button>{watchName && <p className="watch-hint"><span className="project-dot" />{watchName}</p>}<div className="sidebar-bottom"><div className="local-label"><CheckCheck size={16} /><span>All yours.<small>Saved on this computer.</small></span></div><button className="sidebar-action" onClick={() => setTour(0)}><WandSparkles size={16} />A quick walkthrough</button><button className="sidebar-action" onClick={() => void bridge?.revealProject(project.id).catch(error => notify(errorText(error), true))}><FolderOpen size={16} />Show project folder</button></div></aside>

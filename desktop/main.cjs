@@ -8,6 +8,7 @@ const { nativeImage } = require("electron");
 const { ProjectStore, portableName } = require("./store.cjs");
 const { ExportManager, EXTENSIONS, validateOptions } = require("./export.cjs");
 const { ownedURL, safeExternal, assertId, pngInfo } = require("./security.cjs");
+const { CloseHandshake } = require("./close.cjs");
 app.setName("Stop Motion for Humanity");
 app.enableSandbox();
 protocol.registerSchemesAsPrivileged([{ scheme: "humanity", privileges: { standard: true, secure: true, supportFetchAPI: true, corsEnabled: true, stream: true } }]);
@@ -17,6 +18,32 @@ if (testMode && process.env.HUMANITY_TEST_USER_DATA)
 const gotLock = app.requestSingleInstanceLock();
 let window = null, store = null, exportsManager = null, quitting = false, closed = false;
 const grants = new Set();
+const closeHandshake = new CloseHandshake({
+    rendererReady: false,
+    requestRenderer: data => {
+        if (!window || window.isDestroyed() || window.webContents.isDestroyed())
+            throw new Error("The editing view is unavailable. Reopen the studio view before quitting so its latest changes can be saved.");
+        send("beforeClose", data);
+    },
+    finalize: async () => {
+        quitting = true;
+        try { await shutdown(); app.quit(); }
+        catch (error) { quitting = false; throw error; }
+    },
+    onFailure: async data => {
+        quitting = false;
+        send("closeCancelled", { requestId: data.requestId, error: data.error });
+        if (window && !window.isDestroyed()) { window.show(); window.focus(); }
+        const options = { type: "error", title: "Film has not finished saving", message: "The latest changes have not been confirmed saved.", detail: `${data.error}\n\nKeep editing, or retry saving and quitting. Check the project drive has free space and is still connected. If the editing view cannot recover, you can explicitly quit without saving its latest changes. Your earlier saved project and original assets are retained.`, buttons: ["Keep editing", "Retry saving and quit", "Quit without saving latest changes"], defaultId: 0, cancelId: 0, noLink: true };
+        const result = window && !window.isDestroyed() ? await dialog.showMessageBox(window, options) : await dialog.showMessageBox(options);
+        if (result.response === 1)
+            setImmediate(() => void closeHandshake.request(data.reason));
+        else if (result.response === 2) {
+            try { await closeHandshake.finalizeWithoutSaving(); }
+            catch (error) { dialog.showErrorBox("Studio could not finish closing", `${error.message}\nThe app is staying open. Your earlier saved project and original assets remain in the project folder.`); }
+        }
+    },
+});
 function send(channel, value) { if (window && !window.isDestroyed())
     window.webContents.send(`humanity:${channel}`, value); }
 function senderAllowed(event) { return !!window && !window.isDestroyed() && event.sender === window.webContents && event.senderFrame === window.webContents.mainFrame && ownedURL(event.senderFrame.url); }
@@ -51,6 +78,8 @@ async function selectedProject(options) { if (!options || !["create", "open"].in
 } const chosen = await dialog.showOpenDialog(window, { title: "Open Humanity project", properties: ["openFile"], filters: [{ name: "Humanity project", extensions: ["json"] }] }); if (chosen.canceled)
     return null; return store.open(chosen.filePaths[0]); }
 function registerIPC() {
+    handle("closeListenerReady", ready => closeHandshake.setRendererReady(ready));
+    handle("completeClose", reply => closeHandshake.complete(reply));
     handle("appInfo", async () => ({ version: app.getVersion(), platform: process.platform, arch: process.arch, ...await exportsManager.mediaInfo(), cameraPermission: cameraStatus("camera"), microphonePermission: cameraStatus("microphone") }));
     handle("chooseProject", selectedProject);
     handle("loadRecent", () => store.loadRecent());
@@ -126,20 +155,22 @@ function makeWindow() {
         event.preventDefault(); });
     window.webContents.on("will-attach-webview", event => event.preventDefault());
     window.once("ready-to-show", () => { window.show(); window.focus(); });
+    window.on("close", event => { if (!closed) { event.preventDefault(); void closeHandshake.request("window-close"); } });
     window.on("closed", () => { window = null; });
     window.webContents.on("render-process-gone", (_event, details) => { grants.clear(); if (!quitting)
-        dialog.showErrorBox("Studio view stopped", `The editing view stopped (${details.reason}). Your saved film and originals remain in the project folder. Quit and reopen the app to recover.`); });
+        { closeHandshake.fail(new Error(`The editing view stopped (${details.reason}) before confirming its latest save.`)); dialog.showErrorBox("Studio view stopped", `The editing view stopped (${details.reason}). Your saved film and originals remain in the project folder. Unsaved view changes cannot be confirmed; the app will not discard them through a normal quit.`); } });
     window.webContents.on("did-fail-load", (_event, code, description, _url, isMainFrame) => { if (isMainFrame && !quitting) {
         window.show();
         dialog.showErrorBox("Studio could not load", `The local application view could not load (${code}: ${description}). Reopen the app; if this continues, report the exact message.`);
     } });
-    window.webContents.on("did-start-navigation", (_event, _url, _inPlace, isMainFrame) => { if (isMainFrame)
-        grants.clear(); });
+    window.webContents.on("did-start-navigation", (_event, _url, _inPlace, isMainFrame) => { if (isMainFrame) {
+        grants.clear(); closeHandshake.setRendererReady(false);
+    } });
     void window.loadURL("humanity://app/index.html").catch(error => { if (!quitting)
         console.error("Studio local view failed:", error.message); });
 }
 async function shutdown() { if (closed)
-    return; closed = true; await exportsManager?.close(); await store?.close(); }
+    return; await exportsManager?.close(); await store?.close(); closed = true; }
 if (!gotLock)
     app.quit();
 else {
@@ -154,6 +185,5 @@ else {
             throw new Error("PNG dimensions did not verify"); return actual; } }); await store.init(); registerIPC(); await registerProtocol(); makeWindow(); installMenu(); }).catch(error => { dialog.showErrorBox("Studio could not start", error.message); app.exit(1); });
     app.on("window-all-closed", () => app.quit());
     app.on("before-quit", event => { if (closed)
-        return; event.preventDefault(); if (quitting)
-        return; quitting = true; void shutdown().finally(() => app.quit()); });
+        return; event.preventDefault(); void closeHandshake.request("quit"); });
 }

@@ -1,0 +1,856 @@
+{
+  "schemaVersion": 1,
+  "app": "Stop Motion for Humanity",
+  "kind": "native-runtime-profile-matrix",
+  "testedAt": "2026-11-02T19:25:14.420Z",
+  "completedAt": "2026-11-02T19:25:27.926Z",
+  "platform": "win32",
+  "arch": "x64",
+  "hardwareRequested": true,
+  "input": "Procedural RGBA8 test frames; no personal or webcam media",
+  "runtime": {
+    "version": "ffmpeg version 8.0.1 Copyright (c) 2000-2025 the FFmpeg developers",
+    "components": [
+      {
+        "name": "ffmpeg.exe",
+        "bytes": 49558016,
+        "sha256": "276831b465b76ac57374afeefed97dc256a98dd380cc3543f546e5ff326f076e"
+      },
+      {
+        "name": "ffprobe.exe",
+        "bytes": 49366016,
+        "sha256": "da2c0749dd7af44386833c1d20a40ba63242b26b65f6d7f5c8521925c1653af1"
+      },
+      {
+        "name": "runtime-manifest.json",
+        "bytes": 159824,
+        "sha256": "c88421fecfbed55a84d5305bdf1159890b7de19a90dbac0682f3e6ed5fcd0467"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "profile": "ffv1",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "ffv1",
+      "codec": "ffv1",
+      "pixelFormat": "bgra",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.539,
+      "output": {
+        "bytes": 61677,
+        "sha256": "8612a01a8ea9ad3dfaccfe0e627f26ee25757827c1d7a4d698f47278ec8e69c5"
+      },
+      "notes": [
+        "Selected ffv1; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent decoded RGBA8 sample hash matches every converted processed PNG in held-frame order"
+      ]
+    },
+    {
+      "profile": "lossless",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "ffv1",
+      "codec": "ffv1",
+      "pixelFormat": "gbrp16le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.484,
+      "output": {
+        "bytes": 299504,
+        "sha256": "aabb3a3bbf6e129c2306a6dcf8a1cb5384c662b4db92f76cadd3ef3301824697"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Selected ffv1; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "The chosen preservation contract is RGB16; verification compares that converted target, including its alpha/chroma/transfer choices.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent decoded RGB16 sample hash matches every converted processed PNG in held-frame order"
+      ]
+    },
+    {
+      "profile": "nvenc-lossless",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "hevc_nvenc",
+      "codec": "hevc",
+      "pixelFormat": "p010le",
+      "hardware": "nvidia",
+      "hardwareProbePassed": true,
+      "elapsedSeconds": 1.436,
+      "output": {
+        "bytes": 59801,
+        "sha256": "3ed156e490274672c93f101f0e7069c33f26e650c9d24e6cbdf0c3d3a759945d"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Requires a successful NVIDIA hardware/geometry probe. This is not an RGB-identity export.",
+        "Encoder hevc_nvenc is installed; a real 256×144 encode probe must pass before hardware use is claimed.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "The chosen preservation contract is canonical BT.709 limited-range 10-bit 4:2:0 YUV; verification compares that converted target, including its alpha/chroma/transfer choices.",
+        "Hardware encoder hevc_nvenc passed an actual 256×144 probe.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Independent decoded canonical BT.709 limited-range 10-bit 4:2:0 YUV sample hash matches every converted processed PNG in held-frame order"
+      ]
+    },
+    {
+      "profile": "uncompressed",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "rawvideo",
+      "codec": "rawvideo",
+      "pixelFormat": "rgb48le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.441,
+      "output": {
+        "bytes": 442702,
+        "sha256": "46d94dc6d14680bdc2d95f0a57f4744ebf1dd775c312f066d3bfea8f609daf34"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Very large files; check free disk space before a long export.",
+        "Selected rawvideo; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "The chosen preservation contract is RGB16; verification compares that converted target, including its alpha/chroma/transfer choices.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent decoded RGB16 sample hash matches every converted processed PNG in held-frame order"
+      ]
+    },
+    {
+      "profile": "jpeg2000",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "jpeg2000",
+      "codec": "jpeg2000",
+      "pixelFormat": "rgb48le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.629,
+      "output": {
+        "bytes": 252097,
+        "sha256": "6c9a900ba5ae6cd30a4fc15ac97ab570e5c212367dac1939a8d7fad39d389847"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Selected jpeg2000; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "The chosen preservation contract is RGB16; verification compares that converted target, including its alpha/chroma/transfer choices.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent decoded RGB16 sample hash matches every converted processed PNG in held-frame order"
+      ]
+    },
+    {
+      "profile": "mp4",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "h264_nvenc",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "hardware": "nvidia",
+      "hardwareProbePassed": true,
+      "elapsedSeconds": 0.99,
+      "output": {
+        "bytes": 17381,
+        "sha256": "3a7c5a3d2d8b91c630b370d5fb3387dccdda05340e64a647719a340fa6a8d77c"
+      },
+      "notes": [
+        "Lossy delivery encoding with 4:2:0 chroma. Hardware presence is not proof that this size is supported.",
+        "Encoder h264_nvenc is installed; a real 256×144 encode probe must pass before hardware use is claimed.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Hardware encoder h264_nvenc passed an actual 256×144 probe.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "hevc",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "hevc_nvenc",
+      "codec": "hevc",
+      "pixelFormat": "p010le",
+      "hardware": "nvidia",
+      "hardwareProbePassed": true,
+      "elapsedSeconds": 0.999,
+      "output": {
+        "bytes": 20955,
+        "sha256": "9a56d23ba9b12bd31856a99e2449620ec0eccd8e9ab71a26da7648e90e2ab516"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Lossy delivery. A compatible decoder is needed for playback.",
+        "Encoder hevc_nvenc is installed; a real 256×144 encode probe must pass before hardware use is claimed.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Hardware encoder hevc_nvenc passed an actual 256×144 probe.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "av1",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "libsvtav1",
+      "codec": "av1",
+      "pixelFormat": "yuv420p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.424,
+      "output": {
+        "bytes": 15695,
+        "sha256": "d746e9aae08d896ce8714472fbca19e56c16f461d7b19fcdf7b5c8fd1a2c3a66"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Video is lossy. Float32 mix is converted to a 24-bit FLAC target. AV1 software encoding can be slow.",
+        "Selected libsvtav1; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "webm",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "libvpx-vp9",
+      "codec": "vp9",
+      "pixelFormat": "yuv420p",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.544,
+      "output": {
+        "bytes": 16930,
+        "sha256": "bb9d577490c5a9bd28cd980c33c7ed95d6f631818704e194d6ab70af3efd7e02"
+      },
+      "notes": [
+        "Lossy video and audio. Actual VP9/AV1 codec is shown in the export plan.",
+        "Selected libvpx-vp9; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "prores-proxy",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "prores_ks",
+      "codec": "prores",
+      "pixelFormat": "yuv422p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.325,
+      "output": {
+        "bytes": 12071,
+        "sha256": "f4f302ab4f1d46010413953cb1a01470cc16b2eeca2d901583c6c3a08eef3fc1"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM.",
+        "Selected prores_ks; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "prores-lt",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "prores_ks",
+      "codec": "prores",
+      "pixelFormat": "yuv422p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.298,
+      "output": {
+        "bytes": 26823,
+        "sha256": "285c3fe5844a23cf03979ed0db908f1957397da69b05cafcdfd3dba98b7d7af3"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM.",
+        "Selected prores_ks; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "prores-422",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "prores_ks",
+      "codec": "prores",
+      "pixelFormat": "yuv422p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.33,
+      "output": {
+        "bytes": 38471,
+        "sha256": "4234e5100fe8620f65715057dc1326bdf6cd8807613ac25eaa41ec3f5f86c9ae"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM.",
+        "Selected prores_ks; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "prores",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "prores_ks",
+      "codec": "prores",
+      "pixelFormat": "yuv422p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.319,
+      "output": {
+        "bytes": 144079,
+        "sha256": "eb4659ebfc42c9b814f98051ab5d74218dd303dd89c76211276181c48889ab20"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM.",
+        "Selected prores_ks; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "prores-4444",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "prores_ks",
+      "codec": "prores",
+      "pixelFormat": "yuv444p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.335,
+      "output": {
+        "bytes": 208909,
+        "sha256": "5c4427086bc2514b7b07d29028394915504fccc7398b4fabb2aa00645dd6ce14"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM.",
+        "Selected prores_ks; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "prores-xq",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "prores_ks",
+      "codec": "prores",
+      "pixelFormat": "yuv444p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.345,
+      "output": {
+        "bytes": 208909,
+        "sha256": "6cc0f8e5199816bdf2637469d9c70c1b4871ed290ca7ea150d597514b62dff6e"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM.",
+        "Selected prores_ks; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "dnxhr",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "dnxhd",
+      "codec": "dnxhd",
+      "pixelFormat": "yuv422p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.368,
+      "output": {
+        "bytes": 33561,
+        "sha256": "27857b41a504d2ece080705a7f05d30ecccde41537ee9e0378f3daafeda53863"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Lossy intermediate; 4:2:2 chroma and 24-bit PCM audio.",
+        "Selected dnxhd; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "dnxhr-444",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "dnxhd",
+      "codec": "dnxhd",
+      "pixelFormat": "gbrp10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.343,
+      "output": {
+        "bytes": 66311,
+        "sha256": "b4ca31a427e58d041aa3ab72f8ae0c4ace9941fac1ed21d4659f3e3c2402786f"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Lossy intermediate; float mix is converted to 24-bit PCM.",
+        "Selected dnxhd; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "dnxhd",
+      "status": "passed",
+      "verified": true,
+      "width": 1920,
+      "height": 1080,
+      "fps": 23.976023976023978,
+      "frames": 2,
+      "encoder": "dnxhd",
+      "codec": "dnxhd",
+      "pixelFormat": "yuv422p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.803,
+      "output": {
+        "bytes": 1835917,
+        "sha256": "347aa4f834397ae2a614869fabccc579d160080ab8e88079f457aae0c8a03780"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Requires a standard HD rate/raster. Duration-preserving conform can repeat/drop exposures without changing shot length.",
+        "Selected dnxhd; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "mxf",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 23.976023976023978,
+      "frames": 2,
+      "encoder": "dnxhd",
+      "codec": "dnxhd",
+      "pixelFormat": "yuv422p10le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.337,
+      "output": {
+        "bytes": 41005,
+        "sha256": "a49426c7dda92b312a39cf93ec1341339a958d3e7a7134a8320ac96c154e0cc9"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Lossy intermediate; requires a supported broadcast frame rate. Individual MXF output is not an IMF/DCP package.",
+        "Selected dnxhd; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "mxf-mpeg2",
+      "status": "passed",
+      "verified": true,
+      "width": 1920,
+      "height": 1080,
+      "fps": 23.976023976023978,
+      "frames": 2,
+      "encoder": "mpeg2video",
+      "codec": "mpeg2video",
+      "pixelFormat": "yuv422p",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.451,
+      "output": {
+        "bytes": 1208377,
+        "sha256": "8d92c9a4daaeff49a66fd0a8ccf1c330989d0509340d1f4e0587d2466ed0e72d"
+      },
+      "notes": [
+        "HD-only; not an 8K profile. Lossy 8-bit 4:2:2 video and 24-bit PCM audio.",
+        "Selected mpeg2video; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB is explicitly converted to BT.709 transfer and matrix with limited-range YUV.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "cineform",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "cfhd",
+      "codec": "cfhd",
+      "pixelFormat": "gbrp12le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.412,
+      "output": {
+        "bytes": 147437,
+        "sha256": "49249c6c9e8be1898223e6a0fcd02921520907224e62ef6cf0374a8696b48b8b"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Lossy intermediate. Width must be a multiple of 16 and height a multiple of 8.",
+        "Selected cfhd; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "gif",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "gif",
+      "codec": "gif",
+      "pixelFormat": "rgb8",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.438,
+      "output": {
+        "bytes": 70599,
+        "sha256": "6ab0321ba66efb75f23177dce502f3de5bdbf9c22f3625472be9df4b39906f4b"
+      },
+      "notes": [
+        "Palette quantization is lossy; GIF frame delays use centiseconds. Large GIFs are inefficient.",
+        "Selected gif; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "GIF palette values use the canvas sRGB display interpretation.",
+        "Picture dimensions, exact frame count and complete video decoding verified; this delivery/intermediate profile uses its stated compression"
+      ]
+    },
+    {
+      "profile": "png-sequence",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": null,
+      "codec": "png",
+      "pixelFormat": "rgba",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.071,
+      "output": {
+        "bytes": 233031,
+        "sha256": "ca5de0679651fc70b0e8aef819acff68522e14c6c96c32181eab59746db9a731"
+      },
+      "notes": [
+        "The native renderer writes 8-bit RGBA PNGs. Choose Originals portable project archive to retain the stored precision of imported files.",
+        "Processed Canvas PNG8 files are archived directly; no conversion to a higher bit depth is implied.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent ZIP audit verified 4 entries, every CRC and 4 SHA-256 records.",
+        "Processed PNG · lossless RGBA8 sequence files preserve the selected target samples; frame holds are expanded in sequence order"
+      ]
+    },
+    {
+      "profile": "png16-sequence",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "png",
+      "codec": "png",
+      "pixelFormat": "rgb48be",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.364,
+      "output": {
+        "bytes": 211604,
+        "sha256": "bf6068e13919577d1eecf86b4e0157b6e5febf7564e7cf281a39a02c330cc7e9"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Selected png; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "The chosen preservation contract is RGB16; verification compares that converted target, including its alpha/chroma/transfer choices.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent ZIP audit verified 4 entries, every CRC and 4 SHA-256 records.",
+        "Processed PNG · RGB16 sequence files preserve the selected target samples; frame holds are expanded in sequence order"
+      ]
+    },
+    {
+      "profile": "tiff-sequence",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "tiff",
+      "codec": "tiff",
+      "pixelFormat": "rgb48le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.406,
+      "output": {
+        "bytes": 393219,
+        "sha256": "75518448ec9cb5c888cd6f9cf4099a5803be0730d902d828406182d97c80bd05"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Selected tiff; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "The chosen preservation contract is RGB16; verification compares that converted target, including its alpha/chroma/transfer choices.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent ZIP audit verified 4 entries, every CRC and 4 SHA-256 records.",
+        "Processed TIFF · RGB16 sequence files preserve the selected target samples; frame holds are expanded in sequence order"
+      ]
+    },
+    {
+      "profile": "dpx-sequence",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "dpx",
+      "codec": "dpx",
+      "pixelFormat": "rgb48be",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.32,
+      "output": {
+        "bytes": 447632,
+        "sha256": "d537f55fe144137a0d61e4e837b50e9a8b41428b7d60fd4cc856c90676234db1"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "This is a display-referred SDR converted-frame profile, not a camera RAW/log acquisition pipeline.",
+        "Selected dpx; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "The chosen preservation contract is RGB16; verification compares that converted target, including its alpha/chroma/transfer choices.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent ZIP audit verified 4 entries, every CRC and 4 SHA-256 records.",
+        "Processed DPX · RGB16 sequence files preserve the selected target samples; frame holds are expanded in sequence order"
+      ]
+    },
+    {
+      "profile": "exr-sequence",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": "exr",
+      "codec": "exr",
+      "pixelFormat": "gbrpf32le",
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.446,
+      "output": {
+        "bytes": 875928,
+        "sha256": "e0f1898272f68adbd1bd4bf3261da1f64c517f85ccad8deede0ca7338ed193dc"
+      },
+      "notes": [
+        "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+        "Display-referred sRGB8 is explicitly converted to linear-light float32 before EXR encoding. This is not original sensor precision or scene-referred camera RAW.",
+        "Selected exr; output verification runs only when requested.",
+        "The export worker must explicitly convert sRGB to linear float before EXR encoding; the planner adds no conflicting transfer filter.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "The chosen preservation contract is linear float32 RGB; verification compares that converted target, including its alpha/chroma/transfer choices.",
+        "Canvas sRGB values are explicitly linearized to BT.709/sRGB-primary float32 RGB before OpenEXR encoding; this is display-source conversion, not scene-referred camera acquisition.",
+        "Explicit sRGB-to-linear RGB conversion; BT.709/sRGB primaries, full range.",
+        "Independent ZIP audit verified 4 entries, every CRC and 4 SHA-256 records.",
+        "Processed OpenEXR · linear float32 sequence files preserve the selected target samples; frame holds are expanded in sequence order"
+      ]
+    },
+    {
+      "profile": "originals",
+      "status": "passed",
+      "verified": true,
+      "width": 256,
+      "height": 144,
+      "fps": 12,
+      "frames": 2,
+      "encoder": null,
+      "codec": null,
+      "pixelFormat": null,
+      "hardware": null,
+      "hardwareProbePassed": false,
+      "elapsedSeconds": 0.049,
+      "output": {
+        "bytes": 5091,
+        "sha256": "8eb8db5e442cc3c1d18239fdbc2fc7276e9ecbc336e3f077537cbdc2d89e7df7"
+      },
+      "notes": [
+        "This is a whole-project archive: all scenes and stored original audio are included. Scene-only scope, soundtrack mixing, processed-output size and effects do not apply.",
+        "Original dimensions, bit depth and codec remain exactly as stored. Playback timing and non-destructive edits remain in the project manifest.",
+        "Original image files retain their stored precision and bytes; rendered edits and scaling are bypassed.",
+        "Unchanged original files retain their original interpretation and metadata.",
+        "Independent ZIP audit verified 4 entries, every CRC and 4 SHA-256 records.",
+        "Full portable project archive: all original image/audio bytes preserved once. Extract the ZIP and open project.humanity.json; the project retains source timing and editable metadata."
+      ]
+    }
+  ],
+  "scope": [
+    "Short development-engine profile tests at the stated raster/rate, not long-form or installed-GUI evidence",
+    "Unavailable or failed cases are not reported as verified",
+    "All tested profile cases request optional output verification explicitly"
+  ],
+  "companionTests": {
+    "command": "node --test desktop/test/professional.test.cjs desktop/test/fast-export.test.cjs",
+    "tests": 36,
+    "passed": 36,
+    "failed": 0,
+    "skipped": 0,
+    "checks": [
+      "Default-off movie/PNG16/originals exports succeed with all optional verification methods patched to throw",
+      "Fast movie export has no PNG spool files or post-export verification records",
+      "No verifying phase occurs when verification is omitted",
+      "Independent ZIP audit detects a deliberately flipped payload byte",
+      "Rounded-boundary duration-preserving FPS conform",
+      "Extracted portable project reopens alongside its original with retained PNG16 precision and bytes",
+      "Global scene soundtrack offset produces exact delayed float32 samples",
+      "Actual JP216 import uses the correct local j2k_pipe demuxer and retains original precision, preview and SHA-256"
+    ]
+  },
+  "engineSources": [
+    {
+      "name": "desktop/export.cjs",
+      "sha256": "eb032cf4dd6e07b2e531a26525c32dc5b4e4068edb0db5d5f2c86cafe05aae44"
+    },
+    {
+      "name": "desktop/store.cjs",
+      "sha256": "e085b042c56a7ababc67790fd26214068eebb106a8831012723ee8e4c86bc397"
+    },
+    {
+      "name": "desktop/security.cjs",
+      "sha256": "ec6955fcb82b673ff6ff0382ed83eb95148a887b0700cd506db524917955f38b"
+    },
+    {
+      "name": "desktop/formats.cjs",
+      "sha256": "fe0722a1ee6d3ad55ec9136224cc5749f7a9e2e633fdbbfc7294f6feef5718c1"
+    },
+    {
+      "name": "desktop/targets.cjs",
+      "sha256": "8f3469056cd1b19594d969efabeeaa457ed83689144c257647343d93eedda8b5"
+    },
+    {
+      "name": "desktop/archive.cjs",
+      "sha256": "bde0ea260be40b3248ca8d8ef6f8b7475d03a8ab58eb18e539947bd8362201cb"
+    },
+    {
+      "name": "assets/export-profiles.json",
+      "sha256": "aa78b9b892624cc14e3bd6be66ced6d48311f14015146734ee4b30167cdf0733"
+    },
+    {
+      "name": "desktop/test/professional.test.cjs",
+      "sha256": "2a12795295b9a7d9474c85fbf5ef7f7ed9b730a275d891f3bcf7f039344502be"
+    },
+    {
+      "name": "desktop/test/fast-export.test.cjs",
+      "sha256": "aa043ddd34269731afa091e652f5445facf6b2bd16d08b416467c73574776c02"
+    }
+  ]
+}
