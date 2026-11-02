@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "app": "Stop Motion for Humanity",
   "platform": "darwin-arm64",
-  "status": "awaiting_final_camera_consent",
+  "status": "passed",
   "coreRevision": "cc2741929cd7e28b1b839382969924889a827c19",
   "buildCheckoutRevision": "1a99c8c",
-  "recordedAt": "2026-11-02T20:10:32.160879+00:00",
+  "recordedAt": "2026-11-02T20:54:56.967584+00:00",
   "testedHost": {
     "chip": "Apple M4",
     "architecture": "arm64",
@@ -39,13 +39,18 @@
     "existingPhysicalProjectReopenedWith10Frames": true,
     "existingCameraOriginalBytesAndFrameCaptureMetadataPreserved": true,
     "all10ExistingPhysicalOriginalPngsFullyDecodedLocally": true,
-    "cameraDisconnectedOnProjectReopen": true
+    "cameraDisconnectedOnProjectReopen": true,
+    "physicalCameraCaptureAddedOne4kOriginal": true,
+    "physicalProjectReopenedAfterNormalQuitWith11Frames": true,
+    "allTenPriorOriginalsAndCompleteFrameRecordsPreserved": true,
+    "all11PhysicalOriginalPngsFullyDecodedLocally": true,
+    "cameraStayedDisconnectedAfterRelaunchAndReopen": true
   },
   "camera": {
-    "finalInstalledCaptureStatus": "awaiting_human_macos_camera_permission",
+    "finalInstalledCaptureStatus": "passed",
     "explicitConnectAttempted": true,
-    "newInstalledCaptureClaimed": false,
-    "applicationLeftOpenForHumanConsent": true,
+    "newInstalledCaptureClaimed": true,
+    "applicationLeftOpenForHumanConsent": false,
     "priorPackagedPhysicalCaptureProof": "docs/validation/physical-webcam-macos-preflight.json",
     "priorDevices": [
       {
@@ -61,7 +66,27 @@
         "frames": 8
       }
     ],
-    "priorCaptureScope": "Historical packaged preflight; independent final installed capture is pending. No sensor RAW or greater-than-8-bit acquisition claim."
+    "priorCaptureScope": "Historical packaged preflight established the two camera models and ten earlier originals. The final installed application independently captured one additional 4K RGB8 original after human permission; all eleven were decoded and the prior ten complete frame/asset records were preserved. No sensor RAW or greater-than-8-bit acquisition claim.",
+    "humanMacosCameraPermissionConfirmed": true,
+    "applicationLeftOpenOnPublicProceduralDemo": true,
+    "actualInstalledCapture": {
+      "model": "EMEET SmartCam C960 4K",
+      "reportedStreamWidth": 3840,
+      "reportedStreamHeight": 2160,
+      "reportedPreviewFps": 30,
+      "newOriginals": 1,
+      "storedPngWidth": 3840,
+      "storedPngHeight": 2160,
+      "storedBitsPerChannel": 8,
+      "storedColourModel": "RGB",
+      "savedResizeMode": "none",
+      "pngHeaderAndCompleteDecodePassed": true,
+      "savedSourceMetadataMatchesActualStream": true,
+      "originalFileHashesMatchDurableRecordsLocally": true,
+      "prior10OriginalAssetsAndCompleteFrameObjectsPreserved": true,
+      "savedProjectReopenedWith11Frames": true,
+      "cameraOffAfterReopen": true
+    }
   },
   "lifecycle": {
     "coreCloseFixRevision": "cc2741929cd7e28b1b839382969924889a827c19",
@@ -71,8 +96,12 @@
     "signedUnpackedEmptyHomeQuitPassed": true,
     "quickQuitGuiReopenConfirmed24Frames": true,
     "installedQuickQuitRerunClaimed": false,
-    "scope": "Actual close-fix signed unpacked app was tested before final DMG packaging. Installed ASAR and all app files match the final build; installed app remains open for the separate human camera permission step.",
-    "receipt": "docs/validation/mac-quit-save-regression.json"
+    "scope": "The signed unpacked app established rapid-edit Command-Q and last-window-close persistence before final DMG packaging. After camera consent, the unchanged published installed app captured and explicitly saved a new frame, disconnected, exited normally with Command-Q, and relaunched/reopened with all eleven physical originals intact and the camera off. Rapid unsaved-edit quit was not repeated in the installed copy.",
+    "receipt": "docs/validation/mac-quit-save-regression.json",
+    "installedNormalQuitAfterCameraSavePassed": true,
+    "installedMainProcessExitedNormally": true,
+    "installedRelaunchReopenRetainedNewFrameAndPrior10": true,
+    "installedCameraDisconnectedOnReopen": true
   },
   "automatedChecks": {
     "coreAndUiPassed": 56,
@@ -86,7 +115,9 @@
     "exportReadback": "docs/validation/mac-installed-exports.json",
     "native8kEngineProof": "docs/validation/native8k-macos-arm64.json",
     "canvasProof": "docs/validation/canvas-macos-arm64.json",
-    "portableProjectEngineProof": "docs/validation/mac-portable-project-engine.json"
+    "portableProjectEngineProof": "docs/validation/mac-portable-project-engine.json",
+    "installedPhysicalCameraProof": "docs/validation/mac-installed-camera.json",
+    "installedPublicProceduralDemoScreenshot": "docs/images/studio-macos-installed.jpg"
   },
   "distribution": {
     "declaredMinimumMacos": "14.0",
@@ -95,12 +126,19 @@
     "signing": "ad hoc",
     "notarized": false,
     "gatekeeperAcceptanceClaimed": false,
-    "releaseState": "Draft; publication owned by coordinator"
+    "releaseState": "Public: v0.1.0-beta.1"
   },
   "privacy": {
     "physicalImagesPublished": false,
     "privateProjectNamesPathsIdentifiersOrMediaHashesIncluded": false,
     "cameraScreenshotsCaptured": false,
-    "physicalMediaRemainLocal": true
+    "physicalMediaRemainLocal": true,
+    "onlyPublicProceduralDemoScreenshotPublished": true
+  },
+  "publishedPayloadPreservation": {
+    "installerAndBothSourceArchivesUnchanged": true,
+    "installedAsarManifestAndBothMediaToolsUnchanged": true,
+    "rebuildOrResigningPerformed": false,
+    "validationDocumentationOnly": true
   }
 }

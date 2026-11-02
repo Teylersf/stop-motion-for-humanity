@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "app": "Stop Motion for Humanity",
+  "kind": "installed-macos-consented-camera-capture",
+  "scope": "Actual final installed application; human-consented physical capture, save, disconnect, quit and reopen. Independent filesystem and full PNG decoding checks are separate from operator-owned GUI actions.",
+  "humanPermissionConfirmedByOperator": true,
+  "camera": {
+    "model": "EMEET SmartCam C960 4K",
+    "liveStreamWidth": 3840,
+    "liveStreamHeight": 2160,
+    "liveStreamFps": 30,
+    "liveStreamObservedByOperator": true,
+    "savedSourceMetadataMatchesLiveStream": true,
+    "savedResizeMode": "none"
+  },
+  "capture": {
+    "baselineFrames": 10,
+    "newFrames": 1,
+    "reopenedFrames": 11,
+    "baselineOriginalAssets": 10,
+    "reopenedOriginalAssets": 11,
+    "newOriginal": {
+      "format": "PNG",
+      "width": 3840,
+      "height": 2160,
+      "bitsPerChannel": 8,
+      "colourModel": "RGB",
+      "fullDecodePassed": true,
+      "completeDecodedRgbaBytes": 33177600
+    },
+    "all11OriginalPngHeadersValidated": true,
+    "all11OriginalsMatchDurableRecords": true,
+    "all11OriginalsFullyDecoded": true,
+    "allOriginalsUnchangedDuringReadback": true
+  },
+  "preservation": {
+    "priorOriginalAssetsPreserved": 10,
+    "priorCompleteAssetRecordsIdentical": 10,
+    "priorCompleteFrameObjectsIdentical": 10,
+    "priorCaptureMetadataAndSettingsIdentical": true,
+    "priorSceneMetadataAndFrameOrderIdentical": true,
+    "priorAutosavesPreserved": true,
+    "completeBaselineProjectRecoveredFromExactRetainedCopy": true,
+    "saveBookkeepingEqualityRequired": false
+  },
+  "guiObservations": {
+    "origin": "Operator-owned actual installed application actions, corroborated by saved accessibility state and quit-process evidence",
+    "captureIncreasedCountFrom10To11": true,
+    "explicitSaveReportedSavedLocally": true,
+    "disconnectedAfterCapture": true,
+    "normalQuitMainProcessExited": true,
+    "relaunchedInstalledApplicationAndReopenedProject": true,
+    "reopenedProjectShows11Frames": true,
+    "newOriginalSelectedAfterReopen": true,
+    "noCameraConnectedAfterReopen": true
+  },
+  "privacy": {
+    "privateContentKeptLocal": true,
+    "privatePathsNamesIdentifiersAndMediaHashesOmitted": true,
+    "rawAccessibilityTreesOmitted": true,
+    "imagePixelsOrScreenshotsEmitted": false,
+    "auditorControlledAppOrDevice": false,
+    "auditorPerformedMediaExport": false,
+    "privateDetailedEvidenceRetainedLocally": true
+  }
+}
