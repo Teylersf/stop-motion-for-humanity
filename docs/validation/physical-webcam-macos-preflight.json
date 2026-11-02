@@ -89,5 +89,14 @@
     "metadataOnlySummary": true
   },
   "summarizedAt": "2026-11-02T19:29:18.452148+00:00",
-  "quickQuitDurabilityClaimed": false
+  "quickQuitDurabilityClaimed": false,
+  "historicalPackagingDistinction": {
+    "historicalGuiEncoderWholeFileBytesDifferFromAuditedReadbackTools": true,
+    "allFileBackedMachOSectionsIdentical": true,
+    "cause": "Historical Electron signing pass changed signature/__LINKEDIT metadata and entitlements; this does not assert whole-file pin equality.",
+    "independentDecodeScope": "The metadata-only export summary derives from separate audited readback tools.",
+    "fixedByConfiguration": "scripts/mac-electron-builder.cjs",
+    "separateSanitizedPackagingProof": "docs/validation/mac-packaging-signature-preservation.json",
+    "finalInstalledDmgClaimed": false
+  }
 }

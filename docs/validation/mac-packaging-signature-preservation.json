@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "app": "Stop Motion for Humanity",
+  "kind": "macos-arm64-wrapper-signature-preservation-build-proof",
+  "productCodeCandidate": "9c03e59",
+  "scope": [
+    "Actual complete electron-builder --dir Mac ARM64 wrapper build passed, as observed by completed root execution and final guard log.",
+    "This is a candidate application bundle, not a final DMG, installed-app validation or physical camera proof.",
+    "Ad hoc signatures only; no Developer ID, notarization or Gatekeeper acceptance claim."
+  ],
+  "build": {
+    "configuration": "scripts/mac-electron-builder.cjs",
+    "wrapperSha256": "bba3c0ae165d57a585561ac57e227990631562ca05cd8ccdf444ee6f2bbd8ac6",
+    "mode": "--mac --arm64 --dir --publish never",
+    "reportedExitCode": 0,
+    "electron": "45.2.1",
+    "electronBuilder": "26.18.0",
+    "log": {
+      "name": "out/validation/mac-wrapper-check-9c03e59.log",
+      "bytes": 1322,
+      "sha256": "af9e26f035dbdb32a7546b1c965bff354d2d4725842a8b3e48e8e0a114c254c8"
+    },
+    "beforePackGuardPassed": true,
+    "afterSignGuardPassed": true
+  },
+  "sourceManifest": {
+    "sha256": "493c62e137f6d51d3ab46e5b250ac4d0981742601371c32c824efc00ed7dede6",
+    "bytes": 49976
+  },
+  "bundledManifest": {
+    "sha256": "493c62e137f6d51d3ab46e5b250ac4d0981742601371c32c824efc00ed7dede6",
+    "bytes": 49976
+  },
+  "sourceAndBundledManifestExactlyMatch": true,
+  "sourceBinaries": {
+    "ffmpeg": {
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    "ffprobe": {
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  },
+  "bundledBinaries": {
+    "ffmpeg": {
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    "ffprobe": {
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  },
+  "allBundledToolBytesExactlyMatchAuditedSourcePins": true,
+  "deploymentAndSignatures": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "actualBundleMinimumSystemVersion": "14.0",
+    "expectedMinimumSystemVersion": "14.0",
+    "sourceAndBundledMediaStrictSignatureGuardsPassed": true,
+    "outerApplicationDeepStrictSignatureGuardPassed": true,
+    "signatureType": "ad hoc",
+    "notarized": false
+  },
+  "fix": {
+    "configurationPath": "scripts/mac-electron-builder.cjs",
+    "inheritsBaseDesktopConfigurationAndHooks": true,
+    "minimumSystemVersion": "14.0",
+    "mediaOnlySignIgnore": "/Contents/Resources/media/(ffmpeg|ffprobe)$",
+    "preservesAuditedMediaToolsFromElectronResigning": true,
+    "baseAppFrameworkHelperSigningRetained": true,
+    "beforePack": "Checks passed ARM64/min14 manifest, exact file size/SHA, executable permissions and strict media signatures.",
+    "afterSign": "Rejects changed source/bundled manifests, changed tool bytes, bad media/app signatures or wrong app deployment floor.",
+    "historicalStaleBundleRejectedByGuard": true,
+    "guardCheckEvidence": {
+      "name": "out/validation/mac-builder-wrapper-source-check.json",
+      "bytes": 799,
+      "sha256": "0e093ea19587f68af5f44027b46b3f08994f602782b7a74c46a3c4047fcb649a"
+    }
+  },
+  "historicalPreflightComparison": {
+    "historicalGuiEncoderBinaries": {
+      "ffmpeg": {
+        "bytes": 40152944,
+        "sha256": "4835b7a0ec97579ef6de92923e30856bce53bf211ec78268db5463d49310c3e4"
+      },
+      "ffprobe": {
+        "bytes": 39978848,
+        "sha256": "e89b08667bc624efc16471e39257e9213bb9d4d0b4a2e9b1ba9f77701b678801"
+      }
+    },
+    "auditedIndependentReadbackBinaries": {
+      "ffmpeg": {
+        "bytes": 40152272,
+        "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+      },
+      "ffprobe": {
+        "bytes": 39978192,
+        "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+      }
+    },
+    "wholeFileHashesDiffer": true,
+    "allFileBackedSectionsIdentical": true,
+    "otherUnsignedBytesIdenticalAfterNarrowNormalization": true,
+    "signatureOffsetUnchanged": true,
+    "onlyNormalizedFields": [
+      "LC_CODE_SIGNATURE offset/size",
+      "__LINKEDIT size fields"
+    ],
+    "otherDifferences": "Code-signature data and added entitlements; no deployment/dependency/code load-command differences observed.",
+    "addedSignatureEntitlements": [
+      "allow-jit",
+      "camera",
+      "audio-input"
+    ],
+    "evidence": {
+      "name": "out/validation/mac-media-signing-delta-preflight.json",
+      "bytes": 62768,
+      "sha256": "cc4b1c2eb558c4bcbfe73d58aef459e439c9fb129dc3be2e31aa3666f95c1358"
+    }
+  },
+  "limitations": {
+    "finalDmgCreatedOrInstalledByThisProof": false,
+    "cameraOrPrivateMediaAccessed": false,
+    "quickQuitDurabilityPassed": false,
+    "quickQuitScope": "Separate known release blocker at the time of this packaging candidate; this receipt only proves packaging byte/signature guards."
+  },
+  "recordedAt": "2026-11-02T19:46:45.608033+00:00"
+}

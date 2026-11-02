@@ -24,7 +24,8 @@
     "ffprobe": {
       "bytes": 39978192,
       "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
-    }
+    },
+    "role": "Independent post-export READBACK tools; these are not the historical packaged GUI encoder executable bytes"
   },
   "source": {
     "project": {
@@ -484,7 +485,8 @@
     "ffprobe": {
       "bytes": 39978192,
       "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
-    }
+    },
+    "role": "Independent post-export READBACK tools; these are not the historical packaged GUI encoder executable bytes"
   },
   "runtimeUnchanged": true,
   "completedAt": "2026-11-02T19:20:11.260849+00:00",
@@ -494,6 +496,42 @@
       "priorIndependentChecksPreserved": true,
       "followUp": "Actual GUI reopen observation appended; no media decode or source files changed in this follow-up.",
       "appendedAt": "2026-11-02T19:29:18.453003+00:00"
+    },
+    {
+      "priorReceiptSha256": "305ad6b9a38e40aa7c6c23ce19018a6c75c5d15911e067b00ad1d9f28df62210",
+      "priorIndependentChecksPreserved": true,
+      "followUp": "Labeled independent readback runtime separately from historical signed GUI encoder bytes; no media re-render/decode performed.",
+      "appendedAt": "2026-11-02T19:46:45.577160+00:00"
     }
-  ]
+  ],
+  "runtimeUnchangedComparisonScope": "Independent readback tool byte/SHA pins before and after standalone QA, not historical GUI encoder-vs-source byte equality",
+  "historicalPackagingDistinction": {
+    "scope": "Historical packaged preflight signing differs from the later exact-byte-preserving wrapper build; no final installed DMG claim.",
+    "historicalGuiEncoderTools": {
+      "ffmpeg": {
+        "bytes": 40152944,
+        "sha256": "4835b7a0ec97579ef6de92923e30856bce53bf211ec78268db5463d49310c3e4"
+      },
+      "ffprobe": {
+        "bytes": 39978848,
+        "sha256": "e89b08667bc624efc16471e39257e9213bb9d4d0b4a2e9b1ba9f77701b678801"
+      }
+    },
+    "independentReadbackToolPins": {
+      "ffmpeg": {
+        "bytes": 40152272,
+        "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+      },
+      "ffprobe": {
+        "bytes": 39978192,
+        "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+      }
+    },
+    "wholeFileGuiEncoderBytesDifferFromReadbackTools": true,
+    "allFileBackedMachOSectionsIdentical": true,
+    "unsignedBytesIdenticalAfterNormalizingOnlySignatureAndLinkeditSizeFields": true,
+    "historicalChange": "Electron-builder re-signed media tools; only code-signature data, signature load-command fields and __LINKEDIT size metadata changed. Signature entitlements were added.",
+    "correctedConfiguration": "scripts/mac-electron-builder.cjs",
+    "followUpProof": "docs/validation/mac-packaging-signature-preservation.json"
+  }
 }
