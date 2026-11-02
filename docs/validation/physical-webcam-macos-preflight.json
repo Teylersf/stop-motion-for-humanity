@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "app": "Stop Motion for Humanity",
+  "kind": "physical-camera-packaged-preflight-metadata-summary",
+  "testedOn": "macOS ARM64 / Apple M4",
+  "sourceRevision": "4ebaf7b",
+  "scope": [
+    "Root/human-operated packaged preflight app; this is not a final installed DMG proof.",
+    "Camera permission and UI actions were performed by the root operator after the user confirmed OS permission.",
+    "Summary prepared from local metadata/AX state only; physical images and raw private evidence remain local.",
+    "Explicit Save/Open only. Quick-quit/latest-title durability has not passed and remains a separate release blocker; no quit/relaunch durability claim is made."
+  ],
+  "privacy": {
+    "physicalMediaPublished": false,
+    "privatePathsOrProjectNamesIncluded": false,
+    "projectDeviceOrAssetIdentifiersIncluded": false,
+    "originalOrDecodedMediaHashesIncluded": false,
+    "privateAxContentIncluded": false,
+    "imagePixelsOrScreenshotsInspectedForThisSummary": false
+  },
+  "capture": {
+    "totalOriginalFrames": 10,
+    "allOriginalPngHeadersMatchReportedSourceDimensions": true,
+    "originalFormat": "PNG",
+    "storedBitsPerChannel": 8,
+    "renderPipeline": "Browser RGBA8; no sensor RAW or higher-precision acquisition claim",
+    "cameras": [
+      {
+        "model": "Live Streamer CAM313",
+        "originalFrames": 2,
+        "actualWidth": 1920,
+        "actualHeight": 1080,
+        "allOriginalsCompletelyDecodedLocally": true
+      },
+      {
+        "model": "EMEET SmartCam C960 4K",
+        "originalFrames": 8,
+        "actualWidth": 3840,
+        "actualHeight": 2160,
+        "allOriginalsCompletelyDecodedLocally": true
+      }
+    ]
+  },
+  "saveAndReopen": {
+    "initialCapturedFrames": 2,
+    "rootGuiSaveObserved": true,
+    "rootGuiReopenObserved": true,
+    "reopenedFrames": 2,
+    "cameraDisconnectedOnReopen": true,
+    "frameAndCaptureMetadataPreserved": true,
+    "originalBytesPreservedAcrossReopen": true,
+    "priorAutosavesPreserved": true,
+    "saveBookkeepingScope": "The complete project snapshot was not byte-identical; this proof establishes preserved frame/capture metadata and original bytes through explicit Save/Open."
+  },
+  "preservation": {
+    "allTenOriginalsMatchDurableRecords": true,
+    "initialTwoOriginalsRetainedAfterAdditionalCaptures": true,
+    "allTenOriginalsUnchangedAcrossExport": true,
+    "allTenOriginalPngDecodesComplete": true,
+    "initialOriginalsAssetFilesAndAutosavesRetainedAcrossAdditionalCaptures": true
+  },
+  "mixedSourceExport": {
+    "profile": "FFV1",
+    "storedPixelFormat": "bgra",
+    "renderedBitsPerChannel": 8,
+    "width": 3840,
+    "height": 2160,
+    "frames": 10,
+    "fps": 12,
+    "durationSeconds": 0.8333333333333334,
+    "rootGuiVerificationChecked": true,
+    "rootGuiCompletion": "Your film is ready. Export verified.",
+    "independentCompleteDecodePassed": true,
+    "decodedRgbaBytes": 331776000,
+    "frameCountAndGeometryPassed": true,
+    "cfrWithinHalfContainerTick": true,
+    "timeBase": "1/1000",
+    "maximumCfrErrorSeconds": 0.00033333333333340764,
+    "allowedCfrErrorSeconds": 0.0005001,
+    "sourceInterpretation": "Two originals are 1920×1080 and eight are 3840×2160. The 4K export scales the two HD sources; it does not create additional captured detail.",
+    "independentProcessedReferenceEqualityClaimed": false,
+    "referenceScope": "Complete decode/count/geometry/timing checked; no independent processed-frame reference was supplied for a separate sample-equality claim."
+  },
+  "evidenceBasis": {
+    "passedLocalMetadataReceipts": 6,
+    "privateGuiEvidenceUsedOnlyForBooleanStateChecks": true,
+    "rawPrivateEvidenceEmbedded": false,
+    "metadataOnlySummary": true
+  },
+  "summarizedAt": "2026-11-02T19:29:18.452148+00:00",
+  "quickQuitDurabilityClaimed": false
+}

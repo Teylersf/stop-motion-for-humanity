@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "app": "Stop Motion for Humanity",
+  "status": "passed",
+  "kind": "macos-portable-project-engine-proof",
+  "testedAt": "2026-11-02T19:22:25.232Z",
+  "sourceRevision": "99140df7b8f93ef9bc075429cf1ddd08649e8d7e",
+  "sourceFiles": [
+    {
+      "name": "scripts/mac-portable-project-proof.cjs",
+      "sha256": "84e7cd9943c616203cbb21fa4677d569fc0eaccdc78756a01b0205c635716f19"
+    },
+    {
+      "name": "desktop/store.cjs",
+      "sha256": "e085b042c56a7ababc67790fd26214068eebb106a8831012723ee8e4c86bc397"
+    },
+    {
+      "name": "desktop/export.cjs",
+      "sha256": "4ccb6c6fbb36c5907f531332fdacb3eab585be3577053ee82bbd73825213ab4a"
+    },
+    {
+      "name": "desktop/archive.cjs",
+      "sha256": "bde0ea260be40b3248ca8d8ef6f8b7475d03a8ab58eb18e539947bd8362201cb"
+    },
+    {
+      "name": "desktop/formats.cjs",
+      "sha256": "fe0722a1ee6d3ad55ec9136224cc5749f7a9e2e633fdbbfc7294f6feef5718c1"
+    },
+    {
+      "name": "desktop/targets.cjs",
+      "sha256": "8f3469056cd1b19594d969efabeeaa457ed83689144c257647343d93eedda8b5"
+    },
+    {
+      "name": "desktop/security.cjs",
+      "sha256": "ec6955fcb82b673ff6ff0382ed83eb95148a887b0700cd506db524917955f38b"
+    },
+    {
+      "name": "assets/export-profiles.json",
+      "sha256": "3f2742416d95299ee4334137ada98e203938bcfae0ee8ecad1795b9dc36fe842"
+    }
+  ],
+  "scope": [
+    "Actual ProjectStore/ExportManager, both default-off and opt-in Originals paths",
+    "Synthetic three 32×24 PNGs plus one short stereo tone only; no camera, app UI or user profile access",
+    "Python standard library is an independent development ZIP auditor/extractor only; no Python is shipped in the app",
+    "This is a development-engine proof, not installed GUI reopen evidence"
+  ],
+  "cases": [
+    {
+      "verificationRequested": false,
+      "applicationResultVerified": false,
+      "status": "passed",
+      "requestedOptions": {
+        "profile": "originals",
+        "width": 640,
+        "height": 360,
+        "fps": 24,
+        "totalFrames": 6,
+        "sceneId": null,
+        "audio": true,
+        "preserveTiming": true,
+        "verify": false
+      },
+      "effectiveSourceFps": 12,
+      "effectivePreserveTiming": false,
+      "archive": {
+        "name": "default-off.zip",
+        "bytes": 29847,
+        "sha256": "8d8ac357bde32523eabd4997ff4d6f328cb4b6529814eaddc06a93db5f0a70d6"
+      },
+      "independentZIPAudit": {
+        "status": "passed",
+        "newProjectId": "03820cdb-e769-4ddd-8c04-33cd206c2160",
+        "sourceProjectId": "d5766951-dd8a-4d3e-835c-e9ce96343a7a",
+        "members": 7,
+        "crcVerified": true,
+        "allSourceAssetsIncludedExactlyOnce": true,
+        "allScenesFramesHoldsEnabledStatusesEditsAudioAndSourceFpsPreserved": true,
+        "noRetimingOrSourceScaling": true,
+        "safeNewExtraction": true,
+        "assets": [
+          {
+            "kind": "image",
+            "name": "assets/a213ecd2-8321-4020-96dd-44eff0e699d6.png",
+            "bytes": 2201,
+            "sha256": "54f93dbf20f459b673f37f392a40ac990618e60bcece760988570133ccc01ffa"
+          },
+          {
+            "kind": "image",
+            "name": "assets/5a6ffdd9-6d88-4d73-8115-f917be26f77c.png",
+            "bytes": 2278,
+            "sha256": "a2435d1601b211b38cd76193bcc29b898d3a177b7466a27e43a758b0cb01bc20"
+          },
+          {
+            "kind": "image",
+            "name": "assets/7c852e5f-d8ef-4a00-9d27-b393d1d040e3.png",
+            "bytes": 2226,
+            "sha256": "2146ca7a47c1685de19e9e8ee3dd489b1b28fbec1a6a45e101b3c2c18db83ed8"
+          },
+          {
+            "kind": "audio",
+            "name": "assets/79596403-8570-465f-add0-32018f8e0960.wav",
+            "bytes": 19244,
+            "sha256": "3acb965a91748bfd24d2f0c3fbcc131c092f33b62e403f24707a2eb762347d24"
+          }
+        ]
+      },
+      "actualProjectStoreOpenPassed": true,
+      "allReopenedAssetHashesMatch": true,
+      "notes": [
+        "This is a whole-project archive: all scenes and stored original audio are included. Scene-only scope, soundtrack mixing, processed-output size and effects do not apply.",
+        "Original dimensions, bit depth and codec remain exactly as stored. Playback timing and non-destructive edits remain in the project manifest.",
+        "Original image files retain their stored precision and bytes; rendered edits and scaling are bypassed.",
+        "Unchanged original files retain their original interpretation and metadata.",
+        "Full portable project archive: all original image/audio bytes preserved once. Extract the ZIP and open project.humanity.json; the project retains source timing and editable metadata.",
+        "Verification not requested; encoder completed and file saved. No independent post-export decode or sample comparison was performed."
+      ]
+    },
+    {
+      "verificationRequested": true,
+      "applicationResultVerified": true,
+      "status": "passed",
+      "requestedOptions": {
+        "profile": "originals",
+        "width": 640,
+        "height": 360,
+        "fps": 24,
+        "totalFrames": 6,
+        "sceneId": null,
+        "audio": true,
+        "preserveTiming": true,
+        "verify": true
+      },
+      "effectiveSourceFps": 12,
+      "effectivePreserveTiming": false,
+      "archive": {
+        "name": "opt-in.zip",
+        "bytes": 29838,
+        "sha256": "4194e61a022f38f70dac36d75fdbdab192eba324bdf0f25356b65aaac4e45393"
+      },
+      "independentZIPAudit": {
+        "status": "passed",
+        "newProjectId": "a816484f-53de-4303-960a-7cb5a0931e95",
+        "sourceProjectId": "d5766951-dd8a-4d3e-835c-e9ce96343a7a",
+        "members": 7,
+        "crcVerified": true,
+        "allSourceAssetsIncludedExactlyOnce": true,
+        "allScenesFramesHoldsEnabledStatusesEditsAudioAndSourceFpsPreserved": true,
+        "noRetimingOrSourceScaling": true,
+        "safeNewExtraction": true,
+        "assets": [
+          {
+            "kind": "image",
+            "name": "assets/a213ecd2-8321-4020-96dd-44eff0e699d6.png",
+            "bytes": 2201,
+            "sha256": "54f93dbf20f459b673f37f392a40ac990618e60bcece760988570133ccc01ffa"
+          },
+          {
+            "kind": "image",
+            "name": "assets/5a6ffdd9-6d88-4d73-8115-f917be26f77c.png",
+            "bytes": 2278,
+            "sha256": "a2435d1601b211b38cd76193bcc29b898d3a177b7466a27e43a758b0cb01bc20"
+          },
+          {
+            "kind": "image",
+            "name": "assets/7c852e5f-d8ef-4a00-9d27-b393d1d040e3.png",
+            "bytes": 2226,
+            "sha256": "2146ca7a47c1685de19e9e8ee3dd489b1b28fbec1a6a45e101b3c2c18db83ed8"
+          },
+          {
+            "kind": "audio",
+            "name": "assets/79596403-8570-465f-add0-32018f8e0960.wav",
+            "bytes": 19244,
+            "sha256": "3acb965a91748bfd24d2f0c3fbcc131c092f33b62e403f24707a2eb762347d24"
+          }
+        ]
+      },
+      "actualProjectStoreOpenPassed": true,
+      "allReopenedAssetHashesMatch": true,
+      "notes": [
+        "This is a whole-project archive: all scenes and stored original audio are included. Scene-only scope, soundtrack mixing, processed-output size and effects do not apply.",
+        "Original dimensions, bit depth and codec remain exactly as stored. Playback timing and non-destructive edits remain in the project manifest.",
+        "Original image files retain their stored precision and bytes; rendered edits and scaling are bypassed.",
+        "Unchanged original files retain their original interpretation and metadata.",
+        "Independent ZIP audit verified 7 entries, every CRC and 7 SHA-256 records.",
+        "Full portable project archive: all original image/audio bytes preserved once. Extract the ZIP and open project.humanity.json; the project retains source timing and editable metadata."
+      ]
+    }
+  ],
+  "runtime": {
+    "ffmpeg": {
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    "ffprobe": {
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  },
+  "sourceProject": {
+    "width": 32,
+    "height": 24,
+    "fps": 12,
+    "scenes": 2,
+    "frames": 3,
+    "enabledFrames": 2,
+    "holds": [
+      2,
+      3,
+      4
+    ],
+    "enabled": [
+      true,
+      false,
+      true
+    ],
+    "outputExposures": 6,
+    "assets": 4,
+    "imageAssets": 3,
+    "audioAssets": 1,
+    "audioClips": 1,
+    "retainedUnusedImageAssets": 1,
+    "nonDefaultEdits": true
+  },
+  "sourceProjectAndAllOriginalsUnchanged": true,
+  "eachArchiveHasDistinctProjectId": true,
+  "noOwnedSessionsOrMediaWorkersRemain": true,
+  "sourceFilesAfter": [
+    {
+      "name": "scripts/mac-portable-project-proof.cjs",
+      "sha256": "84e7cd9943c616203cbb21fa4677d569fc0eaccdc78756a01b0205c635716f19"
+    },
+    {
+      "name": "desktop/store.cjs",
+      "sha256": "e085b042c56a7ababc67790fd26214068eebb106a8831012723ee8e4c86bc397"
+    },
+    {
+      "name": "desktop/export.cjs",
+      "sha256": "4ccb6c6fbb36c5907f531332fdacb3eab585be3577053ee82bbd73825213ab4a"
+    },
+    {
+      "name": "desktop/archive.cjs",
+      "sha256": "bde0ea260be40b3248ca8d8ef6f8b7475d03a8ab58eb18e539947bd8362201cb"
+    },
+    {
+      "name": "desktop/formats.cjs",
+      "sha256": "fe0722a1ee6d3ad55ec9136224cc5749f7a9e2e633fdbbfc7294f6feef5718c1"
+    },
+    {
+      "name": "desktop/targets.cjs",
+      "sha256": "8f3469056cd1b19594d969efabeeaa457ed83689144c257647343d93eedda8b5"
+    },
+    {
+      "name": "desktop/security.cjs",
+      "sha256": "ec6955fcb82b673ff6ff0382ed83eb95148a887b0700cd506db524917955f38b"
+    },
+    {
+      "name": "assets/export-profiles.json",
+      "sha256": "3f2742416d95299ee4334137ada98e203938bcfae0ee8ecad1795b9dc36fe842"
+    }
+  ],
+  "sourceFilesUnchanged": true,
+  "runtimeAfter": {
+    "ffmpeg": {
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    "ffprobe": {
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  },
+  "runtimeUnchanged": true,
+  "completedAt": "2026-11-02T19:22:25.551Z"
+}

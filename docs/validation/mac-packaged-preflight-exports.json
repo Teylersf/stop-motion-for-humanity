@@ -1,0 +1,499 @@
+{
+  "schemaVersion": 1,
+  "app": "Stop Motion for Humanity",
+  "status": "passed",
+  "testedAt": "2026-11-02T19:20:09.273775+00:00",
+  "kind": "packaged-app-procedural-preflight-readback",
+  "scope": [
+    "Actual root-operated packaged preflight GUI outputs, independently inspected after completion",
+    "No final installed DMG or physical camera acquisition claim",
+    "No app control, camera, microphone, network or existing user data access",
+    "Release QA independently decodes both outputs; ordinary export itself was observed with verification disabled"
+  ],
+  "sourceRevisionAtInspection": "60e8499b9d7e7d9185bbc5e0d32d8fb227f91df2",
+  "driver": {
+    "name": "out/validation/verify_preflight_exports.py",
+    "bytes": 14248,
+    "sha256": "c3f100ba20600d70cc969e9dc1a66834c2e34cb174e2a394992aa8bb7195010c"
+  },
+  "runtime": {
+    "ffmpeg": {
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    "ffprobe": {
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  },
+  "source": {
+    "project": {
+      "name": "out/gui-qa/A little orbit — sample/project.humanity.json",
+      "bytes": 37064,
+      "sha256": "42deea9d6b744228afeb8ad9ece130ab49a15a142d0c8e0fd55ee7765fe40dac"
+    },
+    "projectId": "270d9cbd-f8ca-4426-a076-aeb94a373523",
+    "scenes": 1,
+    "frames": 24,
+    "fps": 12,
+    "width": 1280,
+    "height": 720,
+    "audioClips": 0,
+    "originals": [
+      {
+        "assetId": "ab13ffa2-eb01-42c5-abf8-6497720fe15d",
+        "fileName": "ab13ffa2-eb01-42c5-abf8-6497720fe15d.png",
+        "bytes": 71551,
+        "sha256": "69b4877381912001e342cf9da611e0e2070468a4bcf0b31644003b022e8d7fbc"
+      },
+      {
+        "assetId": "c78485be-1579-44f5-940a-36c051ea1c59",
+        "fileName": "c78485be-1579-44f5-940a-36c051ea1c59.png",
+        "bytes": 73478,
+        "sha256": "31758e2dfecac2d2945686be38599a3e1152ffd673dad841311a5ac8da79d3df"
+      },
+      {
+        "assetId": "6660bbe9-37df-449a-8477-dcb6ed375105",
+        "fileName": "6660bbe9-37df-449a-8477-dcb6ed375105.png",
+        "bytes": 73850,
+        "sha256": "48fa61d830c2e626dc1da93ec0ee9cff4789519a07bf1f2beeb7d155f8ad7818"
+      },
+      {
+        "assetId": "2eebefc1-c392-47c9-9cbc-074cb5b2dcd6",
+        "fileName": "2eebefc1-c392-47c9-9cbc-074cb5b2dcd6.png",
+        "bytes": 73927,
+        "sha256": "1d13d8df86053dcdde681bb3bb7745cb2bc254771535c604f7d84770e7fda73a"
+      },
+      {
+        "assetId": "03a4e351-1480-4a5b-81f3-e0f21d927f45",
+        "fileName": "03a4e351-1480-4a5b-81f3-e0f21d927f45.png",
+        "bytes": 74479,
+        "sha256": "80d1a0031aba04e5183bc009a59eba303fefa41689289868f025408df3520cca"
+      },
+      {
+        "assetId": "e63220d8-591b-4fa7-9e12-c07a8dd9b82c",
+        "fileName": "e63220d8-591b-4fa7-9e12-c07a8dd9b82c.png",
+        "bytes": 74538,
+        "sha256": "15fc580f403366ce8a916a30eb8eabfeae66c66d19b1d8d55fe318344683c0a1"
+      },
+      {
+        "assetId": "64717a32-8e26-4392-9894-48d2e06ecf10",
+        "fileName": "64717a32-8e26-4392-9894-48d2e06ecf10.png",
+        "bytes": 74733,
+        "sha256": "a8127cf41b5b1d27c68a37f09a43e01a5edc8534e5d8a59b28738feabe3f4ec5"
+      },
+      {
+        "assetId": "50cb26a4-8966-4674-a071-af3e40602e03",
+        "fileName": "50cb26a4-8966-4674-a071-af3e40602e03.png",
+        "bytes": 74850,
+        "sha256": "92c22f37e996521893b450d2ffde4a68519ef9d0f2db4f8bf560d3d849fded75"
+      },
+      {
+        "assetId": "c86600b2-4a6c-4e69-8997-c38ac404c4a0",
+        "fileName": "c86600b2-4a6c-4e69-8997-c38ac404c4a0.png",
+        "bytes": 74369,
+        "sha256": "aa07f8ef504d08036d3857134722ecd39b97020a57658c9735507d2a513ef20e"
+      },
+      {
+        "assetId": "a843f9f9-5b87-418f-8dc8-0f846b3f0dc7",
+        "fileName": "a843f9f9-5b87-418f-8dc8-0f846b3f0dc7.png",
+        "bytes": 74118,
+        "sha256": "79e66032ada039fa3e30cd086cc37328f341e46d8263cdef06d606519544e7cc"
+      },
+      {
+        "assetId": "9d2d4a07-e63a-4e29-8f81-b04b75dd5ca0",
+        "fileName": "9d2d4a07-e63a-4e29-8f81-b04b75dd5ca0.png",
+        "bytes": 73616,
+        "sha256": "e1848f9605f4589801964250f07e7147ec63f1efa0e220205abc4560af83183c"
+      },
+      {
+        "assetId": "b723ad9c-00e8-44bb-8e76-f23269d020e5",
+        "fileName": "b723ad9c-00e8-44bb-8e76-f23269d020e5.png",
+        "bytes": 73559,
+        "sha256": "344512ddeffbce70ea0420db58da5022dc48e7916bc675463582d3b4e5eb83e4"
+      },
+      {
+        "assetId": "f1ed9db6-7fb4-46e2-8661-fd45ffc5f978",
+        "fileName": "f1ed9db6-7fb4-46e2-8661-fd45ffc5f978.png",
+        "bytes": 72130,
+        "sha256": "147672ed56a16843925cb6f3dc6a8488c8bcff1c88c49611fbbf27e3c55a0296"
+      },
+      {
+        "assetId": "bd5e35fa-26d2-4619-a545-e25f1ec9991d",
+        "fileName": "bd5e35fa-26d2-4619-a545-e25f1ec9991d.png",
+        "bytes": 72086,
+        "sha256": "4380eedb4174b6882008ed22fa8f48b9674a0f6cceb576e0c36d4ef14c031cf0"
+      },
+      {
+        "assetId": "8e91450e-6259-429a-90de-92d005fa3425",
+        "fileName": "8e91450e-6259-429a-90de-92d005fa3425.png",
+        "bytes": 74000,
+        "sha256": "ecebf9f65cbcaa3198285d388fc8720026b7dd3cedf88800c58b1e8df07b232a"
+      },
+      {
+        "assetId": "50741ec7-8a6c-40ac-b4ea-f09462785e27",
+        "fileName": "50741ec7-8a6c-40ac-b4ea-f09462785e27.png",
+        "bytes": 74206,
+        "sha256": "c37514122f51c135042084bc71ad8ee0439cc31cff0ed29dbacda71ad0563d2a"
+      },
+      {
+        "assetId": "21fd7fdf-73d7-431c-900b-8dfafb446648",
+        "fileName": "21fd7fdf-73d7-431c-900b-8dfafb446648.png",
+        "bytes": 74628,
+        "sha256": "178f45adbcb275349464960b19401ce8f0de1515ff048077c5c6def8f79e0df1"
+      },
+      {
+        "assetId": "b7123bc1-511a-4de0-9073-57ea9524df1c",
+        "fileName": "b7123bc1-511a-4de0-9073-57ea9524df1c.png",
+        "bytes": 74756,
+        "sha256": "1330de35a2d6de5e7f2a686cc9fd4c342ac7052e54f6a7fa5b1d0ca96034c25e"
+      },
+      {
+        "assetId": "4dc06857-a9ae-462d-b33b-2fc62cea99f5",
+        "fileName": "4dc06857-a9ae-462d-b33b-2fc62cea99f5.png",
+        "bytes": 74831,
+        "sha256": "d74e6695f023eec7ee6bcde94539d6ce18348b8e0650727b460256f242f79272"
+      },
+      {
+        "assetId": "28513c8f-e4c9-45ee-b015-9b3bcb845cb6",
+        "fileName": "28513c8f-e4c9-45ee-b015-9b3bcb845cb6.png",
+        "bytes": 74517,
+        "sha256": "e672e427c3bfb8ce0426f0443c9a42cb8c0374b13339077e2bc66f67a64dba84"
+      },
+      {
+        "assetId": "17092d49-d069-4873-8ce7-5607b270482c",
+        "fileName": "17092d49-d069-4873-8ce7-5607b270482c.png",
+        "bytes": 74101,
+        "sha256": "f3a7e38b150d2518daee5bb8d63b5bb057404bc1f92570c334cd50ed044441e2"
+      },
+      {
+        "assetId": "5242bac1-f04a-4695-8da3-da2de76e401f",
+        "fileName": "5242bac1-f04a-4695-8da3-da2de76e401f.png",
+        "bytes": 73979,
+        "sha256": "e51412f47475a906d603d9ba9e4c2c0ca3841e87d1a7bab53e18b505fbc6595b"
+      },
+      {
+        "assetId": "f3a60c65-f7e9-4b7f-ab0d-0181a4ead21f",
+        "fileName": "f3a60c65-f7e9-4b7f-ab0d-0181a4ead21f.png",
+        "bytes": 73709,
+        "sha256": "efbd9ed054fc904b03614d114fbb3e764344e20235383cbcb7f2947dd79a9102"
+      },
+      {
+        "assetId": "f23df7a8-55fb-4939-b46b-250464ce7dde",
+        "fileName": "f23df7a8-55fb-4939-b46b-250464ce7dde.png",
+        "bytes": 73517,
+        "sha256": "16ddcde52d374c39eafd5b40baa5d7e8425f337efb42b82aa9bfd4d777c73289"
+      }
+    ],
+    "fullDecodedRGBA": {
+      "sha256": "1d891c3c816a30f9275ede938de77532b54334810bebecfc6f948e4bb3c057ad",
+      "bytes": 88473600
+    },
+    "noRenderedEdits": true
+  },
+  "videos": [
+    {
+      "file": {
+        "name": "out/gui-qa/mac-default-off.mkv",
+        "bytes": 1517071,
+        "sha256": "9bad10d9c7d8f882a236368a4abd4deb196b879c9eaa768c5651a94810445824"
+      },
+      "codec": "ffv1",
+      "pixelFormat": "bgra",
+      "width": 1280,
+      "height": 720,
+      "frames": 24,
+      "fps": 12,
+      "timeBase": "1/1000",
+      "timestampsSeconds": [
+        0.0,
+        0.083,
+        0.167,
+        0.25,
+        0.333,
+        0.417,
+        0.5,
+        0.583,
+        0.667,
+        0.75,
+        0.833,
+        0.917,
+        1.0,
+        1.083,
+        1.167,
+        1.25,
+        1.333,
+        1.417,
+        1.5,
+        1.583,
+        1.667,
+        1.75,
+        1.833,
+        1.917
+      ],
+      "maximumCfrErrorSeconds": 0.0003333333333333333,
+      "fullDecodedRGBA": {
+        "sha256": "1d891c3c816a30f9275ede938de77532b54334810bebecfc6f948e4bb3c057ad",
+        "bytes": 88473600
+      },
+      "matchesUneditedSourceSequence": true,
+      "audioStreams": 0
+    },
+    {
+      "file": {
+        "name": "out/gui-qa/mac-opt-in-verified.mkv",
+        "bytes": 1517071,
+        "sha256": "eaab846791796fc4696e80b1f43ada189d92304bfc705ca5981272715b0a01af"
+      },
+      "codec": "ffv1",
+      "pixelFormat": "bgra",
+      "width": 1280,
+      "height": 720,
+      "frames": 24,
+      "fps": 12,
+      "timeBase": "1/1000",
+      "timestampsSeconds": [
+        0.0,
+        0.083,
+        0.167,
+        0.25,
+        0.333,
+        0.417,
+        0.5,
+        0.583,
+        0.667,
+        0.75,
+        0.833,
+        0.917,
+        1.0,
+        1.083,
+        1.167,
+        1.25,
+        1.333,
+        1.417,
+        1.5,
+        1.583,
+        1.667,
+        1.75,
+        1.833,
+        1.917
+      ],
+      "maximumCfrErrorSeconds": 0.0003333333333333333,
+      "fullDecodedRGBA": {
+        "sha256": "1d891c3c816a30f9275ede938de77532b54334810bebecfc6f948e4bb3c057ad",
+        "bytes": 88473600
+      },
+      "matchesUneditedSourceSequence": true,
+      "audioStreams": 0
+    }
+  ],
+  "ordinaryAndOptInDecodedSamplesIdentical": true,
+  "uiEvidence": [
+    {
+      "evidence": {
+        "name": "out/validation/mac-preflight-default-off.ax.txt",
+        "bytes": 4588,
+        "sha256": "8df5f69b00d30d9cd9c308dd91357b0d7eca143cee3530edf592543ff600874a"
+      },
+      "verifyCheckbox": 0,
+      "completionMessage": "Export ready.",
+      "outputFile": "mac-default-off.mkv",
+      "observationScope": "Derived from the root's saved actual AX tree; independent file validation performed separately"
+    },
+    {
+      "evidence": {
+        "name": "out/validation/mac-preflight-opt-in.ax.txt",
+        "bytes": 4644,
+        "sha256": "982105b195777cec68ba6e811e4bb40e40b6024c87362a9347ec673259107b17"
+      },
+      "verifyCheckbox": 1,
+      "completionMessage": "Your film is ready. Export verified.",
+      "outputFile": "mac-opt-in-verified.mkv",
+      "observationScope": "Derived from the root's saved actual AX tree; independent file validation performed separately"
+    }
+  ],
+  "portableArchive": {
+    "file": {
+      "name": "out/gui-qa/mac-portable-originals.zip",
+      "bytes": 1785358,
+      "sha256": "15b8a4017910a83c7b482dcf05e530fcfe5fcfa4644bb6a586a34be5c7b74fc4"
+    },
+    "memberCount": 27,
+    "allCrcsPassed": true,
+    "originalMembers": [
+      {
+        "member": "assets/ab13ffa2-eb01-42c5-abf8-6497720fe15d.png",
+        "bytes": 71551,
+        "sha256": "69b4877381912001e342cf9da611e0e2070468a4bcf0b31644003b022e8d7fbc"
+      },
+      {
+        "member": "assets/c78485be-1579-44f5-940a-36c051ea1c59.png",
+        "bytes": 73478,
+        "sha256": "31758e2dfecac2d2945686be38599a3e1152ffd673dad841311a5ac8da79d3df"
+      },
+      {
+        "member": "assets/6660bbe9-37df-449a-8477-dcb6ed375105.png",
+        "bytes": 73850,
+        "sha256": "48fa61d830c2e626dc1da93ec0ee9cff4789519a07bf1f2beeb7d155f8ad7818"
+      },
+      {
+        "member": "assets/2eebefc1-c392-47c9-9cbc-074cb5b2dcd6.png",
+        "bytes": 73927,
+        "sha256": "1d13d8df86053dcdde681bb3bb7745cb2bc254771535c604f7d84770e7fda73a"
+      },
+      {
+        "member": "assets/03a4e351-1480-4a5b-81f3-e0f21d927f45.png",
+        "bytes": 74479,
+        "sha256": "80d1a0031aba04e5183bc009a59eba303fefa41689289868f025408df3520cca"
+      },
+      {
+        "member": "assets/e63220d8-591b-4fa7-9e12-c07a8dd9b82c.png",
+        "bytes": 74538,
+        "sha256": "15fc580f403366ce8a916a30eb8eabfeae66c66d19b1d8d55fe318344683c0a1"
+      },
+      {
+        "member": "assets/64717a32-8e26-4392-9894-48d2e06ecf10.png",
+        "bytes": 74733,
+        "sha256": "a8127cf41b5b1d27c68a37f09a43e01a5edc8534e5d8a59b28738feabe3f4ec5"
+      },
+      {
+        "member": "assets/50cb26a4-8966-4674-a071-af3e40602e03.png",
+        "bytes": 74850,
+        "sha256": "92c22f37e996521893b450d2ffde4a68519ef9d0f2db4f8bf560d3d849fded75"
+      },
+      {
+        "member": "assets/c86600b2-4a6c-4e69-8997-c38ac404c4a0.png",
+        "bytes": 74369,
+        "sha256": "aa07f8ef504d08036d3857134722ecd39b97020a57658c9735507d2a513ef20e"
+      },
+      {
+        "member": "assets/a843f9f9-5b87-418f-8dc8-0f846b3f0dc7.png",
+        "bytes": 74118,
+        "sha256": "79e66032ada039fa3e30cd086cc37328f341e46d8263cdef06d606519544e7cc"
+      },
+      {
+        "member": "assets/9d2d4a07-e63a-4e29-8f81-b04b75dd5ca0.png",
+        "bytes": 73616,
+        "sha256": "e1848f9605f4589801964250f07e7147ec63f1efa0e220205abc4560af83183c"
+      },
+      {
+        "member": "assets/b723ad9c-00e8-44bb-8e76-f23269d020e5.png",
+        "bytes": 73559,
+        "sha256": "344512ddeffbce70ea0420db58da5022dc48e7916bc675463582d3b4e5eb83e4"
+      },
+      {
+        "member": "assets/f1ed9db6-7fb4-46e2-8661-fd45ffc5f978.png",
+        "bytes": 72130,
+        "sha256": "147672ed56a16843925cb6f3dc6a8488c8bcff1c88c49611fbbf27e3c55a0296"
+      },
+      {
+        "member": "assets/bd5e35fa-26d2-4619-a545-e25f1ec9991d.png",
+        "bytes": 72086,
+        "sha256": "4380eedb4174b6882008ed22fa8f48b9674a0f6cceb576e0c36d4ef14c031cf0"
+      },
+      {
+        "member": "assets/8e91450e-6259-429a-90de-92d005fa3425.png",
+        "bytes": 74000,
+        "sha256": "ecebf9f65cbcaa3198285d388fc8720026b7dd3cedf88800c58b1e8df07b232a"
+      },
+      {
+        "member": "assets/50741ec7-8a6c-40ac-b4ea-f09462785e27.png",
+        "bytes": 74206,
+        "sha256": "c37514122f51c135042084bc71ad8ee0439cc31cff0ed29dbacda71ad0563d2a"
+      },
+      {
+        "member": "assets/21fd7fdf-73d7-431c-900b-8dfafb446648.png",
+        "bytes": 74628,
+        "sha256": "178f45adbcb275349464960b19401ce8f0de1515ff048077c5c6def8f79e0df1"
+      },
+      {
+        "member": "assets/b7123bc1-511a-4de0-9073-57ea9524df1c.png",
+        "bytes": 74756,
+        "sha256": "1330de35a2d6de5e7f2a686cc9fd4c342ac7052e54f6a7fa5b1d0ca96034c25e"
+      },
+      {
+        "member": "assets/4dc06857-a9ae-462d-b33b-2fc62cea99f5.png",
+        "bytes": 74831,
+        "sha256": "d74e6695f023eec7ee6bcde94539d6ce18348b8e0650727b460256f242f79272"
+      },
+      {
+        "member": "assets/28513c8f-e4c9-45ee-b015-9b3bcb845cb6.png",
+        "bytes": 74517,
+        "sha256": "e672e427c3bfb8ce0426f0443c9a42cb8c0374b13339077e2bc66f67a64dba84"
+      },
+      {
+        "member": "assets/17092d49-d069-4873-8ce7-5607b270482c.png",
+        "bytes": 74101,
+        "sha256": "f3a7e38b150d2518daee5bb8d63b5bb057404bc1f92570c334cd50ed044441e2"
+      },
+      {
+        "member": "assets/5242bac1-f04a-4695-8da3-da2de76e401f.png",
+        "bytes": 73979,
+        "sha256": "e51412f47475a906d603d9ba9e4c2c0ca3841e87d1a7bab53e18b505fbc6595b"
+      },
+      {
+        "member": "assets/f3a60c65-f7e9-4b7f-ab0d-0181a4ead21f.png",
+        "bytes": 73709,
+        "sha256": "efbd9ed054fc904b03614d114fbb3e764344e20235383cbcb7f2947dd79a9102"
+      },
+      {
+        "member": "assets/f23df7a8-55fb-4939-b46b-250464ce7dde.png",
+        "bytes": 73517,
+        "sha256": "16ddcde52d374c39eafd5b40baa5d7e8425f337efb42b82aa9bfd4d777c73289"
+      }
+    ],
+    "sourceProjectId": "270d9cbd-f8ca-4426-a076-aeb94a373523",
+    "newProjectId": "363d550c-4231-4e04-9126-c53e9fd2f3a1",
+    "newIdConfirmed": true,
+    "saveBookkeeping": {
+      "sourceDiskUpdatedAt": "2026-11-02T19:16:07.228Z",
+      "archiveSnapshotUpdatedAt": "2026-11-02T19:13:51.475Z",
+      "scope": "Save bookkeeping can update after the immutable export snapshot; all substantive project fields compared exactly"
+    },
+    "allScenesHoldsSettingsAudioAndSourceFpsPreserved": true,
+    "everyOriginalAssetIncludedOnce": true,
+    "safeExtraction": {
+      "newDirectory": "out/gui-qa/reopened-originals",
+      "projectFile": "out/gui-qa/reopened-originals/project.humanity.json",
+      "existingFilesOverwritten": false,
+      "symlinksOrTraversalAccepted": false
+    },
+    "actualUiReopen": {
+      "status": "passed",
+      "observedBy": "Root actual GUI Open action, corroborated by its saved AX tree",
+      "evidence": {
+        "name": "out/validation/mac-preflight-originals-gui-reopen.ax.txt",
+        "bytes": 5803,
+        "sha256": "d4ccd1fdf68060ebc8f121079ac8c0e61f379f0dd7abb4666a5ed3c95237abff"
+      },
+      "observedFrames": 24,
+      "observedSceneCount": 1,
+      "width": 1280,
+      "height": 720,
+      "fps": 12,
+      "cameraConnected": false,
+      "scope": "Separate actual GUI follow-up after the prior independent extraction/readback. No physical camera or final installed DMG claim."
+    }
+  },
+  "sourceProjectAndOriginalsUnchanged": true,
+  "runtimeAfter": {
+    "ffmpeg": {
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    "ffprobe": {
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  },
+  "runtimeUnchanged": true,
+  "completedAt": "2026-11-02T19:20:11.260849+00:00",
+  "readbackHistory": [
+    {
+      "priorReceiptSha256": "c5039c3a18fdf6bafe8ccabfacff65e02f742a9aa28906515212f6e8d3cb337e",
+      "priorIndependentChecksPreserved": true,
+      "followUp": "Actual GUI reopen observation appended; no media decode or source files changed in this follow-up.",
+      "appendedAt": "2026-11-02T19:29:18.453003+00:00"
+    }
+  ]
+}
