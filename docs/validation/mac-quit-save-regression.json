@@ -1,37 +1,93 @@
 {
   "schema_version": 1,
-  "status": "failed_before_core_fix",
+  "status": "passed_after_core_fix",
   "kind": "actual-packaged-mac-quick-quit-regression",
-  "recorded_at": "2026-11-02T19:33:36.654610+00:00",
-  "tested_app_source_revision": "4ebaf7bb5fd5bcb80b3c969045e863a72d0afad4",
   "platform": "darwin-arm64",
-  "source_files": [
-    {
-      "file": "src/App.tsx",
-      "sha256": "18abf7e1be289107a4b59975e1f03cd7d30457b314ae2c8dbb25310f508cba27"
-    },
-    {
-      "file": "desktop/main.cjs",
-      "sha256": "4bc9926268be18636fc2ddcc40f52de0bf2a557e19c86c64e57a078763c49b3d"
-    },
-    {
-      "file": "desktop/preload.cjs",
-      "sha256": "6eb79bce4673d51c494a7c4e4bd13482014f7d1d69853fc4716bc1ade159efa0"
-    }
-  ],
   "fixture": "Owned built-in procedural demo clone with24 frames and24 image assets; no human camera media",
-  "observations": {
-    "baseline_real_keyboard_edit_visible_in_project_sidebar": true,
-    "baseline_explicit_save_verified_on_disk": true,
-    "rapid_edit_method": "Real native keyboard text input then Command-Q",
-    "typing_through_quit_milliseconds": 100,
-    "latest_edit_retained": false,
-    "saved_control_title_retained": true,
-    "gui_reopened_to_home_with_saved_control_title": true,
-    "original_assets_preserved": true,
-    "frames_preserved": true
+  "before_fix": {
+    "source_revision": "4ebaf7bb5fd5bcb80b3c969045e863a72d0afad4",
+    "source_files": [
+      {
+        "file": "src/App.tsx",
+        "sha256": "18abf7e1be289107a4b59975e1f03cd7d30457b314ae2c8dbb25310f508cba27"
+      },
+      {
+        "file": "desktop/main.cjs",
+        "sha256": "4bc9926268be18636fc2ddcc40f52de0bf2a557e19c86c64e57a078763c49b3d"
+      },
+      {
+        "file": "desktop/preload.cjs",
+        "sha256": "6eb79bce4673d51c494a7c4e4bd13482014f7d1d69853fc4716bc1ade159efa0"
+      }
+    ],
+    "observations": {
+      "baseline_real_keyboard_edit_visible_in_project_sidebar": true,
+      "baseline_explicit_save_verified_on_disk": true,
+      "rapid_edit_method": "Real native keyboard text input then Command-Q",
+      "typing_through_quit_milliseconds": 100,
+      "latest_edit_retained": false,
+      "saved_control_title_retained": true,
+      "gui_reopened_to_home_with_saved_control_title": true,
+      "original_assets_preserved": true,
+      "frames_preserved": true
+    },
+    "cause_review": "Renderer autosave is debounced650ms; native quit begins shutdown without requesting the latest renderer snapshot and rejects IPC once quitting starts."
   },
-  "cause_review": "Renderer autosave is debounced650ms; native quit begins shutdown without requesting the latest renderer snapshot and rejects IPC once quitting starts.",
-  "release_status": "Core owner acknowledged this as a release blocker; final installer upload waits for a save/close handshake and independent regression rerun.",
-  "privacy": "No camera project changed; no private path, project identifier, image pixels or private media hashes included."
+  "after_fix": {
+    "source_revision": "cc2741929cd7e28b1b839382969924889a827c19",
+    "source_files": [
+      {
+        "file": "src/App.tsx",
+        "sha256": "7354e3eec52563a68aa203af4a244619896d5de19273bb78c8da5eaae65d9d99"
+      },
+      {
+        "file": "src/components/close-save.ts",
+        "sha256": "c682dc7343a2a13178879842e61a4fe9ce38d559de1eacee03fb9085939ea59d"
+      },
+      {
+        "file": "desktop/main.cjs",
+        "sha256": "647ded210203827cbaa9b6aaf947d9cf75d0985825555e6ac8441d734939c24d"
+      },
+      {
+        "file": "desktop/preload.cjs",
+        "sha256": "c6a468ebec03fd96f5d52b6dce76fe548df3e5e04e8063cdbdb6952a6cf6f558"
+      },
+      {
+        "file": "desktop/close.cjs",
+        "sha256": "5749dd9f080b653b06eb12dbd916ac3254be5ca5ccb73ff7909a129d7652a3ea"
+      },
+      {
+        "file": "desktop/store.cjs",
+        "sha256": "5502904ff74be657cfb89e7504b27a5e379ee1f7cc6fc7540ac3555e78fc0eea"
+      }
+    ],
+    "app_scope": "Cold rebuilt signed unpacked app; final installed DMG validation is separate.",
+    "normal_quit": {
+      "real_keyboard_input": true,
+      "milliseconds_typing_through_quit": 117,
+      "latest_edit_retained": true,
+      "main_process_exited": true,
+      "gui_reopen_showed_saved_title_and_24_frames": true
+    },
+    "last_window_close": {
+      "method": "Real keyboard edit then Command-W",
+      "milliseconds_typing_through_close": 113,
+      "latest_edit_retained": true,
+      "main_process_exited": true
+    },
+    "empty_home_quit": {
+      "status": "passed",
+      "main_process_exited": true
+    },
+    "original_24_assets_and_24_frames_preserved": true,
+    "automated_tests": {
+      "core_and_ui_passed": 56,
+      "desktop_passed": 73,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "release_status": "Independent normal-quit, last-window-close and empty-home-quit checks pass after the coordinated core fix. Final installed app validation is recorded separately.",
+  "privacy": "No camera project changed; no private path, project identifier, image pixels or private media hashes included.",
+  "recorded_at": "2026-11-02T19:56:15.948696+00:00"
 }

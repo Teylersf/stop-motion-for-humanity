@@ -9,7 +9,7 @@
     "Root/human-operated packaged preflight app; this is not a final installed DMG proof.",
     "Camera permission and UI actions were performed by the root operator after the user confirmed OS permission.",
     "Summary prepared from local metadata/AX state only; physical images and raw private evidence remain local.",
-    "Explicit Save/Open only. Quick-quit/latest-title durability has not passed and remains a separate release blocker; no quit/relaunch durability claim is made."
+    "This historical preflight covers explicit Save/Open only. The subsequently fixed quick-quit regression and independent rerun are recorded in mac-quit-save-regression.json; this receipt makes no final installed-DMG claim."
   ],
   "privacy": {
     "physicalMediaPublished": false,
@@ -78,7 +78,7 @@
     "timeBase": "1/1000",
     "maximumCfrErrorSeconds": 0.00033333333333340764,
     "allowedCfrErrorSeconds": 0.0005001,
-    "sourceInterpretation": "Two originals are 1920×1080 and eight are 3840×2160. The 4K export scales the two HD sources; it does not create additional captured detail.",
+    "sourceInterpretation": "Two originals are 1920\u00d71080 and eight are 3840\u00d72160. The 4K export scales the two HD sources; it does not create additional captured detail.",
     "independentProcessedReferenceEqualityClaimed": false,
     "referenceScope": "Complete decode/count/geometry/timing checked; no independent processed-frame reference was supplied for a separate sample-equality claim."
   },

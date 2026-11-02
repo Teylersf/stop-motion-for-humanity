@@ -43,3 +43,20 @@ save-on-close, media and permission checks before release approval.
 Native media reproduction and corresponding-source integration are described
 in `scripts/mac-media/README.md`. A build recipe/provenance commit can follow
 the product-code commit; final receipts must identify those scopes accurately.
+
+Audit the complete final app after signing, using a fresh report path:
+
+```sh
+python3 scripts/mac-audit-app.py \
+  --app 'out/mac-candidate/mac-arm64/Stop Motion for Humanity.app' \
+  --output out/validation/mac-final-app-audit.json \
+  --max-macos 14.0
+```
+
+This read-only audit imports the frozen native media audit recipe. It checks
+every Mach-O architecture, deployment floor, dependency and strict signature;
+contained symlinks; framework and outer-app deep/strict signatures; and exact
+source/bundled manifest and media-tool hashes. Parenthesized helper filenames
+are inspected through a read-only file descriptor to avoid `otool`'s archive
+member syntax. It never launches the app or media tools and refuses an existing
+report path. The declaration and signature limitations above still apply.
