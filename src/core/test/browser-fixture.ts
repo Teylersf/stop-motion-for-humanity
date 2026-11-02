@@ -7,7 +7,26 @@ import type { AssetRecord, PaintStroke, StudioProject } from '../types.ts';
 
 interface Result { name: string; passed: boolean; details: string; milliseconds: number }
 const results: Result[] = []; const started = performance.now();
+const startedAt = new Date().toISOString(); const rendererErrors: string[] = [];
+const suite = 'canvas-rgba8-v2-transform-state';
 const output = document.getElementById('results')!, receipt = document.getElementById('receipt')!, status = document.getElementById('status')!;
+function emitReceipt(phase: 'begin' | 'result' | 'final', current: string | null): void {
+  const value = { schemaVersion: 1, suite, app: 'Stop Motion for Humanity', runtime: navigator.userAgent, startedAt,
+    phase, current, complete: phase === 'final', expectedTests: 13, tests: results, rendererErrors,
+    passed: results.filter(item => item.passed).length, failed: results.filter(item => !item.passed).length,
+    elapsedMs: Math.round(performance.now() - started) };
+  receipt.textContent = JSON.stringify(value, null, 2);
+  // The isolated Electron harness observes only this bounded local-fixture protocol.
+  console.info(`HUMANITY_CANVAS_RECEIPT:${JSON.stringify(value)}`);
+}
+window.addEventListener('error', event => {
+  const message = `${event.message} (${event.filename}:${event.lineno})`.slice(0, 2000); rendererErrors.push(message);
+  console.error(`HUMANITY_CANVAS_ERROR:${message}`);
+});
+window.addEventListener('unhandledrejection', event => {
+  const message = String(event.reason instanceof Error ? event.reason.stack ?? event.reason.message : event.reason).slice(0, 2000); rendererErrors.push(message);
+  console.error(`HUMANITY_CANVAS_ERROR:${message}`);
+});
 function assert(condition: unknown, message: string): asserts condition { if (!condition) throw new Error(message); }
 function same(a: ArrayLike<number>, b: ArrayLike<number>): boolean { if (a.length !== b.length) return false; for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false; return true; }
 function pixels(canvas: HTMLCanvasElement): Uint8ClampedArray { return canvas.getContext('2d')!.getImageData(0, 0, canvas.width, canvas.height).data; }
@@ -27,9 +46,10 @@ async function sha(bytes: Uint8Array | Uint8ClampedArray): Promise<string> { con
 async function decodedPNG(png: Uint8Array): Promise<HTMLImageElement> { const url = URL.createObjectURL(new Blob([Uint8Array.from(png)], { type: 'image/png' })); try { return await loadAssetImage(url); } finally { URL.revokeObjectURL(url); } }
 async function run(name: string, operation: () => Promise<string | void>): Promise<void> {
   const begin = performance.now(); const item = document.createElement('li'); item.textContent = `${name} — running`; output.append(item); status.textContent = `Running: ${name}`;
+  emitReceipt('begin', name);
   try { const details = await operation(); results.push({ name, passed: true, details: details ?? '', milliseconds: Math.round(performance.now() - begin) }); item.textContent = `PASS · ${name}${details ? ` — ${details}` : ''}`; item.className = 'pass'; }
   catch (error) { const details = error instanceof Error ? error.message : String(error); results.push({ name, passed: false, details, milliseconds: Math.round(performance.now() - begin) }); item.textContent = `FAIL · ${name} — ${details}`; item.className = 'fail'; }
-  receipt.textContent = JSON.stringify({ app: 'Stop Motion for Humanity', runtime: navigator.userAgent, tests: results, passed: results.filter(item => item.passed).length, failed: results.filter(item => !item.passed).length, elapsedMs: Math.round(performance.now() - started) }, null, 2);
+  emitReceipt('result', name);
 }
 await run('Default render preserves all original opaque RGBA pixels', async () => { assert(same(pixels(source), pixels(await render())), 'Rendered pixels differ from original quadrants.'); });
 await run('Repeat PNG encoding is deterministic and independently decodes to the same samples', async () => {
@@ -97,3 +117,4 @@ await run('Actual UHD 8K source → rendered PNG → independent decoded RGBA sa
 });
 status.textContent = `${results.filter(item => item.passed).length}/${results.length} Canvas fixtures passed; ${results.filter(item => !item.passed).length} failed.`;
 status.dataset.complete = 'true'; status.dataset.passed = String(results.every(item => item.passed));
+emitReceipt('final', null);

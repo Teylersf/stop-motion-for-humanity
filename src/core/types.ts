@@ -5,6 +5,7 @@ export interface AssetRecord {
   mimeType: string; width: number; height: number; byteLength: number;
   sha256: string; createdAt: string; url: string; duration?: number;
   previewFileName?: string;
+  bitDepth?: number;
 }
 export interface CaptureSource {
   type: 'camera' | 'import' | 'demo' | 'watch-folder';
@@ -47,10 +48,12 @@ export interface StudioProject {
 }
 export interface ProjectEnvelope { project: StudioProject; rootName: string; recovered?: boolean; notes?: string[] }
 export interface RecentProject { id: string; name: string; rootName: string; updatedAt: string }
-export type ExportProfile = 'mp4' | 'webm' | 'prores' | 'ffv1' | 'gif' | 'png-sequence' | 'originals';
+export type ExportProfile = 'mp4' | 'hevc' | 'av1' | 'webm' | 'prores' | 'prores-proxy' | 'prores-lt' | 'prores-422' | 'prores-4444' | 'prores-xq' | 'dnxhr' | 'dnxhr-444' | 'dnxhd' | 'mxf' | 'mxf-mpeg2' | 'cineform' | 'jpeg2000' | 'ffv1' | 'lossless' | 'nvenc-lossless' | 'uncompressed' | 'gif' | 'png-sequence' | 'png16-sequence' | 'tiff-sequence' | 'dpx-sequence' | 'exr-sequence' | 'originals';
 export interface ExportOptions {
   profile: ExportProfile; width: number; height: number; fps: number;
   totalFrames: number; sceneId: string | null; audio: boolean;
+  preserveTiming?: boolean;
+  verify?: boolean;
 }
 export interface ExportSession { id: string; fileName: string; profile: ExportProfile }
 export interface ExportProgress { id: string; phase: string; frames: number; totalFrames: number; message?: string }

@@ -79,6 +79,17 @@ test('silently ignored driver constraints are reported and actual settings remai
   const camera = new CameraController(videoElement(new FakeVideo()), undefined, { mediaDevices: mediaDevices(async () => fixture.stream) }); await camera.connect();
   await assert.rejects(camera.applySettings({ exposureMode: 'manual' }), /driver did not apply/); assert.equal((camera.settings as Record<string, unknown>).exposureMode, 'continuous'); camera.disconnect();
 });
+test('camera setting updates are serialized and queued operations cannot affect a replacement camera', async () => {
+  const fixture = fakeTrack('first', { deviceId: 'a', width: 1920, height: 1080, zoom: 1 }, { zoom: { min: 1, max: 4, step: 1 } });
+  const replacement = fakeTrack('second', { deviceId: 'b', width: 1920, height: 1080, zoom: 1 }, { zoom: { min: 1, max: 4, step: 1 } });
+  const held = deferred<void>(); let applications = 0, calls = 0;
+  fixture.track.applyConstraints = async constraints => { applications++; await held.promise; for (const advanced of constraints.advanced ?? []) Object.assign(fixture.data, advanced); };
+  const camera = new CameraController(videoElement(new FakeVideo()), undefined, { mediaDevices: mediaDevices(async () => ++calls === 1 ? fixture.stream : replacement.stream) }); await camera.connect('a');
+  const one = camera.applySettings({ zoom: 2 }), two = camera.applySettings({ zoom: 3 });
+  const failedOne = assert.rejects(one, /camera changed/i), failedTwo = assert.rejects(two, /Connect a camera/);
+  await tick(); assert.equal(applications, 1); await camera.connect('b'); held.resolve(); await failedOne; await failedTwo;
+  assert.equal(applications, 1); assert.equal(camera.settings.zoom, 1); assert.equal(camera.state.deviceLabel, 'second'); camera.disconnect();
+});
 test('capture is serialized and each PNG uses a newly delivered native-size frame without guides', async () => {
   const fixture = fakeTrack(), video = new FakeVideo(); const draws: { version: number; width: number; height: number }[] = [];
   const makeCanvas = () => {

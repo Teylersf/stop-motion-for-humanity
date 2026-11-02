@@ -1,0 +1,1112 @@
+[
+  {
+    "id": "ffv1",
+    "label": "FFV1 · lossless RGBA8 master",
+    "category": "Lossless masters",
+    "extension": ".mkv",
+    "kind": "movie",
+    "encoderCandidates": [
+      "ffv1"
+    ],
+    "pixelFormat": "bgra",
+    "audioCodec": "pcm_f32le",
+    "codec": "ffv1",
+    "losslessKind": "rgba-samples",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 8,
+      "representation": "integer",
+      "alpha": true,
+      "upconverted": false
+    },
+    "description": "Recommended processed master: every rendered RGBA8 sample and the processed float32 PCM mix can be independently decoded and compared.",
+    "warnings": [],
+    "container": "matroska",
+    "evenDimensions": false,
+    "verificationPixelFormat": "rgba",
+    "videoOptions": [
+      "-level",
+      "3",
+      "-coder",
+      "1",
+      "-context",
+      "1",
+      "-g",
+      "1",
+      "-slicecrc",
+      "1"
+    ]
+  },
+  {
+    "id": "lossless",
+    "label": "FFV1 · RGB16 master",
+    "category": "Lossless masters",
+    "extension": ".mkv",
+    "kind": "movie",
+    "encoderCandidates": [
+      "ffv1"
+    ],
+    "pixelFormat": "gbrp16le",
+    "audioCodec": "pcm_f32le",
+    "codec": "ffv1",
+    "losslessKind": "rgb-samples",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 16,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "A reversible RGB16 master of the converted processed samples; alpha is flattened to the project background.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes."
+    ],
+    "container": "matroska",
+    "evenDimensions": false,
+    "verificationPixelFormat": "rgb48le",
+    "videoOptions": [
+      "-level",
+      "3",
+      "-coder",
+      "1",
+      "-context",
+      "1",
+      "-g",
+      "1",
+      "-slicecrc",
+      "1"
+    ]
+  },
+  {
+    "id": "nvenc-lossless",
+    "label": "NVIDIA HEVC · codec-lossless P010",
+    "category": "Lossless masters",
+    "extension": ".mkv",
+    "kind": "movie",
+    "encoderCandidates": [
+      "hevc_nvenc"
+    ],
+    "pixelFormat": "p010le",
+    "audioCodec": "pcm_f32le",
+    "codec": "hevc",
+    "losslessKind": "codec-target",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "Lossless HEVC coding of a canonical P010 10-bit 4:2:0 target. RGB-to-YUV/chroma conversion is separate from codec losslessness.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Requires a successful NVIDIA hardware/geometry probe. This is not an RGB-identity export."
+    ],
+    "container": "matroska",
+    "evenDimensions": true,
+    "verificationPixelFormat": "p010le",
+    "videoOptions": [],
+    "hardwareCandidates": [
+      "hevc_nvenc"
+    ],
+    "requiresHardware": true
+  },
+  {
+    "id": "uncompressed",
+    "label": "Uncompressed · RGB16 NUT",
+    "category": "Lossless masters",
+    "extension": ".nut",
+    "kind": "movie",
+    "encoderCandidates": [
+      "rawvideo"
+    ],
+    "pixelFormat": "rgb48le",
+    "audioCodec": "pcm_f32le",
+    "codec": "rawvideo",
+    "losslessKind": "rgb-samples",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 16,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "Uncompressed RGB16 with float32 PCM audio for a simple, very large master.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Very large files; check free disk space before a long export."
+    ],
+    "container": "nut",
+    "evenDimensions": false,
+    "verificationPixelFormat": "rgb48le",
+    "videoOptions": []
+  },
+  {
+    "id": "jpeg2000",
+    "label": "JPEG 2000 · reversible RGB16",
+    "category": "Lossless masters",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "jpeg2000"
+    ],
+    "pixelFormat": "rgb48le",
+    "audioCodec": "pcm_f32le",
+    "codec": "jpeg2000",
+    "losslessKind": "rgb-samples",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 16,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "Reversible JPEG 2000 RGB16 in MOV. This is not DCP/IMF package authoring.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes."
+    ],
+    "container": "mov",
+    "evenDimensions": false,
+    "verificationPixelFormat": "rgb48le",
+    "videoOptions": [
+      "-pred",
+      "1",
+      "-format",
+      "j2k",
+      "-layer_rates",
+      "0"
+    ]
+  },
+  {
+    "id": "mp4",
+    "label": "H.264 / AVC · MP4 delivery",
+    "category": "Delivery",
+    "extension": ".mp4",
+    "kind": "movie",
+    "encoderCandidates": [
+      "h264_nvenc",
+      "h264_videotoolbox",
+      "libx264",
+      "libopenh264"
+    ],
+    "pixelFormat": "yuv420p",
+    "audioCodec": "aac",
+    "codec": "h264",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 8,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": false
+    },
+    "description": "A broadly playable H.264 MP4 with compressed AAC audio. The requested codec remains H.264 at every resolution.",
+    "warnings": [
+      "Lossy delivery encoding with 4:2:0 chroma. Hardware presence is not proof that this size is supported."
+    ],
+    "container": "mp4",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [],
+    "hardwareCandidates": [
+      "h264_nvenc",
+      "h264_videotoolbox"
+    ]
+  },
+  {
+    "id": "hevc",
+    "label": "HEVC / H.265 · 10-bit delivery",
+    "category": "Delivery",
+    "extension": ".mp4",
+    "kind": "movie",
+    "encoderCandidates": [
+      "hevc_nvenc",
+      "hevc_videotoolbox",
+      "libx265"
+    ],
+    "pixelFormat": "yuv420p10le",
+    "audioCodec": "aac",
+    "codec": "hevc",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "Compact HEVC 10-bit 4:2:0 delivery with AAC audio; software and hardware paths depend on installed encoders.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Lossy delivery. A compatible decoder is needed for playback."
+    ],
+    "container": "mp4",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [],
+    "hardwareCandidates": [
+      "hevc_nvenc",
+      "hevc_videotoolbox"
+    ]
+  },
+  {
+    "id": "av1",
+    "label": "AV1 · 10-bit Matroska delivery",
+    "category": "Delivery",
+    "extension": ".mkv",
+    "kind": "movie",
+    "encoderCandidates": [
+      "libsvtav1",
+      "libaom-av1",
+      "av1_nvenc"
+    ],
+    "pixelFormat": "yuv420p10le",
+    "audioCodec": "flac",
+    "codec": "av1",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "Modern AV1 delivery with lossless FLAC coding of a 24-bit audio target.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Video is lossy. Float32 mix is converted to a 24-bit FLAC target. AV1 software encoding can be slow."
+    ],
+    "container": "matroska",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [],
+    "hardwareCandidates": [
+      "av1_nvenc"
+    ]
+  },
+  {
+    "id": "webm",
+    "label": "WebM · VP9 / AV1 delivery",
+    "category": "Delivery",
+    "extension": ".webm",
+    "kind": "movie",
+    "encoderCandidates": [
+      "libvpx-vp9",
+      "libsvtav1",
+      "libaom-av1"
+    ],
+    "pixelFormat": "yuv420p",
+    "audioCodec": "libopus",
+    "codec": "vp9",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 8,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": false
+    },
+    "description": "Open web delivery using VP9 or AV1 and compressed Opus audio.",
+    "warnings": [
+      "Lossy video and audio. Actual VP9/AV1 codec is shown in the export plan."
+    ],
+    "container": "webm",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": []
+  },
+  {
+    "id": "prores-proxy",
+    "label": "ProRes Proxy",
+    "category": "Film / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "prores_ks"
+    ],
+    "pixelFormat": "yuv422p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "prores",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "A ProRes editing intermediate with 10-bit picture storage and 24-bit PCM audio.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "0"
+    ]
+  },
+  {
+    "id": "prores-lt",
+    "label": "ProRes 422 LT",
+    "category": "Film / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "prores_ks"
+    ],
+    "pixelFormat": "yuv422p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "prores",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "A ProRes editing intermediate with 10-bit picture storage and 24-bit PCM audio.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "1"
+    ]
+  },
+  {
+    "id": "prores-422",
+    "label": "ProRes 422",
+    "category": "Film / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "prores_ks"
+    ],
+    "pixelFormat": "yuv422p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "prores",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "A ProRes editing intermediate with 10-bit picture storage and 24-bit PCM audio.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "2"
+    ]
+  },
+  {
+    "id": "prores",
+    "label": "ProRes 422 HQ",
+    "category": "Film / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "prores_ks"
+    ],
+    "pixelFormat": "yuv422p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "prores",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "A ProRes editing intermediate with 10-bit picture storage and 24-bit PCM audio.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "3",
+      "-qscale:v",
+      "1"
+    ]
+  },
+  {
+    "id": "prores-4444",
+    "label": "ProRes 4444",
+    "category": "Film / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "prores_ks"
+    ],
+    "pixelFormat": "yuv444p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "prores",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "A ProRes editing intermediate with 10-bit picture storage and 24-bit PCM audio.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "4",
+      "-qscale:v",
+      "1"
+    ]
+  },
+  {
+    "id": "prores-xq",
+    "label": "ProRes 4444 XQ",
+    "category": "Film / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "prores_ks"
+    ],
+    "pixelFormat": "yuv444p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "prores",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "A ProRes editing intermediate with 10-bit picture storage and 24-bit PCM audio.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "ProRes is an editing intermediate, not mathematically lossless. This RGB/YUV profile does not preserve alpha; float mix is converted to 24-bit PCM."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "5",
+      "-qscale:v",
+      "1"
+    ]
+  },
+  {
+    "id": "dnxhr",
+    "label": "DNxHR HQX · 10-bit",
+    "category": "Broadcast / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "dnxhd"
+    ],
+    "pixelFormat": "yuv422p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "dnxhd",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "DNxHR HQX editorial intermediate for supported non-HD and 8K rasters.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Lossy intermediate; 4:2:2 chroma and 24-bit PCM audio."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "dnxhr_hqx"
+    ],
+    "minimumRaster": [
+      256,
+      120
+    ]
+  },
+  {
+    "id": "dnxhr-444",
+    "label": "DNxHR 444 · 10-bit RGB",
+    "category": "Broadcast / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "dnxhd"
+    ],
+    "pixelFormat": "gbrp10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "dnxhd",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "DNxHR 444 high-quality RGB editorial intermediate.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Lossy intermediate; float mix is converted to 24-bit PCM."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "dnxhr_444"
+    ],
+    "minimumRaster": [
+      256,
+      120
+    ]
+  },
+  {
+    "id": "dnxhd",
+    "label": "DNxHD · 1080p broadcast",
+    "category": "Broadcast / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "dnxhd"
+    ],
+    "pixelFormat": "yuv422p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "dnxhd",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "Standard 1080p DNxHD at 23.976/24/25/29.97/30 fps; use DNxHR for other raster sizes.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Requires a standard HD rate/raster. Duration-preserving conform can repeat/drop exposures without changing shot length."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "dnxhd"
+    ],
+    "requiredRaster": [
+      [
+        1920,
+        1080
+      ]
+    ],
+    "rates": [
+      23.976023976023978,
+      24,
+      25,
+      29.97002997002997,
+      30
+    ],
+    "rasterRates": [
+      {
+        "height": 1080,
+        "width": 1920,
+        "rates": [
+          23.976023976023978,
+          24,
+          25,
+          29.97002997002997,
+          30
+        ]
+      }
+    ],
+    "conformPresets": [
+      {
+        "height": 1080,
+        "fps": 23.976023976023978,
+        "width": 1920
+      },
+      {
+        "height": 1080,
+        "fps": 24,
+        "width": 1920
+      },
+      {
+        "height": 1080,
+        "fps": 25,
+        "width": 1920
+      },
+      {
+        "height": 1080,
+        "fps": 29.97002997002997,
+        "width": 1920
+      },
+      {
+        "height": 1080,
+        "fps": 30,
+        "width": 1920
+      }
+    ]
+  },
+  {
+    "id": "mxf",
+    "label": "MXF OP1a · DNxHR HQX",
+    "category": "Broadcast / interchange",
+    "extension": ".mxf",
+    "kind": "movie",
+    "encoderCandidates": [
+      "dnxhd"
+    ],
+    "pixelFormat": "yuv422p10le",
+    "audioCodec": "pcm_s24le",
+    "codec": "dnxhd",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 10,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "DNxHR HQX picture and PCM audio in an MXF OP1a interchange container.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Lossy intermediate; requires a supported broadcast frame rate. Individual MXF output is not an IMF/DCP package."
+    ],
+    "container": "mxf",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-profile:v",
+      "dnxhr_hqx"
+    ],
+    "minimumRaster": [
+      256,
+      120
+    ],
+    "rates": [
+      23.976023976023978,
+      24,
+      25,
+      29.97002997002997,
+      30,
+      50,
+      59.94005994005994,
+      60
+    ]
+  },
+  {
+    "id": "mxf-mpeg2",
+    "label": "MXF · MPEG-2 4:2:2 50 Mb/s",
+    "category": "Broadcast / interchange",
+    "extension": ".mxf",
+    "kind": "movie",
+    "encoderCandidates": [
+      "mpeg2video"
+    ],
+    "pixelFormat": "yuv422p",
+    "audioCodec": "pcm_s24le",
+    "codec": "mpeg2video",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 8,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": false
+    },
+    "description": "A constrained 50 Mb/s MPEG-2 4:2:2 HD broadcast file.",
+    "warnings": [
+      "HD-only; not an 8K profile. Lossy 8-bit 4:2:2 video and 24-bit PCM audio."
+    ],
+    "container": "mxf",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-b:v",
+      "50000000",
+      "-minrate",
+      "50000000",
+      "-maxrate",
+      "50000000",
+      "-bufsize",
+      "17825792",
+      "-g",
+      "12"
+    ],
+    "requiredRaster": [
+      [
+        1920,
+        1080
+      ],
+      [
+        1280,
+        720
+      ]
+    ],
+    "rates": [
+      23.976023976023978,
+      24,
+      25,
+      29.97002997002997,
+      30,
+      50,
+      59.94005994005994,
+      60
+    ],
+    "rasterRates": [
+      {
+        "height": 1080,
+        "width": 1920,
+        "rates": [
+          23.976023976023978,
+          24,
+          25,
+          29.97002997002997,
+          30
+        ]
+      },
+      {
+        "height": 720,
+        "width": 1280,
+        "rates": [
+          50,
+          59.94005994005994,
+          60
+        ]
+      }
+    ],
+    "conformPresets": [
+      {
+        "height": 1080,
+        "fps": 23.976023976023978,
+        "width": 1920
+      },
+      {
+        "height": 1080,
+        "fps": 24,
+        "width": 1920
+      },
+      {
+        "height": 1080,
+        "fps": 25,
+        "width": 1920
+      },
+      {
+        "height": 1080,
+        "fps": 29.97002997002997,
+        "width": 1920
+      },
+      {
+        "height": 1080,
+        "fps": 30,
+        "width": 1920
+      },
+      {
+        "height": 720,
+        "fps": 50,
+        "width": 1280
+      },
+      {
+        "height": 720,
+        "fps": 59.94005994005994,
+        "width": 1280
+      },
+      {
+        "height": 720,
+        "fps": 60,
+        "width": 1280
+      }
+    ]
+  },
+  {
+    "id": "cineform",
+    "label": "CineForm · RGB 12-bit",
+    "category": "Film / editorial",
+    "extension": ".mov",
+    "kind": "movie",
+    "encoderCandidates": [
+      "cfhd"
+    ],
+    "pixelFormat": "gbrp12le",
+    "audioCodec": "pcm_s24le",
+    "codec": "cfhd",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 12,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "GoPro CineForm RGB 12-bit editing intermediate.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Lossy intermediate. Width must be a multiple of 16 and height a multiple of 8."
+    ],
+    "container": "mov",
+    "evenDimensions": true,
+    "verificationPixelFormat": null,
+    "videoOptions": [],
+    "multiples": [
+      16,
+      8
+    ]
+  },
+  {
+    "id": "gif",
+    "label": "GIF · little loops",
+    "category": "Delivery",
+    "extension": ".gif",
+    "kind": "movie",
+    "encoderCandidates": [
+      "gif"
+    ],
+    "pixelFormat": "rgb8",
+    "audioCodec": null,
+    "codec": "gif",
+    "losslessKind": "none",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 8,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": false
+    },
+    "description": "A compact animated loop with a limited 256-color palette and no audio.",
+    "warnings": [
+      "Palette quantization is lossy; GIF frame delays use centiseconds. Large GIFs are inefficient."
+    ],
+    "container": "gif",
+    "evenDimensions": false,
+    "verificationPixelFormat": null,
+    "videoOptions": [
+      "-loop",
+      "0"
+    ],
+    "maxRaster": [
+      4096,
+      4096
+    ],
+    "maxPixels": 8388608
+  },
+  {
+    "id": "png-sequence",
+    "label": "PNG · lossless RGBA8 sequence",
+    "category": "Image sequences",
+    "extension": ".zip",
+    "kind": "sequence",
+    "encoderCandidates": [
+      "png"
+    ],
+    "pixelFormat": "rgba",
+    "audioCodec": "pcm_f32le",
+    "codec": "png",
+    "losslessKind": "rgba-samples",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 8,
+      "representation": "integer",
+      "alpha": true,
+      "upconverted": false
+    },
+    "description": "Processed PNG8 frames plus exposure order, project manifest and an optional float32 PCM mix.",
+    "warnings": [
+      "The native renderer writes 8-bit RGBA PNGs. Choose Originals portable project archive to retain the stored precision of imported files."
+    ],
+    "container": "zip",
+    "evenDimensions": false,
+    "verificationPixelFormat": "rgba",
+    "videoOptions": [],
+    "sequenceExtension": ".png",
+    "requiresEncoder": false
+  },
+  {
+    "id": "png16-sequence",
+    "label": "PNG · RGB16 sequence",
+    "category": "Image sequences",
+    "extension": ".zip",
+    "kind": "sequence",
+    "encoderCandidates": [
+      "png"
+    ],
+    "pixelFormat": "rgb48be",
+    "audioCodec": "pcm_f32le",
+    "codec": "png",
+    "losslessKind": "rgb-samples",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 16,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "Converted RGB16 PNG frames, an exposure manifest and optional float32 PCM mix.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes."
+    ],
+    "container": "zip",
+    "evenDimensions": false,
+    "verificationPixelFormat": "rgb48le",
+    "videoOptions": [],
+    "sequenceExtension": ".png"
+  },
+  {
+    "id": "tiff-sequence",
+    "label": "TIFF · RGB16 sequence",
+    "category": "Image sequences",
+    "extension": ".zip",
+    "kind": "sequence",
+    "encoderCandidates": [
+      "tiff"
+    ],
+    "pixelFormat": "rgb48le",
+    "audioCodec": "pcm_f32le",
+    "codec": "tiff",
+    "losslessKind": "rgb-samples",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 16,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "Deflate-compressed RGB16 TIFF frames for image-finishing workflows.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes."
+    ],
+    "container": "zip",
+    "evenDimensions": false,
+    "verificationPixelFormat": "rgb48le",
+    "videoOptions": [
+      "-compression_algo",
+      "deflate"
+    ],
+    "sequenceExtension": ".tiff"
+  },
+  {
+    "id": "dpx-sequence",
+    "label": "DPX · RGB16 sequence",
+    "category": "Image sequences",
+    "extension": ".zip",
+    "kind": "sequence",
+    "encoderCandidates": [
+      "dpx"
+    ],
+    "pixelFormat": "rgb48be",
+    "audioCodec": "pcm_f32le",
+    "codec": "dpx",
+    "losslessKind": "rgb-samples",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 16,
+      "representation": "integer",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "RGB16 DPX digital-intermediate frames with a manifest and optional float32 PCM mix.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "This is a display-referred SDR converted-frame profile, not a camera RAW/log acquisition pipeline."
+    ],
+    "container": "zip",
+    "evenDimensions": false,
+    "verificationPixelFormat": "rgb48le",
+    "videoOptions": [],
+    "sequenceExtension": ".dpx"
+  },
+  {
+    "id": "exr-sequence",
+    "label": "OpenEXR · linear float32 sequence",
+    "category": "Image sequences",
+    "extension": ".zip",
+    "kind": "sequence",
+    "encoderCandidates": [
+      "exr"
+    ],
+    "pixelFormat": "gbrpf32le",
+    "audioCodec": "pcm_f32le",
+    "codec": "exr",
+    "losslessKind": "converted-float",
+    "precision": {
+      "source": "RGBA8",
+      "storageBits": 32,
+      "representation": "float32",
+      "alpha": false,
+      "upconverted": true
+    },
+    "description": "ZIP-compressed linear-light float EXR frames converted from the processed sRGB8 picture.",
+    "warnings": [
+      "The effects renderer supplies RGBA8 samples. Storing them at a higher bit depth does not recover original camera precision or dynamic range; choose Originals portable project archive to retain higher-bit-depth imported bytes.",
+      "Display-referred sRGB8 is explicitly converted to linear-light float32 before EXR encoding. This is not original sensor precision or scene-referred camera RAW."
+    ],
+    "container": "zip",
+    "evenDimensions": false,
+    "verificationPixelFormat": "gbrpf32le",
+    "videoOptions": [
+      "-compression",
+      "zip1"
+    ],
+    "sequenceExtension": ".exr"
+  },
+  {
+    "id": "originals",
+    "label": "Originals · portable project archive",
+    "category": "Original sources",
+    "extension": ".zip",
+    "kind": "originals",
+    "encoderCandidates": [],
+    "pixelFormat": null,
+    "audioCodec": null,
+    "codec": null,
+    "losslessKind": "original-bytes",
+    "precision": {
+      "source": "Original stored bytes",
+      "storageBits": null,
+      "representation": "original",
+      "alpha": true,
+      "upconverted": false
+    },
+    "description": "Complete portable project ZIP with every scene, the project manifest, and every stored original image/audio asset included once. Original bytes and capture dimensions are preserved; effects, resizing and output frame-rate changes are bypassed.",
+    "warnings": [
+      "This is a whole-project archive: all scenes and stored original audio are included. Scene-only scope, soundtrack mixing, processed-output size and effects do not apply.",
+      "Original dimensions, bit depth and codec remain exactly as stored. Playback timing and non-destructive edits remain in the project manifest."
+    ],
+    "container": "zip",
+    "evenDimensions": false,
+    "verificationPixelFormat": null,
+    "videoOptions": [],
+    "requiresEncoder": false
+  }
+]

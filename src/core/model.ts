@@ -127,6 +127,7 @@ export function validateProject(value: unknown): ValidationResult {
   const text = (item: unknown, max = 5000) => typeof item === 'string' && item.length <= max;
   const safeId = (item: unknown) => typeof item === 'string' && /^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$/.test(item);
   if (!object(value)) return { valid: false, errors: ['Project must be an object.'], warnings };
+  try {
   if (value.version !== 1) fail('Unsupported project version.');
   if (!safeId(value.id)) fail('Project ID is invalid.');
   if (!text(value.name, 200) || !String(value.name).trim()) fail('Project name must be 1–200 characters.');
@@ -135,24 +136,25 @@ export function validateProject(value: unknown): ValidationResult {
   for (const key of ['createdAt', 'updatedAt']) if (!text(value[key], 50) || !Number.isFinite(Date.parse(String(value[key])))) fail(`${key} is not a valid date.`);
   if (!Array.isArray(value.assets) || value.assets.length > 100_000) fail('Asset list is missing or too large.');
   const assets = new Map<string, string>();
-  for (const entry of Array.isArray(value.assets) ? value.assets : []) {
+  for (const entry of Array.isArray(value.assets) && value.assets.length <= 100_000 ? value.assets : []) {
     if (!object(entry)) { fail('Invalid asset record.'); continue; }
     if (!safeId(entry.id) || assets.has(String(entry.id))) fail('Asset IDs must be valid and unique.');
     assets.set(String(entry.id), String(entry.kind));
     if (!['image', 'audio'].includes(String(entry.kind))) fail(`Asset ${entry.id}: unsupported kind.`);
     if (!text(entry.url, 10000) || !/^(humanity:\/\/|blob:|data:image\/)/.test(String(entry.url))) fail(`Asset ${entry.id}: use a trusted local asset URL.`);
     if (!text(entry.originalName, 1024) || !text(entry.fileName, 1024) || !text(entry.mimeType, 100)) fail(`Asset ${entry.id}: invalid name or media type.`);
-    if (!number(entry.width, 0, 100_000, true) || !number(entry.height, 0, 100_000, true) || !number(entry.byteLength, 0, Number.MAX_SAFE_INTEGER, true)) fail(`Asset ${entry.id}: invalid dimensions or size.`);
-    if (entry.kind === 'image' && (!Number(entry.width) || !Number(entry.height))) fail(`Image ${entry.id}: dimensions are missing.`);
+    if (!number(entry.width, 0, 8192, true) || !number(entry.height, 0, 8192, true) || !number(entry.byteLength, 1, 512 * 1024 * 1024, true)) fail(`Asset ${entry.id}: invalid dimensions or size.`);
+    if (!text(entry.fileName, 180) || !/^[-A-Za-z0-9_]+\.[A-Za-z0-9]{1,8}$/.test(String(entry.fileName)) || !text(entry.sha256, 64) || !/^[a-f0-9]{64}$/.test(String(entry.sha256))) fail(`Asset ${entry.id}: unsafe file name or invalid SHA-256.`);
+    if (entry.kind === 'image' && (!number(entry.width, 16, 8192, true) || !number(entry.height, 16, 8192, true) || Number(entry.width) * Number(entry.height) > MAX_PIXELS)) fail(`Image ${entry.id}: dimensions exceed the supported raster.`);
   }
   if (!Array.isArray(value.scenes) || value.scenes.length < 1 || value.scenes.length > 1000) fail('Project needs 1–1000 scenes.');
   const scenes = new Set<string>(), frameIds = new Set<string>(); let exposures = 0, frameCount = 0;
-  for (const scene of Array.isArray(value.scenes) ? value.scenes : []) {
+  for (const scene of Array.isArray(value.scenes) && value.scenes.length <= 1000 ? value.scenes : []) {
     if (!object(scene)) { fail('Invalid scene.'); continue; }
     if (!safeId(scene.id) || scenes.has(String(scene.id))) fail('Scene IDs must be valid and unique.'); scenes.add(String(scene.id));
     if (!text(scene.name, 200) || !text(scene.notes)) fail(`Scene ${scene.id}: invalid name or notes.`);
     for (const ref of ['referenceAssetId', 'cleanPlateAssetId']) if (scene[ref] !== null && assets.get(String(scene[ref])) !== 'image') fail(`Scene ${scene.id}: ${ref} must refer to an image.`);
-    if (!Array.isArray(scene.frames)) { fail(`Scene ${scene.id}: frame list is missing.`); continue; }
+    if (!Array.isArray(scene.frames) || scene.frames.length > 100_000) { fail(`Scene ${scene.id}: frame list is missing or too large.`); continue; }
     frameCount += scene.frames.length;
     for (const frame of scene.frames) {
       if (!object(frame)) { fail('Invalid frame.'); continue; }
@@ -182,19 +184,20 @@ export function validateProject(value: unknown): ValidationResult {
   if (frameCount > 100_000 || exposures > MAX_EXPOSURES) fail(`Project exceeds the limit of 100,000 frames or ${MAX_EXPOSURES} exposures.`);
   if (!Array.isArray(value.audio) || value.audio.length > 256) fail('Invalid audio clip list.');
   const audioIds = new Set<string>();
-  for (const clip of Array.isArray(value.audio) ? value.audio : []) {
+  for (const clip of Array.isArray(value.audio) && value.audio.length <= 256 ? value.audio : []) {
     if (!object(clip)) { fail('Invalid audio clip.'); continue; }
     if (!safeId(clip.id) || audioIds.has(String(clip.id))) fail('Audio clip IDs must be unique.'); audioIds.add(String(clip.id));
     if (assets.get(String(clip.assetId)) !== 'audio') fail(`Audio ${clip.id}: asset is missing.`);
-    if (!number(clip.startFrame, 0, MAX_EXPOSURES, true) || !number(clip.inSeconds, 0, 86400) || (clip.outSeconds !== null && (!number(clip.outSeconds, 0, 86400) || Number(clip.outSeconds) <= Number(clip.inSeconds))) || !number(clip.gain, 0, 10) || !number(clip.fadeInSeconds, 0, 86400) || !number(clip.fadeOutSeconds, 0, 86400) || typeof clip.muted !== 'boolean') fail(`Audio ${clip.id}: invalid timing, gain or fades.`);
+    if (!number(clip.startFrame, 0, MAX_EXPOSURES, true) || !number(clip.inSeconds, 0, 86400) || (clip.outSeconds !== null && (!number(clip.outSeconds, 0, 86400) || Number(clip.outSeconds) <= Number(clip.inSeconds))) || !number(clip.gain, 0, 16) || !number(clip.fadeInSeconds, 0, 86400) || !number(clip.fadeOutSeconds, 0, 86400) || typeof clip.muted !== 'boolean') fail(`Audio ${clip.id}: invalid timing, gain or fades.`);
   }
   if (!object(value.settings)) fail('Project settings are missing.');
   else { const s = value.settings;
     if (!text(s.background, 50) || !text(s.title, 1000) || !text(s.titleColor, 50) || !number(s.titleSize, 1, 4096)) fail('Invalid title or background settings.');
-    if (!number(s.onionOpacity, 0, 1) || !number(s.onionCount, 1, 5, true) || !['none', 'thirds', 'square', 'crosshair'].includes(String(s.grid)) || !['project', '16:9', '4:3', '1:1', '2.39:1'].includes(String(s.aspect))) fail('Invalid onion skin or guide settings.');
+    if (!number(s.onionOpacity, 0, 1) || !number(s.onionCount, 0, 5, true) || !['none', 'thirds', 'square', 'crosshair'].includes(String(s.grid)) || !['project', '16:9', '4:3', '1:1', '2.39:1'].includes(String(s.aspect))) fail('Invalid onion skin or guide settings.');
     for (const key of ['mirrorPreview', 'captureSound', 'simpleMode']) if (typeof s[key] !== 'boolean') fail(`${key} must be boolean.`);
   }
   if (!frameCount) warnings.push('The project has no frames yet.');
   if (frameCount && !exposures) warnings.push('All frames are disabled; enable at least one before exporting.');
+  } catch { fail('Project contains invalid structured fields. Reopen a previous good save or correct the project JSON.'); }
   return { valid: !errors.length, errors, warnings };
 }

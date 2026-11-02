@@ -42,6 +42,7 @@ def main():
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     tracked=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
     entries=[]
+    application_stage=output/'application-snapshots'/revision
     for relative in filter(None,tracked):
         rel=safe_relative(relative)
         if rel.parts[0] in ('node_modules','out','dist','media','exports') or relative.startswith('resources/media/'):
@@ -50,9 +51,14 @@ def main():
         if path.is_symlink() or not path.is_file():
             raise ValueError('Application source must be a regular file: '+relative)
         committed=subprocess.check_output(['git','show',revision+':'+relative],cwd=ROOT)
-        if hashlib.sha256(committed).hexdigest()!=sha_file(path):
+        working=path.read_bytes()
+        same_text=(b'\0' not in working and b'\0' not in committed and working.replace(b'\r\n',b'\n')==committed.replace(b'\r\n',b'\n'))
+        if working!=committed and not same_text:
             raise ValueError('Tracked application source differs from release commit: '+relative)
-        entries.append(('application/'+str(rel),path,sha_file(path)))
+        snapshot=application_stage/relative
+        snapshot.parent.mkdir(parents=True,exist_ok=True)
+        snapshot.write_bytes(committed)
+        entries.append(('application/'+str(rel),snapshot,sha_file(snapshot)))
     source_rows=record.get('source_inputs')
     if not isinstance(source_rows,list) or not source_rows:
         raise ValueError('Platform runtime must identify source_inputs')

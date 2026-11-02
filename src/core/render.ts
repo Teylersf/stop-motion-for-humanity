@@ -98,8 +98,10 @@ function transformedImage(image: HTMLImageElement, width: number, height: number
   const boundsHeight = Math.abs(Math.sin(angle)) * sw + Math.abs(Math.cos(angle)) * sh;
   const scale = Math.min(width / boundsWidth, height / boundsHeight);
   ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+  ctx.save();
   ctx.translate(width / 2, height / 2); ctx.rotate(angle); ctx.scale(edits.flipX ? -scale : scale, edits.flipY ? -scale : scale);
   ctx.drawImage(image, sx, sy, sw, sh, -sw / 2, -sh / 2, sw, sh);
+  ctx.restore();
   return target;
 }
 /** Strokes use normalized output coordinates, and brush size is measured in project pixels. */

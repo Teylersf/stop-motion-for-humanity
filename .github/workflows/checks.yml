@@ -18,4 +18,16 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run build
-      - run: npm test
+      - name: Install Linux test media tools
+        if: runner.os == 'Linux'
+        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg
+      - name: Linux source and media integration checks
+        if: runner.os == 'Linux'
+        run: npm test
+        env:
+          HUMANITY_TEST_MEDIA_DIR: /usr/bin
+      - name: Windows source checks without binary payload
+        if: runner.os == 'Windows'
+        run: npm test
+        env:
+          HUMANITY_SKIP_MEDIA_TESTS: '1'

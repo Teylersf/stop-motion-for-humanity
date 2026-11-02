@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "stage": "development Electron application; installer verification is separate",
+  "device": "EMEET SmartCam C960 4K",
+  "platform": "Windows x64",
+  "connection": "OS-visible physical USB webcam through Chromium Media Capture",
+  "negotiated_video": { "width": 3840, "height": 2160, "frame_rate": 30 },
+  "saved_png": { "width": 3840, "height": 2160, "bit_depth": 8 },
+  "png_header_independently_read": true,
+  "saved_file_sha256_matches_project_asset_record": true,
+  "existing_1080p_frames_preserved": 27,
+  "new_4k_frames_verified": 1,
+  "camera_settings_reported": { "exposure_mode": "continuous", "focus_mode": "continuous" },
+  "scope": "Real physical-camera connection, native stream negotiation and original PNG persistence. This is a short capture check, not a universal-camera or long-form endurance result. Private camera images and their identifying paths are not published."
+}

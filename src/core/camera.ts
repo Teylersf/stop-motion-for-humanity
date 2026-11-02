@@ -141,7 +141,7 @@ export class CameraController {
       this.emit({ status: 'ready', error: null, deviceId: settings.deviceId ?? deviceId ?? null, deviceLabel: track.label || 'Connected camera', settings,
         capabilities: typeof track.getCapabilities === 'function' ? track.getCapabilities() as unknown as Record<string, unknown> : {} });
       track.onended = () => { if (generation !== this.generation) return;
-        this.generation++; this.currentStream = null; if (this.video) this.video.srcObject = null;
+        this.generation++; stopStream(stream); this.currentStream = null; if (this.video) this.video.srcObject = null;
         this.emit({ status: 'error', error: 'The camera was disconnected or stopped by the system. Check its USB cable and power, then click Connect again.' });
       };
       return this.state;

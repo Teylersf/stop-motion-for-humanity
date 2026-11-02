@@ -12,9 +12,11 @@
     "dev": "vite --host 127.0.0.1 --port 8775 --strictPort",
     "build": "tsc -b && vite build",
     "start": "electron .",
-    "test": "node --experimental-strip-types --test src/core/test/*.test.ts && node --test desktop/test/*.test.cjs",
+    "test": "node --experimental-strip-types --test src/core/test/*.test.ts src/components/*.test.ts && node --test desktop/test/*.test.cjs",
     "test:core": "node --experimental-strip-types --test src/core/test/*.test.ts",
     "test:desktop": "node --test desktop/test/*.test.cjs",
+    "test:ui": "node --experimental-strip-types --test src/components/*.test.ts",
+    "test:canvas": "electron desktop/test/canvas-runner.cjs",
     "pack": "npm run build && electron-builder --config desktop/electron-builder.cjs --dir --publish never",
     "dist:win": "npm run build && electron-builder --config desktop/electron-builder.cjs --win nsis --x64 --publish never",
     "dist:mac": "npm run build && electron-builder --config desktop/electron-builder.cjs --mac dmg --arm64 --publish never"

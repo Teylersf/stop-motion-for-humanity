@@ -61,3 +61,10 @@ test('validator accepts native UHD and DCI 8K, rejects rasters beyond the native
   for (const [width, height] of [[7680, 4320], [8192, 4320]]) assert.equal(validateProject(createProject('8K', { width, height })).valid, true);
   assert.equal(validateProject(createProject('Too large', { width: 8192, height: 8192 })).valid, false);
 });
+test('malformed structured JSON never throws and unsafe asset filenames/hashes are rejected', () => {
+  const malformed = JSON.parse(JSON.stringify(fixture())); malformed.assets[0].id = { toString: null };
+  assert.doesNotThrow(() => validateProject(malformed)); assert.equal(validateProject(malformed).valid, false);
+  const unsafe = fixture(); unsafe.assets[0].fileName = '../../outside.png'; unsafe.assets[1].sha256 = 'not-a-hash';
+  assert.equal(validateProject(unsafe).valid, false);
+  const disabledOnion = fixture(); disabledOnion.settings.onionCount = 0; assert.equal(validateProject(disabledOnion).valid, true);
+});
