@@ -327,7 +327,7 @@ class ProjectStore {
             seen.set(name, `${s.size}:${s.mtimeMs}`);
         }
         catch { }
-    } let closed = false; const scan = async () => { if (closed)
+    } let closed = false; const activeImports = new Set(); const scan = async () => { if (closed)
         return; for (const name of await fs.readdir(root).catch(() => [])) {
         if (pending.has(name) || !/^.+\.(png|jpe?g|webp|bmp|tiff?)$/i.test(name))
             continue;
@@ -348,17 +348,23 @@ class ProjectStore {
             const second = await fs.stat(file);
             if (second.size !== first.size || second.mtimeMs !== first.mtimeMs || closed)
                 continue;
-            const a = await this.addFile(projectId, file, "image");
-            seen.set(name, key);
-            if (!closed)
+            // Once persistence has begun, deliver this accepted frame even if a
+            // close request stops new scans. stopWatch waits for its event before
+            // resolving, so the renderer can include it in the final save.
+            const importing = this.addFile(projectId, file, "image").then(a => {
+                seen.set(name, key);
                 onAsset({ projectId, asset: a });
+            });
+            activeImports.add(importing);
+            try { await importing; }
+            finally { activeImports.delete(importing); }
         }
         catch { }
         finally {
             pending.delete(name);
         }
-    } }; const timer = setInterval(() => void scan(), 1500); timer.unref?.(); this.watchers.set(projectId, { stop: () => { closed = true; clearInterval(timer); } }); return { name: path.basename(root) }; }
-    async stopWatch(id) { this.watchers.get(id)?.stop(); this.watchers.delete(id); }
+    } }; const timer = setInterval(() => void scan(), 1500); timer.unref?.(); this.watchers.set(projectId, { stop: async () => { closed = true; clearInterval(timer); await Promise.allSettled([...activeImports]); } }); return { name: path.basename(root) }; }
+    async stopWatch(id) { const watcher = this.watchers.get(id); if (watcher) await watcher.stop(); if (this.watchers.get(id) === watcher) this.watchers.delete(id); }
     async close() { for (const id of this.watchers.keys())
         await this.stopWatch(id); await Promise.allSettled([...this.locks.values()]); }
 }
