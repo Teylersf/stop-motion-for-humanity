@@ -102,4 +102,6 @@ H.264 tries compatible NVENC/VideoToolbox/software H.264 candidates; it does not
 
 **Verify export (slower) is optional and off by default.** A normal successful export reports **Export ready**. The extra complete decode, frame counting and full sample/file hash passes are opt-in; checking the box does not change the format's precision or make lossy codecs lossless. See [validation scope](VALIDATION.md) for what each check establishes.
 
+[Recorded native Windows 8K evidence](validation/native8k-windows-development.json) includes short 7680×4320 exports of FFV1 RGBA8, converted RGB16 FFV1, a DPX16 sequence and RTX 3090 HEVC codec-lossless P010, all with independent target checks and verification explicitly enabled. These procedural, offline development-engine results use the receipt's earlier shared runtime; they establish those targets, not realtime performance, 16-bit camera acquisition, every profile, installed Mac/Windows apps or the new static runtime.
+
 The static GPL FFmpeg media build and its corresponding-source bundle are being prepared to provide the software codecs and color conversion filters above. A build recipe or catalog entry is not a published, validated runtime. Release evidence must identify the actual binary, encoder results, sources and platform; availability errors remain explicit until then.

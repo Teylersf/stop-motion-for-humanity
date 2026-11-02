@@ -202,7 +202,7 @@ def main():
     notices = collect_licenses(inputs['source_inputs'], args.input_root, candidate / 'licenses')
     rows = [] if args.skip_smoke else smoke(candidate, output / 'smoke')
     configs = {}
-    for name in ['toolchain.txt', 'x264-config.mak', 'x265-CMakeCache.txt', 'svtav1-CMakeCache.txt', 'libvpx-config.mk', 'opus-CMakeCache.txt', 'zimg-config.log']:
+    for name in ['toolchain.txt', 'x264-config.mak', 'x265-CMakeCache.txt', 'svtav1-CMakeCache.txt', 'dav1d-buildoptions.json', 'libvpx-config.mk', 'opus-CMakeCache.txt', 'zimg-config.log']:
         path = evidence / name
         if not path.is_file():
             raise ValueError('Missing build evidence: ' + str(path))
@@ -222,7 +222,7 @@ def main():
                            'Windows system DLL imports only; compiler, C++ and winpthreads runtimes linked statically.',
                            'NVIDIA encoder support is optional at runtime and requires compatible installed GPU drivers; software HEVC10 uses x265.',
                            'All source archive hashes verified before extraction and again before notice collection. No network used for inputs.',
-                           'x265 is a 10-bit build; x264 supports its all-depth build and VP9/SVT-AV1 support high-bit-depth output.',
+                           'x265 is a 10-bit build; x264 supports its all-depth build and VP9/SVT-AV1 support high-bit-depth output. AV1 software decode uses statically linked dav1d.',
                            'This candidate has not been installed into resources/media; root integration review is required.'])
     (candidate / 'runtime-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     (output / 'smoke-results.json').write_text(json.dumps(dict(schema_version=1, tests=rows, all_passed=not args.skip_smoke, binaries=binaries), indent=2) + '\n', encoding='utf-8')

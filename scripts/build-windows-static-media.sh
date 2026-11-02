@@ -67,6 +67,25 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 set(CMAKE_INSTALL_PREFIX "$prefix" CACHE PATH "" FORCE)
 EOF
 cmake_common=(-G Ninja "-DCMAKE_TOOLCHAIN_FILE=$work/mingw-toolchain.cmake" "-DCMAKE_INSTALL_PREFIX=$prefix" -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DCMAKE_C_FLAGS_RELEASE='-O2 -DNDEBUG -g0' -DCMAKE_CXX_FLAGS_RELEASE='-O2 -DNDEBUG -g0')
+cat > "$work/mingw-meson.ini" <<EOF
+[binaries]
+c = '$cross-gcc'
+cpp = '$cross-g++'
+ar = '$cross-ar'
+strip = '$cross-strip'
+windres = '$cross-windres'
+pkgconfig = 'pkg-config'
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'
+[properties]
+needs_exe_wrapper = true
+[built-in options]
+c_args = ['-O2', '-g0']
+c_link_args = ['-static', '-static-libgcc']
+EOF
 step() {
   local name="$1"; shift
   if test -f "$work/stamps/$name"; then echo "SKIP completed $name"; return; fi
@@ -113,6 +132,12 @@ build_svtav1() {
   cmake --build "$work/build/svtav1" --parallel "$jobs"; cmake --install "$work/build/svtav1"
   cp "$work/build/svtav1/CMakeCache.txt" "$work/evidence/svtav1-CMakeCache.txt"
 }
+build_dav1d() {
+  meson setup "$work/build/dav1d" "$work/src/dav1d" --cross-file "$work/mingw-meson.ini" --prefix "$prefix" --libdir lib --default-library static --buildtype release -Denable_tools=false -Denable_tests=false -Denable_examples=false -Denable_docs=false -Dxxhash_muxer=disabled
+  meson compile -C "$work/build/dav1d" -j "$jobs"
+  meson install -C "$work/build/dav1d"
+  cp "$work/build/dav1d/meson-info/intro-buildoptions.json" "$work/evidence/dav1d-buildoptions.json"
+}
 build_vpx() {
   mkdir -p "$work/build/libvpx"; cd "$work/build/libvpx"
   CROSS="$cross-" "$work/src/libvpx/configure" --prefix="$prefix" --target=x86_64-win64-gcc --enable-static --disable-shared --enable-vp9-highbitdepth --enable-runtime-cpu-detect --disable-examples --disable-tools --disable-docs --disable-unit-tests --disable-webm-io --disable-libyuv
@@ -134,8 +159,8 @@ build_zimg() {
 build_nvheaders() { make -C "$work/src/nv-codec-headers" PREFIX="$prefix" install; }
 build_ffmpeg() {
   mkdir -p "$work/build/ffmpeg/fftools/resources"; cd "$work/build/ffmpeg"
-  if ! test -f ffbuild/config.mak; then
-  "$work/src/ffmpeg/configure" --prefix="$prefix" --arch=x86_64 --target-os=mingw32 --enable-cross-compile --cross-prefix="$cross-" --ld="$cross-g++" --enable-gpl --enable-version3 --enable-static --disable-shared --disable-autodetect --disable-network --disable-doc --disable-debug --disable-ffplay --enable-libx264 --enable-libx265 --enable-libsvtav1 --enable-libvpx --enable-libopus --enable-libzimg --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --disable-indevs --enable-indev=lavfi --disable-outdevs --disable-pthreads --enable-w32threads --pkg-config=pkg-config --pkg-config-flags=--static --extra-cflags="-O2 -g0 -I$prefix/include" --extra-cxxflags="-O2 -g0 -I$prefix/include" --extra-ldflags="-L$prefix/lib -static -static-libgcc -static-libstdc++" --extra-libs='-lstdc++ -lwinpthread -lws2_32'
+  if ! test -f ffbuild/config.mak || ! grep -q '^CONFIG_LIBDAV1D=yes' ffbuild/config.mak; then
+  "$work/src/ffmpeg/configure" --prefix="$prefix" --arch=x86_64 --target-os=mingw32 --enable-cross-compile --cross-prefix="$cross-" --ld="$cross-g++" --enable-gpl --enable-version3 --enable-static --disable-shared --disable-autodetect --disable-network --disable-doc --disable-debug --disable-ffplay --enable-libx264 --enable-libx265 --enable-libsvtav1 --enable-libdav1d --enable-libvpx --enable-libopus --enable-libzimg --enable-zlib --enable-ffnvcodec --enable-nvenc --disable-cuda-llvm --disable-cuvid --disable-nvdec --disable-indevs --enable-indev=lavfi --disable-outdevs --disable-pthreads --enable-w32threads --pkg-config=pkg-config --pkg-config-flags=--static --extra-cflags="-O2 -g0 -I$prefix/include" --extra-cxxflags="-O2 -g0 -I$prefix/include" --extra-ldflags="-L$prefix/lib -static -static-libgcc -static-libstdc++" --extra-libs='-lstdc++ -lwinpthread -lws2_32'
   fi
   cp config.h ffbuild/config.mak ffbuild/config.log "$work/evidence/"
   make -j"$jobs" ffmpeg.exe ffprobe.exe
@@ -149,6 +174,7 @@ step zlib build_zlib
 step x264 build_x264
 step x265 build_x265
 step svtav1 build_svtav1
+step dav1d build_dav1d
 step libvpx build_vpx
 step opus build_opus
 step zimg build_zimg

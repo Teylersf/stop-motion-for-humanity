@@ -9,13 +9,19 @@ Electron retains its MIT license and Chromium/FFmpeg third-party notices.
 React, React DOM, Lucide, yazl and their dependencies retain their licenses.
 Bundled distribution notices must be retained by the packager.
 
-Native media payloads are separate, pinned builds. The Windows payload reuses
-the author's audited FFmpeg n8.0.1-66-g27b8d1a017 CLI and seven shared libraries.
-The avcodec/avformat replacements have explicit LGPL-3.0-or-later source/build
-receipts and omit the original codec's Chromaprint/FFTW/ZVBI integrations.
-The CLI's printed original configure line is not the replacement library's
-configuration; both records and exact file hashes are included with releases.
-It is not the GPL-enabled Gyan FFmpeg installed on the development machine.
+Native media release payloads are separate, pinned, standalone FFmpeg builds
+with GPL/version-3 features enabled. The Windows build statically includes
+x264, 10-bit x265, SVT-AV1, dav1d, libvpx, Opus, zimg and zlib, with
+nv-codec-headers for runtime NVIDIA encoder access. The Apple Silicon build
+uses its own pinned ARM64 sources/configuration and Apple system frameworks.
+Each platform manifest identifies its exact codec libraries, source inputs,
+toolchain, build options and binary hashes. Their upstream license texts and
+applicable toolchain notices travel with the binaries and source archives.
+
+Earlier development receipts may identify a different, audited shared-library
+runtime. Those receipts preserve that original scope; the release runtime has
+its own independent build, dependency and media-validation evidence. A system
+FFmpeg installation is not substituted into packaged releases.
 
 Each native release must include dependency notices and matching corresponding
 source materials/build recipes. Binary/source SHA-256 manifests bind the
