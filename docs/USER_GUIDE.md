@@ -4,7 +4,9 @@ Stop Motion for Humanity is a local desktop studio by Taylor Kalin. Your film is
 
 For current download availability, use the project README. The **Windows x64 per-user EXE installer has been tested through installation, launch, save/quit/reopen and both export modes**; see the [installed Windows receipt](validation/installed-windows.json). The tested `0.1.0-beta.1` installer records **Taylor Kalin** as Publisher/Company and is an **unsigned beta**. Its installed application and media files matched the packaged hashes.
 
-On Windows, run the release's `StopMotionForHumanity-…-win-x64.exe`, choose the per-user installation location in the wizard, then launch **Stop Motion for Humanity** from its shortcut. The configured Apple silicon macOS target is a drag-to-Applications DMG, but final Mac camera/distribution QA is still in progress. [Validation](VALIDATION.md) separates those pending checks from completed Windows evidence.
+On Windows, run the release's `StopMotionForHumanity-…-win-x64.exe`, choose the per-user installation location in the wizard, then launch **Stop Motion for Humanity** from its shortcut.
+
+On an Apple silicon Mac, open `StopMotionForHumanity-…-mac-arm64.dmg`, drag the app into Applications, then launch it. [Actual final-DMG installation and exports were tested](validation/installed-macos.json) on an Apple M4 running macOS 26.6.2, with every installed file/symlink matching the built app. The declared minimum is macOS 14.0; older-version runtime execution has not been tested. This beta is **ad hoc signed and not notarized**; Gatekeeper acceptance is not claimed. Both installed export modes and project reopening passed. A new capture in the final installed Mac app still awaits human camera consent, so that remaining step is separate from completed installation/export evidence. [Validation](VALIDATION.md) gives the exact scopes.
 
 ## Start or reopen
 
@@ -28,6 +30,8 @@ The default request is 3840×2160, but the driver may negotiate a different size
 The selected camera, requested size, countdown and append/insert/replace preference are remembered locally. Connection is always an explicit action. In Advanced, exposure/focus/white-balance modes and numerical controls appear only when the driver reports them. The app checks actual settings after a change and reports a driver that ignores a requested control. Manual controls can help reduce automatic focus or exposure changes, but unsupported locks are not invented.
 
 **Windows development evidence:** an EMEET SmartCam C960 4K negotiated 3840×2160 at a reported 30 fps and saved a verified 3840×2160 PNG8 original. This is one short physical-device check, not a claim about all webcams, all controls or long takes. [Camera details](CAMERAS.md) and the [public metadata receipt](validation/physical-webcam-windows-development.json) describe its scope.
+
+**Mac packaged preflight evidence:** [two physical webcams captured PNG8 originals](validation/physical-webcam-macos-preflight.json): Live Streamer CAM313 at 1920×1080 and EMEET SmartCam C960 4K at 3840×2160. That earlier packaged test is distinct from the final DMG-installed app, whose new camera capture is still awaiting human macOS permission. When the OS asks, grant camera access yourself; connecting the app does not grant microphone access.
 
 ## Bring your own stills
 

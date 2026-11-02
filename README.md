@@ -10,8 +10,14 @@ story into the world.
 [Taylor Kalin](https://www.taylorkalin.com/).** No account. No subscription.
 No paid export tier. Your footage stays on your computer.
 
-**Beta builds are being validated.** Installer links and platform-specific test
-results will appear here with the first published release. The source is public now.
+**[Download Windows x64](https://github.com/Teylersf/stop-motion-for-humanity/releases/download/v0.1.0-beta.1/StopMotionForHumanity-0.1.0-beta.1-win-x64.exe)**
+· **[Download Apple Silicon Mac](https://github.com/Teylersf/stop-motion-for-humanity/releases/download/v0.1.0-beta.1/StopMotionForHumanity-0.1.0-beta.1-mac-arm64.dmg)**
+· [Release notes, checksums and complete source](https://github.com/Teylersf/stop-motion-for-humanity/releases/tag/v0.1.0-beta.1)
+
+The first beta is here. Windows installs per user. The Mac app requires macOS 14
+or newer: open the DMG and drag the app into Applications. Windows is unsigned;
+Mac is ad hoc signed and not Apple notarized. See the
+[tested workflows and exact limits](docs/VALIDATION.md).
 
 ![The installed Stop Motion for Humanity app running the original sample film on Windows](docs/images/studio-windows-installed.png)
 
@@ -129,6 +135,11 @@ Native movie encoding requires the platform media payload under
 end users do not need Node, Python or a separately installed FFmpeg. Native build
 recipes, dependency notices, source hashes and matching corresponding-source
 archives accompany the media distribution.
+
+The Mac release command uses the audited packaging wrapper to retain the exact
+signed media tools and enforce the macOS 14 minimum. See the
+[Mac build and release guide](scripts/mac-release/README.md) and
+[Windows native media recipe](scripts/build-windows-static-media.sh).
 
 ```sh
 npm test

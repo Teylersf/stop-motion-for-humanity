@@ -19,7 +19,7 @@
     "test:canvas": "electron desktop/test/canvas-runner.cjs",
     "pack": "npm run build && electron-builder --config desktop/electron-builder.cjs --dir --publish never",
     "dist:win": "npm run build && electron-builder --config desktop/electron-builder.cjs --win nsis --x64 --publish never",
-    "dist:mac": "npm run build && electron-builder --config desktop/electron-builder.cjs --mac dmg --arm64 --publish never"
+    "dist:mac": "npm run build && electron-builder --config scripts/mac-electron-builder.cjs --mac dmg --arm64 --publish never"
   },
   "dependencies": {
     "react": "19.3.1",
