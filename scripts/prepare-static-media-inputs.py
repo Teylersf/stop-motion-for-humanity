@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,14 +34,31 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--cache', type=Path, default=Path(r'E:\Desktop Apps\8k-lossless-video-editor\out\release-sources\cache'))
     parser.add_argument('--output', type=Path, default=ROOT / 'out/native-inputs')
+    parser.add_argument('--from-manifest', type=Path, help='Use source_inputs from a published runtime/source manifest; cache may be its native-sources directory. No separate receipt files are required.')
     args = parser.parse_args()
     target = args.output.resolve()
     (target / 'third-party').mkdir(parents=True, exist_ok=True)
     rows = []
-    for component, filename, license_name in INPUTS:
-        source = args.cache / filename
-        receipt_path = args.cache / (filename + '.receipt.json')
-        receipt = json.loads(receipt_path.read_text(encoding='utf-8'))
+    if args.from_manifest:
+        source_rows = json.loads(args.from_manifest.read_text(encoding='utf-8'))['source_inputs']
+        records = []
+        for row in source_rows:
+            component, filename = row['component'], Path(row['file']).name
+            if not re.fullmatch(r'[A-Za-z0-9._-]+', component) or filename in ('.', '..') or not filename.endswith('.tar.gz') or '\\' in filename:
+                raise ValueError('Invalid source manifest component/archive name')
+            candidate = args.cache / row['file']
+            source = candidate if candidate.is_file() else args.cache / filename
+            cache_root, resolved = args.cache.resolve(), source.resolve(strict=True)
+            if cache_root not in resolved.parents or resolved.is_symlink():
+                raise ValueError('Source archive must remain inside cache')
+            records.append((component, filename, row['license'], source, row))
+    else:
+        records = []
+        for component, filename, license_name in INPUTS:
+            source = args.cache / filename
+            receipt = json.loads((args.cache / (filename + '.receipt.json')).read_text(encoding='utf-8'))
+            records.append((component, filename, license_name, source, receipt))
+    for component, filename, license_name, source, receipt in records:
         expected = receipt['sha256']
         if len(expected) != 64 or source.stat().st_size != receipt['bytes'] or digest(source) != expected:
             raise ValueError(f'Unverified source archive: {source}')

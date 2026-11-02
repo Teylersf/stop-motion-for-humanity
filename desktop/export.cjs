@@ -15,7 +15,7 @@ const {createHash}=require("node:crypto");
 const { canonicalTarget, precisionNotes, LINEAR_EXR_FILTER, colorPolicy } = require("./targets.cjs");
 const {profiles,getProfile,validateProfileGeometry,encoderPlan,planTiming,canonicalFrameRate}=require("./formats.cjs");
 const PROFILES=new Set(profiles.map(profile=>profile.id));
-const INPUT_POLICY = ["-protocol_whitelist", "file,pipe", "-format_whitelist", "mov,mp3,wav,flac,ogg,matroska,webm,aiff,aac,png_pipe,jpeg_pipe,jpegls_pipe,jpeg2000_pipe,jxl_pipe,webp_pipe,bmp_pipe,tiff_pipe,dpx_pipe,exr_pipe,gif,image2,image2pipe,nut,mxf,avi"];
+const INPUT_POLICY = ["-protocol_whitelist", "file,pipe", "-format_whitelist", "mov,mp3,wav,flac,ogg,matroska,webm,aiff,aac,png_pipe,jpeg_pipe,jpegls_pipe,j2k_pipe,jpeg2000_pipe,jpegxl_pipe,jxl_pipe,webp_pipe,bmp_pipe,tiff_pipe,dpx_pipe,exr_pipe,gif,image2,image2pipe,nut,mxf,avi"];
 const EXTENSIONS=Object.fromEntries(profiles.map(profile=>[profile.id,profile.extension]));
 function boundedTail(value, next, max = 10000) { return (value + next).slice(-max); }
 function worker(executable, args, { stdoutLimit = 2 * 1024 * 1024, timeout = 120000, children, owner = null } = {}) {
