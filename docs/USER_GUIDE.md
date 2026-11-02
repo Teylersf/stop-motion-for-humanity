@@ -2,7 +2,9 @@
 
 Stop Motion for Humanity is a local desktop studio by Taylor Kalin. Your film is a folder on your computer: original images, original sound and editable project metadata stay together. There is no required account, subscription or cloud upload.
 
-For current installer availability, use the project README. The configured distribution targets are Windows x64 with a per-user EXE installer and Apple silicon macOS with a drag-to-Applications DMG. Build configuration is separate from a tested release; [validation](VALIDATION.md) records what has actually been checked. Mac camera and installed-app testing are still pending in the current development evidence.
+For current download availability, use the project README. The **Windows x64 per-user EXE installer has been tested through installation, launch, save/quit/reopen and both export modes**; see the [installed Windows receipt](validation/installed-windows.json). The tested `0.1.0-beta.1` installer records **Taylor Kalin** as Publisher/Company and is an **unsigned beta**. Its installed application and media files matched the packaged hashes.
+
+On Windows, run the release's `StopMotionForHumanity-…-win-x64.exe`, choose the per-user installation location in the wizard, then launch **Stop Motion for Humanity** from its shortcut. The configured Apple silicon macOS target is a drag-to-Applications DMG, but final Mac camera/distribution QA is still in progress. [Validation](VALIDATION.md) separates those pending checks from completed Windows evidence.
 
 ## Start or reopen
 
@@ -80,7 +82,9 @@ Each audio clip has a waveform, volume, mute and **Start at exposure**. Placemen
 
 ## Save, recover and move the project
 
-Edits autosave after a short idle period; the header shows save status. Use Ctrl/Cmd+S before closing or moving a project. A save writes a temporary file, flushes it and atomically replaces the manifest. The previous readable save is kept as `project.humanity.previous.json`; prior manifests are also retained under `.humanity-autosaves`.
+Edits autosave after a short idle period; the header shows save status. Use Ctrl/Cmd+S whenever you want an immediate save and before moving a project. Normal window close or Quit also stops new capture work, waits for accepted media writes, cancels an active export and saves the latest project before exiting. If that save cannot be confirmed, the app stays open and offers Keep editing or Retry saving and quit; quitting without the latest save is a separate explicit recovery choice. On Windows, this was tested by pasting a new title and quitting in 233 ms, before the 650 ms autosave delay, then reopening the correct project.
+
+A save writes a temporary file, flushes it and atomically replaces the manifest. The previous readable save is kept as `project.humanity.previous.json`; prior manifests are also retained under `.humanity-autosaves`.
 
 If the main manifest is unreadable, Open project attempts the previous good save and tells you it recovered it. The durable asset registry can recover retained imports that were written before a later manifest save. Missing or changed originals are reported rather than silently recreated. A manifest backup is not an external backup of your footage: keep a separate copy of the whole project folder.
 

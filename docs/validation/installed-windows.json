@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "app": "Stop Motion for Humanity",
+  "version": "0.1.0-beta.1",
+  "platform": "Windows x64",
+  "source_revision": "cc2741929cd7e28b1b839382969924889a827c19",
+  "recorded_at": "2026-11-02T20:00:33.306955+00:00",
+  "kind": "actual-installed-windows-gui-and-native-media-qa",
+  "installer": {
+    "file": "StopMotionForHumanity-0.1.0-beta.1-win-x64.exe",
+    "bytes": 153556254,
+    "sha256": "e7c30ea50c6892aa88f1388e044c9c0dd94749447f65b2ec2f6e1fff71317a71",
+    "silent_per_user_install_exit_code": 0,
+    "registry_publisher": "Taylor Kalin",
+    "executable_company": "Taylor Kalin",
+    "signature": "unsigned beta"
+  },
+  "installed_archive_sha256": "d76f456a43df6ea2d0c7e66d35980e7a65dcf9007cb8f30d1fa3f0ba1734dc4c",
+  "installed_archive_matches_packaged_archive": true,
+  "installed_media_matches_manifest": true,
+  "media_binaries": [
+    {
+      "file": "ffmpeg.exe",
+      "bytes": 49558016,
+      "sha256": "276831b465b76ac57374afeefed97dc256a98dd380cc3543f546e5ff326f076e",
+      "imports": [
+        "ADVAPI32.dll",
+        "bcrypt.dll",
+        "KERNEL32.dll",
+        "msvcrt.dll",
+        "SHELL32.dll"
+      ],
+      "license": "GPL-3.0-or-later"
+    },
+    {
+      "file": "ffprobe.exe",
+      "bytes": 49366016,
+      "sha256": "da2c0749dd7af44386833c1d20a40ba63242b26b65f6d7f5c8521925c1653af1",
+      "imports": [
+        "ADVAPI32.dll",
+        "bcrypt.dll",
+        "KERNEL32.dll",
+        "msvcrt.dll",
+        "SHELL32.dll"
+      ],
+      "license": "GPL-3.0-or-later"
+    }
+  ],
+  "gui": {
+    "cold_launch": true,
+    "owned_local_url": "humanity://app/index.html",
+    "saved_project_reopened": true,
+    "frames": 24,
+    "assets": 24,
+    "all_original_hashes_match_durable_records": true,
+    "immediate_quit": {
+      "method": "Real native paste to project title then Alt+F4",
+      "paste_through_quit_milliseconds": 233,
+      "autosave_delay_milliseconds": 650,
+      "latest_title_persisted": true,
+      "all_app_processes_exited": true,
+      "title_visible_in_relaunched_home": true,
+      "title_and_24_frames_visible_after_reopen": true
+    },
+    "verification_unchecked_on_first_open": true,
+    "verification_reset_unchecked_on_new_dialog": true
+  },
+  "exports": [
+    {
+      "file": "installed-fast.mkv",
+      "bytes": 1578885,
+      "sha256": "1f7f094bae9d04d3eb0a7d5daff399f6b5268ae01674c8ca98c20e1c98c46862",
+      "verification_requested": false,
+      "ui_completion": "Export ready.",
+      "decoded_rgba_hash": "SHA256=6afb510f155fd51241b9a15cc9ab1d15dfe772057017b8ea92a89be6e0fbb01c",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "ffv1",
+            "width": 1280,
+            "height": 720,
+            "pix_fmt": "bgra",
+            "r_frame_rate": "12/1"
+          }
+        ],
+        "format": {
+          "duration": "2.000000"
+        }
+      }
+    },
+    {
+      "file": "installed-verified.mkv",
+      "bytes": 1578885,
+      "sha256": "8c4982d982b03fc6bffa06b93e3df3ad97e6efdee19908c57c0c2ab1865619d2",
+      "verification_requested": true,
+      "ui_completion": "Your film is ready. Export verified.",
+      "decoded_rgba_hash": "SHA256=6afb510f155fd51241b9a15cc9ab1d15dfe772057017b8ea92a89be6e0fbb01c",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "ffv1",
+            "width": 1280,
+            "height": 720,
+            "pix_fmt": "bgra",
+            "r_frame_rate": "12/1"
+          }
+        ],
+        "format": {
+          "duration": "2.000000"
+        }
+      }
+    }
+  ],
+  "fast_and_verified_complete_decoded_rgba_hashes_match": true,
+  "scope": [
+    "Owned original procedural demo only; no camera image pixels or personal paths published.",
+    "Actual installed EXE and native GUI; physical camera checks are separately scoped development/preflight evidence.",
+    "Full decode/hash comparisons here are one-time release QA, not the default export path.",
+    "RGBA comparison establishes matching complete samples between fast and opt-in outputs; it is not an independent external compositing reference."
+  ]
+}
