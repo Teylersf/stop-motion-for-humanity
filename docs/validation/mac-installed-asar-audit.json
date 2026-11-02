@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "app": "Stop Motion for Humanity",
+  "kind": "installed-asar-to-source-binding",
+  "applicationLocation": "System Applications directory",
+  "coreRevision": "cc2741929cd7e28b1b839382969924889a827c19",
+  "auditedAt": "2026-11-02T20:09:24.674875+00:00",
+  "scope": [
+    "Read-only inspection of the actual installed final application ASAR; no app launch/UI/camera/private-media access by this auditor.",
+    "Code and built-renderer binding only; installation inventory, signatures and GUI/lifecycle behavior are separate root-operated checks."
+  ],
+  "asar": {
+    "bytes": 37263703,
+    "sha256": "742fed15c8e0133299774466786876b9522a4cff17a27abfa6ad9707f68edf96",
+    "matchesFinalBuiltApplicationAsar": true,
+    "unchangedDuringInspection": true
+  },
+  "nativeRuntime": {
+    "filesCompared": 11,
+    "allByteIdenticalToCurrentAndCoreRevision": true,
+    "criticalFiles": [
+      {
+        "name": "desktop/main.cjs",
+        "sha256": "647ded210203827cbaa9b6aaf947d9cf75d0985825555e6ac8441d734939c24d"
+      },
+      {
+        "name": "desktop/preload.cjs",
+        "sha256": "c6a468ebec03fd96f5d52b6dce76fe548df3e5e04e8063cdbdb6952a6cf6f558"
+      },
+      {
+        "name": "desktop/close.cjs",
+        "sha256": "5749dd9f080b653b06eb12dbd916ac3254be5ca5ccb73ff7909a129d7652a3ea"
+      },
+      {
+        "name": "desktop/store.cjs",
+        "sha256": "5502904ff74be657cfb89e7504b27a5e379ee1f7cc6fc7540ac3555e78fc0eea"
+      },
+      {
+        "name": "desktop/export.cjs",
+        "sha256": "eb032cf4dd6e07b2e531a26525c32dc5b4e4068edb0db5d5f2c86cafe05aae44"
+      }
+    ]
+  },
+  "profileCatalog": {
+    "name": "assets/export-profiles.json",
+    "sha256": "3f2742416d95299ee4334137ada98e203938bcfae0ee8ecad1795b9dc36fe842",
+    "exactByteMatch": true,
+    "matchesCoreRevision": true
+  },
+  "compiledRenderer": {
+    "filesCompared": 4,
+    "completeFileSetEqualsCurrentColdBuild": true,
+    "noStaleExtraArtifacts": true,
+    "indexAssetReferencesResolve": true,
+    "files": [
+      {
+        "name": "dist/assets/index-DZWEyU5t.css",
+        "bytes": 45170,
+        "sha256": "371d7196b2a2ff4386282a885b391e2983dfd2ddb8bb7e2b039dbdd795c2483b"
+      },
+      {
+        "name": "dist/assets/index-wzkAX3z9.js",
+        "bytes": 376497,
+        "sha256": "664cc1462aa282d6a1e8f64ffe74c3987482b17ce505b96dae1e45a223ce50eb"
+      },
+      {
+        "name": "dist/assets/index-wzkAX3z9.js.map",
+        "bytes": 1483834,
+        "sha256": "8ea1414d613b9a9ce63307fd8c1248993f6f122dbb29e8bf71aeda2e5d525b27"
+      },
+      {
+        "name": "dist/index.html",
+        "bytes": 716,
+        "sha256": "da1cb499c0af14925db6f934f3d6cd9e9af321fde3cf170a106b733dc968622d"
+      }
+    ],
+    "sourceMapFirstPartyBindings": 13,
+    "sourceMapContentsEqualCurrentAndCoreRevision": true,
+    "criticalCloseSaveSourcesIncluded": [
+      "src/App.tsx",
+      "src/components/close-save.ts"
+    ],
+    "scope": "JavaScript sourcesContent equals current/product-commit first-party modules; compiled CSS/index/JS/maps equal the current cold-build dist artifacts exactly. No independent rebuild performed."
+  },
+  "packageJson": {
+    "exactRawSourceBytes": false,
+    "exactExpectedProductionBytes": true,
+    "sourceSha256": "3d223c501a6c9aa5addf3e9dff3ce7636307800c3ce0dd760f0e234861601368",
+    "packagedSha256": "0c818464e630ef3c5bd872e25bdc6def5f314000aba60bc34def1d50c698a21c",
+    "expectedProductionSha256": "0c818464e630ef3c5bd872e25bdc6def5f314000aba60bc34def1d50c698a21c",
+    "removedSourceFields": [
+      "scripts",
+      "devDependencies"
+    ],
+    "transformation": "Pinned electron-builder production metadata cleanup; JSON.stringify with two-space indent and no trailing newline",
+    "allOtherFieldsExactlyPreserved": true,
+    "sourceMatchesProductCommit": true
+  },
+  "driver": {
+    "bytes": 12675,
+    "sha256": "7612f8ec776d18298c0f327a57ae34b680dea9129ad5b3e45aa204e74e2929b3"
+  },
+  "detailedReceipt": {
+    "name": "out/validation/mac-installed-asar-binding-cc27419.json",
+    "sha256": "917c1ea17be01d7737aed6a2fe25b503cc9c6edad36c58b8ad05ad1fb551498f"
+  },
+  "sourceAndDriverUnchanged": true,
+  "appExecutedByAuditor": false,
+  "cameraOrPrivateMediaAccessed": false
+}

@@ -60,3 +60,21 @@ source/bundled manifest and media-tool hashes. Parenthesized helper filenames
 are inspected through a read-only file descriptor to avoid `otool`'s archive
 member syntax. It never launches the app or media tools and refuses an existing
 report path. The declaration and signature limitations above still apply.
+
+Bind the final installed ASAR to the frozen product code and current cold-build
+renderer artifacts with a separate fresh report:
+
+```sh
+node scripts/mac-audit-asar.cjs \
+  --app '/Applications/Stop Motion for Humanity.app' \
+  --core-revision PRODUCT_COMMIT \
+  --build-log out/validation/mac-final-build.log \
+  --output out/validation/mac-installed-asar-audit.json
+```
+
+This read-only audit checks packed native runtime files, the export catalog,
+the exact production transformation of package metadata, the complete renderer
+artifact set, and first-party JavaScript source-map content against the chosen
+product commit. It checks that inspected files remain unchanged. It does not
+rebuild, launch the app, access projects or devices, or replace installed UI
+and save/quit/reopen verification.

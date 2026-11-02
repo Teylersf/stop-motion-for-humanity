@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "app": "Stop Motion for Humanity",
+  "kind": "installed-app-procedural-export-readback",
+  "coreRevision": "cc2741929cd7e28b1b839382969924889a827c19",
+  "testedAt": "2026-11-02T20:09:23.548528+00:00",
+  "scope": [
+    "Actual final installed-app GUI exports; independent post-export file decoding only",
+    "All media are public built-in procedural paper-robot demo originals; no physical camera images",
+    "App launch, UI actions, installation and lifecycle tests belong to the root operator; none performed by this driver"
+  ],
+  "readbackRuntimeRole": "Frozen native tools used for separate independent QA, not an assertion that ordinary export performed opt-in verification",
+  "readbackRuntime": {
+    "ffmpeg": {
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    "ffprobe": {
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  },
+  "videos": [
+    {
+      "file": {
+        "name": "mac-installed-default-off.mkv",
+        "bytes": 1517071,
+        "sha256": "32a7812125b210a20c50929410637b863a6699bf5c3da8f144466bbfa64337e9"
+      },
+      "codec": "ffv1",
+      "storedPixelFormat": "bgra",
+      "frames": 24,
+      "width": 1280,
+      "height": 720,
+      "fps": 12,
+      "durationSeconds": 2,
+      "timeBase": "1/1000",
+      "maximumCfrErrorSeconds": 0.0003333333333333333,
+      "allowedCfrErrorSeconds": 0.000501,
+      "fullDecodedRGBA": {
+        "sha256": "1d891c3c816a30f9275ede938de77532b54334810bebecfc6f948e4bb3c057ad",
+        "bytes": 88473600
+      },
+      "fullDecodeAndOriginalSequenceEqualityPassed": true,
+      "audioStreams": 0
+    },
+    {
+      "file": {
+        "name": "mac-installed-opt-in-verified.mkv",
+        "bytes": 1517071,
+        "sha256": "b74b2cf5002adaba8b55c515cb46d400140e2a82c742ab8cd79be5e59c3d9349"
+      },
+      "codec": "ffv1",
+      "storedPixelFormat": "bgra",
+      "frames": 24,
+      "width": 1280,
+      "height": 720,
+      "fps": 12,
+      "durationSeconds": 2,
+      "timeBase": "1/1000",
+      "maximumCfrErrorSeconds": 0.0003333333333333333,
+      "allowedCfrErrorSeconds": 0.000501,
+      "fullDecodedRGBA": {
+        "sha256": "1d891c3c816a30f9275ede938de77532b54334810bebecfc6f948e4bb3c057ad",
+        "bytes": 88473600
+      },
+      "fullDecodeAndOriginalSequenceEqualityPassed": true,
+      "audioStreams": 0
+    }
+  ],
+  "installedEncoderToolBytesMatchGoldenReadbackPins": true,
+  "source": {
+    "originalPngFrames": 24,
+    "width": 1280,
+    "height": 720,
+    "bitsPerChannel": 8,
+    "fps": 12,
+    "allOriginalAssetHashesMatchPreflight": true,
+    "noRenderedEdits": true,
+    "fullDecodedRGBA": {
+      "sha256": "1d891c3c816a30f9275ede938de77532b54334810bebecfc6f948e4bb3c057ad",
+      "bytes": 88473600
+    }
+  },
+  "ordinaryAndOptInDecodedSamplesIdentical": true,
+  "uiEvidence": [
+    {
+      "evidence": {
+        "name": "mac-installed-default-off.ax.txt",
+        "bytes": 4597,
+        "sha256": "f93f81e6cbea52c7e6019a450c608da4f6a4f590641decd142159a6061bdbf41"
+      },
+      "verificationCheckbox": 0,
+      "completionMessage": "Export ready.",
+      "outputFile": "mac-installed-default-off.mkv",
+      "observationOrigin": "Root operator's saved actual AX tree; no UI control by verifier"
+    },
+    {
+      "evidence": {
+        "name": "mac-installed-opt-in-complete.ax.txt",
+        "bytes": 1625,
+        "sha256": "552612c6aa568b77d40835c3f86175ef6b0cada2666f0b69287b49c4e4d373a9"
+      },
+      "verificationCheckbox": 1,
+      "completionMessage": "Your film is ready. Export verified.",
+      "outputFile": "mac-installed-opt-in-verified.mkv",
+      "observationOrigin": "Root operator's saved actual AX tree; no UI control by verifier"
+    },
+    {
+      "evidence": {
+        "name": "mac-installed-export-reset.ax.txt",
+        "bytes": 4560,
+        "sha256": "b3810e041bf331cf9951668d921f8206d17a27b0aea49d6cea3c6db85779a0f3"
+      },
+      "verificationCheckbox": 0,
+      "observation": "Verification checkbox reset to off after dialog reset",
+      "observationOrigin": "Root operator's saved actual AX tree; no UI control by verifier"
+    }
+  ],
+  "verificationOffOptInAndResetUiStatesCorroborated": true,
+  "all24OriginalAssetsPreservedBeforeAndAfterReadback": true,
+  "readbackRuntimeAfter": {
+    "ffmpeg": {
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    "ffprobe": {
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  },
+  "readbackRuntimeUnchanged": true,
+  "completedAt": "2026-11-02T20:09:25.604310+00:00"
+}

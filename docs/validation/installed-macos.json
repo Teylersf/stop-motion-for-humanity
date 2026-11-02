@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "app": "Stop Motion for Humanity",
+  "platform": "darwin-arm64",
+  "status": "awaiting_final_camera_consent",
+  "coreRevision": "cc2741929cd7e28b1b839382969924889a827c19",
+  "buildCheckoutRevision": "1a99c8c",
+  "recordedAt": "2026-11-02T20:10:32.160879+00:00",
+  "testedHost": {
+    "chip": "Apple M4",
+    "architecture": "arm64",
+    "macos": "26.6.2",
+    "build": "25G83"
+  },
+  "artifact": {
+    "file": "StopMotionForHumanity-0.1.0-beta.1-mac-arm64.dmg",
+    "bytes": 146842137,
+    "sha256": "3cb4a38e9eb468166448111ee4b3233bd1ac32fb19cf130d6e27fbd6149532f6",
+    "appAsarSha256": "742fed15c8e0133299774466786876b9522a4cff17a27abfa6ad9707f68edf96"
+  },
+  "installation": {
+    "hdiutilVerified": true,
+    "installedFromActualReadOnlyMountedDmg": true,
+    "all348RegularFilesAnd14SymlinksMatchBuiltMountedInstalled": true,
+    "ownDiskDetachedNormally": true,
+    "installedMainExecutablePathConfirmed": true,
+    "appLaunchedAndResponsive": true
+  },
+  "passedInstalledGuiChecks": {
+    "portableDemoProjectReopenedWith24Frames": true,
+    "realKeyboardProjectRenameAndExplicitSave": true,
+    "ffv1ExportVerificationOffByDefault": true,
+    "ordinaryExportCompletion": "Export ready.",
+    "optInVerificationCompletion": "Your film is ready. Export verified.",
+    "verificationResetsOffWhenDialogReopened": true,
+    "independentFullDecodeMatches24OriginalPngFrames": true,
+    "ordinaryAndOptInDecodedSamplesIdentical": true,
+    "original24AssetsPreserved": true,
+    "existingPhysicalProjectReopenedWith10Frames": true,
+    "existingCameraOriginalBytesAndFrameCaptureMetadataPreserved": true,
+    "all10ExistingPhysicalOriginalPngsFullyDecodedLocally": true,
+    "cameraDisconnectedOnProjectReopen": true
+  },
+  "camera": {
+    "finalInstalledCaptureStatus": "awaiting_human_macos_camera_permission",
+    "explicitConnectAttempted": true,
+    "newInstalledCaptureClaimed": false,
+    "applicationLeftOpenForHumanConsent": true,
+    "priorPackagedPhysicalCaptureProof": "docs/validation/physical-webcam-macos-preflight.json",
+    "priorDevices": [
+      {
+        "model": "Live Streamer CAM313",
+        "width": 1920,
+        "height": 1080,
+        "frames": 2
+      },
+      {
+        "model": "EMEET SmartCam C960 4K",
+        "width": 3840,
+        "height": 2160,
+        "frames": 8
+      }
+    ],
+    "priorCaptureScope": "Historical packaged preflight; independent final installed capture is pending. No sensor RAW or greater-than-8-bit acquisition claim."
+  },
+  "lifecycle": {
+    "coreCloseFixRevision": "cc2741929cd7e28b1b839382969924889a827c19",
+    "signedUnpackedApplicationQuickQuitMilliseconds": 117,
+    "signedUnpackedLastWindowCloseMilliseconds": 113,
+    "latestRealKeyboardEditRetainedAfterBoth": true,
+    "signedUnpackedEmptyHomeQuitPassed": true,
+    "quickQuitGuiReopenConfirmed24Frames": true,
+    "installedQuickQuitRerunClaimed": false,
+    "scope": "Actual close-fix signed unpacked app was tested before final DMG packaging. Installed ASAR and all app files match the final build; installed app remains open for the separate human camera permission step.",
+    "receipt": "docs/validation/mac-quit-save-regression.json"
+  },
+  "automatedChecks": {
+    "coreAndUiPassed": 56,
+    "desktopPassed": 73,
+    "failed": 0,
+    "skipped": 0
+  },
+  "evidence": {
+    "packageAudit": "docs/validation/mac-installed-app-audit.json",
+    "asarAudit": "docs/validation/mac-installed-asar-audit.json",
+    "exportReadback": "docs/validation/mac-installed-exports.json",
+    "native8kEngineProof": "docs/validation/native8k-macos-arm64.json",
+    "canvasProof": "docs/validation/canvas-macos-arm64.json",
+    "portableProjectEngineProof": "docs/validation/mac-portable-project-engine.json"
+  },
+  "distribution": {
+    "declaredMinimumMacos": "14.0",
+    "maximumObservedMachOFloor": "14.0.0",
+    "olderMacosRuntimeTested": false,
+    "signing": "ad hoc",
+    "notarized": false,
+    "gatekeeperAcceptanceClaimed": false,
+    "releaseState": "Draft; publication owned by coordinator"
+  },
+  "privacy": {
+    "physicalImagesPublished": false,
+    "privateProjectNamesPathsIdentifiersOrMediaHashesIncluded": false,
+    "cameraScreenshotsCaptured": false,
+    "physicalMediaRemainLocal": true
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "app": "Stop Motion for Humanity",
+  "kind": "installed-macos-arm64-static-package-audit",
+  "productRevision": "cc2741929cd7e28b1b839382969924889a827c19",
+  "scope": "Read-only audit of the actual installed application copied from the final DMG. Separate install evidence binds the built, mounted and installed inventories. No app or media executable was launched by this audit.",
+  "artifact": {
+    "file": "StopMotionForHumanity-0.1.0-beta.1-mac-arm64.dmg",
+    "bytes": 146842137,
+    "sha256": "3cb4a38e9eb468166448111ee4b3233bd1ac32fb19cf130d6e27fbd6149532f6",
+    "hdiutil_verify": true,
+    "appAsarSha256": "742fed15c8e0133299774466786876b9522a4cff17a27abfa6ad9707f68edf96"
+  },
+  "installation": {
+    "source": "Final read-only mounted DMG",
+    "builtToMountedInventoryExact": true,
+    "mountedToInstalledInventoryExact": true,
+    "regularFiles": 348,
+    "symlinks": 14,
+    "inventoryScope": "All regular file bytes and symlink targets, recorded by the separate installation verifier."
+  },
+  "wholeAppAudit": {
+    "machOFiles": 16,
+    "machOBytes": 308264288,
+    "architecture": "arm64 only",
+    "regularFileScanCount": 348,
+    "executableContexts": 10,
+    "individualStrictSignaturePasses": 16,
+    "frameworkDeepStrictPasses": 4,
+    "outerAppDeepStrictPassed": true,
+    "internalLoadEdgesResolved": 37,
+    "appleSystemLoadEdges": 528,
+    "uniqueAppleSystemLoadPaths": 71,
+    "externalLoadAllowlist": [
+      "/System/Library/",
+      "/usr/lib/"
+    ],
+    "otherExternalLoadEdges": 0,
+    "containedSymlinks": 14,
+    "allMachOHashesUnchangedDuringAudit": true,
+    "errors": 0
+  },
+  "deployment": {
+    "declaredMinimumMacos": "14.0",
+    "maximumObservedMachOFloor": "14.0.0",
+    "declarationCoversAllObservedFloors": true
+  },
+  "media": {
+    "runtimeManifestSha256": "493c62e137f6d51d3ab46e5b250ac4d0981742601371c32c824efc00ed7dede6",
+    "sourceAndBundledManifestBytesExact": true,
+    "tools": {
+      "ffmpeg": {
+        "bytes": 40152272,
+        "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+      },
+      "ffprobe": {
+        "bytes": 39978192,
+        "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+      }
+    },
+    "bothToolsExactlyMatchSourceAndManifestPins": true,
+    "bothToolsRegularAndExecutable": true,
+    "bothToolsStrictSignaturesPassed": true
+  },
+  "method": {
+    "driver": "scripts/mac-audit-app.py",
+    "driverSha256": "0f26e5573601b478e536398e2b0fef814666bcc2232c2a1f29adb15c393dc920",
+    "nativeAuditRecipe": "scripts/mac-media/recipes/audit_runtime.py",
+    "nativeAuditRecipeSha256": "0d729605229a4262fbe6d974aa617b21c608f3235ecfa4c498b21347efda5354",
+    "directMachOParserPlusOtoolLipoCodesign": true,
+    "parenthesizedHelperFilenameInspections": 6,
+    "filenameWorkaround": "Original helper files opened read-only through /dev/fd/0 for otool; frozen native recipe and payload unchanged."
+  },
+  "signing": {
+    "type": "ad hoc",
+    "allMachOSignaturesAdHoc": true,
+    "notarized": false,
+    "gatekeeperAcceptanceClaimed": false
+  },
+  "evidence": {
+    "installedAudit": {
+      "name": "mac-installed-app-macho-audit-cc27419.json",
+      "bytes": 642067,
+      "sha256": "0a86b7e959dcaefa0857ea2669e0dbd151d30b41218f09b07c9f6e72ec86a44b"
+    },
+    "installationInventory": {
+      "name": "mac-final-dmg-install-cc27419.json",
+      "bytes": 81525,
+      "sha256": "28101de784aa1c79aa094e8964a412622303bdd111da1f1c78be11cd6567b7eb"
+    },
+    "finalPackagingLog": {
+      "name": "mac-final-dmg-cc27419.log",
+      "bytes": 1547,
+      "sha256": "37d160ea998b7838e2bb8be73ae483472dd0cf3b057ba8bcae24a2051ad050b8"
+    }
+  },
+  "limitations": [
+    "Static packaging proof only; lifecycle, save-on-close, exports and camera permissions require separate evidence.",
+    "No camera, private project, UI or media processing access occurred in this audit.",
+    "Deployment declarations do not establish runtime compatibility on older macOS; no older-macOS execution was tested.",
+    "Apple shared-cache/system load paths are allowed without proving individual on-disk availability.",
+    "Named Mach-O loads are checked; runtime dlopen/plugin discovery and static-library source provenance require separate evidence.",
+    "Ad hoc strict signature checks do not establish Developer ID signing, notarization or Gatekeeper acceptance."
+  ],
+  "completedAt": "2026-11-02T20:07:13.823884+00:00"
+}
