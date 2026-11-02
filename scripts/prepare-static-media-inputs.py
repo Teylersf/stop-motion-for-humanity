@@ -14,6 +14,7 @@ INPUTS = [
     ('libvpx', 'mac-homebrew-libvpx-1.17.0.tar.gz', 'BSD-3-Clause'),
     ('opus', 'mac-homebrew-opus-1.6.1.tar.gz', 'BSD-3-Clause'),
     ('svtav1', 'svtav1-4ae9272b588a05ee6e77a43e8dfdac05f54c4ff0.tar.gz', 'BSD-3-Clause-Clear'),
+    ('dav1d', 'dav1d-60507bffc0b13e7a81753a51005dbbeba4b23018.tar.gz', 'BSD-2-Clause'),
     ('zlib', 'zlib-9f25df2c80c2b26c8b050fba880f0851d9d243ea.tar.gz', 'Zlib'),
     # The development snapshot omits its graphengine submodule. This complete
     # release has no production submodule dependency and satisfies FFmpeg >=2.7.

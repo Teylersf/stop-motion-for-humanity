@@ -13,6 +13,8 @@ No paid export tier. Your footage stays on your computer.
 **Beta builds are being validated.** Installer links and platform-specific test
 results will appear here with the first published release. The source is public now.
 
+![Stop Motion for Humanity running the original sample film on Windows](docs/images/studio-windows.png)
+
 ## Small movements. Serious filmmaking tools.
 
 Start with a webcam and the Space bar. Grow into scenes, detailed timing,
@@ -57,6 +59,8 @@ frame holds, without inventing intermediate motion.
 Enable it for an independent decode and the relevant frame, sample or archive
 integrity comparisons. Ordinary exports finish after the encoder and file save
 complete. Only exports that run the extra checks are labeled verified.
+
+![Actual export window with verification unchecked by default](docs/images/export-fast-default.png)
 
 ### Choose quality with your eyes open
 
