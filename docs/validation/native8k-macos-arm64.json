@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "app": "Stop Motion for Humanity",
+  "version": "0.1.0-beta.1",
+  "status": "passed",
+  "kind": "macos-arm64-development-export-engine-proof",
+  "testedAt": "2026-11-02T19:10:50.074Z",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "osRelease": "25.6.0",
+  "cpu": "Apple M4",
+  "sourceRevision": "4ebaf7bb5fd5bcb80b3c969045e863a72d0afad4",
+  "sourceFiles": [
+    {
+      "name": "scripts/mac-native8k-proof.cjs",
+      "sha256": "49448f57da84519f4abba01cd43e69202e59fbd6746016f0fba0d971492c49b5"
+    },
+    {
+      "name": "package.json",
+      "sha256": "3d223c501a6c9aa5addf3e9dff3ce7636307800c3ce0dd760f0e234861601368"
+    },
+    {
+      "name": "package-lock.json",
+      "sha256": "8649c66304de93c7006354b86e1e5541e107ca8948729d2dc4b47f8cda1aac25"
+    },
+    {
+      "name": "desktop/export.cjs",
+      "sha256": "4ccb6c6fbb36c5907f531332fdacb3eab585be3577053ee82bbd73825213ab4a"
+    },
+    {
+      "name": "desktop/store.cjs",
+      "sha256": "e085b042c56a7ababc67790fd26214068eebb106a8831012723ee8e4c86bc397"
+    },
+    {
+      "name": "desktop/security.cjs",
+      "sha256": "ec6955fcb82b673ff6ff0382ed83eb95148a887b0700cd506db524917955f38b"
+    },
+    {
+      "name": "desktop/formats.cjs",
+      "sha256": "fe0722a1ee6d3ad55ec9136224cc5749f7a9e2e633fdbbfc7294f6feef5718c1"
+    },
+    {
+      "name": "desktop/targets.cjs",
+      "sha256": "8f3469056cd1b19594d969efabeeaa457ed83689144c257647343d93eedda8b5"
+    },
+    {
+      "name": "desktop/archive.cjs",
+      "sha256": "bde0ea260be40b3248ca8d8ef6f8b7475d03a8ab58eb18e539947bd8362201cb"
+    },
+    {
+      "name": "assets/export-profiles.json",
+      "sha256": "3f2742416d95299ee4334137ada98e203938bcfae0ee8ecad1795b9dc36fe842"
+    }
+  ],
+  "cases": [
+    {
+      "profile": "ffv1",
+      "status": "passed",
+      "options": {
+        "profile": "ffv1",
+        "width": 7680,
+        "height": 4320,
+        "fps": 24,
+        "totalFrames": 2,
+        "sceneId": null,
+        "audio": false,
+        "verify": true,
+        "preserveTiming": true
+      },
+      "applicationEngineVerified": true,
+      "target": "RGBA8",
+      "width": 7680,
+      "height": 4320,
+      "frames": 2,
+      "output": {
+        "name": "ffv1-native8k.mkv",
+        "bytes": 8576550,
+        "sha256": "877d59c7876aa003e18f321ecb0dd55adaff84de71c2f227be79e42b45696d3b"
+      },
+      "video": {
+        "codec": "ffv1",
+        "pixelFormat": "bgra",
+        "timeBase": "1/1000",
+        "timestampsSeconds": [
+          0,
+          0.042
+        ]
+      },
+      "independentRGBA": {
+        "decoder": "bundled FFmpeg in a separate read-back process",
+        "canonicalPixelFormat": "rgba",
+        "bytes": 265420800,
+        "frames": 2,
+        "frameSHA256": [
+          "03f86d16067252d3ed7931080cf99039869c7f8434b71ae23554dc561eb1ec2c",
+          "3e5597f577091f8fed256b2d4cc45280438b4decfb316a6ff0e9d65513d92f79"
+        ],
+        "sha256": "83a43505d17605fda34c9d2cb32bfb54ff5ab37a407cde2ef270ff6d076923b0"
+      },
+      "expectedSamplesMatch": true,
+      "secondsIncludingAllVerification": 12.326,
+      "notes": [
+        "Selected ffv1; output verification runs only when requested.",
+        "Processed frames originate in the browser's 8-bit RGBA canvas. A higher precision export cannot restore detail absent from that rendered source.",
+        "Canvas sRGB transfer and BT.709/sRGB primaries are retained as full-range RGB.",
+        "Independent decoded RGBA8 sample hash matches every converted processed PNG in held-frame order"
+      ]
+    }
+  ],
+  "input": {
+    "source": "Two deterministic native-raster procedural RGBA8 PNGs; no human camera images",
+    "width": 7680,
+    "height": 4320,
+    "fps": 24,
+    "generatedFrames": 2,
+    "alpha": "Periodic alpha=128/192 plus opaque pixels exercise all four stored channels",
+    "expectedRGBA": {
+      "bytes": 265420800,
+      "frameSHA256": [
+        "03f86d16067252d3ed7931080cf99039869c7f8434b71ae23554dc561eb1ec2c",
+        "3e5597f577091f8fed256b2d4cc45280438b4decfb316a6ff0e9d65513d92f79"
+      ],
+      "sha256": "83a43505d17605fda34c9d2cb32bfb54ff5ab37a407cde2ef270ff6d076923b0"
+    },
+    "assets": [
+      {
+        "name": "procedural-1.png",
+        "width": 7680,
+        "height": 4320,
+        "bitDepth": 8,
+        "bytes": 33479818,
+        "sha256": "f5e6312b50a1b8e76d9ac21a88fe3626fc330d0a46e7ebe41c2f643b758cd384"
+      },
+      {
+        "name": "procedural-2.png",
+        "width": 7680,
+        "height": 4320,
+        "bitDepth": 8,
+        "bytes": 33393294,
+        "sha256": "8e861b949b6c0f6cd34fa82693f2a192933e053e5b21a6bd8571b3a53ef61265"
+      }
+    ],
+    "originalsUnchanged": true
+  },
+  "runtime": {
+    "expectedPins": {
+      "ffmpeg": {
+        "bytes": 40152272,
+        "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+      },
+      "ffprobe": {
+        "bytes": 39978192,
+        "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+      }
+    },
+    "components": {
+      "ffmpeg": {
+        "bytes": 40152272,
+        "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+      },
+      "ffprobe": {
+        "bytes": 39978192,
+        "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+      }
+    },
+    "processEnvironment": "System-only PATH; no inherited DYLD/PYTHONHOME/PYTHONPATH overrides",
+    "hardwareEncoderRequired": false,
+    "ffmpegVersion": "ffmpeg version 9.0.2-smfh-macos14-pro-v1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "manifestSHA256": "accb5312d26960d2cc8e9b45e7faf18e0a11b5ce47f830b9199dafee044376a1",
+    "componentsAfter": {
+      "ffmpeg": {
+        "bytes": 40152272,
+        "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+      },
+      "ffprobe": {
+        "bytes": 39978192,
+        "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+      }
+    },
+    "binariesUnchanged": true,
+    "finalPackagingManifestLink": {
+      "sha256": "6e866b838f67a393202c1f6e1ecc352be069f5e0b7ea16e739fede8096cebeda",
+      "minimumMacOS": "14.0",
+      "buildIteration": "v5",
+      "binariesMatchOriginalProofPins": true,
+      "linkedAt": "2026-11-02T19:14:39.520230+00:00",
+      "scope": "Read-only follow-up confirms final packaging manifest describes the exact already-tested binaries. Original run manifestSHA256 retained; no 8K render repeated."
+    }
+  },
+  "scope": [
+    "Application ExportManager/ProjectStore engine invoked directly with verify:true; no installed GUI or camera proof",
+    "Two native 7680\u00d74320 frames, with independent full RGBA byte and sample hashing",
+    "Short offline correctness proof only; no sustained/realtime 8K or GPU-render performance claim",
+    "RGBA8 source/render contract only; no higher-precision sensor acquisition claim",
+    "No audio; audio behavior is covered by separate tests",
+    "Fresh owned project/output only; no existing app profiles, services or user media accessed"
+  ],
+  "noOwnedExportSessionsRemain": true,
+  "noOwnedMediaWorkersRemain": true,
+  "sourceFilesAfter": [
+    {
+      "name": "scripts/mac-native8k-proof.cjs",
+      "sha256": "49448f57da84519f4abba01cd43e69202e59fbd6746016f0fba0d971492c49b5"
+    },
+    {
+      "name": "package.json",
+      "sha256": "3d223c501a6c9aa5addf3e9dff3ce7636307800c3ce0dd760f0e234861601368"
+    },
+    {
+      "name": "package-lock.json",
+      "sha256": "8649c66304de93c7006354b86e1e5541e107ca8948729d2dc4b47f8cda1aac25"
+    },
+    {
+      "name": "desktop/export.cjs",
+      "sha256": "4ccb6c6fbb36c5907f531332fdacb3eab585be3577053ee82bbd73825213ab4a"
+    },
+    {
+      "name": "desktop/store.cjs",
+      "sha256": "e085b042c56a7ababc67790fd26214068eebb106a8831012723ee8e4c86bc397"
+    },
+    {
+      "name": "desktop/security.cjs",
+      "sha256": "ec6955fcb82b673ff6ff0382ed83eb95148a887b0700cd506db524917955f38b"
+    },
+    {
+      "name": "desktop/formats.cjs",
+      "sha256": "fe0722a1ee6d3ad55ec9136224cc5749f7a9e2e633fdbbfc7294f6feef5718c1"
+    },
+    {
+      "name": "desktop/targets.cjs",
+      "sha256": "8f3469056cd1b19594d969efabeeaa457ed83689144c257647343d93eedda8b5"
+    },
+    {
+      "name": "desktop/archive.cjs",
+      "sha256": "bde0ea260be40b3248ca8d8ef6f8b7475d03a8ab58eb18e539947bd8362201cb"
+    },
+    {
+      "name": "assets/export-profiles.json",
+      "sha256": "3f2742416d95299ee4334137ada98e203938bcfae0ee8ecad1795b9dc36fe842"
+    }
+  ],
+  "sourceFilesUnchangedDuringRun": true,
+  "sourceRevisionAtFinish": "4ebaf7bb5fd5bcb80b3c969045e863a72d0afad4",
+  "completedAt": "2026-11-02T19:11:04.333Z",
+  "totalSeconds": 14.26
+}

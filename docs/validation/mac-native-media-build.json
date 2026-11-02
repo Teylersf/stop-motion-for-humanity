@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "kind": "macos-arm64-native-media-build",
+  "application_review_revision": "4ebaf7bb5fd5bcb80b3c969045e863a72d0afad4",
+  "scope": "Native media runtime and source reproduction only; separate from application packaging and camera validation.",
+  "platform": "darwin-arm64",
+  "ffmpeg_version": "9.0.2-smfh-macos14-pro-v1",
+  "deployment": {
+    "minimum_macos": "14.0",
+    "observed_maximum_macho_floor": "14.0.0",
+    "observed_sdk": "26.2",
+    "architecture": "arm64",
+    "older_macos_runtime_execution_tested": false
+  },
+  "signing": {
+    "identity": "ad hoc",
+    "strict_binary_verification": true,
+    "developer_id_signed": false,
+    "notarized": false,
+    "gatekeeper_acceptance": "not asserted"
+  },
+  "binaries": [
+    {
+      "file": "ffmpeg",
+      "bytes": 40152272,
+      "sha256": "85d7dca060f19d6f27ff4b6f91c8862df838998c4b646eb56101fc0f5a67bf0d"
+    },
+    {
+      "file": "ffprobe",
+      "bytes": 39978192,
+      "sha256": "401c5826763abc40497549f80a73f2aec1b70006d410cc13077011c50f88cca7"
+    }
+  ],
+  "link_audit": {
+    "mach_o_files": 2,
+    "system_edges": 18,
+    "unique_apple_system_loads": 9,
+    "non_system_external_dependencies": 0,
+    "internal_dylibs": 0,
+    "symlinks": 0,
+    "errors": 0,
+    "allowed_external_roots": [
+      "/System/Library",
+      "/usr/lib"
+    ]
+  },
+  "capabilities": {
+    "encoders": 190,
+    "decoders": 528,
+    "filters": 478,
+    "muxers": 181,
+    "demuxers": 362,
+    "protocols": [
+      "file",
+      "pipe"
+    ],
+    "software_hevc": "libx265; merged8/10/12-bit library",
+    "software_av1": "libaom-av1 encoder and decoder",
+    "color_conversion": "zscale via generic static zimg3.0.6"
+  },
+  "zimg_smoke": {
+    "version": "3.0.6",
+    "width": 32,
+    "height": 16,
+    "planes": 3,
+    "conversion": "sRGB_to_linear_float",
+    "max_absolute_error": 4.75364254698e-06,
+    "c_pkgconf_static_link_verified": true,
+    "source_trees_unchanged": true
+  },
+  "source_inputs": [
+    {
+      "name": "ffmpeg",
+      "version": "9.0.2",
+      "url": "https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz",
+      "archive": "ffmpeg-9.0.2.tar.xz",
+      "bytes": 12040788,
+      "sha256": "8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e",
+      "expected_sha256": "8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e",
+      "verified": true,
+      "unpack_directory": "ffmpeg-9.0.2"
+    },
+    {
+      "name": "libvpx",
+      "version": "1.17.0",
+      "url": "https://github.com/webmproject/libvpx/archive/refs/tags/v1.17.0.tar.gz",
+      "archive": "libvpx-1.17.0.tar.gz",
+      "bytes": 5670546,
+      "sha256": "1020f184046187baa2985dbde38e0691f49c44088bca7a1842b0236c6081dc0a",
+      "expected_sha256": "1020f184046187baa2985dbde38e0691f49c44088bca7a1842b0236c6081dc0a",
+      "verified": true,
+      "unpack_directory": "libvpx-1.17.0"
+    },
+    {
+      "name": "opus",
+      "version": "1.6.1",
+      "url": "https://ftp.osuosl.org/pub/xiph/releases/opus/opus-1.6.1.tar.gz",
+      "archive": "opus-1.6.1.tar.gz",
+      "bytes": 10472813,
+      "sha256": "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1",
+      "expected_sha256": "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1",
+      "verified": true,
+      "unpack_directory": "opus-1.6.1"
+    },
+    {
+      "name": "pkgconf",
+      "version": "3.0.10",
+      "url": "https://distfiles.ariadne.space/pkgconf/pkgconf-3.0.10.tar.xz",
+      "archive": "pkgconf-3.0.10.tar.xz",
+      "bytes": 429268,
+      "sha256": "9371b2f6372da574d4c6dc96fe9b1463037bcf6afcb6671c1555afde7b17e2de",
+      "expected_sha256": "9371b2f6372da574d4c6dc96fe9b1463037bcf6afcb6671c1555afde7b17e2de",
+      "verified": true,
+      "unpack_directory": "pkgconf-3.0.10"
+    },
+    {
+      "name": "x264",
+      "version": "r3222",
+      "url": "https://code.videolan.org/videolan/x264.git",
+      "git_commit": "b35605ace3ddf7c1a5d67a2eb553f034aef41d55",
+      "git_object_integrity": "git fsck --full passed; exact pinned HEAD",
+      "archive": "x264-b35605ace3ddf7c1a5d67a2eb553f034aef41d55.tar.gz",
+      "bytes": 1022650,
+      "sha256": "bce6ba715c72f776e3efb9738fc363da192859b18a4e07b64413bed7de4a3d1f",
+      "archive_creation": "Deterministic git archive of pinned commit, gzip mtime0",
+      "verified": true,
+      "unpack_directory": "x264-b35605ace3ddf7c1a5d67a2eb553f034aef41d55"
+    },
+    {
+      "name": "x265",
+      "version": "4.3",
+      "url": "https://github.com/Multicorewareinc/x265/releases/download/4.3/x265_4.3.tar.gz",
+      "archive": "x265_4.3.tar.gz",
+      "bytes": 2052112,
+      "sha256": "83c53e4c8bbb8f1e33ed59e10a7d621d1d7801ca853910c3eb41f038b8ffb121",
+      "expected_sha256": "83c53e4c8bbb8f1e33ed59e10a7d621d1d7801ca853910c3eb41f038b8ffb121",
+      "verified": true,
+      "role": "runtime-source",
+      "unpack_directory": "x265_4.3"
+    },
+    {
+      "name": "cmake",
+      "version": "4.4.5",
+      "url": "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5.tar.gz",
+      "archive": "cmake-4.4.5.tar.gz",
+      "bytes": 13289246,
+      "sha256": "a0c54c88abb8078dd8eccadb717fc6bb194bf18e7d44c86309910288886e04e2",
+      "expected_sha256": "a0c54c88abb8078dd8eccadb717fc6bb194bf18e7d44c86309910288886e04e2",
+      "verified": true,
+      "role": "build-tool-only",
+      "unpack_directory": "cmake-4.4.5"
+    },
+    {
+      "name": "aom",
+      "version": "3.15.3",
+      "url": "https://aomedia.googlesource.com/aom.git",
+      "tag": "v3.15.3",
+      "git_commit": "b141d9c45db236335351c8a4b2a14b3ade27c937",
+      "git_tree": "c189fab279823f60b8db54f16641bab3c8fc78c3",
+      "git_object_integrity": "git fsck --full passed; exact pinned HEAD",
+      "archive": "aom-b141d9c45db236335351c8a4b2a14b3ade27c937.tar.gz",
+      "bytes": 6531923,
+      "sha256": "6a2af78c087baf1ad6006903cc5b35604db1e64e36621ef8632329664e5a6b1e",
+      "archive_creation": "Deterministic git archive of pinned commit, gzip mtime0",
+      "verified": true,
+      "role": "runtime-source",
+      "unpack_directory": "aom-b141d9c45db236335351c8a4b2a14b3ade27c937"
+    },
+    {
+      "name": "zimg",
+      "version": "3.0.6",
+      "url": "https://github.com/sekrit-twc/zimg.git",
+      "tag": "release-3.0.6",
+      "git_commit": "df9c1472b9541d0e79c8d02dae37fdf12f189ec2",
+      "git_tree": "7bc1173315cbfe8c662a836b5882ad29a47ff66b",
+      "git_object_integrity": "git fsck --full passed; exact pinned HEAD",
+      "archive": "zimg-df9c1472b9541d0e79c8d02dae37fdf12f189ec2.tar.gz",
+      "bytes": 285716,
+      "sha256": "214a1ffe9eae2d23edb5d3b7754f277fd717aab9c68b14725c04bb7dc0a4e7cd",
+      "archive_creation": "Deterministic git archive of pinned commit, gzip mtime0",
+      "verified": true,
+      "role": "runtime-source",
+      "unpack_directory": "zimg-df9c1472b9541d0e79c8d02dae37fdf12f189ec2"
+    },
+    {
+      "name": "graphengine",
+      "version": "git-f06d7cb",
+      "url": "https://github.com/sekrit-twc/graphengine.git",
+      "tag": null,
+      "git_commit": "f06d7cb4d589ea4657f01b13613efb7437c8ecda",
+      "git_tree": "b7b67d69387dae7d4717d444f39badc212af3ca0",
+      "git_object_integrity": "git fsck --full passed; exact pinned HEAD",
+      "archive": "graphengine-f06d7cb4d589ea4657f01b13613efb7437c8ecda.tar.gz",
+      "bytes": 59197,
+      "sha256": "24eb6ca7bfb3f53679e4d0587cf5ae2441a5576a224f15fa7bc5807d4611f4ad",
+      "archive_creation": "Deterministic git archive of pinned commit, gzip mtime0",
+      "verified": true,
+      "role": "runtime-source",
+      "unpack_directory": "graphengine-f06d7cb4d589ea4657f01b13613efb7437c8ecda"
+    }
+  ],
+  "private_build_tool": {
+    "cmake": {
+      "version": "4.4.5",
+      "role": "build-tool-only-never-shipped",
+      "url": "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5-macos-universal.tar.gz",
+      "bytes": 89451542,
+      "sha256": "679e77a96b9ef9484cc6c1445255fc4f84206b48a65420efbedf16bdab55fbff",
+      "matching_source_archive": "cmake-4.4.5.tar.gz",
+      "source_sha256": "a0c54c88abb8078dd8eccadb717fc6bb194bf18e7d44c86309910288886e04e2",
+      "archive": "cmake-4.4.5-macos-universal.tar.gz"
+    }
+  },
+  "recipes": [
+    {
+      "file": "scripts/mac-media/recipes/audit_runtime.py",
+      "bytes": 22777,
+      "sha256": "0d729605229a4262fbe6d974aa617b21c608f3235ecfa4c498b21347efda5354"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_media.py",
+      "bytes": 5785,
+      "sha256": "288c3ebc7e472efeab3bdf680824f3bf6f81f21d979cd370dfad24b866ff5781"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_pro_codecs.py",
+      "bytes": 3708,
+      "sha256": "5672a6b0b5fed4a0cf9b86986dfb2abf0d4fd95129cbab2fee2feba2dc58f976"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_zimg.py",
+      "bytes": 15911,
+      "sha256": "8953a689dfb294a310f33bcd55e768a265534f6988c261668b4cbcb2e549680e"
+    },
+    {
+      "file": "scripts/mac-media/recipes/package_sources.py",
+      "bytes": 42818,
+      "sha256": "cc15e271ce8be2f81a0bb8ec456e8424a96d49770b5839776e6ca0978d946119"
+    },
+    {
+      "file": "scripts/mac-media/recipes/prepare_pro_sources.py",
+      "bytes": 5153,
+      "sha256": "a95540c8a05a09d5223b626978317a9778b39d2adc6762cd2587cfad04bb2428"
+    },
+    {
+      "file": "scripts/mac-media/recipes/prepare_sources.py",
+      "bytes": 4431,
+      "sha256": "e2ae32bc1ef14b412cf2ab7f55400ef9a602e8af9610dd865f8537c1d982cc78"
+    },
+    {
+      "file": "scripts/mac-media/recipes/verify_lean_media.py",
+      "bytes": 22561,
+      "sha256": "180b462bd4c3105c6b4d49245bdef438064ac173076296bb65f668c3ba2c8d04"
+    },
+    {
+      "file": "scripts/mac-media/recipes/verify_pro_media.py",
+      "bytes": 23776,
+      "sha256": "803c31e732ac944ca1c3b507d115621f1ea9da65b2dc3d1ed27088ff88175af9"
+    }
+  ],
+  "native_source_build_overrides": [
+    {
+      "file": "scripts/mac-media/recipes/audit_runtime.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_media.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_pro_codecs.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_zimg.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    },
+    {
+      "file": "scripts/mac-media/recipes/package_sources.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    },
+    {
+      "file": "scripts/mac-media/recipes/prepare_pro_sources.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    },
+    {
+      "file": "scripts/mac-media/recipes/prepare_sources.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    },
+    {
+      "file": "scripts/mac-media/recipes/verify_lean_media.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    },
+    {
+      "file": "scripts/mac-media/recipes/verify_pro_media.py",
+      "purpose": "Exact Mac native build, preparation, verification or source-packaging recipe captured in final v3 source archive"
+    }
+  ],
+  "raw_evidence": [
+    {
+      "file": "build-commands.json",
+      "bytes": 11386,
+      "sha256": "67da20106c7314dfb8f0c63def8712f0f0de7468fa86043b17387a16eb62e3df"
+    },
+    {
+      "file": "pro-codecs-build-commands.json",
+      "bytes": 8298,
+      "sha256": "1bc26faadd654a4ef76f6c571a1d960ddfeb45d269b751958981622f61abb277"
+    },
+    {
+      "file": "zimg-build-commands.json",
+      "bytes": 136800,
+      "sha256": "4961ca57082bf6c915dd5202e30851073f65197b6e1a0957e77cc6bf2df2dce0"
+    },
+    {
+      "file": "runtime-audit-v5.json",
+      "bytes": 41593,
+      "sha256": "e3d7b29e42e0fda8d3c5f2b47e3010cb80385963458a06150ff5a5de5ac64083"
+    },
+    {
+      "file": "runtime-capabilities-v5.json",
+      "bytes": 158665,
+      "sha256": "4b901b50385033b72c560f1d989e869c507ac5a1a3f0a6af6701b47aa3cc0d25"
+    },
+    {
+      "file": "recipe-final-inventory-v3.json",
+      "bytes": 1504,
+      "sha256": "5f23ad26a87adbdb4b6ef529aeed55c9b3b17c3ad7fe670862469288d671a4e1"
+    }
+  ],
+  "limitations": [
+    "Capability listing is separate from per-profile functional codec proofs.",
+    "Runtime dlopen discovery and Apple shared-cache contents are outside the static load-command audit.",
+    "No Python/Torch payload or Homebrew dylibs are part of this runtime.",
+    "CMake and pkgconf are build tools; their executables are not shipped in the app."
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "kind": "offline-mac-native-media-input-preparation",
+  "scope": "Verified archive extraction, recipe identity and build-helper layout only; no network, compilation, media execution, app launch or camera access.",
+  "python_version": "3.14.6",
+  "command": [
+    "python3",
+    "scripts/mac-media/prepare_worktree.py",
+    "--input-root",
+    "<verified-source-archives>",
+    "--cmake-tool-archive",
+    "<verified-private-cmake-tool-archive>",
+    "--work-root",
+    "out/validation/mac-media-offline-preparation-v1"
+  ],
+  "prepared_directory": "out/validation/mac-media-offline-preparation-v1",
+  "outputs_retained": true,
+  "source_archive_count": 10,
+  "source_archive_bytes": 51854259,
+  "source_archives": [
+    {
+      "file": "ffmpeg-9.0.2.tar.xz",
+      "bytes": 12040788,
+      "sha256": "8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e"
+    },
+    {
+      "file": "libvpx-1.17.0.tar.gz",
+      "bytes": 5670546,
+      "sha256": "1020f184046187baa2985dbde38e0691f49c44088bca7a1842b0236c6081dc0a"
+    },
+    {
+      "file": "opus-1.6.1.tar.gz",
+      "bytes": 10472813,
+      "sha256": "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1"
+    },
+    {
+      "file": "pkgconf-3.0.10.tar.xz",
+      "bytes": 429268,
+      "sha256": "9371b2f6372da574d4c6dc96fe9b1463037bcf6afcb6671c1555afde7b17e2de"
+    },
+    {
+      "file": "x264-b35605ace3ddf7c1a5d67a2eb553f034aef41d55.tar.gz",
+      "bytes": 1022650,
+      "sha256": "bce6ba715c72f776e3efb9738fc363da192859b18a4e07b64413bed7de4a3d1f"
+    },
+    {
+      "file": "x265_4.3.tar.gz",
+      "bytes": 2052112,
+      "sha256": "83c53e4c8bbb8f1e33ed59e10a7d621d1d7801ca853910c3eb41f038b8ffb121"
+    },
+    {
+      "file": "cmake-4.4.5.tar.gz",
+      "bytes": 13289246,
+      "sha256": "a0c54c88abb8078dd8eccadb717fc6bb194bf18e7d44c86309910288886e04e2"
+    },
+    {
+      "file": "aom-b141d9c45db236335351c8a4b2a14b3ade27c937.tar.gz",
+      "bytes": 6531923,
+      "sha256": "6a2af78c087baf1ad6006903cc5b35604db1e64e36621ef8632329664e5a6b1e"
+    },
+    {
+      "file": "zimg-df9c1472b9541d0e79c8d02dae37fdf12f189ec2.tar.gz",
+      "bytes": 285716,
+      "sha256": "214a1ffe9eae2d23edb5d3b7754f277fd717aab9c68b14725c04bb7dc0a4e7cd"
+    },
+    {
+      "file": "graphengine-f06d7cb4d589ea4657f01b13613efb7437c8ecda.tar.gz",
+      "bytes": 59197,
+      "sha256": "24eb6ca7bfb3f53679e4d0587cf5ae2441a5576a224f15fa7bc5807d4611f4ad"
+    }
+  ],
+  "recipe_count": 9,
+  "recipes": [
+    {
+      "file": "scripts/mac-media/recipes/audit_runtime.py",
+      "bytes": 22777,
+      "sha256": "0d729605229a4262fbe6d974aa617b21c608f3235ecfa4c498b21347efda5354"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_media.py",
+      "bytes": 5785,
+      "sha256": "288c3ebc7e472efeab3bdf680824f3bf6f81f21d979cd370dfad24b866ff5781"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_pro_codecs.py",
+      "bytes": 3708,
+      "sha256": "5672a6b0b5fed4a0cf9b86986dfb2abf0d4fd95129cbab2fee2feba2dc58f976"
+    },
+    {
+      "file": "scripts/mac-media/recipes/build_zimg.py",
+      "bytes": 15911,
+      "sha256": "8953a689dfb294a310f33bcd55e768a265534f6988c261668b4cbcb2e549680e"
+    },
+    {
+      "file": "scripts/mac-media/recipes/package_sources.py",
+      "bytes": 42818,
+      "sha256": "cc15e271ce8be2f81a0bb8ec456e8424a96d49770b5839776e6ca0978d946119"
+    },
+    {
+      "file": "scripts/mac-media/recipes/prepare_pro_sources.py",
+      "bytes": 5153,
+      "sha256": "a95540c8a05a09d5223b626978317a9778b39d2adc6762cd2587cfad04bb2428"
+    },
+    {
+      "file": "scripts/mac-media/recipes/prepare_sources.py",
+      "bytes": 4431,
+      "sha256": "e2ae32bc1ef14b412cf2ab7f55400ef9a602e8af9610dd865f8537c1d982cc78"
+    },
+    {
+      "file": "scripts/mac-media/recipes/verify_lean_media.py",
+      "bytes": 22561,
+      "sha256": "180b462bd4c3105c6b4d49245bdef438064ac173076296bb65f668c3ba2c8d04"
+    },
+    {
+      "file": "scripts/mac-media/recipes/verify_pro_media.py",
+      "bytes": 23776,
+      "sha256": "803c31e732ac944ca1c3b507d115621f1ea9da65b2dc3d1ed27088ff88175af9"
+    }
+  ],
+  "private_cmake_tool": {
+    "version": "4.4.5",
+    "role": "build-tool-only-never-shipped",
+    "url": "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5-macos-universal.tar.gz",
+    "bytes": 89451542,
+    "sha256": "679e77a96b9ef9484cc6c1445255fc4f84206b48a65420efbedf16bdab55fbff",
+    "matching_source_archive": "cmake-4.4.5.tar.gz",
+    "source_sha256": "a0c54c88abb8078dd8eccadb717fc6bb194bf18e7d44c86309910288886e04e2",
+    "archive": "cmake-4.4.5-macos-universal.tar.gz"
+  },
+  "preparation_script": {
+    "file": "scripts/mac-media/prepare_worktree.py",
+    "sha256": "1ef9e8faac48043d13ad29e4a5d3ad81af2080df7efdf33f72238ebe0d5946b7"
+  },
+  "provenance": {
+    "file": "docs/validation/mac-native-media-build.json",
+    "sha256": "e577b20e07c3265f85889a34598bba9bcde69b9cfe0b4285bf2a16957e1975c0"
+  },
+  "checks": {
+    "all_archive_sizes_and_sha256_match": true,
+    "all_expected_extraction_roots_exist": true,
+    "all_recipe_bytes_match_frozen_inventory": true,
+    "generated_source_metadata_matches_build_helper_inputs": true,
+    "generated_tool_metadata_matches_pins": true,
+    "configure_scripts_executable": [
+      "ffmpeg",
+      "pkgconf",
+      "x264",
+      "opus",
+      "libvpx"
+    ],
+    "aom_and_x265_cmake_inputs_present": true,
+    "private_cmake_executable_matches_recorded_build_tool": true,
+    "zimg_generic_compilation_units": 32,
+    "zimg_source_fingerprints_match_successful_build": {
+      "zimg": {
+        "file_count": 235,
+        "symlink_count": 7,
+        "inventory_sha256": "e25200d8096b574ea621cce3ca28e10bc98c2f64353b97c67d0b06be87df5747"
+      },
+      "graphengine": {
+        "file_count": 53,
+        "symlink_count": 0,
+        "inventory_sha256": "cd26e63f83d711ec5319764cfd9147263a218642c69b975a34149d504d36c7ee"
+      }
+    },
+    "upstream_documentation_symlinks_preserved": true,
+    "input_archives_unchanged": true
+  },
+  "raw_evidence": [
+    {
+      "file": "out/validation/mac-media-offline-preparation-v1/preparation-receipt.json",
+      "bytes": 3043,
+      "sha256": "fd50b30b55e858cca53164aeabd1eb307d5c7c70ce4ea41a1d75c0bf8beb2f27"
+    },
+    {
+      "file": "out/validation/mac-media-offline-preparation-v1.log",
+      "bytes": 110,
+      "sha256": "62b042d6cb33871496fe84e9d6d1f365e8a719de9162e75ed97500396ab18808"
+    }
+  ],
+  "limitations": [
+    "Preparation does not prove a second successful compilation.",
+    "Native runtime codec, signature and deployment evidence remains in the separate media-build receipt.",
+    "No installed-app or physical-camera behavior is asserted."
+  ]
+}

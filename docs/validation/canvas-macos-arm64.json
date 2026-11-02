@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "suite": "canvas-rgba8-v2-transform-state",
+  "app": "Stop Motion for Humanity",
+  "runtime": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HumanityisolatedCanvasverification/45.2.1 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36",
+  "startedAt": "2026-11-02T19:13:59.572Z",
+  "phase": "final",
+  "current": null,
+  "complete": true,
+  "expectedTests": 13,
+  "tests": [
+    {
+      "name": "Default render preserves all original opaque RGBA pixels",
+      "passed": true,
+      "details": "",
+      "milliseconds": 11
+    },
+    {
+      "name": "Repeat PNG encoding is deterministic and independently decodes to the same samples",
+      "passed": true,
+      "details": "SHA-256 49e5dc04db8ef456390b56a7e2d981ace527b94ff0dbbc820f92e1dc8d481593",
+      "milliseconds": 33
+    },
+    {
+      "name": "Normalized crop renders the chosen source quadrant",
+      "passed": true,
+      "details": "",
+      "milliseconds": 200
+    },
+    {
+      "name": "Horizontal and vertical flips map the original quadrants correctly",
+      "passed": true,
+      "details": "",
+      "milliseconds": 3
+    },
+    {
+      "name": "90-degree rotation fits the full rotated image and maintains orientation",
+      "passed": true,
+      "details": "",
+      "milliseconds": 190
+    },
+    {
+      "name": "Chroma key composites onto the chosen background without removing the foreground",
+      "passed": true,
+      "details": "",
+      "milliseconds": 7
+    },
+    {
+      "name": "Clean-plate restoration and mask eraser remain separate non-destructive operations",
+      "passed": true,
+      "details": "",
+      "milliseconds": 177
+    },
+    {
+      "name": "Drawing eraser clears artwork without erasing the captured source",
+      "passed": true,
+      "details": "",
+      "milliseconds": 3
+    },
+    {
+      "name": "Titles are rendered when enabled and absent from title-free reference renders",
+      "passed": true,
+      "details": "",
+      "milliseconds": 7
+    },
+    {
+      "name": "Difference, split and blink comparison use actual rendered pixels",
+      "passed": true,
+      "details": "",
+      "milliseconds": 94
+    },
+    {
+      "name": "Preview guides do not contaminate later PNG output or originals",
+      "passed": true,
+      "details": "",
+      "milliseconds": 82
+    },
+    {
+      "name": "24 original procedural demo PNGs animate, decode and repeat deterministically",
+      "passed": true,
+      "details": "24 × 1280×720, all unique; frame 1 SHA-256 69b4877381912001e342cf9da611e0e2070468a4bcf0b31644003b022e8d7fbc",
+      "milliseconds": 346
+    },
+    {
+      "name": "Actual UHD 8K source → rendered PNG → independent decoded RGBA sample hash",
+      "passed": true,
+      "details": "7680×4320 · 634,190 PNG bytes · RGBA SHA-256 7bc521d208e937c3fa02fec17e21e269a3da3682301279e0a3a1b9c15c5cb87d",
+      "milliseconds": 1128
+    }
+  ],
+  "rendererErrors": [],
+  "passed": 13,
+  "failed": 0,
+  "elapsedMs": 2385,
+  "harness": {
+    "kind": "isolated Mac sandboxed Electron BrowserWindow",
+    "fixtureURL": "http://127.0.0.1:54550/src/core/test/browser-fixture.html",
+    "startedAt": "2026-11-02T19:13:58.302Z",
+    "applicationScope": "Development Chromium Canvas render/PNG checks only; no installed GUI or physical capture proof",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "osRelease": "25.6.0",
+    "versions": {
+      "node": "24.22.1",
+      "acorn": "8.18.0",
+      "ada": "4.0.0",
+      "amaro": "1.1.11",
+      "ares": "1.34.9",
+      "brotli": "1.2.0",
+      "cldr": "48.0",
+      "icu": "78.2",
+      "llhttp": "9.4.3",
+      "merve": "1.2.2",
+      "modules": "150",
+      "napi": "10",
+      "nbytes": "0.1.4",
+      "ncrypto": "0.0.1",
+      "nghttp2": "1.70.0",
+      "nghttp3": "",
+      "ngtcp2": "",
+      "openssl": "0.0.0",
+      "simdjson": "4.6.11",
+      "simdutf": "7.7.0",
+      "sqlite": "3.53.4",
+      "tz": "2026e",
+      "undici": "7.30.1",
+      "unicode": "17.0",
+      "uv": "1.52.1",
+      "uvwasi": "0.0.23",
+      "v8": "15.6.75.25-electron.0",
+      "zlib": "1.3.2.1-motley",
+      "zstd": "1.6.0",
+      "electron": "45.2.1",
+      "chrome": "156.0.8078.75"
+    },
+    "permissions": "All requests denied; no camera, microphone or user-media assets accessed",
+    "network": "Loopback Vite fixture resources only; external requests and navigation denied",
+    "backgroundThrottling": false,
+    "offscreen": true,
+    "nodeIntegration": false,
+    "sandbox": true,
+    "sourceSHA256": {
+      "scripts/mac-canvas-proof.cjs": "907f049d0e4c46fe729d1f8658bdc04efc433becd5c752d889b6cf6459b5f1f3",
+      "src/core/test/browser-fixture.html": "5fae0bcdbabcae7e4981e23417311ae55f55ac6c74964b948679db543a96df62",
+      "src/core/test/browser-fixture.ts": "154536fa07c2e17c000cb8a7ecebfb9ed150551b44d3df822a4ef51c7fbee945",
+      "src/core/render.ts": "b0c184d8a93d1c18f6990e9ce4521dd85573d06cc25c34d0afbc22be72238b0b",
+      "src/core/demo.ts": "8b1cf282f28051afa46ee6bcfebf00ebccdd8750289bfe40beb93a203e328ed7",
+      "src/core/model.ts": "6a5fe3eedca53193875e27158b1a0604f9c0964b5d85c2109faaf9b9c52991c6",
+      "src/core/camera.ts": "b4606567a6adc2a7734d2def8afbc9f73549578508e854aba20af5c201147ddb",
+      "src/core/types.ts": "279b99e74de155e4b3af9be6689b77640872c4c109690648aa6af20dcc124710",
+      "vite.config.ts": "4bc0eb5f5765f47f06933da7cc538de5d393b6c8149bbf6f7535a78335b7d023",
+      "package-lock.json": "8649c66304de93c7006354b86e1e5541e107ca8948729d2dc4b47f8cda1aac25"
+    },
+    "completed": true,
+    "failure": null,
+    "rendererErrors": [],
+    "sourceSHA256After": {
+      "scripts/mac-canvas-proof.cjs": "907f049d0e4c46fe729d1f8658bdc04efc433becd5c752d889b6cf6459b5f1f3",
+      "src/core/test/browser-fixture.html": "5fae0bcdbabcae7e4981e23417311ae55f55ac6c74964b948679db543a96df62",
+      "src/core/test/browser-fixture.ts": "154536fa07c2e17c000cb8a7ecebfb9ed150551b44d3df822a4ef51c7fbee945",
+      "src/core/render.ts": "b0c184d8a93d1c18f6990e9ce4521dd85573d06cc25c34d0afbc22be72238b0b",
+      "src/core/demo.ts": "8b1cf282f28051afa46ee6bcfebf00ebccdd8750289bfe40beb93a203e328ed7",
+      "src/core/model.ts": "6a5fe3eedca53193875e27158b1a0604f9c0964b5d85c2109faaf9b9c52991c6",
+      "src/core/camera.ts": "b4606567a6adc2a7734d2def8afbc9f73549578508e854aba20af5c201147ddb",
+      "src/core/types.ts": "279b99e74de155e4b3af9be6689b77640872c4c109690648aa6af20dcc124710",
+      "vite.config.ts": "4bc0eb5f5765f47f06933da7cc538de5d393b6c8149bbf6f7535a78335b7d023",
+      "package-lock.json": "8649c66304de93c7006354b86e1e5541e107ca8948729d2dc4b47f8cda1aac25"
+    },
+    "sourceFilesUnchanged": true,
+    "ownedEphemeralListenerClosed": true,
+    "gpuFeatureStatus": {
+      "2d_canvas": "enabled",
+      "direct_rendering_display_compositor": "disabled_off_ok",
+      "gpu_compositing": "enabled",
+      "multiple_raster_threads": "enabled_on",
+      "opengl": "enabled_on",
+      "rasterization": "enabled",
+      "raw_draw": "disabled_off_ok",
+      "skia_graphite": "enabled_on",
+      "trees_in_viz": "disabled_off",
+      "video_decode": "enabled",
+      "video_encode": "enabled",
+      "webgl": "enabled",
+      "webgpu": "enabled",
+      "webnn": "disabled_off"
+    },
+    "screenshots": "None: metadata and sample hashes only",
+    "cameraOrMicrophoneOpened": false
+  }
+}
